@@ -17,23 +17,128 @@ interface CryptoPrice {
 const fiatCurrencies = [
   { code: 'USD', name: 'US Dollar', symbol: '$' },
   { code: 'EUR', name: 'Euro', symbol: '€' },
-  { code: 'GBP', name: 'British Pound', symbol: '£' },
   { code: 'JPY', name: 'Japanese Yen', symbol: '¥' },
-  { code: 'AUD', name: 'Australian Dollar', symbol: 'A$' },
-  { code: 'CAD', name: 'Canadian Dollar', symbol: 'C$' },
+  { code: 'GBP', name: 'British Pound Sterling', symbol: '£' },
   { code: 'CHF', name: 'Swiss Franc', symbol: 'CHF' },
-  { code: 'CNY', name: 'Chinese Yuan', symbol: '¥' },
+  { code: 'CAD', name: 'Canadian Dollar', symbol: 'C$' },
+  { code: 'AUD', name: 'Australian Dollar', symbol: 'A$' },
+  { code: 'NZD', name: 'New Zealand Dollar', symbol: 'NZ$' },
+  { code: 'CNY', name: 'Chinese Yuan Renminbi', symbol: '¥' },
+  { code: 'HKD', name: 'Hong Kong Dollar', symbol: 'HK$' },
+  { code: 'SGD', name: 'Singapore Dollar', symbol: 'S$' },
+  { code: 'SEK', name: 'Swedish Krona', symbol: 'kr' },
+  { code: 'NOK', name: 'Norwegian Krone', symbol: 'kr' },
+  { code: 'DKK', name: 'Danish Krone', symbol: 'kr' },
+  { code: 'RUB', name: 'Russian Ruble', symbol: '₽' },
+  { code: 'TRY', name: 'Turkish Lira', symbol: '₺' },
   { code: 'INR', name: 'Indian Rupee', symbol: '₹' },
+  { code: 'BRL', name: 'Brazilian Real', symbol: 'R$' },
+  { code: 'ZAR', name: 'South African Rand', symbol: 'R' },
+  { code: 'MXN', name: 'Mexican Peso', symbol: '$' },
   { code: 'KRW', name: 'South Korean Won', symbol: '₩' },
+  { code: 'THB', name: 'Thai Baht', symbol: '฿' },
+  { code: 'PLN', name: 'Polish Zloty', symbol: 'zł' },
+  { code: 'HUF', name: 'Hungarian Forint', symbol: 'Ft' },
+  { code: 'CZK', name: 'Czech Koruna', symbol: 'Kč' },
+  { code: 'ILS', name: 'Israeli Shekel', symbol: '₪' },
+  { code: 'SAR', name: 'Saudi Riyal', symbol: 'SR' },
+  { code: 'AED', name: 'UAE Dirham', symbol: 'د.إ' },
+  { code: 'MYR', name: 'Malaysian Ringgit', symbol: 'RM' },
+  { code: 'IDR', name: 'Indonesian Rupiah', symbol: 'Rp' },
+  { code: 'PHP', name: 'Philippine Peso', symbol: '₱' },
+  { code: 'CLP', name: 'Chilean Peso', symbol: '$' },
+  { code: 'COP', name: 'Colombian Peso', symbol: '$' },
+  { code: 'ARS', name: 'Argentine Peso', symbol: '$' },
+  { code: 'VND', name: 'Vietnamese Dong', symbol: '₫' },
+  { code: 'PKR', name: 'Pakistani Rupee', symbol: '₨' },
+  { code: 'EGP', name: 'Egyptian Pound', symbol: '£' },
+  { code: 'NGN', name: 'Nigerian Naira', symbol: '₦' },
+  { code: 'KES', name: 'Kenyan Shilling', symbol: 'KSh' },
+  { code: 'TWD', name: 'New Taiwan Dollar', symbol: 'NT$' },
 ];
 
 const cryptocurrencies = [
   { id: 'bitcoin', name: 'Bitcoin', symbol: 'BTC' },
   { id: 'ethereum', name: 'Ethereum', symbol: 'ETH' },
-  { id: 'binancecoin', name: 'BNB', symbol: 'BNB' },
-  { id: 'solana', name: 'Solana', symbol: 'SOL' },
+  { id: 'tether', name: 'Tether', symbol: 'USDT' },
+  { id: 'usd-coin', name: 'USD Coin', symbol: 'USDC' },
+  { id: 'binancecoin', name: 'Binance Coin', symbol: 'BNB' },
+  { id: 'ripple', name: 'XRP', symbol: 'XRP' },
   { id: 'cardano', name: 'Cardano', symbol: 'ADA' },
+  { id: 'solana', name: 'Solana', symbol: 'SOL' },
+  { id: 'dogecoin', name: 'Dogecoin', symbol: 'DOGE' },
+  { id: 'the-open-network', name: 'Toncoin', symbol: 'TON' },
+  { id: 'tron', name: 'TRON', symbol: 'TRX' },
+  { id: 'avalanche-2', name: 'Avalanche', symbol: 'AVAX' },
   { id: 'polkadot', name: 'Polkadot', symbol: 'DOT' },
+  { id: 'shiba-inu', name: 'Shiba Inu', symbol: 'SHIB' },
+  { id: 'matic-network', name: 'Polygon', symbol: 'MATIC' },
+  { id: 'chainlink', name: 'Chainlink', symbol: 'LINK' },
+  { id: 'litecoin', name: 'Litecoin', symbol: 'LTC' },
+  { id: 'bitcoin-cash', name: 'Bitcoin Cash', symbol: 'BCH' },
+  { id: 'wrapped-bitcoin', name: 'Wrapped Bitcoin', symbol: 'WBTC' },
+  { id: 'dai', name: 'DAI (MakerDAO Stablecoin)', symbol: 'DAI' },
+  { id: 'stellar', name: 'Stellar Lumens', symbol: 'XLM' },
+  { id: 'cosmos', name: 'Cosmos', symbol: 'ATOM' },
+  { id: 'leo-token', name: 'UNUS SED LEO', symbol: 'LEO' },
+  { id: 'monero', name: 'Monero', symbol: 'XMR' },
+  { id: 'okb', name: 'OKB Token', symbol: 'OKB' },
+  { id: 'crypto-com-chain', name: 'Cronos (Crypto.com)', symbol: 'CRO' },
+  { id: 'near', name: 'Near Protocol', symbol: 'NEAR' },
+  { id: 'internet-computer', name: 'Internet Computer', symbol: 'ICP' },
+  { id: 'quant-network', name: 'Quant Network', symbol: 'QNT' },
+  { id: 'filecoin', name: 'Filecoin', symbol: 'FIL' },
+  { id: 'aptos', name: 'Aptos', symbol: 'APT' },
+  { id: 'arbitrum', name: 'Arbitrum', symbol: 'ARB' },
+  { id: 'maker', name: 'Maker', symbol: 'MKR' },
+  { id: 'aave', name: 'Aave', symbol: 'AAVE' },
+  { id: 'elrond-erd-2', name: 'MultiversX (Elrond)', symbol: 'EGLD' },
+  { id: 'the-sandbox', name: 'The Sandbox', symbol: 'SAND' },
+  { id: 'axie-infinity', name: 'Axie Infinity', symbol: 'AXS' },
+  { id: 'theta-token', name: 'Theta Network', symbol: 'THETA' },
+  { id: 'render-token', name: 'Render Token', symbol: 'RNDR' },
+  { id: 'flow', name: 'Flow', symbol: 'FLOW' },
+  { id: 'decentraland', name: 'Decentraland', symbol: 'MANA' },
+  { id: 'chiliz', name: 'Chiliz', symbol: 'CHZ' },
+  { id: 'lido-dao', name: 'Lido DAO', symbol: 'LDO' },
+  { id: 'the-graph', name: 'The Graph', symbol: 'GRT' },
+  { id: 'blockstack', name: 'Stacks', symbol: 'STX' },
+  { id: 'algorand', name: 'Algorand', symbol: 'ALGO' },
+  { id: 'injective-protocol', name: 'Injective Protocol', symbol: 'INJ' },
+  { id: 'kaspa', name: 'Kaspa', symbol: 'KAS' },
+  { id: 'fantom', name: 'Fantom', symbol: 'FTM' },
+  { id: 'celestia', name: 'Celestia', symbol: 'TIA' },
+  { id: 'ethereum-name-service', name: 'Ethereum Name Service', symbol: 'ENS' },
+  { id: 'stepn', name: 'STEPN', symbol: 'GMT' },
+  { id: 'immutable-x', name: 'Immutable X', symbol: 'IMX' },
+  { id: 'optimism', name: 'Optimism', symbol: 'OP' },
+  { id: 'pyth-network', name: 'Pyth Network', symbol: 'PYTH' },
+  { id: 'dydx', name: 'dYdX', symbol: 'DYDX' },
+  { id: 'oasis-network', name: 'Oasis Network', symbol: 'ROSE' },
+  { id: 'zcash', name: 'Zcash', symbol: 'ZEC' },
+  { id: 'terra-luna', name: 'Terra Classic', symbol: 'LUNC' },
+  { id: 'hedera-hashgraph', name: 'Hedera Hashgraph', symbol: 'HBAR' },
+  { id: 'bitcoin-gold', name: 'Bitcoin Gold', symbol: 'BTG' },
+  { id: 'sui', name: 'Sui', symbol: 'SUI' },
+  { id: 'conflux-token', name: 'Conflux', symbol: 'CFX' },
+  { id: 'celo', name: 'CELO', symbol: 'CELO' },
+  { id: 'neo', name: 'NEO', symbol: 'NEO' },
+  { id: 'kava', name: 'Kava', symbol: 'KAVA' },
+  { id: 'iota', name: 'IOTA', symbol: 'IOTA' },
+  { id: 'mina-protocol', name: 'Mina Protocol', symbol: 'MINA' },
+  { id: 'thorchain', name: 'Thorchain', symbol: 'RUNE' },
+  { id: 'xdce-crowd-sale', name: 'XDC Network', symbol: 'XDC' },
+  { id: 'vechain', name: 'VeChain', symbol: 'VET' },
+  { id: 'bitcoin-cash-sv', name: 'Bitcoin SV', symbol: 'BSV' },
+  { id: 'stratis', name: 'Stratis', symbol: 'STRAX' },
+  { id: 'ecash', name: 'eCash', symbol: 'XEC' },
+  { id: 'osmosis', name: 'Osmosis', symbol: 'OSMO' },
+  { id: 'nexo', name: 'Nexo', symbol: 'NEXO' },
+  { id: 'secret', name: 'Secret Network', symbol: 'SCRT' },
+  { id: 'zilliqa', name: 'Zilliqa', symbol: 'ZIL' },
+  { id: 'ankr', name: 'Ankr', symbol: 'ANKR' },
+  { id: 'gala', name: 'Gala Games', symbol: 'GALA' },
+  { id: 'baby-doge-coin', name: 'Baby Doge Coin', symbol: 'BABYDOGE' },
 ];
 
 const CurrencyConverter = () => {
@@ -173,10 +278,14 @@ const CurrencyConverter = () => {
                     <SelectTrigger>
                       <SelectValue />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="max-h-60 overflow-y-auto">
                       {fiatCurrencies.map((currency) => (
                         <SelectItem key={currency.code} value={currency.code}>
-                          {currency.code} - {currency.name}
+                          <div className="flex items-center space-x-2">
+                            <span className="font-medium">{currency.code}</span>
+                            <span className="text-muted-foreground">-</span>
+                            <span className="text-sm">{currency.name}</span>
+                          </div>
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -198,10 +307,14 @@ const CurrencyConverter = () => {
                     <SelectTrigger>
                       <SelectValue />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="max-h-60 overflow-y-auto">
                       {fiatCurrencies.map((currency) => (
                         <SelectItem key={currency.code} value={currency.code}>
-                          {currency.code} - {currency.name}
+                          <div className="flex items-center space-x-2">
+                            <span className="font-medium">{currency.code}</span>
+                            <span className="text-muted-foreground">-</span>
+                            <span className="text-sm">{currency.name}</span>
+                          </div>
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -239,10 +352,14 @@ const CurrencyConverter = () => {
                     <SelectTrigger>
                       <SelectValue />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="max-h-60 overflow-y-auto">
                       {cryptocurrencies.map((crypto) => (
                         <SelectItem key={crypto.id} value={crypto.id}>
-                          {crypto.symbol} - {crypto.name}
+                          <div className="flex items-center space-x-2">
+                            <span className="font-medium">{crypto.symbol}</span>
+                            <span className="text-muted-foreground">-</span>
+                            <span className="text-sm">{crypto.name}</span>
+                          </div>
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -255,10 +372,14 @@ const CurrencyConverter = () => {
                     <SelectTrigger>
                       <SelectValue />
                     </SelectTrigger>
-                    <SelectContent>
-                      {fiatCurrencies.slice(0, 5).map((currency) => (
+                    <SelectContent className="max-h-60 overflow-y-auto">
+                      {fiatCurrencies.slice(0, 10).map((currency) => (
                         <SelectItem key={currency.code} value={currency.code}>
-                          {currency.code}
+                          <div className="flex items-center space-x-2">
+                            <span className="font-medium">{currency.code}</span>
+                            <span className="text-muted-foreground">-</span>
+                            <span className="text-sm">{currency.name}</span>
+                          </div>
                         </SelectItem>
                       ))}
                     </SelectContent>
