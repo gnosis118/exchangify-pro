@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import CookieConsent from './CookieConsent';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -426,8 +427,20 @@ const CurrencyConverter = () => {
           <div className="mt-2">
             Exchange rates powered by Exchange Rates API • Cryptocurrency data by CoinGecko
           </div>
+          <div className="mt-4 space-x-4">
+            <a href="/privacy-policy" className="hover:text-foreground underline">
+              Privacy Policy
+            </a>
+            <span>•</span>
+            <a href="/terms-of-service" className="hover:text-foreground underline">
+              Terms of Service
+            </a>
+          </div>
         </div>
       </div>
+
+      {/* Cookie Consent Banner */}
+      <CookieConsent />
     </div>
   );
 };
