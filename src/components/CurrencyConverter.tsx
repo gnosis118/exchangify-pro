@@ -146,6 +146,7 @@ const CurrencyConverter = () => {
   const [amount, setAmount] = useState('1');
   const [fromCurrency, setFromCurrency] = useState('USD');
   const [toCurrency, setToCurrency] = useState('EUR');
+  const [cryptoAmount, setCryptoAmount] = useState('1');
   const [selectedCrypto, setSelectedCrypto] = useState('bitcoin');
   const [cryptoTargetCurrency, setCryptoTargetCurrency] = useState('USD');
   const [exchangeRates, setExchangeRates] = useState<ExchangeRates>({});
@@ -228,6 +229,14 @@ const CurrencyConverter = () => {
     if (price >= 1) return price.toFixed(2);
     if (price >= 0.01) return price.toFixed(4);
     return price.toFixed(6);
+  };
+
+  const convertedCryptoAmount = () => {
+    const numAmount = parseFloat(cryptoAmount);
+    if (isNaN(numAmount) || !cryptoPrice[cryptoTargetCurrency.toLowerCase()]) return '0.00';
+    
+    const rate = cryptoPrice[cryptoTargetCurrency.toLowerCase()];
+    return formatCryptoPrice(numAmount * rate);
   };
 
   const getCryptoChange = () => {
@@ -343,9 +352,25 @@ const CurrencyConverter = () => {
           {/* Cryptocurrency Converter */}
           <Card className="shadow-lg">
             <CardHeader>
-              <CardTitle>Cryptocurrency Prices</CardTitle>
+              <CardTitle className="flex items-center justify-between">
+                <span>Cryptocurrency Converter</span>
+                <Button variant="ghost" size="sm" onClick={refresh} disabled={cryptoLoading}>
+                  <RefreshCw className={`h-4 w-4 ${cryptoLoading ? 'animate-spin' : ''}`} />
+                </Button>
+              </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-muted-foreground">Amount</label>
+                <Input
+                  type="number"
+                  value={cryptoAmount}
+                  onChange={(e) => setCryptoAmount(e.target.value)}
+                  placeholder="Enter crypto amount"
+                  className="text-lg"
+                />
+              </div>
+
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-muted-foreground">Cryptocurrency</label>
@@ -389,11 +414,11 @@ const CurrencyConverter = () => {
               </div>
 
               <div className="bg-price-bg p-4 rounded-lg">
-                <div className="text-2xl font-bold text-foreground">
+                <div className="text-3xl font-bold text-foreground">
                   {cryptoLoading ? (
-                    <div className="animate-pulse bg-muted h-6 w-40 rounded" />
+                    <div className="animate-pulse bg-muted h-8 w-32 rounded" />
                   ) : (
-                    `${formatCryptoPrice(cryptoPrice[cryptoTargetCurrency.toLowerCase()] || 0)} ${cryptoTargetCurrency}`
+                    `${convertedCryptoAmount()} ${cryptoTargetCurrency}`
                   )}
                 </div>
                 
