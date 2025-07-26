@@ -500,11 +500,7 @@ const CurrencyConverter = () => {
             <p className="text-muted-foreground text-center mb-6">
               Never miss the perfect exchange rate! Set email alerts to notify you when currencies reach your target prices, whether buying or selling.
             </p>
-            <RateAlerts 
-              fromCurrency={fromCurrency}
-              toCurrency={toCurrency}
-              currentRate={exchangeRates[toCurrency] || 0}
-            />
+            <RateAlerts />
           </TabsContent>
           
           <TabsContent value="travel" className="space-y-6">
