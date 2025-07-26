@@ -3,6 +3,8 @@ import CookieConsent from './CookieConsent';
 import HistoricalChart from './HistoricalChart';
 import RateAlerts from './RateAlerts';
 import TravelMoney from './TravelMoney';
+import { ShareButton } from './ShareButton';
+import { InstallPrompt } from './InstallPrompt';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -355,11 +357,22 @@ const CurrencyConverter = () => {
                   </div>
 
                   <div className="bg-price-bg p-4 rounded-lg">
-                    <div className="text-3xl font-bold text-foreground">
-                      {fiatLoading ? (
-                        <div className="animate-pulse bg-muted h-8 w-32 rounded" />
-                      ) : (
-                        `${convertedAmount()} ${toCurrency}`
+                    <div className="flex items-center justify-between">
+                      <div className="text-3xl font-bold text-foreground">
+                        {fiatLoading ? (
+                          <div className="animate-pulse bg-muted h-8 w-32 rounded" />
+                        ) : (
+                          `${convertedAmount()} ${toCurrency}`
+                        )}
+                      </div>
+                      {!fiatLoading && amount && convertedAmount() !== '0.00' && (
+                        <ShareButton
+                          fromCurrency={fromCurrency}
+                          toCurrency={toCurrency}
+                          amount={amount}
+                          convertedAmount={convertedAmount()}
+                          rate={getExchangeRate() || ''}
+                        />
                       )}
                     </div>
                     {getExchangeRate() && (
@@ -510,6 +523,9 @@ const CurrencyConverter = () => {
 
       {/* Cookie Consent Banner */}
       <CookieConsent />
+      
+      {/* PWA Install Prompt */}
+      <InstallPrompt />
     </div>
   );
 };
