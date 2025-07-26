@@ -262,6 +262,10 @@ const CurrencyConverter = () => {
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-foreground mb-2">Currency Converter</h1>
           <p className="text-muted-foreground text-lg">Real-time exchange rates and cryptocurrency prices</p>
+          <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
+            Convert currencies instantly, track historical rates, set price alerts, and get travel money tips. 
+            Our comprehensive currency tool provides everything you need for international finance, trading, and travel planning.
+          </p>
         </div>
 
         <Tabs defaultValue="converter" className="w-full">
@@ -282,6 +286,9 @@ const CurrencyConverter = () => {
           </TabsList>
           
           <TabsContent value="converter" className="space-y-6">
+            <p className="text-muted-foreground text-center mb-6">
+              Convert between 40+ currencies and cryptocurrencies with live exchange rates. Share your conversions and install as a mobile app for quick access.
+            </p>
             <div className="grid gap-6 md:grid-cols-2">
               {/* Fiat Currency Converter */}
               <Card className="shadow-lg">
@@ -479,6 +486,9 @@ const CurrencyConverter = () => {
           </TabsContent>
           
           <TabsContent value="charts" className="space-y-6">
+            <p className="text-muted-foreground text-center mb-6">
+              Analyze currency trends with interactive historical charts. View 7, 30, or 90-day price movements to make informed exchange decisions.
+            </p>
             <HistoricalChart 
               fromCurrency={fromCurrency}
               toCurrency={toCurrency}
@@ -487,7 +497,10 @@ const CurrencyConverter = () => {
           </TabsContent>
           
           <TabsContent value="alerts" className="space-y-6">
-            <RateAlerts
+            <p className="text-muted-foreground text-center mb-6">
+              Never miss the perfect exchange rate! Set email alerts to notify you when currencies reach your target prices, whether buying or selling.
+            </p>
+            <RateAlerts 
               fromCurrency={fromCurrency}
               toCurrency={toCurrency}
               currentRate={exchangeRates[toCurrency] || 0}
@@ -495,6 +508,9 @@ const CurrencyConverter = () => {
           </TabsContent>
           
           <TabsContent value="travel" className="space-y-6">
+            <p className="text-muted-foreground text-center mb-6">
+              Plan your international trips with essential currency guides, budget calculators, and money transfer recommendations for popular destinations.
+            </p>
             <TravelMoney />
           </TabsContent>
         </Tabs>
