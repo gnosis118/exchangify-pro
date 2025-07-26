@@ -194,11 +194,18 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
           ) : (
-            <Link to="/auth">
-              <Button size="sm">
-                Create Account
-              </Button>
-            </Link>
+            <div className="flex items-center gap-2">
+              <Link to="/auth">
+                <Button variant="ghost" size="sm">
+                  Login
+                </Button>
+              </Link>
+              <Link to="/auth">
+                <Button size="sm">
+                  Sign Up
+                </Button>
+              </Link>
+            </div>
           )}
         </div>
       </div>

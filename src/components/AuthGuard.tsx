@@ -195,9 +195,9 @@ const AuthGuard = ({ children, fallback }: AuthGuardProps) => {
     <div className="min-h-screen flex items-center justify-center p-4">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle>Authentication Required</CardTitle>
+          <CardTitle>Welcome Back</CardTitle>
           <CardDescription>
-            Sign in to manage your rate alerts and save your preferences
+            Sign in to your account or create a new one to manage your rate alerts
           </CardDescription>
         </CardHeader>
         <CardContent>
