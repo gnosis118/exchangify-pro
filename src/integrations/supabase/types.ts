@@ -405,6 +405,45 @@ export type Database = {
         }
         Relationships: []
       }
+      rate_alerts: {
+        Row: {
+          condition: string
+          created_at: string
+          email: string
+          from_currency: string
+          id: string
+          is_active: boolean
+          target_rate: number
+          to_currency: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          condition: string
+          created_at?: string
+          email: string
+          from_currency: string
+          id?: string
+          is_active?: boolean
+          target_rate: number
+          to_currency: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          condition?: string
+          created_at?: string
+          email?: string
+          from_currency?: string
+          id?: string
+          is_active?: boolean
+          target_rate?: number
+          to_currency?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
