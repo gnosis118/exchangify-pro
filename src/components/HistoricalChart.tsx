@@ -3,7 +3,8 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { TrendingUp, TrendingDown, Minus, ArrowUpDown } from 'lucide-react';
 
 interface HistoricalDataPoint {
   date: string;
@@ -11,13 +12,39 @@ interface HistoricalDataPoint {
   timestamp: number;
 }
 
+const fiatCurrencies = [
+  { code: 'USD', name: 'US Dollar', symbol: '$' },
+  { code: 'EUR', name: 'Euro', symbol: '€' },
+  { code: 'JPY', name: 'Japanese Yen', symbol: '¥' },
+  { code: 'GBP', name: 'British Pound Sterling', symbol: '£' },
+  { code: 'CHF', name: 'Swiss Franc', symbol: 'CHF' },
+  { code: 'CAD', name: 'Canadian Dollar', symbol: 'C$' },
+  { code: 'AUD', name: 'Australian Dollar', symbol: 'A$' },
+  { code: 'NZD', name: 'New Zealand Dollar', symbol: 'NZ$' },
+  { code: 'CNY', name: 'Chinese Yuan Renminbi', symbol: '¥' },
+  { code: 'HKD', name: 'Hong Kong Dollar', symbol: 'HK$' },
+  { code: 'SGD', name: 'Singapore Dollar', symbol: 'S$' },
+  { code: 'SEK', name: 'Swedish Krona', symbol: 'kr' },
+  { code: 'NOK', name: 'Norwegian Krone', symbol: 'kr' },
+  { code: 'DKK', name: 'Danish Krone', symbol: 'kr' },
+  { code: 'INR', name: 'Indian Rupee', symbol: '₹' },
+  { code: 'BRL', name: 'Brazilian Real', symbol: 'R$' },
+  { code: 'ZAR', name: 'South African Rand', symbol: 'R' },
+  { code: 'MXN', name: 'Mexican Peso', symbol: '$' },
+  { code: 'KRW', name: 'South Korean Won', symbol: '₩' },
+  { code: 'THB', name: 'Thai Baht', symbol: '฿' },
+];
+
 interface HistoricalChartProps {
   fromCurrency: string;
   toCurrency: string;
   currentRate: number;
 }
 
-const HistoricalChart = ({ fromCurrency, toCurrency, currentRate }: HistoricalChartProps) => {
+const HistoricalChart = ({ fromCurrency: initialFromCurrency, toCurrency: initialToCurrency, currentRate: initialCurrentRate }: HistoricalChartProps) => {
+  const [fromCurrency, setFromCurrency] = useState(initialFromCurrency);
+  const [toCurrency, setToCurrency] = useState(initialToCurrency);
+  const [currentRate, setCurrentRate] = useState(initialCurrentRate);
   const [timeframe, setTimeframe] = useState<'7d' | '30d' | '90d'>('7d');
   const [data, setData] = useState<HistoricalDataPoint[]>([]);
   const [loading, setLoading] = useState(true);
@@ -51,6 +78,33 @@ const HistoricalChart = ({ fromCurrency, toCurrency, currentRate }: HistoricalCh
     
     return data;
   };
+
+  // Fetch current exchange rate when currencies change
+  const fetchCurrentRate = async (from: string, to: string) => {
+    try {
+      const response = await fetch(`https://api.exchangerate-api.com/v4/latest/${from}`);
+      if (!response.ok) throw new Error('Failed to fetch exchange rates');
+      const data = await response.json();
+      setCurrentRate(data.rates[to] || 1);
+    } catch (error) {
+      console.error('Exchange rate fetch error:', error);
+      setCurrentRate(1);
+    }
+  };
+
+  const swapCurrencies = () => {
+    const newFrom = toCurrency;
+    const newTo = fromCurrency;
+    setFromCurrency(newFrom);
+    setToCurrency(newTo);
+    fetchCurrentRate(newFrom, newTo);
+  };
+
+  useEffect(() => {
+    if (fromCurrency !== toCurrency) {
+      fetchCurrentRate(fromCurrency, toCurrency);
+    }
+  }, [fromCurrency, toCurrency]);
 
   useEffect(() => {
     setLoading(true);
@@ -121,6 +175,58 @@ const HistoricalChart = ({ fromCurrency, toCurrency, currentRate }: HistoricalCh
             <Badge variant={trend === 'up' ? 'default' : trend === 'down' ? 'destructive' : 'secondary'}>
               {changePercent >= 0 ? '+' : ''}{changePercent.toFixed(2)}%
             </Badge>
+          </div>
+        </div>
+
+        {/* Currency Selection */}
+        <div className="grid grid-cols-2 gap-2 items-end mb-4">
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-muted-foreground">From Currency</label>
+            <Select value={fromCurrency} onValueChange={setFromCurrency}>
+              <SelectTrigger>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent className="max-h-60 overflow-y-auto">
+                {fiatCurrencies.map((currency) => (
+                  <SelectItem key={currency.code} value={currency.code}>
+                    <div className="flex items-center space-x-2">
+                      <span className="font-medium">{currency.code}</span>
+                      <span className="text-muted-foreground">-</span>
+                      <span className="text-sm">{currency.name}</span>
+                    </div>
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={swapCurrencies}
+            className="mb-1"
+          >
+            <ArrowUpDown className="h-4 w-4" />
+          </Button>
+
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-muted-foreground">To Currency</label>
+            <Select value={toCurrency} onValueChange={setToCurrency}>
+              <SelectTrigger>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent className="max-h-60 overflow-y-auto">
+                {fiatCurrencies.map((currency) => (
+                  <SelectItem key={currency.code} value={currency.code}>
+                    <div className="flex items-center space-x-2">
+                      <span className="font-medium">{currency.code}</span>
+                      <span className="text-muted-foreground">-</span>
+                      <span className="text-sm">{currency.name}</span>
+                    </div>
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
         </div>
         
