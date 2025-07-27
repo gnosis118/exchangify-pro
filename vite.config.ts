@@ -20,14 +20,8 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    // Enable minification and compression
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-      },
-    },
+    // Use esbuild for faster minification (default, no extra dependency needed)
+    minify: 'esbuild',
     // Code splitting and chunking
     rollupOptions: {
       output: {
