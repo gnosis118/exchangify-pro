@@ -1,19 +1,15 @@
 import TravelMoney from '@/components/TravelMoney';
+import PageHeader from '@/components/PageHeader';
 
 const Travel = () => {
   return (
-    <div className="min-h-screen bg-converter-bg p-4">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-foreground mb-2">Travel Money Guide</h1>
-          <p className="text-muted-foreground text-lg">
-            Essential currency guides and budget calculators for international travel
-          </p>
-          <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
-            Plan your international trips with essential currency guides, budget calculators, 
-            and money transfer recommendations for popular destinations.
-          </p>
-        </div>
+    <div className="min-h-screen bg-converter-bg">
+      <div className="max-w-6xl mx-auto p-4">
+        <PageHeader 
+          page="travel" 
+          title="Travel Money Guide" 
+          subtitle="Essential currency guides and budget calculators for international travel"
+        />
         
         <TravelMoney />
       </div>
