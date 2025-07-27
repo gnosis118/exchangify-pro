@@ -42,7 +42,7 @@ const App = () => {
         </Routes>
       </BrowserRouter>
       </div>
-    </TooltipProvider>
+      </TooltipProvider>
     </QueryWrapper>
   );
 };
