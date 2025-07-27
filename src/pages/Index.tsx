@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from 'react';
-import CookieConsent from '@/components/CookieConsent';
 import { ShareButton } from '@/components/ShareButton';
 import { InstallPrompt } from '@/components/InstallPrompt';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -493,9 +492,6 @@ const Index = () => {
         <div className="mt-8">
           <InstallPrompt />
         </div>
-
-        {/* Cookie Consent */}
-        <CookieConsent />
       </div>
     </div>
   );
