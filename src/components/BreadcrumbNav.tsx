@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import {
   Breadcrumb,
@@ -7,7 +8,6 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import { useEffect } from 'react';
 
 interface BreadcrumbNavProps {
   className?: string;
@@ -32,14 +32,28 @@ const BreadcrumbNav = ({ className }: BreadcrumbNavProps) => {
   ];
 
   useEffect(() => {
-    // Add breadcrumb structured data
-    if (breadcrumbItems.length > 1) {
+    // Add breadcrumb structured data - recalculate breadcrumbItems inside useEffect to avoid stale closures
+    const currentPathSegments = location.pathname.split('/').filter(Boolean);
+    const currentBreadcrumbItems = [
+      { label: 'Home', href: '/' },
+      ...currentPathSegments.map((segment, index) => {
+        const href = `/${currentPathSegments.slice(0, index + 1).join('/')}`;
+        const label = segment
+          .split('-')
+          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(' ');
+        
+        return { label, href };
+      })
+    ];
+
+    if (currentBreadcrumbItems.length > 1) {
       const script = document.createElement('script');
       script.type = 'application/ld+json';
       script.text = JSON.stringify({
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
-        "itemListElement": breadcrumbItems.map((item, index) => ({
+        "itemListElement": currentBreadcrumbItems.map((item, index) => ({
           "@type": "ListItem",
           "position": index + 1,
           "name": item.label,
