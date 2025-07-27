@@ -46,9 +46,15 @@
     <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
     
     <!-- Performance Hints -->
-    <link rel="preconnect" href="https://api.exchangerate-api.com" />
-    <link rel="preconnect" href="https://api.coingecko.com" />
+    <link rel="preconnect" href="https://api.exchangerate-api.com" crossorigin />
+    <link rel="preconnect" href="https://api.coingecko.com" crossorigin />
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+    <link rel="preload" href="/src/assets/home-hero.jpg" as="image" />
+    
+    <!-- Resource Hints for Core Web Vitals -->
+    <link rel="preload" href="/src/main.tsx" as="script" />
+    <link rel="modulepreload" href="/src/main.tsx" />
     
     <!-- Structured Data -->
     <script type="application/ld+json">

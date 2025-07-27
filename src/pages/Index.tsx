@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import { ShareButton } from '@/components/ShareButton';
 import { InstallPrompt } from '@/components/InstallPrompt';
+import PopularPairs from '@/components/PopularPairs';
+import CurrencyGuide from '@/components/CurrencyGuide';
 import SEOHead from '@/components/SEOHead';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -292,8 +294,12 @@ const Index = () => {
       <div className="relative h-80 md:h-96 overflow-hidden">
         <img 
           src={homeHero} 
-          alt="Financial dashboard with currency exchange rates" 
+          alt="Professional currency conversion interface showing real-time exchange rates for international finance and travel planning" 
           className="w-full h-full object-cover"
+          loading="eager"
+          decoding="async"
+          width="1200"
+          height="400"
         />
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <div className="text-center text-white px-4 max-w-4xl">
@@ -315,15 +321,46 @@ const Index = () => {
               Get instant currency conversions, track historical exchange rates, set price alerts, and access travel money tips. 
               Our free currency converter provides accurate real-time data for over 150 fiat currencies and 100+ cryptocurrencies.
             </p>
-            <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
-              <span>✓ Real-time rates</span>
-              <span>✓ 150+ currencies</span>
-              <span>✓ Historical charts</span>
-              <span>✓ Price alerts</span>
-              <span>✓ Travel guides</span>
-            </div>
+          <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
+            <span>✓ Real-time rates</span>
+            <span>✓ 150+ currencies</span>
+            <span>✓ Historical charts</span>
+            <span>✓ Price alerts</span>
+            <span>✓ Travel guides</span>
           </div>
         </div>
+
+        {/* Popular Currency Pairs - Internal Linking */}
+        <div className="mb-8 bg-card p-6 rounded-lg border">
+          <h2 className="text-2xl font-semibold mb-4 text-foreground">Popular Currency Conversions</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <a href="/convert/usd-to-eur" className="text-primary hover:text-primary-hover transition-colors p-2 rounded border hover:border-primary text-center">
+              USD to EUR
+            </a>
+            <a href="/convert/gbp-to-usd" className="text-primary hover:text-primary-hover transition-colors p-2 rounded border hover:border-primary text-center">
+              GBP to USD
+            </a>
+            <a href="/convert/eur-to-gbp" className="text-primary hover:text-primary-hover transition-colors p-2 rounded border hover:border-primary text-center">
+              EUR to GBP
+            </a>
+            <a href="/convert/usd-to-cad" className="text-primary hover:text-primary-hover transition-colors p-2 rounded border hover:border-primary text-center">
+              USD to CAD
+            </a>
+            <a href="/convert/jpy-to-usd" className="text-primary hover:text-primary-hover transition-colors p-2 rounded border hover:border-primary text-center">
+              JPY to USD
+            </a>
+            <a href="/convert/aud-to-usd" className="text-primary hover:text-primary-hover transition-colors p-2 rounded border hover:border-primary text-center">
+              AUD to USD
+            </a>
+            <a href="/convert/usd-to-chf" className="text-primary hover:text-primary-hover transition-colors p-2 rounded border hover:border-primary text-center">
+              USD to CHF
+            </a>
+            <a href="/convert/eur-to-jpy" className="text-primary hover:text-primary-hover transition-colors p-2 rounded border hover:border-primary text-center">
+              EUR to JPY
+            </a>
+          </div>
+        </div>
+      </div>
 
         <div className="grid gap-6 md:grid-cols-2">
           {/* Fiat Currency Converter */}
@@ -521,6 +558,62 @@ const Index = () => {
               </div>
             </CardContent>
           </Card>
+        </div>
+
+        {/* Popular Currency Pairs Section */}
+        <div className="mt-12">
+          <PopularPairs />
+        </div>
+
+        {/* Currency Guide Section */}
+        <div className="mt-12">
+          <CurrencyGuide />
+        </div>
+
+        {/* SEO Content Section */}
+        <div className="mt-12 grid gap-8 md:grid-cols-2">
+          <div className="bg-card p-6 rounded-lg border">
+            <h2 className="text-2xl font-bold mb-4 text-foreground">How to Use Our Currency Converter</h2>
+            <div className="space-y-3 text-muted-foreground">
+              <p>Our free currency converter provides real-time exchange rates for over 40 fiat currencies and 80+ cryptocurrencies.</p>
+              <ol className="list-decimal list-inside space-y-2">
+                <li>Enter the amount you want to convert</li>
+                <li>Select your source currency (from)</li>
+                <li>Choose your target currency (to)</li>
+                <li>View the converted amount instantly</li>
+                <li>Set up rate alerts for your favorite pairs</li>
+              </ol>
+              <p>Perfect for international business, travel planning, forex trading, and cryptocurrency investments.</p>
+            </div>
+          </div>
+          
+          <div className="bg-card p-6 rounded-lg border">
+            <h2 className="text-2xl font-bold mb-4 text-foreground">Why Choose ExchangifyPro?</h2>
+            <div className="space-y-3 text-muted-foreground">
+              <ul className="space-y-2">
+                <li className="flex items-start space-x-2">
+                  <span className="text-primary font-bold">•</span>
+                  <span><strong>Real-time rates:</strong> Live data from trusted financial APIs</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <span className="text-primary font-bold">•</span>
+                  <span><strong>Historical charts:</strong> Track trends up to 90 days</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <span className="text-primary font-bold">•</span>
+                  <span><strong>Price alerts:</strong> Get notified when rates hit your target</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <span className="text-primary font-bold">•</span>
+                  <span><strong>Travel tools:</strong> Budget planning for international trips</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <span className="text-primary font-bold">•</span>
+                  <span><strong>Mobile ready:</strong> Works perfectly on all devices</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         {/* Install Prompt */}

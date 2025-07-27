@@ -32,8 +32,12 @@ const Alerts = () => {
       <div className="relative h-80 md:h-96 overflow-hidden">
         <img 
           src={alertsHero} 
-          alt="Smartphone with currency rate alert notifications" 
+          alt="Smart currency rate alert system with notifications for optimal exchange rates and trading opportunities" 
           className="w-full h-full object-cover"
+          loading="lazy"
+          decoding="async"
+          width="1200"
+          height="320"
         />
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <div className="text-center text-white px-4 max-w-4xl">

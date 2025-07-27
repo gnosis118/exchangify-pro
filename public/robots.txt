@@ -1,32 +1,46 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://exchangifypro.com/sitemap.xml
+
+# Crawl-delay to be respectful
+Crawl-delay: 1
+
+# Allow all major search engines
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 1
 
-User-agent: Twitterbot
+User-agent: Slurp
 Allow: /
 
-User-agent: facebookexternalhit
+User-agent: DuckDuckBot
 Allow: /
 
-User-agent: LinkedInBot
+User-agent: Baiduspider
 Allow: /
 
-User-agent: WhatsApp
+User-agent: YandexBot
 Allow: /
 
-User-agent: *
-Allow: /
-Crawl-delay: 2
+# Block AI scrapers for content protection
+User-agent: ChatGPT-User
+Disallow: /
 
-# Sitemaps
-Sitemap: https://your-domain.com/sitemap.xml
+User-agent: GPTBot
+Disallow: /
 
-# Disallow certain paths for optimization
-Disallow: /api/
-Disallow: /_next/static/
-Disallow: /admin/
-Disallow: /temp/
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
