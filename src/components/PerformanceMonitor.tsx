@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 interface PerformanceMonitorProps {
   onMetrics?: (metrics: any) => void;
