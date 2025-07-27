@@ -588,7 +588,7 @@ const Index = () => {
           </div>
           
           <div className="bg-card p-6 rounded-lg border">
-            <h2 className="text-2xl font-bold mb-4 text-foreground">Why Choose ExchangifyPro?</h2>
+            <h2 className="text-2xl font-bold mb-4 text-foreground">Why Choose Currency to Currency?</h2>
             <div className="space-y-3 text-muted-foreground">
               <ul className="space-y-2">
                 <li className="flex items-start space-x-2">
