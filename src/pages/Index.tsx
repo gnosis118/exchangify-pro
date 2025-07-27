@@ -252,33 +252,24 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-converter-bg">
-      <div className="max-w-6xl mx-auto p-4">
-        {/* Header with background image */}
-        <div className="relative h-48 md:h-64 w-full overflow-hidden rounded-lg mb-8">
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(/src/assets/currency-header.jpg)` }}
-          />
-          <div className="absolute inset-0 bg-black/40" />
-          <div className="relative h-full flex items-center justify-center text-center text-white">
-            <div className="space-y-4">
-              <h1 className="text-3xl md:text-5xl font-bold tracking-tight">
-                Free Currency Converter - Live Exchange Rates
-              </h1>
-              <p className="text-lg md:text-xl text-white/90 max-w-3xl">
-                Convert 150+ currencies and cryptocurrencies with real-time rates
-              </p>
-              <div className="flex flex-wrap justify-center gap-4 text-sm">
-                <span>✓ Real-time rates</span>
-                <span>✓ 150+ currencies</span>
-                <span>✓ Historical charts</span>
-                <span>✓ Price alerts</span>
-                <span>✓ Travel guides</span>
-              </div>
-            </div>
+    <div className="min-h-screen bg-converter-bg p-4">
+      <div className="max-w-4xl mx-auto">
+        {/* Header */}
+        <header className="text-center mb-8">
+          <h1 className="text-4xl font-bold text-foreground mb-2">Free Currency Converter - Live Exchange Rates</h1>
+          <p className="text-muted-foreground text-xl mb-4">Convert 150+ currencies and cryptocurrencies with real-time rates</p>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Get instant currency conversions, track historical exchange rates, set price alerts, and access travel money tips. 
+            Our free currency converter provides accurate real-time data for over 150 fiat currencies and 100+ cryptocurrencies.
+          </p>
+          <div className="mt-4 flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
+            <span>✓ Real-time rates</span>
+            <span>✓ 150+ currencies</span>
+            <span>✓ Historical charts</span>
+            <span>✓ Price alerts</span>
+            <span>✓ Travel guides</span>
           </div>
-        </div>
+        </header>
 
         <div className="grid gap-6 md:grid-cols-2">
           {/* Fiat Currency Converter */}

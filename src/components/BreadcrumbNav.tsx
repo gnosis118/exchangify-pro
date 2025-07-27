@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import {
   Breadcrumb,
@@ -8,6 +7,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import { useEffect } from 'react';
 
 interface BreadcrumbNavProps {
   className?: string;

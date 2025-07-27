@@ -1,9 +1,9 @@
-import React, { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import Header from "./components/Header";
 import BreadcrumbNav from "./components/BreadcrumbNav";
 import PerformanceMonitor from "./components/PerformanceMonitor";
@@ -44,20 +44,35 @@ const PageLoader = () => (
   </div>
 );
 
-const App = () => {
-  console.log("React is:", React);
-  console.log("App component is rendering");
-  
-  return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <div className="min-h-screen p-4">
-          <h1 className="text-2xl font-bold">Currency App</h1>
-          <p>Testing React import...</p>
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <PerformanceMonitor />
+      <BrowserRouter>
+        <div className="min-h-screen">
+          <Header />
+          <BreadcrumbNav className="container mx-auto px-4 py-2" />
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/charts" element={<Charts />} />
+              <Route path="/alerts" element={<Alerts />} />
+              <Route path="/travel" element={<Travel />} />
+              <Route path="/auth" element={<Auth />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-of-service" element={<TermsOfService />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/convert/:pair" element={<CurrencyPair />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
         </div>
-      </TooltipProvider>
-    </QueryClientProvider>
-  );
-};
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
 
 export default App;
