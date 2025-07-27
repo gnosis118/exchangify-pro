@@ -12,13 +12,30 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-background">
       <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
-          Return to Home
-        </a>
+        <h1 className="text-6xl font-bold mb-6 text-foreground">404</h1>
+        <h2 className="text-2xl font-semibold mb-4 text-foreground">Page Not Found</h2>
+        <p className="text-lg text-muted-foreground mb-8 max-w-md mx-auto">
+          The page you're looking for doesn't exist. It might have been moved or deleted.
+        </p>
+        <div className="space-y-4">
+          <a 
+            href="/" 
+            className="inline-block bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary-hover transition-colors"
+          >
+            Return to Home
+          </a>
+          <div className="text-sm text-muted-foreground">
+            <p>Popular pages:</p>
+            <div className="flex flex-wrap justify-center gap-4 mt-2">
+              <a href="/charts" className="text-primary hover:underline">Currency Charts</a>
+              <a href="/alerts" className="text-primary hover:underline">Rate Alerts</a>
+              <a href="/travel" className="text-primary hover:underline">Travel Money</a>
+              <a href="/faq" className="text-primary hover:underline">FAQ</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -108,6 +108,14 @@ const Header = () => {
               <Plane className="h-4 w-4" />
               Travel
             </Link>
+            <Link 
+              to="/faq" 
+              className={`text-sm font-medium transition-colors hover:text-primary ${
+                isActive('/faq') ? 'text-primary' : 'text-muted-foreground'
+              }`}
+            >
+              FAQ
+            </Link>
             
             <NavigationMenu>
               <NavigationMenuList>
@@ -165,6 +173,9 @@ const Header = () => {
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link to="/travel">Travel</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link to="/faq">FAQ</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link to="/privacy-policy">Privacy Policy</Link>

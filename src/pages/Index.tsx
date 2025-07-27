@@ -255,14 +255,21 @@ const Index = () => {
     <div className="min-h-screen bg-converter-bg p-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-foreground mb-2">Currency Converter</h1>
-          <p className="text-muted-foreground text-lg">Real-time exchange rates and cryptocurrency prices</p>
-          <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
-            Convert currencies instantly, track historical rates, set price alerts, and get travel money tips. 
-            Our comprehensive currency tool provides everything you need for international finance, trading, and travel planning.
+        <header className="text-center mb-8">
+          <h1 className="text-4xl font-bold text-foreground mb-2">Free Currency Converter - Live Exchange Rates</h1>
+          <p className="text-muted-foreground text-xl mb-4">Convert 150+ currencies and cryptocurrencies with real-time rates</p>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Get instant currency conversions, track historical exchange rates, set price alerts, and access travel money tips. 
+            Our free currency converter provides accurate real-time data for over 150 fiat currencies and 100+ cryptocurrencies.
           </p>
-        </div>
+          <div className="mt-4 flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
+            <span>✓ Real-time rates</span>
+            <span>✓ 150+ currencies</span>
+            <span>✓ Historical charts</span>
+            <span>✓ Price alerts</span>
+            <span>✓ Travel guides</span>
+          </div>
+        </header>
 
         <div className="grid gap-6 md:grid-cols-2">
           {/* Fiat Currency Converter */}
