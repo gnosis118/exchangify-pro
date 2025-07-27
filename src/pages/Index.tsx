@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { ArrowUpDown, RefreshCw, TrendingUp, TrendingDown } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import homeHero from '@/assets/home-hero.jpg';
 
 interface ExchangeRates {
   [key: string]: number;
@@ -252,24 +253,43 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-converter-bg p-4">
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <header className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-foreground mb-2">Free Currency Converter - Live Exchange Rates</h1>
-          <p className="text-muted-foreground text-xl mb-4">Convert 150+ currencies and cryptocurrencies with real-time rates</p>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Get instant currency conversions, track historical exchange rates, set price alerts, and access travel money tips. 
-            Our free currency converter provides accurate real-time data for over 150 fiat currencies and 100+ cryptocurrencies.
-          </p>
-          <div className="mt-4 flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
-            <span>✓ Real-time rates</span>
-            <span>✓ 150+ currencies</span>
-            <span>✓ Historical charts</span>
-            <span>✓ Price alerts</span>
-            <span>✓ Travel guides</span>
+    <div className="min-h-screen bg-converter-bg">
+      {/* Hero Section */}
+      <div className="relative h-80 md:h-96 overflow-hidden">
+        <img 
+          src={homeHero} 
+          alt="Financial dashboard with currency exchange rates" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+          <div className="text-center text-white px-4 max-w-4xl">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">Currency Converter</h1>
+            <p className="text-lg md:text-xl opacity-90">
+              Get real-time exchange rates and convert currencies instantly
+            </p>
           </div>
-        </header>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="max-w-4xl mx-auto p-4 -mt-16 relative z-10">
+        {/* Header */}
+        <div className="bg-converter-bg rounded-lg shadow-lg p-6 mb-8">
+          <div className="text-center">
+            <p className="text-muted-foreground text-xl mb-4">Convert 150+ currencies and cryptocurrencies with real-time rates</p>
+            <p className="text-muted-foreground max-w-2xl mx-auto mb-4">
+              Get instant currency conversions, track historical exchange rates, set price alerts, and access travel money tips. 
+              Our free currency converter provides accurate real-time data for over 150 fiat currencies and 100+ cryptocurrencies.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
+              <span>✓ Real-time rates</span>
+              <span>✓ 150+ currencies</span>
+              <span>✓ Historical charts</span>
+              <span>✓ Price alerts</span>
+              <span>✓ Travel guides</span>
+            </div>
+          </div>
+        </div>
 
         <div className="grid gap-6 md:grid-cols-2">
           {/* Fiat Currency Converter */}
