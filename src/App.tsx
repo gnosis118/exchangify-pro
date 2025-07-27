@@ -19,6 +19,8 @@ import CurrencyPair from "./pages/CurrencyPair";
 
 
 const App = () => {
+  console.log("App is rendering successfully!");
+  
   return (
     <QueryWrapper>
       <TooltipProvider>
