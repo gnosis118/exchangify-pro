@@ -8,7 +8,7 @@ const Charts = () => {
     "@type": "WebApplication",
     "name": "Currency Exchange Rate Charts",
     "description": "Interactive historical currency exchange rate charts and trends analysis. Track currency performance over time with detailed data visualization.",
-    "url": "https://exchangifypro.com/charts",
+    "url": "https://currencytocurrency.com/charts",
     "applicationCategory": "FinanceApplication",
     "featureList": [
       "Historical exchange rate charts",
@@ -22,10 +22,10 @@ const Charts = () => {
   return (
     <div className="min-h-screen bg-converter-bg">
       <SEOHead
-        title="Currency Exchange Rate Charts & Historical Data | ExchangifyPro"
+        title="Currency Exchange Rate Charts & Historical Data | Currency to Currency"
         description="Interactive historical currency exchange rate charts and trends analysis. Track currency performance over time with detailed data visualization for better investment decisions."
         keywords="currency charts, exchange rate history, currency trends, historical rates, forex charts, currency analysis, exchange rate graphs, currency performance"
-        canonical="https://exchangifypro.com/charts"
+        canonical="https://currencytocurrency.com/charts"
         structuredData={structuredData}
       />
       {/* Hero Section */}

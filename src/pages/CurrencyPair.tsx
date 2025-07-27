@@ -74,7 +74,7 @@ const CurrencyPair = () => {
     "description": `Convert ${getCurrencyName(fromCurrency)} to ${getCurrencyName(toCurrency)} with real-time exchange rates. Live currency conversion rates updated every few minutes.`,
     "provider": {
       "@type": "Organization",
-      "name": "ExchangifyPro"
+      "name": "Currency to Currency"
     },
     "offers": {
       "@type": "Offer",
@@ -86,10 +86,10 @@ const CurrencyPair = () => {
   return (
     <div className="min-h-screen bg-background p-4">
       <SEOHead
-        title={`${fromCurrency} to ${toCurrency} Converter - Live Exchange Rate | ExchangifyPro`}
+        title={`${fromCurrency} to ${toCurrency} Converter - Live Exchange Rate | Currency to Currency`}
         description={`Convert ${getCurrencyName(fromCurrency)} to ${getCurrencyName(toCurrency)} with real-time exchange rates. Live currency conversion rates updated every few minutes for accurate results.`}
         keywords={`${fromCurrency} to ${toCurrency}, ${fromCurrency}${toCurrency}, ${getCurrencyName(fromCurrency)} to ${getCurrencyName(toCurrency)}, currency converter, exchange rate, live rates`}
-        canonical={`https://exchangifypro.com/convert/${fromCurrency}-${toCurrency}`}
+        canonical={`https://currencytocurrency.com/convert/${fromCurrency}-${toCurrency}`}
         structuredData={structuredData}
       />
       <div className="max-w-4xl mx-auto">

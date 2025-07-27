@@ -1,6 +1,6 @@
 {
   "name": "Currency Converter - Real-time Exchange Rates",
-  "short_name": "ExchangifyPro",
+  "short_name": "Currency to Currency",
   "description": "Free currency converter with real-time exchange rates and cryptocurrency prices",
   "start_url": "/",
   "display": "standalone",

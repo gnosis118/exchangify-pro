@@ -21,7 +21,7 @@ export const ShareButton = ({ fromCurrency, toCurrency, amount, convertedAmount,
   const [copied, setCopied] = useState(false);
   const { toast } = useToast();
 
-  const shareText = `💰 ${amount} ${fromCurrency} = ${convertedAmount} ${toCurrency} (Rate: ${rate}) - Convert currencies instantly at ExchangifyPro! 🚀`;
+  const shareText = `💰 ${amount} ${fromCurrency} = ${convertedAmount} ${toCurrency} (Rate: ${rate}) - Convert currencies instantly at Currency to Currency! 🚀`;
   const shareUrl = `${window.location.origin}`;
 
   const handleShare = async (platform: string) => {

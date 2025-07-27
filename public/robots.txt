@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://exchangifypro.com/sitemap.xml
+Sitemap: https://currencytocurrency.com/sitemap.xml
 
 # Crawl-delay to be respectful
 Crawl-delay: 1

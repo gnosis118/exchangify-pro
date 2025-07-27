@@ -84,7 +84,7 @@ export const InstallPrompt = () => {
           </Button>
         </div>
         <p className="text-sm text-muted-foreground mb-3">
-          Install ExchangifyPro for faster access and offline currency conversion!
+          Install Currency to Currency for faster access and offline currency conversion!
         </p>
         <div className="flex gap-2">
           <Button onClick={handleInstall} size="sm" className="flex-1">
