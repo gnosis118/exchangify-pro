@@ -16,6 +16,8 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
 import FAQ from "./pages/FAQ";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import CurrencyPair from "./pages/CurrencyPair";
 import CurrencyPairPage from "./components/CurrencyPairPages";
 
@@ -40,6 +42,8 @@ const App = () => {
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
               <Route path="/faq" element={<FAQ />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/convert/:pair" element={<CurrencyPair />} />
               <Route path="/usd-to-eur" element={<CurrencyPairPage />} />
               <Route path="/usd-to-gbp" element={<CurrencyPairPage />} />
