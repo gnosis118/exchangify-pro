@@ -5,11 +5,11 @@
   
   <!-- Homepage -->
   <url>
-    <loc>https://exchangifypro.com/</loc>
+    <loc>https://currencytocurrency.com/</loc>
     <lastmod>2024-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://exchangifypro.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/" />
     <image:image>
       <image:loc>https://exchangifypro.com/src/assets/home-hero.jpg</image:loc>
       <image:title>Currency Converter Interface</image:title>
