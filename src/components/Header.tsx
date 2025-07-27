@@ -17,7 +17,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Menu, User as UserIcon, LogOut, Calculator, BarChart3, Bell, Plane } from 'lucide-react';
+import { Menu, User as UserIcon, LogOut, Calculator, BarChart3, Bell, Plane, BookOpen } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const Header = () => {
@@ -109,6 +109,15 @@ const Header = () => {
               Travel
             </Link>
             <Link 
+              to="/blog" 
+              className={`text-sm font-medium transition-colors hover:text-primary flex items-center gap-2 ${
+                isActive('/blog') ? 'text-primary' : 'text-muted-foreground'
+              }`}
+            >
+              <BookOpen className="h-4 w-4" />
+              Blog
+            </Link>
+            <Link 
               to="/faq" 
               className={`text-sm font-medium transition-colors hover:text-primary ${
                 isActive('/faq') ? 'text-primary' : 'text-muted-foreground'
@@ -173,6 +182,9 @@ const Header = () => {
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link to="/travel">Travel</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link to="/blog">Blog</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link to="/faq">FAQ</Link>
