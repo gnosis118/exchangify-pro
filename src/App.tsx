@@ -1,8 +1,7 @@
-import React from 'react';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import QueryWrapper from "./components/QueryWrapper";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import BreadcrumbNav from "./components/BreadcrumbNav";
@@ -17,36 +16,34 @@ import NotFound from "./pages/NotFound";
 import FAQ from "./pages/FAQ";
 import CurrencyPair from "./pages/CurrencyPair";
 
+const queryClient = new QueryClient();
 
-const App = () => {
-  console.log("App is rendering successfully!");
-  
-  return (
-    <QueryWrapper>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <div className="min-h-screen">
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
       <BrowserRouter>
-        <Header />
-        <BreadcrumbNav className="container mx-auto px-4 py-2" />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/charts" element={<Charts />} />
-          <Route path="/alerts" element={<Alerts />} />
-          <Route path="/travel" element={<Travel />} />
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms-of-service" element={<TermsOfService />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/convert/:pair" element={<CurrencyPair />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <div className="min-h-screen">
+          <Header />
+          <BreadcrumbNav className="container mx-auto px-4 py-2" />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/charts" element={<Charts />} />
+            <Route path="/alerts" element={<Alerts />} />
+            <Route path="/travel" element={<Travel />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/convert/:pair" element={<CurrencyPair />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
       </BrowserRouter>
-      </div>
-      </TooltipProvider>
-    </QueryWrapper>
-  );
-};
+    </TooltipProvider>
+  </QueryClientProvider>
+);
 
 export default App;

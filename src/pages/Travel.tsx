@@ -1,4 +1,3 @@
-import React from 'react';
 import TravelMoney from '@/components/TravelMoney';
 
 const Travel = () => {

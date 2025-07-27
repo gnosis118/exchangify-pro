@@ -23,7 +23,7 @@ Allow: /
 Crawl-delay: 2
 
 # Sitemaps
-Sitemap: https://currencytocurrency.app/sitemap.xml
+Sitemap: https://your-domain.com/sitemap.xml
 
 # Disallow certain paths for optimization
 Disallow: /api/
