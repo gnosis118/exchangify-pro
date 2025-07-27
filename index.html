@@ -105,6 +105,20 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="application-name" content="ExchangifyPro" />
 
+    <script>
+      // Define dataLayer and gtag function
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+
+      // Set default consent to 'denied' as placeholder
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied', 
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied',
+        'wait_for_update': 500
+      });
+    </script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4QQQGLR7SC"></script>
     <script>

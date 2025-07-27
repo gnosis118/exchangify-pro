@@ -6,6 +6,13 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 
+// Extend window type to include gtag
+declare global {
+  interface Window {
+    gtag: (command: string, action: string, parameters?: any) => void;
+  }
+}
+
 interface CookiePreferences {
   necessary: boolean;
   analytics: boolean;
@@ -28,6 +35,22 @@ const CookieConsent = () => {
     if (!consent) {
       // Show banner after a short delay for better UX
       setTimeout(() => setShowBanner(true), 1000);
+    } else {
+      // Apply existing consent preferences to Google Consent Mode
+      try {
+        const savedConsent = JSON.parse(consent);
+        const prefs = savedConsent.preferences;
+        if (typeof window !== 'undefined' && window.gtag) {
+          window.gtag('consent', 'update', {
+            'analytics_storage': prefs.analytics ? 'granted' : 'denied',
+            'ad_storage': prefs.marketing ? 'granted' : 'denied',
+            'ad_user_data': prefs.marketing ? 'granted' : 'denied',
+            'ad_personalization': prefs.marketing ? 'granted' : 'denied'
+          });
+        }
+      } catch (error) {
+        console.error('Error parsing saved consent:', error);
+      }
     }
   }, []);
 
@@ -37,18 +60,14 @@ const CookieConsent = () => {
       preferences: prefs,
     }));
 
-    // Here you would typically initialize your analytics/marketing scripts
-    if (prefs.analytics) {
-      // Initialize Google Analytics, etc.
-      console.log('Analytics cookies enabled');
-    }
-    if (prefs.marketing) {
-      // Initialize marketing pixels, etc.
-      console.log('Marketing cookies enabled');
-    }
-    if (prefs.functional) {
-      // Initialize functional cookies
-      console.log('Functional cookies enabled');
+    // Update Google Consent Mode based on user preferences
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('consent', 'update', {
+        'analytics_storage': prefs.analytics ? 'granted' : 'denied',
+        'ad_storage': prefs.marketing ? 'granted' : 'denied',
+        'ad_user_data': prefs.marketing ? 'granted' : 'denied',
+        'ad_personalization': prefs.marketing ? 'granted' : 'denied'
+      });
     }
 
     setShowBanner(false);
