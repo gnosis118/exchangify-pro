@@ -1,9 +1,33 @@
 import RateAlerts from '@/components/RateAlerts';
+import SEOHead from '@/components/SEOHead';
 import alertsHero from '@/assets/alerts-hero.jpg';
 
 const Alerts = () => {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication", 
+    "name": "Currency Rate Alerts",
+    "description": "Set personalized currency exchange rate alerts and get notified when rates reach your target levels. Never miss the perfect exchange rate opportunity.",
+    "url": "https://exchangifypro.com/alerts",
+    "applicationCategory": "FinanceApplication",
+    "featureList": [
+      "Personalized rate alerts",
+      "Email notifications",
+      "Target rate monitoring",
+      "Multiple currency pairs",
+      "Real-time rate tracking"
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-converter-bg">
+      <SEOHead
+        title="Currency Rate Alerts & Notifications | ExchangifyPro"
+        description="Set personalized currency exchange rate alerts and get notified when rates reach your target levels. Never miss the perfect exchange rate opportunity with email notifications."
+        keywords="currency alerts, exchange rate notifications, rate alerts, currency monitoring, forex alerts, exchange rate tracking, currency price alerts, rate notifications"
+        canonical="https://exchangifypro.com/alerts"
+        structuredData={structuredData}
+      />
       {/* Hero Section */}
       <div className="relative h-80 md:h-96 overflow-hidden">
         <img 

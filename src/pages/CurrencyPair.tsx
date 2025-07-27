@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import SEOHead from '@/components/SEOHead';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -66,8 +67,31 @@ const CurrencyPair = () => {
 
   const getCurrencyName = (code: string) => currencyNames[code as keyof typeof currencyNames] || code;
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "FinancialProduct",
+    "name": `${fromCurrency} to ${toCurrency} Currency Converter`,
+    "description": `Convert ${getCurrencyName(fromCurrency)} to ${getCurrencyName(toCurrency)} with real-time exchange rates. Live currency conversion rates updated every few minutes.`,
+    "provider": {
+      "@type": "Organization",
+      "name": "ExchangifyPro"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background p-4">
+      <SEOHead
+        title={`${fromCurrency} to ${toCurrency} Converter - Live Exchange Rate | ExchangifyPro`}
+        description={`Convert ${getCurrencyName(fromCurrency)} to ${getCurrencyName(toCurrency)} with real-time exchange rates. Live currency conversion rates updated every few minutes for accurate results.`}
+        keywords={`${fromCurrency} to ${toCurrency}, ${fromCurrency}${toCurrency}, ${getCurrencyName(fromCurrency)} to ${getCurrencyName(toCurrency)}, currency converter, exchange rate, live rates`}
+        canonical={`https://exchangifypro.com/convert/${fromCurrency}-${toCurrency}`}
+        structuredData={structuredData}
+      />
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-foreground mb-2">

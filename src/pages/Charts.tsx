@@ -1,9 +1,33 @@
 import HistoricalChart from '@/components/HistoricalChart';
+import SEOHead from '@/components/SEOHead';
 import chartsHero from '@/assets/charts-hero.jpg';
 
 const Charts = () => {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Currency Exchange Rate Charts",
+    "description": "Interactive historical currency exchange rate charts and trends analysis. Track currency performance over time with detailed data visualization.",
+    "url": "https://exchangifypro.com/charts",
+    "applicationCategory": "FinanceApplication",
+    "featureList": [
+      "Historical exchange rate charts",
+      "Currency trend analysis", 
+      "Interactive data visualization",
+      "Multiple time periods",
+      "Currency performance tracking"
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-converter-bg">
+      <SEOHead
+        title="Currency Exchange Rate Charts & Historical Data | ExchangifyPro"
+        description="Interactive historical currency exchange rate charts and trends analysis. Track currency performance over time with detailed data visualization for better investment decisions."
+        keywords="currency charts, exchange rate history, currency trends, historical rates, forex charts, currency analysis, exchange rate graphs, currency performance"
+        canonical="https://exchangifypro.com/charts"
+        structuredData={structuredData}
+      />
       {/* Hero Section */}
       <div className="relative h-80 md:h-96 overflow-hidden">
         <img 

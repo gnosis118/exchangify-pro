@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { useEffect } from 'react';
+import SEOHead from '@/components/SEOHead';
 
 const FAQ = () => {
   const faqs = [
@@ -72,8 +73,28 @@ const FAQ = () => {
     };
   }, []);
 
+  const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer", 
+        "text": faq.answer
+      }
+    }))
+  };
+
   return (
     <div className="min-h-screen bg-background p-4">
+      <SEOHead
+        title="Frequently Asked Questions - Currency Converter Help | ExchangifyPro"
+        description="Find answers to common questions about our currency converter, exchange rates, fees, security, and features. Get help with using our free currency conversion tools."
+        keywords="currency converter FAQ, exchange rate questions, currency conversion help, forex FAQ, currency converter support, exchange rate accuracy"
+        canonical="https://exchangifypro.com/faq"
+        structuredData={faqStructuredData}
+      />
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-foreground mb-4">Frequently Asked Questions</h1>

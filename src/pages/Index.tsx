@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { ShareButton } from '@/components/ShareButton';
 import { InstallPrompt } from '@/components/InstallPrompt';
+import SEOHead from '@/components/SEOHead';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -251,8 +252,42 @@ const Index = () => {
     fetchCryptoPrice(selectedCrypto, cryptoTargetCurrency);
   };
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "ExchangifyPro Currency Converter",
+    "description": "Free real-time currency converter with support for 150+ fiat currencies and 100+ cryptocurrencies. Get instant exchange rates, historical charts, and price alerts.",
+    "url": "https://exchangifypro.com",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Real-time exchange rates",
+      "150+ fiat currencies",
+      "100+ cryptocurrencies", 
+      "Historical rate charts",
+      "Price alerts",
+      "Travel money guides"
+    ],
+    "provider": {
+      "@type": "Organization",
+      "name": "ExchangifyPro"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-converter-bg">
+      <SEOHead
+        title="Free Currency Converter - Live Exchange Rates | ExchangifyPro"
+        description="Convert currencies instantly with live exchange rates. Support for 150+ fiat currencies and 100+ cryptocurrencies. Free real-time currency converter with historical charts and price alerts."
+        keywords="currency converter, exchange rates, live rates, cryptocurrency prices, currency conversion, foreign exchange, forex, bitcoin converter, real-time rates, USD to EUR, GBP to USD"
+        canonical="https://exchangifypro.com"
+        structuredData={structuredData}
+      />
       {/* Hero Section */}
       <div className="relative h-80 md:h-96 overflow-hidden">
         <img 

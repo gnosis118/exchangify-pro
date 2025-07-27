@@ -5,38 +5,38 @@
   
   <!-- Homepage -->
   <url>
-    <loc>https://your-domain.com/</loc>
+    <loc>https://exchangifypro.com/</loc>
     <lastmod>2024-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://exchangifypro.com/" />
   </url>
   
   <!-- Charts Page -->
   <url>
-    <loc>https://your-domain.com/charts</loc>
+    <loc>https://exchangifypro.com/charts</loc>
     <lastmod>2024-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/charts" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://exchangifypro.com/charts" />
   </url>
   
   <!-- Alerts Page -->
   <url>
-    <loc>https://your-domain.com/alerts</loc>
+    <loc>https://exchangifypro.com/alerts</loc>
     <lastmod>2024-07-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/alerts" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://exchangifypro.com/alerts" />
   </url>
   
   <!-- Travel Money Page -->
   <url>
-    <loc>https://your-domain.com/travel</loc>
+    <loc>https://exchangifypro.com/travel</loc>
     <lastmod>2024-07-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/travel" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://exchangifypro.com/travel" />
   </url>
   
   <!-- Auth Page -->
@@ -68,43 +68,43 @@
   
   <!-- Popular Currency Pair Pages -->
   <url>
-    <loc>https://your-domain.com/convert/usd-to-eur</loc>
+    <loc>https://exchangifypro.com/convert/USD-EUR</loc>
     <lastmod>2024-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/convert/usd-to-eur" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://exchangifypro.com/convert/USD-EUR" />
   </url>
   
   <url>
-    <loc>https://your-domain.com/convert/gbp-to-usd</loc>
+    <loc>https://exchangifypro.com/convert/GBP-USD</loc>
     <lastmod>2024-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/convert/gbp-to-usd" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://exchangifypro.com/convert/GBP-USD" />
   </url>
   
   <url>
-    <loc>https://your-domain.com/convert/eur-to-gbp</loc>
+    <loc>https://exchangifypro.com/convert/EUR-GBP</loc>
     <lastmod>2024-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/convert/eur-to-gbp" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://exchangifypro.com/convert/EUR-GBP" />
   </url>
   
   <url>
-    <loc>https://your-domain.com/convert/cad-to-usd</loc>
+    <loc>https://exchangifypro.com/convert/CAD-USD</loc>
     <lastmod>2024-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/convert/cad-to-usd" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://exchangifypro.com/convert/CAD-USD" />
   </url>
   
   <url>
-    <loc>https://your-domain.com/faq</loc>
+    <loc>https://exchangifypro.com/faq</loc>
     <lastmod>2024-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/faq" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://exchangifypro.com/faq" />
   </url>
 
 </urlset>

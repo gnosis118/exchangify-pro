@@ -1,9 +1,33 @@
 import TravelMoney from '@/components/TravelMoney';
+import SEOHead from '@/components/SEOHead';
 import travelHero from '@/assets/travel-hero.jpg';
 
 const Travel = () => {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Travel Money Guide",
+    "description": "Essential currency guides and budget calculators for international travel. Get money exchange tips and currency information for popular destinations worldwide.",
+    "url": "https://exchangifypro.com/travel",
+    "applicationCategory": "TravelApplication",
+    "featureList": [
+      "Travel currency guides",
+      "Budget calculators",
+      "Money exchange tips",
+      "Destination currency info",
+      "Travel money planning"
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-converter-bg">
+      <SEOHead
+        title="Travel Money Guide & Currency Tips | ExchangifyPro"
+        description="Essential currency guides and budget calculators for international travel. Get money exchange tips and currency information for popular destinations worldwide."
+        keywords="travel money, currency exchange travel, travel budget calculator, international travel money, foreign currency guide, travel currency tips, vacation money planning"
+        canonical="https://exchangifypro.com/travel"
+        structuredData={structuredData}
+      />
       {/* Hero Section */}
       <div className="relative h-80 md:h-96 overflow-hidden">
         <img 
