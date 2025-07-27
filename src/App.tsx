@@ -19,32 +19,38 @@ import CurrencyPair from "./pages/CurrencyPair";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <div className="min-h-screen">
-          <Header />
-          <BreadcrumbNav className="container mx-auto px-4 py-2" />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/charts" element={<Charts />} />
-            <Route path="/alerts" element={<Alerts />} />
-            <Route path="/travel" element={<Travel />} />
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/terms-of-service" element={<TermsOfService />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/convert/:pair" element={<CurrencyPair />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </div>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  // Debug: Ensure React is available
+  console.log('React in App component:', React);
+  console.log('React hooks available:', { useState: React.useState, useEffect: React.useEffect });
+  
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <div className="min-h-screen">
+            <Header />
+            <BreadcrumbNav className="container mx-auto px-4 py-2" />
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/charts" element={<Charts />} />
+              <Route path="/alerts" element={<Alerts />} />
+              <Route path="/travel" element={<Travel />} />
+              <Route path="/auth" element={<Auth />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-of-service" element={<TermsOfService />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/convert/:pair" element={<CurrencyPair />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
