@@ -48,7 +48,43 @@
     <!-- Performance Hints -->
     <link rel="preconnect" href="https://api.exchangerate-api.com" />
     <link rel="preconnect" href="https://api.coingecko.com" />
-    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="//api.exchangerate-api.com" />
+    <link rel="dns-prefetch" href="//api.coingecko.com" />
+    
+    <!-- Optimized Font Loading with font-display: swap -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
+    
+    <!-- Critical CSS Inlined -->
+    <style>
+      /* Critical above-the-fold styles */
+      html { font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; }
+      body { margin: 0; padding: 0; background-color: hsl(var(--background)); color: hsl(var(--foreground)); }
+      .min-h-screen { min-height: 100vh; }
+      .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+      
+      /* Critical header styles */
+      header { position: sticky; top: 0; z-index: 50; background: hsl(var(--background) / 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid hsl(var(--border)); }
+      
+      /* Critical loading state */
+      .loading-skeleton { background: linear-gradient(90deg, hsl(var(--muted)) 25%, hsl(var(--muted-foreground) / 0.1) 50%, hsl(var(--muted)) 75%); background-size: 200% 100%; animation: loading 1.5s infinite; }
+      @keyframes loading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+      
+      /* Critical layout */
+      .flex { display: flex; }
+      .items-center { align-items: center; }
+      .justify-between { justify-content: space-between; }
+      .space-y-4 > * + * { margin-top: 1rem; }
+      .space-x-4 > * + * { margin-left: 1rem; }
+      
+      /* Critical responsive */
+      @media (max-width: 768px) {
+        .container { padding: 0 0.75rem; }
+        .hidden-mobile { display: none; }
+      }
+    </style>
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -165,13 +201,16 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="application-name" content="Currency to Currency" />
 
+    <!-- Cache Control Headers -->
+    <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable" />
+    <meta http-equiv="Expires" content="31536000" />
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4QQQGLR7SC"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-4QQQGLR7SC');
     </script>
   </head>
@@ -179,18 +218,48 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Enhanced Service Worker with Caching -->
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('/sw.js')
             .then((registration) => {
               console.log('SW registered: ', registration);
+              
+              // Check for updates
+              registration.addEventListener('updatefound', () => {
+                const newWorker = registration.installing;
+                if (newWorker) {
+                  newWorker.addEventListener('statechange', () => {
+                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                      // New version available
+                      if (confirm('New version available! Reload to update?')) {
+                        window.location.reload();
+                      }
+                    }
+                  });
+                }
+              });
             })
             .catch((registrationError) => {
               console.log('SW registration failed: ', registrationError);
             });
         });
       }
+      
+      // Preload critical resources
+      const preloadResources = [
+        '/src/components/CurrencyConverter.tsx',
+        '/src/pages/Index.tsx'
+      ];
+      
+      preloadResources.forEach(resource => {
+        const link = document.createElement('link');
+        link.rel = 'modulepreload';
+        link.href = resource;
+        document.head.appendChild(link);
+      });
     </script>
   </body>
 </html>
