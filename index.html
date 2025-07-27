@@ -55,6 +55,16 @@
     <!-- Resource Hints for Core Web Vitals -->
     <link rel="preload" href="/src/main.tsx" as="script" />
     <link rel="modulepreload" href="/src/main.tsx" />
+    <link rel="preload" href="/src/components/ui/button.tsx" as="script" />
+    <link rel="preload" href="/src/components/ui/card.tsx" as="script" />
+    
+    <!-- Critical CSS inline -->
+    <style>
+      .converter-bg { background: hsl(var(--background)); }
+      .text-primary { color: hsl(var(--primary)); }
+      .loading-spinner { animation: spin 1s linear infinite; }
+      @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    </style>
     
     <!-- Structured Data -->
     <script type="application/ld+json">

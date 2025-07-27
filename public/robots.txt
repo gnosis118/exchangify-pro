@@ -4,6 +4,16 @@ Allow: /
 # Sitemaps
 Sitemap: https://currencytocurrency.com/sitemap.xml
 
+# Allow important currency pair pages
+Allow: /usd-to-eur
+Allow: /usd-to-gbp
+Allow: /usd-to-jpy
+Allow: /eur-to-gbp
+Allow: /usd-to-cad
+Allow: /usd-to-aud
+Allow: /gbp-to-usd
+Allow: /eur-to-usd
+
 # Crawl-delay to be respectful
 Crawl-delay: 1
 

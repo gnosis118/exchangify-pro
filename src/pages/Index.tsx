@@ -256,38 +256,114 @@ const Index = () => {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "ExchangifyPro Currency Converter",
-    "description": "Free real-time currency converter with support for 150+ fiat currencies and 100+ cryptocurrencies. Get instant exchange rates, historical charts, and price alerts.",
-    "url": "https://exchangifypro.com",
-    "applicationCategory": "FinanceApplication",
-    "operatingSystem": "Web Browser",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "featureList": [
-      "Real-time exchange rates",
-      "150+ fiat currencies",
-      "100+ cryptocurrencies", 
-      "Historical rate charts",
-      "Price alerts",
-      "Travel money guides"
-    ],
-    "provider": {
-      "@type": "Organization",
-      "name": "ExchangifyPro"
-    }
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://currencytocurrency.com/#application",
+        "name": "Currency to Currency Converter",
+        "description": "Free real-time currency converter with support for 150+ fiat currencies and 100+ cryptocurrencies. Get instant exchange rates, historical charts, and price alerts.",
+        "url": "https://currencytocurrency.com",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web Browser",
+        "browserRequirements": "HTML5, JavaScript",
+        "softwareVersion": "2.0",
+        "datePublished": "2024-01-01",
+        "dateModified": new Date().toISOString().split('T')[0],
+        "inLanguage": "en-US",
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "featureList": [
+          "Real-time exchange rates",
+          "150+ fiat currencies",
+          "100+ cryptocurrencies", 
+          "Historical rate charts",
+          "Price alerts",
+          "Travel money guides",
+          "Offline conversion calculator",
+          "Currency trend analysis"
+        ],
+        "creator": {
+          "@type": "Organization",
+          "@id": "https://currencytocurrency.com/#organization"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://currencytocurrency.com/#organization"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://currencytocurrency.com/#organization",
+        "name": "Currency to Currency",
+        "url": "https://currencytocurrency.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://currencytocurrency.com/icon-512.png",
+          "width": 512,
+          "height": 512
+        },
+        "sameAs": [
+          "https://currencytocurrency.com"
+        ]
+      },
+      {
+        "@type": "Service",
+        "@id": "https://currencytocurrency.com/#service",
+        "name": "Currency Conversion Service",
+        "description": "Professional currency conversion and exchange rate tracking service",
+        "provider": {
+          "@type": "Organization",
+          "@id": "https://currencytocurrency.com/#organization"
+        },
+        "serviceType": "Currency Conversion",
+        "areaServed": "Worldwide",
+        "availableLanguage": "English"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://currencytocurrency.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How accurate are the exchange rates?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our exchange rates are updated in real-time from multiple financial data sources, ensuring accuracy within 1-2% of live market rates."
+            }
+          },
+          {
+            "@type": "Question", 
+            "name": "How many currencies do you support?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We support over 150 fiat currencies and 100+ cryptocurrencies for comprehensive conversion needs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is the currency converter free to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, our currency converter is completely free to use with no registration required."
+            }
+          }
+        ]
+      }
+    ]
   };
 
   return (
     <div className="min-h-screen bg-converter-bg">
       <SEOHead
-        title="Free Currency Converter - Live Exchange Rates | ExchangifyPro"
+        title="Free Currency Converter - Live Exchange Rates | Currency to Currency"
         description="Convert currencies instantly with live exchange rates. Support for 150+ fiat currencies and 100+ cryptocurrencies. Free real-time currency converter with historical charts and price alerts."
-        keywords="currency converter, exchange rates, live rates, cryptocurrency prices, currency conversion, foreign exchange, forex, bitcoin converter, real-time rates, USD to EUR, GBP to USD"
-        canonical="https://exchangifypro.com"
+        keywords="currency converter, exchange rates, live rates, cryptocurrency prices, currency conversion, foreign exchange, forex, bitcoin converter, real-time rates, USD to EUR, GBP to USD, currency calculator, money converter"
+        canonical="https://currencytocurrency.com"
         structuredData={structuredData}
       />
       {/* Hero Section */}

@@ -17,6 +17,7 @@ import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
 import FAQ from "./pages/FAQ";
 import CurrencyPair from "./pages/CurrencyPair";
+import CurrencyPairPage from "./components/CurrencyPairPages";
 
 const App = () => {
   const [queryClient] = useState(() => new QueryClient());
@@ -40,6 +41,14 @@ const App = () => {
               <Route path="/terms-of-service" element={<TermsOfService />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/convert/:pair" element={<CurrencyPair />} />
+              <Route path="/usd-to-eur" element={<CurrencyPairPage />} />
+              <Route path="/usd-to-gbp" element={<CurrencyPairPage />} />
+              <Route path="/usd-to-jpy" element={<CurrencyPairPage />} />
+              <Route path="/eur-to-gbp" element={<CurrencyPairPage />} />
+              <Route path="/usd-to-cad" element={<CurrencyPairPage />} />
+              <Route path="/usd-to-aud" element={<CurrencyPairPage />} />
+              <Route path="/gbp-to-usd" element={<CurrencyPairPage />} />
+              <Route path="/eur-to-usd" element={<CurrencyPairPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
