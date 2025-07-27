@@ -10,7 +10,7 @@ interface SEOHeadProps {
 }
 
 const SEOHead = ({ 
-  title = "Free Currency Converter - Live Exchange Rates | ExchangifyPro",
+  title = "Currency to Currency - Free Live Exchange Rates Converter",
   description = "Convert currencies instantly with live exchange rates. Support for 150+ fiat currencies and 100+ cryptocurrencies. Free real-time currency converter with historical charts and price alerts.",
   keywords = "currency converter, exchange rates, live rates, cryptocurrency prices, currency conversion, foreign exchange, forex, bitcoin converter",
   canonical,
