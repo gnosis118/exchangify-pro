@@ -20,10 +20,6 @@ import CurrencyPair from "./pages/CurrencyPair";
 const queryClient = new QueryClient();
 
 const App = () => {
-  // Debug: Ensure React is available
-  console.log('React in App component:', React);
-  console.log('React hooks available:', { useState: React.useState, useEffect: React.useEffect });
-  
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
