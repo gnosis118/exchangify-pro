@@ -128,6 +128,7 @@
       function gtag(){dataLayer.push(arguments);}
 
       // Set default consent to 'denied' as placeholder
+      // This must happen before loading gtag.js
       gtag('consent', 'default', {
         'ad_storage': 'denied',
         'ad_user_data': 'denied', 
@@ -135,6 +136,12 @@
         'analytics_storage': 'denied',
         'wait_for_update': 500
       });
+
+      // Enable URL passthrough for improved measurement when cookies are denied
+      gtag('set', 'url_passthrough', true);
+      
+      // Enable ads data redaction when ad_storage is denied
+      gtag('set', 'ads_data_redaction', true);
     </script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4QQQGLR7SC"></script>
