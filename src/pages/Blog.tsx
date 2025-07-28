@@ -6,6 +6,16 @@ import SEOHead from '@/components/SEOHead';
 
 const blogPosts = [
   {
+    id: '2025-currency-market-predictions',
+    title: '2025 Currency Market Predictions: What to Expect This Year',
+    excerpt: '2025 promises pivotal changes for global currencies. JP Morgan forecasts Dollar gains of 5.9%, Euro parity testing, and emerging market volatility. Get expert insights for strategic planning.',
+    keywords: ['2025 currency predictions', 'forex forecasts', 'currency market outlook', 'exchange rate predictions', 'economic trends'],
+    readTime: '18 min read',
+    publishDate: '2025-01-28',
+    category: 'Market Analysis',
+    featured: true
+  },
+  {
     id: 'currency-exchange-fees-hidden-costs',
     title: 'Currency Exchange Fees: Hidden Costs That Eat Your Money',
     excerpt: 'Americans lost $5.8 billion to hidden exchange fees in 2023. Discover the 5 types of hidden charges providers use and proven strategies to save up to 85% on currency exchanges.',
