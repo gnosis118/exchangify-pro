@@ -9,6 +9,9 @@ import { Calendar, Clock, TrendingUp, ArrowUpDown, RefreshCw } from 'lucide-reac
 import SEOHead from '@/components/SEOHead';
 import { useToast } from '@/hooks/use-toast';
 import CurrencyConverter from '@/components/CurrencyConverter';
+import usdEurHero from '@/assets/usd-eur-hero.jpg';
+import currencyAnalytics from '@/assets/currency-analytics.jpg';
+import globalFinance from '@/assets/global-finance.jpg';
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -75,6 +78,15 @@ const BlogPost = () => {
       />
 
       <article className="container mx-auto px-4 max-w-4xl">
+        {/* Hero Image */}
+        <div className="mb-8 rounded-lg overflow-hidden">
+          <img 
+            src={usdEurHero} 
+            alt="USD to EUR currency exchange concept with digital interface and real-time rates"
+            className="w-full h-[400px] object-cover"
+          />
+        </div>
+
         <header className="mb-8">
           <div className="flex items-center gap-4 mb-4">
             <Badge>Exchange Rates</Badge>
@@ -200,6 +212,15 @@ const BlogPost = () => {
               Current positioning data shows hedge funds and institutional investors increasingly favoring Euro exposure, contributing to sustained upward pressure on EUR/USD and corresponding USD/EUR weakness.
             </p>
           </section>
+
+          {/* Analytics Image */}
+          <div className="mb-8 rounded-lg overflow-hidden">
+            <img 
+              src={currencyAnalytics} 
+              alt="Financial market analysis dashboard showing USD/EUR currency exchange charts and real-time data"
+              className="w-full h-[300px] object-cover"
+            />
+          </div>
 
           <section className="mb-8">
             <h2 className="text-2xl font-semibold mb-4">Section 3: Best Times to Convert USD to EUR</h2>
@@ -364,6 +385,15 @@ const BlogPost = () => {
               </table>
             </div>
           </section>
+
+          {/* Global Finance Image */}
+          <div className="mb-8 rounded-lg overflow-hidden">
+            <img 
+              src={globalFinance} 
+              alt="Global banking and money transfer services illustration showing international finance and currency conversion"
+              className="w-full h-[300px] object-cover"
+            />
+          </div>
 
           <section className="mb-8">
             <h2 className="text-2xl font-semibold mb-4">Section 5: Factors Moving USD/EUR Rates</h2>
