@@ -1369,98 +1369,246 @@ const BlogPost = () => {
           </header>
 
           <div className="prose prose-lg max-w-none space-y-8">
+            {/* Introduction */}
             <div className="text-lg text-muted-foreground border-l-4 border-primary pl-6 bg-muted/30 p-6 rounded-r-lg">
-              As we step into 2025, the global currency landscape stands at a pivotal crossroads. With central banks navigating post-pandemic monetary policies and geopolitical tensions reshaping trade relationships, understanding currency trends has never been more crucial for investors and travelers alike.
+              <p className="mb-4">
+                **2025 promises to be a pivotal year for global currencies**, with major central banks navigating unprecedented policy divergence while geopolitical tensions reshape international trade flows. The year has already delivered significant surprises, from the **US Dollar's 7% appreciation** despite Federal Reserve rate cuts to the **Euro's resilience** amid European Central Bank easing cycles.
+              </p>
+              <p className="mb-4">
+                **Major predictions emerging from leading financial institutions** point toward continued **Dollar strength**, potential **Euro parity testing**, and **emerging market volatility** driven by trade policy uncertainty. **JP Morgan forecasts** the Dollar could gain another **5.9%** in the first half of 2025, while the **OECD warns** of global GDP growth slowing to **2.5%** amid rising trade barriers.
+              </p>
+              <p className="text-sm font-medium text-orange-600">
+                **Important disclaimer:** Currency predictions involve significant uncertainty, and past performance does not guarantee future results. Markets can experience rapid reversals based on unforeseen events.
+              </p>
             </div>
 
+            {/* Section 1: Global Economic Backdrop */}
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-primary">Key Factors Shaping 2025 Currency Markets</h2>
+              <h2 className="text-3xl font-bold mb-6 text-primary">Global Economic Backdrop</h2>
               
-              <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div className="grid md:grid-cols-2 gap-6 mb-8">
                 <Card>
                   <CardHeader>
-                    <CardTitle className="text-lg">Central Bank Policies</CardTitle>
+                    <CardTitle className="text-xl">Post-Inflation Recovery</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground">The Federal Reserve's dovish stance and ECB's cautious approach will significantly impact USD and EUR strength throughout 2025.</p>
+                    <p className="text-muted-foreground mb-3">
+                      Global inflation continues its **gradual descent** from 2022 peaks, with **headline inflation** expected to reach **4%** by year-end 2025. However, **core inflation remains sticky** across major economies.
+                    </p>
+                    <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
+                      <p className="text-sm font-medium">Key: Services inflation proving particularly persistent</p>
+                    </div>
                   </CardContent>
                 </Card>
                 
                 <Card>
                   <CardHeader>
-                    <CardTitle className="text-lg">Geopolitical Tensions</CardTitle>
+                    <CardTitle className="text-xl">Central Bank Divergence</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground">Ongoing trade relationships between major economies will create volatility in traditional safe-haven currencies.</p>
+                    <p className="text-muted-foreground mb-3">
+                      The **Federal Reserve** maintains rates at **4.25%-4.50%** while the **ECB** is expected to deliver **110 basis points** of easing. The **Bank of Japan** faces potential **47 basis points** of rate hikes.
+                    </p>
+                    <div className="bg-green-50 dark:bg-green-900/20 p-3 rounded-lg">
+                      <p className="text-sm font-medium">Widest policy divergence since 1994</p>
+                    </div>
                   </CardContent>
                 </Card>
               </div>
 
-              <div className="mb-8 rounded-lg overflow-hidden">
-                <img 
-                  src={currencyAnalytics} 
-                  alt="Currency analytics and market data visualization"
-                  className="w-full h-[300px] object-cover"
-                />
+              <h3 className="text-2xl font-semibold mb-4">Key Economic Indicators</h3>
+              <div className="overflow-x-auto mb-8">
+                <table className="w-full border-collapse border border-border">
+                  <thead>
+                    <tr className="bg-muted">
+                      <th className="border border-border p-4 text-left">Region</th>
+                      <th className="border border-border p-4 text-left">2024 GDP Growth</th>
+                      <th className="border border-border p-4 text-left">2025 Forecast</th>
+                      <th className="border border-border p-4 text-left">Key Drivers</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="border border-border p-4 font-semibold">🇺🇸 United States</td>
+                      <td className="border border-border p-4">2.7%</td>
+                      <td className="border border-border p-4">2.2%</td>
+                      <td className="border border-border p-4">Productivity, business investment</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-border p-4 font-semibold">🇪🇺 Eurozone</td>
+                      <td className="border border-border p-4">1.1%</td>
+                      <td className="border border-border p-4">1.3%</td>
+                      <td className="border border-border p-4">Energy costs, recovery</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-border p-4 font-semibold">🇨🇳 China</td>
+                      <td className="border border-border p-4">4.8%</td>
+                      <td className="border border-border p-4">4.5%</td>
+                      <td className="border border-border p-4">Property sector challenges</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-border p-4 font-semibold">🇯🇵 Japan</td>
+                      <td className="border border-border p-4">0.8%</td>
+                      <td className="border border-border p-4">1.2%</td>
+                      <td className="border border-border p-4">Corporate investment</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </section>
 
+            {/* Section 2: Major Currency Predictions */}
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-primary">Currency Predictions by Region</h2>
+              <h2 className="text-3xl font-bold mb-6 text-primary">Major Currency Predictions</h2>
               
               <div className="space-y-6">
                 <Card>
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <span className="text-2xl">🇺🇸</span>
-                      US Dollar (USD)
+                    <CardTitle className="flex items-center gap-3 text-2xl">
+                      <span className="text-3xl">🇺🇸</span>
+                      US Dollar (USD) Outlook
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-3">
-                    <p><strong>Outlook:</strong> Cautiously Bullish</p>
-                    <p>The dollar is expected to remain resilient despite Fed rate cuts, supported by strong economic fundamentals and its safe-haven status.</p>
+                  <CardContent className="space-y-4">
                     <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
-                      <p className="text-sm"><strong>Key Drivers:</strong> GDP growth, employment data, and geopolitical stability</p>
+                      <p className="font-semibold text-green-800 dark:text-green-200">Outlook: Continued Strength</p>
+                      <p className="text-green-700 dark:text-green-300">JP Morgan forecasts 5.9% additional gains in H1 2025</p>
+                    </div>
+                    
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <h4 className="font-semibold mb-2">Federal Reserve Policy</h4>
+                        <ul className="text-sm space-y-1 text-muted-foreground">
+                          <li>• Rates at 4.25%-4.50%</li>
+                          <li>• Only 44 basis points of cuts priced</li>
+                          <li>• "Higher for longer" approach</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold mb-2">Economic Fundamentals</h4>
+                        <ul className="text-sm space-y-1 text-muted-foreground">
+                          <li>• Superior productivity growth</li>
+                          <li>• AI and automation investment</li>
+                          <li>• Safe-haven demand</li>
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg">
+                      <p className="text-sm text-orange-800 dark:text-orange-200">
+                        <strong>Risk:</strong> DXY Index at multidecade highs (117.2) - limited room for further appreciation
+                      </p>
                     </div>
                   </CardContent>
                 </Card>
 
                 <Card>
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <span className="text-2xl">🇪🇺</span>
-                      Euro (EUR)
+                    <CardTitle className="flex items-center gap-3 text-2xl">
+                      <span className="text-3xl">🇪🇺</span>
+                      Euro (EUR) Forecast
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-3">
-                    <p><strong>Outlook:</strong> Moderately Bearish</p>
-                    <p>The Euro faces headwinds from economic uncertainty and ECB's accommodative stance, though structural reforms may provide support.</p>
+                  <CardContent className="space-y-4">
                     <div className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg">
-                      <p className="text-sm"><strong>Key Risks:</strong> Energy costs, political stability, and growth concerns</p>
+                      <p className="font-semibold text-yellow-800 dark:text-yellow-200">Outlook: Testing Parity Levels</p>
+                      <p className="text-yellow-700 dark:text-yellow-300">ECB delivering aggressive easing cycle</p>
+                    </div>
+                    
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <h4 className="font-semibold mb-2">ECB Policy Path</h4>
+                        <ul className="text-sm space-y-1 text-muted-foreground">
+                          <li>• 8 rate cuts since June 2024</li>
+                          <li>• Deposit rate at 2.00%</li>
+                          <li>• Additional 110 bps expected</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold mb-2">Economic Challenges</h4>
+                        <ul className="text-sm space-y-1 text-muted-foreground">
+                          <li>• 0.3% growth in Q1 2025</li>
+                          <li>• German manufacturing weakness</li>
+                          <li>• Elevated energy costs</li>
+                        </ul>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
 
                 <Card>
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <span className="text-2xl">🇬🇧</span>
-                      British Pound (GBP)
+                    <CardTitle className="flex items-center gap-3 text-2xl">
+                      <span className="text-3xl">🇬🇧</span>
+                      British Pound (GBP) Analysis
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-3">
-                    <p><strong>Outlook:</strong> Neutral to Positive</p>
-                    <p>Sterling may benefit from higher interest rates and economic stabilization, though Brexit-related uncertainties persist.</p>
+                  <CardContent className="space-y-4">
                     <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
-                      <p className="text-sm"><strong>Watch:</strong> BoE policy decisions and trade relationship developments</p>
+                      <p className="font-semibold text-blue-800 dark:text-blue-200">Outlook: Cautious Optimism</p>
+                      <p className="text-blue-700 dark:text-blue-300">Higher rates and Brexit stability provide support</p>
+                    </div>
+                    
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <h4 className="font-semibold mb-2">Bank of England</h4>
+                        <ul className="text-sm space-y-1 text-muted-foreground">
+                          <li>• Rates at 5.25%</li>
+                          <li>• 75 bps cuts priced for 2025</li>
+                          <li>• Services inflation elevated</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold mb-2">Brexit Developments</h4>
+                        <ul className="text-sm space-y-1 text-muted-foreground">
+                          <li>• Trade relationships stabilizing</li>
+                          <li>• Windsor Framework working</li>
+                          <li>• Financial services adapting</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-3 text-2xl">
+                      <span className="text-3xl">🇯🇵</span>
+                      Japanese Yen (JPY) Projections
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+                      <p className="font-semibold text-red-800 dark:text-red-200">Outlook: Intervention Risk</p>
+                      <p className="text-red-700 dark:text-red-300">BOJ watching 150 USD/JPY threshold closely</p>
+                    </div>
+                    
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <h4 className="font-semibold mb-2">BOJ Policy</h4>
+                        <ul className="text-sm space-y-1 text-muted-foreground">
+                          <li>• Ultra-accommodative stance</li>
+                          <li>• Gradual normalization</li>
+                          <li>• Data-dependent approach</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold mb-2">Economic Revival</h4>
+                        <ul className="text-sm space-y-1 text-muted-foreground">
+                          <li>• Corporate investment accelerating</li>
+                          <li>• Wage growth improving</li>
+                          <li>• Supply chain diversification</li>
+                        </ul>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
               </div>
             </section>
 
+            {/* Section 3: Emerging Market Trends */}
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-primary">Emerging Market Currencies</h2>
+              <h2 className="text-3xl font-bold mb-6 text-primary">Emerging Market Currency Trends</h2>
               
               <div className="mb-6 rounded-lg overflow-hidden">
                 <img 
@@ -1470,62 +1618,247 @@ const BlogPost = () => {
                 />
               </div>
 
-              <div className="bg-gradient-to-r from-blue-50 to-green-50 dark:from-blue-900/20 dark:to-green-900/20 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-4">Top Opportunities</h3>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <p className="font-medium">Asian Currencies</p>
-                    <p className="text-sm text-muted-foreground">Strong growth prospects in China and India</p>
+              <div className="grid md:grid-cols-2 gap-6 mb-8">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <span className="text-2xl">🇨🇳</span>
+                      Chinese Yuan (CNY)
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      <p><strong>Economic Reopening:</strong> Post-COVID normalization largely complete</p>
+                      <p><strong>Trade Relations:</strong> Tariff escalation creates depreciation pressure</p>
+                      <p><strong>Digital Yuan:</strong> CBDC expanding beyond pilot programs</p>
+                      <div className="bg-yellow-50 dark:bg-yellow-900/20 p-3 rounded-lg">
+                        <p className="text-sm"><strong>Watch:</strong> PBOC managing controlled decline for export competitiveness</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <span className="text-2xl">🇮🇳</span>
+                      Indian Rupee (INR)
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      <p><strong>Growth Sustainability:</strong> 6.5% projected growth leads major economies</p>
+                      <p><strong>FDI Flows:</strong> Technology and green energy attracting capital</p>
+                      <p><strong>Digital Transformation:</strong> IT services exports resilient</p>
+                      <div className="bg-green-50 dark:bg-green-900/20 p-3 rounded-lg">
+                        <p className="text-sm"><strong>Strength:</strong> Demographic dividend and infrastructure investment</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <h3 className="text-2xl font-semibold mb-4">Other Significant Markets</h3>
+              <div className="grid md:grid-cols-3 gap-4">
+                <div className="p-4 border border-border rounded-lg">
+                  <h4 className="font-semibold mb-2 flex items-center gap-2">
+                    <span>🇧🇷</span>
+                    Brazilian Real
+                  </h4>
+                  <p className="text-sm text-muted-foreground">Agricultural exports and commodity ties drive performance</p>
+                </div>
+                <div className="p-4 border border-border rounded-lg">
+                  <h4 className="font-semibold mb-2 flex items-center gap-2">
+                    <span>🇷🇺</span>
+                    Russian Ruble
+                  </h4>
+                  <p className="text-sm text-muted-foreground">Capital controls create artificial strength despite sanctions</p>
+                </div>
+                <div className="p-4 border border-border rounded-lg">
+                  <h4 className="font-semibold mb-2 flex items-center gap-2">
+                    <span>🇿🇦</span>
+                    South African Rand
+                  </h4>
+                  <p className="text-sm text-muted-foreground">Load shedding and governance concerns weigh on performance</p>
+                </div>
+              </div>
+            </section>
+
+            {/* Section 4: Cryptocurrency Integration */}
+            <section>
+              <h2 className="text-3xl font-bold mb-6 text-primary">Cryptocurrency Integration Impact</h2>
+              
+              <div className="grid md:grid-cols-2 gap-6 mb-8">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Central Bank Digital Currencies</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      <p className="text-sm">**137 countries** representing **98% of global GDP** exploring CBDCs</p>
+                      <div className="space-y-2">
+                        <div className="flex justify-between text-sm">
+                          <span>🇨🇳 Digital Yuan</span>
+                          <span className="text-green-600">Hundreds of millions of wallets</span>
+                        </div>
+                        <div className="flex justify-between text-sm">
+                          <span>🇧🇷 DREX</span>
+                          <span className="text-blue-600">2025 general use launch</span>
+                        </div>
+                        <div className="flex justify-between text-sm">
+                          <span>🇪🇺 Digital Euro</span>
+                          <span className="text-orange-600">Real-world pilots ongoing</span>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Bitcoin & Institutional Adoption</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      <p className="text-sm">**Bitcoin ETF assets** reach **$87 billion** as of July 2025</p>
+                      <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
+                        <p className="text-sm">**47 publicly traded companies** hold **$15.2 billion** in Bitcoin treasuries</p>
+                      </div>
+                      <p className="text-sm">**30-day volatility** decreased to **4.35%** from 8%+ historical averages</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </section>
+
+            {/* Section 5: Black Swan Risks */}
+            <section>
+              <h2 className="text-3xl font-bold mb-6 text-primary">Black Swan Risks & Wildcards</h2>
+              
+              <div className="grid md:grid-cols-2 gap-6 mb-8">
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold">Geopolitical Escalations</h3>
+                  <div className="space-y-3">
+                    <div className="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                      <h4 className="font-semibold text-red-800 dark:text-red-200">Taiwan Strait Tensions</h4>
+                      <p className="text-sm text-red-700 dark:text-red-300">Could trigger massive risk-off flows favoring USD and JPY</p>
+                    </div>
+                    <div className="p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg">
+                      <h4 className="font-semibold text-orange-800 dark:text-orange-200">Middle East Conflicts</h4>
+                      <p className="text-sm text-orange-700 dark:text-orange-300">Oil price spikes could force central bank policy reversals</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-medium">Commodity Currencies</p>
-                    <p className="text-sm text-muted-foreground">CAD, AUD may benefit from resource demand</p>
+                </div>
+
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold">Economic Disruptions</h3>
+                  <div className="space-y-3">
+                    <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+                      <h4 className="font-semibold text-yellow-800 dark:text-yellow-200">Climate Change Impacts</h4>
+                      <p className="text-sm text-yellow-700 dark:text-yellow-300">Extreme weather creating agricultural and supply chain disruption</p>
+                    </div>
+                    <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                      <h4 className="font-semibold text-purple-800 dark:text-purple-200">Technological Disruptions</h4>
+                      <p className="text-sm text-purple-700 dark:text-purple-300">AI advancement could automate entire industries</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </section>
 
+            {/* Section 6: Actionable Insights */}
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-primary">Key Events to Watch</h2>
+              <h2 className="text-3xl font-bold mb-6 text-primary">Actionable Insights for 2025</h2>
               
-              <div className="space-y-4">
-                <div className="flex gap-4 p-4 border border-border rounded-lg">
-                  <div className="text-2xl">📅</div>
-                  <div>
-                    <h4 className="font-semibold">Q1 2025: Central Bank Meetings</h4>
-                    <p className="text-sm text-muted-foreground">Fed, ECB, and BoE policy decisions will set the tone for the year</p>
-                  </div>
-                </div>
-                
-                <div className="flex gap-4 p-4 border border-border rounded-lg">
-                  <div className="text-2xl">🗳️</div>
-                  <div>
-                    <h4 className="font-semibold">Mid-2025: Election Cycles</h4>
-                    <p className="text-sm text-muted-foreground">Various national elections may create currency volatility</p>
-                  </div>
-                </div>
-                
-                <div className="flex gap-4 p-4 border border-border rounded-lg">
-                  <div className="text-2xl">📊</div>
-                  <div>
-                    <h4 className="font-semibold">Q3-Q4: Economic Data</h4>
-                    <p className="text-sm text-muted-foreground">GDP growth and inflation data will influence year-end positioning</p>
-                  </div>
-                </div>
+              <div className="grid md:grid-cols-3 gap-6 mb-8">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-lg">For Travelers</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      <div className="bg-green-50 dark:bg-green-900/20 p-3 rounded-lg">
+                        <p className="text-sm font-semibold text-green-800 dark:text-green-200">Q1 2025: Optimal for USD-based travelers to Europe</p>
+                      </div>
+                      <ul className="text-sm space-y-1">
+                        <li>• 15-20% savings vs 2023 levels</li>
+                        <li>• Avoid airport exchanges (10-17% markups)</li>
+                        <li>• Use no foreign transaction fee cards</li>
+                        <li>• Set rate alerts for large expenses</li>
+                      </ul>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-lg">For Investors</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      <h4 className="font-semibold text-sm">Recommended Allocation:</h4>
+                      <div className="space-y-2 text-sm">
+                        <div className="flex justify-between">
+                          <span>USD exposure</span>
+                          <span className="font-semibold">40%</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>EUR exposure</span>
+                          <span className="font-semibold">20%</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>JPY exposure</span>
+                          <span className="font-semibold">15%</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>GBP exposure</span>
+                          <span className="font-semibold">15%</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>EM currencies</span>
+                          <span className="font-semibold">10%</span>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-lg">For Businesses</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
+                        <p className="text-sm font-semibold text-blue-800 dark:text-blue-200">Hedge 75-100% of USD receivables</p>
+                      </div>
+                      <ul className="text-sm space-y-1">
+                        <li>• Consider options vs forwards</li>
+                        <li>• Review supplier currencies</li>
+                        <li>• Diversify across currency zones</li>
+                        <li>• Dynamic hedging ratios</li>
+                      </ul>
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
             </section>
 
+            {/* Conclusion */}
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-primary">Investment Strategies for 2025</h2>
-              
-              <div className="bg-muted/50 p-6 rounded-lg">
-                <h3 className="text-lg font-semibold mb-4">Recommended Approach</h3>
-                <ul className="space-y-2 text-muted-foreground">
-                  <li>• <strong>Diversification:</strong> Spread exposure across multiple currencies</li>
-                  <li>• <strong>Timing:</strong> Use dollar-cost averaging for large positions</li>
-                  <li>• <strong>Hedging:</strong> Consider protective strategies for major exposures</li>
-                  <li>• <strong>Monitoring:</strong> Stay informed on central bank communications</li>
-                </ul>
+              <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-8 rounded-lg">
+                <h2 className="text-2xl font-bold mb-4">Conclusion</h2>
+                <p className="mb-4">
+                  **2025 currency markets** face **unprecedented complexity** with **policy divergence**, **trade tensions**, and **technological disruption** creating both **opportunities** and **risks**. **Key predictions** include **continued Dollar strength** through **mid-year**, **Euro challenges** toward **parity**, and **emerging market volatility**.
+                </p>
+                <p className="mb-4">
+                  **Critical uncertainties** around **trade policy implementation**, **geopolitical developments**, and **central bank responses** mean **predictions remain highly uncertain**. **Markets can experience rapid reversals** based on **policy changes** or **unexpected events**.
+                </p>
+                <div className="bg-background/80 p-4 rounded-lg">
+                  <p className="text-sm text-muted-foreground">
+                    <em>Updated analysis available quarterly. Next update: October 2025 | Source: Analysis of forecasts from JP Morgan, Goldman Sachs, Deloitte, OECD, and other leading institutions</em>
+                  </p>
+                </div>
               </div>
             </section>
           </div>
