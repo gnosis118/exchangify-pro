@@ -6,6 +6,16 @@ import SEOHead from '@/components/SEOHead';
 
 const blogPosts = [
   {
+    id: 'currency-exchange-fees-hidden-costs',
+    title: 'Currency Exchange Fees: Hidden Costs That Eat Your Money',
+    excerpt: 'Americans lost $5.8 billion to hidden exchange fees in 2023. Discover the 5 types of hidden charges providers use and proven strategies to save up to 85% on currency exchanges.',
+    keywords: ['currency exchange fees', 'hidden fees', 'exchange rate markups', 'money transfer costs', 'international fees'],
+    readTime: '15 min read',
+    publishDate: '2025-01-28',
+    category: 'Fees & Costs',
+    featured: true
+  },
+  {
     id: 'bitcoin-to-usd-converter-live-price-analysis',
     title: 'Bitcoin to USD Converter: Live BTC Price & Analysis Today',
     excerpt: 'Real-time Bitcoin price analysis with live BTC/USD conversion tools. Current market analysis, technical indicators, and expert predictions for informed trading decisions.',
