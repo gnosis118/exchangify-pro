@@ -5,189 +5,189 @@
   
   <!-- Homepage -->
   <url>
-    <loc>https://currencytocurrency.com/</loc>
+    <loc>https://currencytocurrency.app/</loc>
     <lastmod>2025-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/" />
   </url>
   
   <!-- Charts Page -->
   <url>
-    <loc>https://currencytocurrency.com/charts</loc>
+    <loc>https://currencytocurrency.app/charts</loc>
     <lastmod>2025-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/charts" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/charts" />
   </url>
   
   <!-- Alerts Page -->
   <url>
-    <loc>https://currencytocurrency.com/alerts</loc>
+    <loc>https://currencytocurrency.app/alerts</loc>
     <lastmod>2025-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/alerts" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/alerts" />
   </url>
   
   <!-- Travel Money Page -->
   <url>
-    <loc>https://currencytocurrency.com/travel</loc>
+    <loc>https://currencytocurrency.app/travel</loc>
     <lastmod>2025-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/travel" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/travel" />
   </url>
   
   <!-- Blog Page -->
   <url>
-    <loc>https://currencytocurrency.com/blog</loc>
+    <loc>https://currencytocurrency.app/blog</loc>
     <lastmod>2025-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/blog" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/blog" />
   </url>
   
   <!-- Blog Posts -->
   <url>
-    <loc>https://currencytocurrency.com/blog/2025-currency-predictions</loc>
+    <loc>https://currencytocurrency.app/blog/2025-currency-predictions</loc>
     <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/blog/2025-currency-predictions" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/blog/2025-currency-predictions" />
   </url>
   
   <!-- FAQ Page -->
   <url>
-    <loc>https://currencytocurrency.com/faq</loc>
+    <loc>https://currencytocurrency.app/faq</loc>
     <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/faq" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/faq" />
   </url>
   
   <!-- Auth Page -->
   <url>
-    <loc>https://currencytocurrency.com/auth</loc>
+    <loc>https://currencytocurrency.app/auth</loc>
     <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/auth" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/auth" />
   </url>
   
   <!-- Privacy Policy -->
   <url>
-    <loc>https://currencytocurrency.com/privacy</loc>
+    <loc>https://currencytocurrency.app/privacy</loc>
     <lastmod>2025-01-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/privacy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/privacy" />
   </url>
   
   <!-- Terms of Service -->
   <url>
-    <loc>https://currencytocurrency.com/terms</loc>
+    <loc>https://currencytocurrency.app/terms</loc>
     <lastmod>2025-01-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/terms" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/terms" />
   </url>
   
   <!-- Popular Currency Pair Pages -->
   <url>
-    <loc>https://currencytocurrency.com/convert/usd-to-eur</loc>
+    <loc>https://currencytocurrency.app/convert/usd-to-eur</loc>
     <lastmod>2025-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/convert/usd-to-eur" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/convert/usd-to-eur" />
   </url>
   
   <url>
-    <loc>https://currencytocurrency.com/convert/usd-to-gbp</loc>
+    <loc>https://currencytocurrency.app/convert/usd-to-gbp</loc>
     <lastmod>2025-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/convert/usd-to-gbp" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/convert/usd-to-gbp" />
   </url>
   
   <url>
-    <loc>https://currencytocurrency.com/convert/usd-to-jpy</loc>
+    <loc>https://currencytocurrency.app/convert/usd-to-jpy</loc>
     <lastmod>2025-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/convert/usd-to-jpy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/convert/usd-to-jpy" />
   </url>
   
   <url>
-    <loc>https://currencytocurrency.com/convert/eur-to-gbp</loc>
+    <loc>https://currencytocurrency.app/convert/eur-to-gbp</loc>
     <lastmod>2025-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/convert/eur-to-gbp" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/convert/eur-to-gbp" />
   </url>
   
   <url>
-    <loc>https://currencytocurrency.com/convert/usd-to-cad</loc>
+    <loc>https://currencytocurrency.app/convert/usd-to-cad</loc>
     <lastmod>2025-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/convert/usd-to-cad" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/convert/usd-to-cad" />
   </url>
   
   <url>
-    <loc>https://currencytocurrency.com/convert/usd-to-aud</loc>
+    <loc>https://currencytocurrency.app/convert/usd-to-aud</loc>
     <lastmod>2025-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/convert/usd-to-aud" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/convert/usd-to-aud" />
   </url>
   
   <url>
-    <loc>https://currencytocurrency.com/convert/gbp-to-usd</loc>
+    <loc>https://currencytocurrency.app/convert/gbp-to-usd</loc>
     <lastmod>2025-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/convert/gbp-to-usd" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/convert/gbp-to-usd" />
   </url>
   
   <url>
-    <loc>https://currencytocurrency.com/convert/eur-to-usd</loc>
+    <loc>https://currencytocurrency.app/convert/eur-to-usd</loc>
     <lastmod>2025-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/convert/eur-to-usd" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/convert/eur-to-usd" />
   </url>
   
   <url>
-    <loc>https://currencytocurrency.com/convert/jpy-to-usd</loc>
+    <loc>https://currencytocurrency.app/convert/jpy-to-usd</loc>
     <lastmod>2025-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/convert/jpy-to-usd" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/convert/jpy-to-usd" />
   </url>
   
   <url>
-    <loc>https://currencytocurrency.com/convert/aud-to-usd</loc>
+    <loc>https://currencytocurrency.app/convert/aud-to-usd</loc>
     <lastmod>2025-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/convert/aud-to-usd" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/convert/aud-to-usd" />
   </url>
   
   <url>
-    <loc>https://currencytocurrency.com/convert/usd-to-chf</loc>
+    <loc>https://currencytocurrency.app/convert/usd-to-chf</loc>
     <lastmod>2025-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/convert/usd-to-chf" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/convert/usd-to-chf" />
   </url>
   
   <url>
-    <loc>https://currencytocurrency.com/convert/eur-to-jpy</loc>
+    <loc>https://currencytocurrency.app/convert/eur-to-jpy</loc>
     <lastmod>2025-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/convert/eur-to-jpy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/convert/eur-to-jpy" />
   </url>
 
 </urlset>

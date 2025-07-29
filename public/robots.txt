@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://currencytocurrency.com/sitemap.xml
+Sitemap: https://currencytocurrency.app/sitemap.xml
 
 # Allow important currency pair pages
 Allow: /usd-to-eur
