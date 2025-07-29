@@ -65,7 +65,7 @@ const Blog = () => {
     "@type": "Blog",
     "name": "Currency to Currency Blog",
     "description": "Expert insights on currency exchange, forex trends, and conversion strategies",
-    "url": "https://currencytocurrency.com/blog",
+    "url": "https://currencytocurrency.app/blog",
     "publisher": {
       "@type": "Organization",
       "name": "Currency to Currency"
@@ -78,7 +78,7 @@ const Blog = () => {
         title="Currency Exchange Blog - Expert Forex Insights | Currency to Currency"
         description="Expert analysis on currency exchange rates, forex trends, and conversion strategies. Stay updated with the latest market insights and exchange rate forecasts."
         keywords="forex blog, currency exchange insights, exchange rate analysis, forex news, currency trends"
-        canonical="https://currencytocurrency.com/blog"
+        canonical="https://currencytocurrency.app/blog"
         structuredData={structuredData}
       />
 

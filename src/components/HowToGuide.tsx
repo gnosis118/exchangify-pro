@@ -36,7 +36,7 @@ const HowToGuide = ({ fromCurrency, toCurrency }: HowToGuideProps) => {
     "@type": "HowTo",
     "name": `How to Convert ${fromCurrency} to ${toCurrency}`,
     "description": `Step-by-step guide to convert ${fromCurrency} to ${toCurrency} using our free currency converter`,
-    "image": "https://currencytocurrency.com/src/assets/home-hero.jpg",
+    "image": "https://currencytocurrency.app/src/assets/home-hero.jpg",
     "totalTime": "PT2M",
     "estimatedCost": {
       "@type": "MonetaryAmount",
@@ -64,7 +64,7 @@ const HowToGuide = ({ fromCurrency, toCurrency }: HowToGuideProps) => {
       "position": step.step,
       "name": step.title,
       "text": step.description,
-      "url": `https://currencytocurrency.com/#step-${step.step}`
+      "url": `https://currencytocurrency.app/#step-${step.step}`
     }))
   };
 

@@ -259,10 +259,10 @@ const Index = () => {
     "@graph": [
       {
         "@type": "WebApplication",
-        "@id": "https://currencytocurrency.com/#application",
+        "@id": "https://currencytocurrency.app/#application",
         "name": "Currency to Currency Converter",
         "description": "Free real-time currency converter with support for 150+ fiat currencies and 100+ cryptocurrencies. Get instant exchange rates, historical charts, and price alerts.",
-        "url": "https://currencytocurrency.com",
+        "url": "https://currencytocurrency.app",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Web Browser",
         "browserRequirements": "HTML5, JavaScript",
@@ -289,36 +289,36 @@ const Index = () => {
         ],
         "creator": {
           "@type": "Organization",
-          "@id": "https://currencytocurrency.com/#organization"
+          "@id": "https://currencytocurrency.app/#organization"
         },
         "publisher": {
           "@type": "Organization",
-          "@id": "https://currencytocurrency.com/#organization"
+          "@id": "https://currencytocurrency.app/#organization"
         }
       },
       {
         "@type": "Organization",
-        "@id": "https://currencytocurrency.com/#organization",
+        "@id": "https://currencytocurrency.app/#organization",
         "name": "Currency to Currency",
-        "url": "https://currencytocurrency.com",
+        "url": "https://currencytocurrency.app",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://currencytocurrency.com/icon-512.png",
+          "url": "https://currencytocurrency.app/icon-512.png",
           "width": 512,
           "height": 512
         },
         "sameAs": [
-          "https://currencytocurrency.com"
+          "https://currencytocurrency.app"
         ]
       },
       {
         "@type": "Service",
-        "@id": "https://currencytocurrency.com/#service",
+        "@id": "https://currencytocurrency.app/#service",
         "name": "Currency Conversion Service",
         "description": "Professional currency conversion and exchange rate tracking service",
         "provider": {
           "@type": "Organization",
-          "@id": "https://currencytocurrency.com/#organization"
+          "@id": "https://currencytocurrency.app/#organization"
         },
         "serviceType": "Currency Conversion",
         "areaServed": "Worldwide",
@@ -326,7 +326,7 @@ const Index = () => {
       },
       {
         "@type": "FAQPage",
-        "@id": "https://currencytocurrency.com/#faq",
+        "@id": "https://currencytocurrency.app/#faq",
         "mainEntity": [
           {
             "@type": "Question",
@@ -363,7 +363,7 @@ const Index = () => {
         title="Free Currency Converter - Live Exchange Rates | Currency to Currency"
         description="Convert currencies instantly with live exchange rates. Support for 150+ fiat currencies and 100+ cryptocurrencies. Free real-time currency converter with historical charts and price alerts."
         keywords="currency converter, exchange rates, live rates, cryptocurrency prices, currency conversion, foreign exchange, forex, bitcoin converter, real-time rates, USD to EUR, GBP to USD, currency calculator, money converter"
-        canonical="https://currencytocurrency.com"
+        canonical="https://currencytocurrency.app"
         structuredData={structuredData}
       />
       {/* Hero Section */}

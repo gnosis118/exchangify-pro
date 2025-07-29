@@ -81,7 +81,7 @@ const CurrencyPairPage = () => {
     "@type": "FinancialProduct",
     "name": `${fromInfo.name} to ${toInfo.name} Exchange Rate`,
     "description": `Current exchange rate and converter for ${fromInfo.name} (${fromInfo.code}) to ${toInfo.name} (${toInfo.code})`,
-    "url": `https://currencytocurrency.com/${pair}`,
+    "url": `https://currencytocurrency.app/${pair}`,
     "provider": {
       "@type": "Organization",
       "name": "Currency to Currency"
@@ -99,7 +99,7 @@ const CurrencyPairPage = () => {
         title={`${fromInfo.name} to ${toInfo.name} - ${fromInfo.code}/${toInfo.code} Exchange Rate | Currency to Currency`}
         description={`Convert ${fromInfo.name} to ${toInfo.name} with live exchange rates. Current ${fromInfo.code} to ${toInfo.code} rate: ${rate}. Free currency converter with historical charts.`}
         keywords={`${fromInfo.code} to ${toInfo.code}, ${fromInfo.name} to ${toInfo.name}, exchange rate, currency converter, ${fromInfo.code}${toInfo.code}`}
-        canonical={`https://currencytocurrency.com/${pair}`}
+        canonical={`https://currencytocurrency.app/${pair}`}
         structuredData={structuredData}
       />
 

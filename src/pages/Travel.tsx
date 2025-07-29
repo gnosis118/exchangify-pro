@@ -8,7 +8,7 @@ const Travel = () => {
     "@type": "WebApplication",
     "name": "Travel Money Guide",
     "description": "Essential currency guides and budget calculators for international travel. Get money exchange tips and currency information for popular destinations worldwide.",
-    "url": "https://exchangifypro.com/travel",
+    "url": "https://currencytocurrency.app/travel",
     "applicationCategory": "TravelApplication",
     "featureList": [
       "Travel currency guides",
@@ -22,10 +22,10 @@ const Travel = () => {
   return (
     <div className="min-h-screen bg-converter-bg">
       <SEOHead
-        title="Travel Money Guide & Currency Tips | ExchangifyPro"
+        title="Travel Money Guide & Currency Tips | Currency to Currency"
         description="Essential currency guides and budget calculators for international travel. Get money exchange tips and currency information for popular destinations worldwide."
         keywords="travel money, currency exchange travel, travel budget calculator, international travel money, foreign currency guide, travel currency tips, vacation money planning"
-        canonical="https://exchangifypro.com/travel"
+        canonical="https://currencytocurrency.app/travel"
         structuredData={structuredData}
       />
       {/* Hero Section */}

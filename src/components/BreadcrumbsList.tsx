@@ -41,7 +41,7 @@ const BreadcrumbsList = () => {
         "@type": "ListItem",
         "position": index + 1,
         "name": item.label,
-        "item": `https://currencytocurrency.com${item.href === '/' ? '' : item.href}`
+        "item": `https://currencytocurrency.app${item.href === '/' ? '' : item.href}`
       }))
     };
 

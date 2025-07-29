@@ -80,7 +80,7 @@ const BlogPost = () => {
           title="Currency Exchange Fees: Hidden Costs That Eat Your Money | Currency to Currency"
           description="Americans lost $5.8 billion to hidden exchange fees in 2023. Discover the 5 types of hidden charges providers use and proven strategies to save up to 85% on currency exchanges."
           keywords="currency exchange fees, hidden fees, exchange rate markups, money transfer costs, international fees"
-          canonical="https://currencytocurrency.com/blog/currency-exchange-fees-hidden-costs"
+          canonical="https://currencytocurrency.app/blog/currency-exchange-fees-hidden-costs"
           structuredData={structuredData}
         />
 
