@@ -6,63 +6,61 @@
   <!-- Homepage -->
   <url>
     <loc>https://currencytocurrency.com/</loc>
-    <lastmod>2024-07-27</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/" />
-    <image:image>
-      <image:loc>https://currencytocurrency.com/src/assets/home-hero.jpg</image:loc>
-      <image:title>Currency Converter Interface</image:title>
-      <image:caption>Professional currency conversion tool with real-time exchange rates</image:caption>
-    </image:image>
   </url>
   
   <!-- Charts Page -->
   <url>
     <loc>https://currencytocurrency.com/charts</loc>
-    <lastmod>2024-07-27</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/charts" />
-    <image:image>
-      <image:loc>https://currencytocurrency.com/src/assets/charts-hero.jpg</image:loc>
-      <image:title>Historical Currency Charts</image:title>
-      <image:caption>Interactive exchange rate trends and analysis</image:caption>
-    </image:image>
   </url>
   
   <!-- Alerts Page -->
   <url>
     <loc>https://currencytocurrency.com/alerts</loc>
-    <lastmod>2024-07-27</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/alerts" />
-    <image:image>
-      <image:loc>https://currencytocurrency.com/src/assets/alerts-hero.jpg</image:loc>
-      <image:title>Currency Rate Alerts</image:title>
-      <image:caption>Smart notifications for optimal exchange rates</image:caption>
-    </image:image>
   </url>
   
   <!-- Travel Money Page -->
   <url>
     <loc>https://currencytocurrency.com/travel</loc>
-    <lastmod>2024-07-27</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/travel" />
-    <image:image>
-      <image:loc>https://currencytocurrency.com/src/assets/travel-hero.jpg</image:loc>
-      <image:title>Travel Money Planning</image:title>
-      <image:caption>International travel currency planning tools</image:caption>
-    </image:image>
+  </url>
+  
+  <!-- Blog Page -->
+  <url>
+    <loc>https://currencytocurrency.com/blog</loc>
+    <lastmod>2025-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/blog" />
+  </url>
+  
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://currencytocurrency.com/blog/2025-currency-predictions</loc>
+    <lastmod>2025-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/blog/2025-currency-predictions" />
   </url>
   
   <!-- FAQ Page -->
   <url>
     <loc>https://currencytocurrency.com/faq</loc>
-    <lastmod>2024-07-27</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/faq" />
@@ -71,7 +69,7 @@
   <!-- Auth Page -->
   <url>
     <loc>https://currencytocurrency.com/auth</loc>
-    <lastmod>2024-07-27</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/auth" />
@@ -80,7 +78,7 @@
   <!-- Privacy Policy -->
   <url>
     <loc>https://currencytocurrency.com/privacy</loc>
-    <lastmod>2024-07-27</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/privacy" />
@@ -89,7 +87,7 @@
   <!-- Terms of Service -->
   <url>
     <loc>https://currencytocurrency.com/terms</loc>
-    <lastmod>2024-07-27</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/terms" />
@@ -98,23 +96,31 @@
   <!-- Popular Currency Pair Pages -->
   <url>
     <loc>https://currencytocurrency.com/convert/usd-to-eur</loc>
-    <lastmod>2024-07-27</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/convert/usd-to-eur" />
   </url>
   
   <url>
-    <loc>https://currencytocurrency.com/convert/gbp-to-usd</loc>
-    <lastmod>2024-07-27</lastmod>
+    <loc>https://currencytocurrency.com/convert/usd-to-gbp</loc>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/convert/gbp-to-usd" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/convert/usd-to-gbp" />
+  </url>
+  
+  <url>
+    <loc>https://currencytocurrency.com/convert/usd-to-jpy</loc>
+    <lastmod>2025-01-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/convert/usd-to-jpy" />
   </url>
   
   <url>
     <loc>https://currencytocurrency.com/convert/eur-to-gbp</loc>
-    <lastmod>2024-07-27</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/convert/eur-to-gbp" />
@@ -122,23 +128,47 @@
   
   <url>
     <loc>https://currencytocurrency.com/convert/usd-to-cad</loc>
-    <lastmod>2024-07-27</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/convert/usd-to-cad" />
   </url>
   
   <url>
-    <loc>https://currencytocurrency.com/convert/jpy-to-usd</loc>
-    <lastmod>2024-07-27</lastmod>
+    <loc>https://currencytocurrency.com/convert/usd-to-aud</loc>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/convert/usd-to-aud" />
+  </url>
+  
+  <url>
+    <loc>https://currencytocurrency.com/convert/gbp-to-usd</loc>
+    <lastmod>2025-01-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/convert/gbp-to-usd" />
+  </url>
+  
+  <url>
+    <loc>https://currencytocurrency.com/convert/eur-to-usd</loc>
+    <lastmod>2025-01-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/convert/eur-to-usd" />
+  </url>
+  
+  <url>
+    <loc>https://currencytocurrency.com/convert/jpy-to-usd</loc>
+    <lastmod>2025-01-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/convert/jpy-to-usd" />
   </url>
   
   <url>
     <loc>https://currencytocurrency.com/convert/aud-to-usd</loc>
-    <lastmod>2024-07-27</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/convert/aud-to-usd" />
@@ -146,7 +176,7 @@
   
   <url>
     <loc>https://currencytocurrency.com/convert/usd-to-chf</loc>
-    <lastmod>2024-07-27</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/convert/usd-to-chf" />
@@ -154,7 +184,7 @@
   
   <url>
     <loc>https://currencytocurrency.com/convert/eur-to-jpy</loc>
-    <lastmod>2024-07-27</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.com/convert/eur-to-jpy" />
