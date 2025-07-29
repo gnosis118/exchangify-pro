@@ -3,6 +3,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Clock, TrendingUp } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
+import blogHero from '@/assets/blog-hero.jpg';
+import blogPostBackground from '@/assets/blog-post-background.jpg';
 
 const blogPosts = [
   {
@@ -81,54 +83,71 @@ const Blog = () => {
       />
 
       <div className="container mx-auto px-4 max-w-6xl">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-primary mb-4">
-            Currency Exchange Blog
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Expert insights on forex trends, exchange rate analysis, and currency conversion strategies
-          </p>
+        {/* Hero Section */}
+        <div className="relative mb-12 rounded-2xl overflow-hidden">
+          <div 
+            className="h-96 bg-cover bg-center relative"
+            style={{ backgroundImage: `url(${blogHero})` }}
+          >
+            <div className="absolute inset-0 bg-black/50"></div>
+            <div className="relative z-10 flex items-center justify-center h-full text-center text-white">
+              <div>
+                <h1 className="text-5xl font-bold mb-4">
+                  Currency Exchange Blog
+                </h1>
+                <p className="text-xl max-w-2xl mx-auto opacity-90">
+                  Expert insights on forex trends, exchange rate analysis, and currency conversion strategies
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
             <div className="space-y-8">
               {blogPosts.map((post) => (
-                <Card key={post.id} className="overflow-hidden">
-                  <CardHeader>
-                    <div className="flex items-center gap-4 mb-3">
-                      <Badge variant="secondary">{post.category}</Badge>
-                      {post.featured && <Badge variant="default">Featured</Badge>}
-                    </div>
-                    <CardTitle className="text-2xl hover:text-primary transition-colors">
-                      <Link to={`/blog/${post.id}`}>
-                        {post.title}
-                      </Link>
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground mb-4">
-                      {post.excerpt}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                        <div className="flex items-center gap-1">
-                          <Calendar className="h-4 w-4" />
-                          {new Date(post.publishDate).toLocaleDateString()}
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Clock className="h-4 w-4" />
-                          {post.readTime}
-                        </div>
+                <Card key={post.id} className="overflow-hidden relative">
+                  <div 
+                    className="absolute inset-0 opacity-5"
+                    style={{ backgroundImage: `url(${blogPostBackground})`, backgroundSize: 'cover' }}
+                  ></div>
+                  <div className="relative z-10">
+                    <CardHeader>
+                      <div className="flex items-center gap-4 mb-3">
+                        <Badge variant="secondary">{post.category}</Badge>
+                        {post.featured && <Badge variant="default">Featured</Badge>}
                       </div>
-                      <Link 
-                        to={`/blog/${post.id}`}
-                        className="text-primary hover:underline font-medium"
-                      >
-                        Read More →
-                      </Link>
-                    </div>
-                  </CardContent>
+                      <CardTitle className="text-2xl hover:text-primary transition-colors">
+                        <Link to={`/blog/${post.id}`}>
+                          {post.title}
+                        </Link>
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground mb-4">
+                        {post.excerpt}
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                          <div className="flex items-center gap-1">
+                            <Calendar className="h-4 w-4" />
+                            {new Date(post.publishDate).toLocaleDateString()}
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Clock className="h-4 w-4" />
+                            {post.readTime}
+                          </div>
+                        </div>
+                        <Link 
+                          to={`/blog/${post.id}`}
+                          className="text-primary hover:underline font-medium"
+                        >
+                          Read More →
+                        </Link>
+                      </div>
+                    </CardContent>
+                  </div>
                 </Card>
               ))}
             </div>
