@@ -67,24 +67,10 @@ const PerformanceOptimizer = () => {
       });
     };
 
-    // Service Worker registration for offline functionality
-    const registerServiceWorker = () => {
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js')
-          .then((registration) => {
-            console.log('SW registered: ', registration);
-          })
-          .catch((registrationError) => {
-            console.log('SW registration failed: ', registrationError);
-          });
-      }
-    };
-
     // Initialize optimizations
     preloadCriticalResources();
     optimizeImages();
     addResourceHints();
-    registerServiceWorker();
 
     // Optimize images when new content loads
     const observer = new MutationObserver(optimizeImages);
