@@ -9,7 +9,7 @@ import { Label } from '@/components/ui/label';
 // Extend window type to include gtag
 declare global {
   interface Window {
-    gtag: (command: string, action: string, parameters?: any) => void;
+    gtag?: (command: string, action: string, parameters?: any) => void;
   }
 }
 
