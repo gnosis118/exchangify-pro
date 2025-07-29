@@ -134,14 +134,16 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
 
-      // Set default consent to 'denied' as placeholder
+      // Set default consent to 'denied' as per Google Consent Mode v2
       // This must happen before loading gtag.js
       gtag('consent', 'default', {
         'ad_storage': 'denied',
         'ad_user_data': 'denied', 
         'ad_personalization': 'denied',
         'analytics_storage': 'denied',
-        'wait_for_update': 500
+        'functionality_storage': 'granted',
+        'security_storage': 'granted',
+        'wait_for_update': 2000
       });
 
       // Enable URL passthrough for improved measurement when cookies are denied

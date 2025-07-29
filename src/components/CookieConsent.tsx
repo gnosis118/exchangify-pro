@@ -30,6 +30,7 @@ const CookieConsent = () => {
             required: true,
             onAccept: function() {
               console.log('Necessary cookies accepted');
+              // Necessary cookies don't need consent mode updates as they're always granted
             }
           },
           {
