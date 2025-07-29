@@ -500,7 +500,7 @@ const BlogPost = () => {
           title="2025 Currency Market Predictions: Expert Forecasts & Analysis | Currency to Currency"
           description="Expert forecasts for 2025 currency markets including USD strength, Euro parity testing, and emerging market volatility. Analysis from JP Morgan, Goldman Sachs, and leading institutions."
           keywords="currency predictions 2025, forex market outlook 2025, USD EUR forecast H2 2025, best currencies to buy 2025, central bank policy divergence, emerging market currencies 2025, currency exchange rates predictions"
-          canonical="https://currencytocurrency.com/blog/2025-currency-market-predictions"
+          canonical="https://currencytocurrency.app/blog/2025-currency-market-predictions"
           structuredData={structuredData}
         />
 
@@ -661,7 +661,7 @@ const BlogPost = () => {
           title="Bitcoin to USD Converter: Live BTC Price & Analysis Today | Currency to Currency"
           description="Real-time Bitcoin price analysis with live BTC/USD conversion tools. Current market analysis, technical indicators, and expert predictions for informed trading decisions."
           keywords="Bitcoin to USD, BTC price, Bitcoin converter, cryptocurrency analysis, Bitcoin trading"
-          canonical="https://currencytocurrency.com/blog/bitcoin-to-usd-converter-live-price-analysis"
+          canonical="https://currencytocurrency.app/blog/bitcoin-to-usd-converter-live-price-analysis"
           structuredData={structuredData}
         />
 
@@ -890,7 +890,7 @@ const BlogPost = () => {
           title="How to Convert Currency Online Safely: Complete 2025 Guide | Currency to Currency"
           description="Protect yourself from currency scams while saving up to 4% on every transaction. Learn proven strategies to identify legitimate services and avoid hidden fees."
           keywords="currency conversion safety, online currency exchange, currency scams, safe money transfer, currency conversion guide"
-          canonical="https://currencytocurrency.com/blog/currency-conversion-safety-guide-2025"
+          canonical="https://currencytocurrency.app/blog/currency-conversion-safety-guide-2025"
           structuredData={structuredData}
         />
 
@@ -1576,7 +1576,7 @@ const BlogPost = () => {
         title="USD to EUR Exchange Rate Today - Live Currency Converter | Currency to Currency"
         description="Get real-time USD to EUR exchange rates. Convert dollars to euros with our live calculator. Current rate, analysis, and best conversion methods."
         keywords="USD to EUR, currency converter, dollar to euro, exchange rate USD EUR, real time rates"
-        canonical="https://currencytocurrency.com/blog/usd-to-eur-exchange-rate-today"
+        canonical="https://currencytocurrency.app/blog/usd-to-eur-exchange-rate-today"
         structuredData={structuredData}
       />
 
