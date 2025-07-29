@@ -4,10 +4,6 @@ import { InstallPrompt } from '@/components/InstallPrompt';
 import PopularPairs from '@/components/PopularPairs';
 import CurrencyGuide from '@/components/CurrencyGuide';
 import SEOHead from '@/components/SEOHead';
-import SEOOptimizedImage from '@/components/SEOOptimizedImage';
-import JsonLD from '@/components/JsonLD';
-import { generateWebApplicationSchema, generateOrganizationSchema, generateServiceSchema, generateFAQSchema } from '@/components/SchemaGenerator';
-import { useCoreWebVitals, preloadCriticalResources } from '@/hooks/useCoreWebVitals';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -165,10 +161,6 @@ const Index = () => {
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
   const { toast } = useToast();
 
-  // Initialize performance tracking
-  useCoreWebVitals();
-  preloadCriticalResources();
-
   const fetchExchangeRates = useCallback(async (baseCurrency: string) => {
     try {
       setFiatLoading(true);
@@ -262,36 +254,107 @@ const Index = () => {
     fetchCryptoPrice(selectedCrypto, cryptoTargetCurrency);
   };
 
-  // Enhanced structured data using schema generators
-  const webAppSchema = generateWebApplicationSchema();
-  const organizationSchema = generateOrganizationSchema();
-  const serviceSchema = generateServiceSchema();
-  const faqSchema = generateFAQSchema([
-    {
-      question: "How accurate are the exchange rates?",
-      answer: "Our exchange rates are updated in real-time from multiple financial data sources, ensuring accuracy within 1-2% of live market rates."
-    },
-    {
-      question: "How many currencies do you support?",
-      answer: "We support over 150 fiat currencies and 100+ cryptocurrencies for comprehensive conversion needs."
-    },
-    {
-      question: "Is the currency converter free to use?",
-      answer: "Yes, our currency converter is completely free to use with no registration required."
-    },
-    {
-      question: "What is the best time to exchange currency?",
-      answer: "Exchange rates fluctuate constantly. Monitor rates over time and consider setting up rate alerts for your desired exchange rate."
-    },
-    {
-      question: "Do you charge fees for currency conversion?",
-      answer: "Our converter is free to use. However, actual currency exchanges through banks or services may include fees."
-    }
-  ]);
-  
-  const mainStructuredData = {
+  const structuredData = {
     "@context": "https://schema.org",
-    "@graph": [webAppSchema, organizationSchema, serviceSchema]
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://currencytocurrency.com/#application",
+        "name": "Currency to Currency Converter",
+        "description": "Free real-time currency converter with support for 150+ fiat currencies and 100+ cryptocurrencies. Get instant exchange rates, historical charts, and price alerts.",
+        "url": "https://currencytocurrency.com",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web Browser",
+        "browserRequirements": "HTML5, JavaScript",
+        "softwareVersion": "2.0",
+        "datePublished": "2024-01-01",
+        "dateModified": new Date().toISOString().split('T')[0],
+        "inLanguage": "en-US",
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "featureList": [
+          "Real-time exchange rates",
+          "150+ fiat currencies",
+          "100+ cryptocurrencies", 
+          "Historical rate charts",
+          "Price alerts",
+          "Travel money guides",
+          "Offline conversion calculator",
+          "Currency trend analysis"
+        ],
+        "creator": {
+          "@type": "Organization",
+          "@id": "https://currencytocurrency.com/#organization"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://currencytocurrency.com/#organization"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://currencytocurrency.com/#organization",
+        "name": "Currency to Currency",
+        "url": "https://currencytocurrency.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://currencytocurrency.com/icon-512.png",
+          "width": 512,
+          "height": 512
+        },
+        "sameAs": [
+          "https://currencytocurrency.com"
+        ]
+      },
+      {
+        "@type": "Service",
+        "@id": "https://currencytocurrency.com/#service",
+        "name": "Currency Conversion Service",
+        "description": "Professional currency conversion and exchange rate tracking service",
+        "provider": {
+          "@type": "Organization",
+          "@id": "https://currencytocurrency.com/#organization"
+        },
+        "serviceType": "Currency Conversion",
+        "areaServed": "Worldwide",
+        "availableLanguage": "English"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://currencytocurrency.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How accurate are the exchange rates?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our exchange rates are updated in real-time from multiple financial data sources, ensuring accuracy within 1-2% of live market rates."
+            }
+          },
+          {
+            "@type": "Question", 
+            "name": "How many currencies do you support?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We support over 150 fiat currencies and 100+ cryptocurrencies for comprehensive conversion needs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is the currency converter free to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, our currency converter is completely free to use with no registration required."
+            }
+          }
+        ]
+      }
+    ]
   };
 
   return (
@@ -299,40 +362,30 @@ const Index = () => {
       <SEOHead
         title="Free Currency Converter - Live Exchange Rates | Currency to Currency"
         description="Convert currencies instantly with live exchange rates. Support for 150+ fiat currencies and 100+ cryptocurrencies. Free real-time currency converter with historical charts and price alerts."
-        keywords="currency converter, exchange rates, live rates, cryptocurrency prices, currency conversion, foreign exchange, forex, bitcoin converter, real-time rates, USD to EUR, GBP to USD, currency calculator, money converter, travel money, international money transfer"
+        keywords="currency converter, exchange rates, live rates, cryptocurrency prices, currency conversion, foreign exchange, forex, bitcoin converter, real-time rates, USD to EUR, GBP to USD, currency calculator, money converter"
         canonical="https://currencytocurrency.com"
-        ogImage="https://currencytocurrency.com/icon-512.png"
-        structuredData={mainStructuredData}
-        faqSchema={faqSchema}
+        structuredData={structuredData}
       />
-      
-      {/* JSON-LD structured data */}
-      <JsonLD data={mainStructuredData} id="main-schema" />
-      <JsonLD data={faqSchema} id="faq-schema" />
       {/* Hero Section */}
-      <section className="relative h-80 md:h-96 overflow-hidden">
-        <SEOOptimizedImage
-          src={homeHero}
-          alt="Professional currency conversion interface showing real-time exchange rates for international finance and travel planning"
-          width={1200}
-          height={400}
+      <div className="relative h-80 md:h-96 overflow-hidden">
+        <img 
+          src={homeHero} 
+          alt="Professional currency conversion interface showing real-time exchange rates for international finance and travel planning" 
           className="w-full h-full object-cover"
-          priority={true}
           loading="eager"
-          sizes="100vw"
+          decoding="async"
+          width="1200"
+          height="400"
         />
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <div className="text-center text-white px-4 max-w-4xl">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              Free Currency Converter - Real-Time Exchange Rates
-            </h1>
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">Currency Converter</h1>
             <p className="text-lg md:text-xl opacity-90">
-              Convert 150+ currencies and cryptocurrencies instantly with live exchange rates. 
-              Free, accurate, and updated every minute.
+              Get real-time exchange rates and convert currencies instantly
             </p>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* Content */}
       <div className="max-w-4xl mx-auto p-4 -mt-16 relative z-10">

@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useState } from "react";
 import { Toaster } from "@/components/ui/toaster";
@@ -7,8 +6,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CookieConsent from "@/components/CookieConsent";
-import Header from "@/components/Header";
-import BreadcrumbNav from "@/components/BreadcrumbNav";
+import Header from "./components/Header";
+import BreadcrumbNav from "./components/BreadcrumbNav";
 import { Suspense, lazy } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import ErrorBoundary from "@/components/ErrorBoundary";
@@ -47,43 +46,43 @@ const App = () => {
   
   return (
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
           <div className="min-h-screen">
             <Header />
             <BreadcrumbNav className="container mx-auto px-4 py-2" />
             <ErrorBoundary>
               <Suspense fallback={<RouteLoader />}>
                 <Routes>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/charts" element={<Charts />} />
-                  <Route path="/alerts" element={<Alerts />} />
-                  <Route path="/travel" element={<Travel />} />
-                  <Route path="/auth" element={<Auth />} />
-                  <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                  <Route path="/terms-of-service" element={<TermsOfService />} />
-                  <Route path="/faq" element={<FAQ />} />
-                  <Route path="/blog" element={<Blog />} />
-                  <Route path="/blog/:slug" element={<BlogPost />} />
-                  <Route path="/convert/:pair" element={<CurrencyPair />} />
-                  <Route path="/usd-to-eur" element={<CurrencyPairPage />} />
-                  <Route path="/usd-to-gbp" element={<CurrencyPairPage />} />
-                  <Route path="/usd-to-jpy" element={<CurrencyPairPage />} />
-                  <Route path="/eur-to-gbp" element={<CurrencyPairPage />} />
-                  <Route path="/usd-to-cad" element={<CurrencyPairPage />} />
-                  <Route path="/usd-to-aud" element={<CurrencyPairPage />} />
-                  <Route path="/gbp-to-usd" element={<CurrencyPairPage />} />
-                  <Route path="/eur-to-usd" element={<CurrencyPairPage />} />
-                  <Route path="*" element={<NotFound />} />
+                <Route path="/" element={<Index />} />
+                <Route path="/charts" element={<Charts />} />
+                <Route path="/alerts" element={<Alerts />} />
+                <Route path="/travel" element={<Travel />} />
+                <Route path="/auth" element={<Auth />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/terms-of-service" element={<TermsOfService />} />
+                <Route path="/faq" element={<FAQ />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/convert/:pair" element={<CurrencyPair />} />
+                <Route path="/usd-to-eur" element={<CurrencyPairPage />} />
+                <Route path="/usd-to-gbp" element={<CurrencyPairPage />} />
+                <Route path="/usd-to-jpy" element={<CurrencyPairPage />} />
+                <Route path="/eur-to-gbp" element={<CurrencyPairPage />} />
+                <Route path="/usd-to-cad" element={<CurrencyPairPage />} />
+                <Route path="/usd-to-aud" element={<CurrencyPairPage />} />
+                <Route path="/gbp-to-usd" element={<CurrencyPairPage />} />
+                <Route path="/eur-to-usd" element={<CurrencyPairPage />} />
+                <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>
             </ErrorBoundary>
           </div>
-          <CookieConsent />
-        </TooltipProvider>
-      </BrowserRouter>
+        </BrowserRouter>
+        <CookieConsent />
+      </TooltipProvider>
     </QueryClientProvider>
   );
 };
