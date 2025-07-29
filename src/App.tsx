@@ -11,6 +11,7 @@ import BreadcrumbNav from "@/components/BreadcrumbNav";
 import { Suspense, lazy } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import PerformanceOptimizer from "@/components/PerformanceOptimizer";
 
 // Lazy load all route components for better code splitting
 const Index = lazy(() => import("./pages/Index"));
@@ -50,6 +51,7 @@ const App = () => {
       <BrowserRouter>
         <TooltipProvider>
           <div className="min-h-screen">
+            <PerformanceOptimizer />
             <Toaster />
             <Sonner />
             <Header />
@@ -76,6 +78,10 @@ const App = () => {
                   <Route path="/usd-to-aud" element={<CurrencyPairPage />} />
                   <Route path="/gbp-to-usd" element={<CurrencyPairPage />} />
                   <Route path="/eur-to-usd" element={<CurrencyPairPage />} />
+                  <Route path="/jpy-to-usd" element={<CurrencyPairPage />} />
+                  <Route path="/aud-to-usd" element={<CurrencyPairPage />} />
+                  <Route path="/usd-to-chf" element={<CurrencyPairPage />} />
+                  <Route path="/eur-to-jpy" element={<CurrencyPairPage />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>

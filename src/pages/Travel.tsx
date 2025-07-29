@@ -23,7 +23,7 @@ const Travel = () => {
     <div className="min-h-screen bg-converter-bg">
       <SEOHead
         title="Travel Money Guide & Currency Tips | Currency to Currency"
-        description="Essential currency guides and budget calculators for international travel. Get money exchange tips and currency information for popular destinations worldwide."
+        description="Travel money guide: save on currency exchange while abroad. Best rates, payment methods & insider tips for international travel budgeting."
         keywords="travel money, currency exchange travel, travel budget calculator, international travel money, foreign currency guide, travel currency tips, vacation money planning"
         canonical="https://currencytocurrency.app/travel"
         structuredData={structuredData}

@@ -23,7 +23,7 @@ const Charts = () => {
     <div className="min-h-screen bg-converter-bg">
       <SEOHead
         title="Currency Exchange Rate Charts & Historical Data | Currency to Currency"
-        description="Interactive historical currency exchange rate charts and trends analysis. Track currency performance over time with detailed data visualization for better investment decisions."
+        description="View historical currency charts & trends. Interactive rate analysis with 1-year data. Track forex performance for informed exchange decisions."
         keywords="currency charts, exchange rate history, currency trends, historical rates, forex charts, currency analysis, exchange rate graphs, currency performance"
         canonical="https://currencytocurrency.app/charts"
         structuredData={structuredData}

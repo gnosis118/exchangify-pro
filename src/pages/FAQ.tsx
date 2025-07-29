@@ -89,10 +89,10 @@ const FAQ = () => {
   return (
     <div className="min-h-screen bg-background p-4">
       <SEOHead
-        title="Frequently Asked Questions - Currency Converter Help | ExchangifyPro"
-        description="Find answers to common questions about our currency converter, exchange rates, fees, security, and features. Get help with using our free currency conversion tools."
+        title="Currency Converter FAQ - Common Questions | Currency to Currency"
+        description="Currency converter FAQ: rates accuracy, crypto support, alerts setup & travel tips. Quick answers to common currency conversion questions."
         keywords="currency converter FAQ, exchange rate questions, currency conversion help, forex FAQ, currency converter support, exchange rate accuracy"
-        canonical="https://exchangifypro.com/faq"
+        canonical="https://currencytocurrency.app/faq"
         structuredData={faqStructuredData}
       />
       <div className="max-w-4xl mx-auto">

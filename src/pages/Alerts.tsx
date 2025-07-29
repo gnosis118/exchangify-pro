@@ -23,7 +23,7 @@ const Alerts = () => {
     <div className="min-h-screen bg-converter-bg">
       <SEOHead
         title="Currency Rate Alerts & Notifications | Currency to Currency"
-        description="Set personalized currency exchange rate alerts and get notified when rates reach your target levels. Never miss the perfect exchange rate opportunity with email notifications."
+        description="Set currency rate alerts & get email notifications when rates hit your targets. Never miss the perfect exchange opportunity. Free monitoring."
         keywords="currency alerts, exchange rate notifications, rate alerts, currency monitoring, forex alerts, exchange rate tracking, currency price alerts, rate notifications"
         canonical="https://currencytocurrency.app/alerts"
         structuredData={structuredData}

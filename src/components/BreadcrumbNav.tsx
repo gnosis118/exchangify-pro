@@ -32,19 +32,39 @@ const BreadcrumbNav = ({ className }: BreadcrumbNavProps) => {
   ];
 
   useEffect(() => {
-    // Add breadcrumb structured data
+    // Enhanced breadcrumb structured data with organization context
     if (breadcrumbItems.length > 1) {
       const script = document.createElement('script');
       script.type = 'application/ld+json';
       script.text = JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": breadcrumbItems.map((item, index) => ({
-          "@type": "ListItem",
-          "position": index + 1,
-          "name": item.label,
-          "item": `${window.location.origin}${item.href}`
-        }))
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://currencytocurrency.app/#breadcrumb",
+            "itemListElement": breadcrumbItems.map((item, index) => ({
+              "@type": "ListItem",
+              "position": index + 1,
+              "name": item.label,
+              "item": {
+                "@type": "WebPage",
+                "@id": `https://currencytocurrency.app${item.href}`,
+                "url": `https://currencytocurrency.app${item.href}`,
+                "name": item.label
+              }
+            }))
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://currencytocurrency.app/#organization",
+            "name": "Currency to Currency",
+            "url": "https://currencytocurrency.app",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://currencytocurrency.app/icon-512.png"
+            }
+          }
+        ]
       });
       document.head.appendChild(script);
       

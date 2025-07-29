@@ -361,7 +361,7 @@ const Index = () => {
     <div className="min-h-screen bg-converter-bg">
       <SEOHead
         title="Free Currency Converter - Live Exchange Rates | Currency to Currency"
-        description="Convert currencies instantly with live exchange rates. Support for 150+ fiat currencies and 100+ cryptocurrencies. Free real-time currency converter with historical charts and price alerts."
+        description="Convert 150+ currencies instantly with live rates. Free real-time forex calculator with crypto support, charts & alerts. No registration required."
         keywords="currency converter, exchange rates, live rates, cryptocurrency prices, currency conversion, foreign exchange, forex, bitcoin converter, real-time rates, USD to EUR, GBP to USD, currency calculator, money converter"
         canonical="https://currencytocurrency.app"
         structuredData={structuredData}
@@ -410,28 +410,28 @@ const Index = () => {
         <div className="mb-8 bg-card p-6 rounded-lg border">
           <h2 className="text-2xl font-semibold mb-4 text-foreground">Popular Currency Conversions</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            <a href="/convert/usd-to-eur" className="text-primary hover:text-primary-hover transition-colors p-2 rounded border hover:border-primary text-center">
+            <a href="/usd-to-eur" className="text-primary hover:text-primary-hover transition-colors p-2 rounded border hover:border-primary text-center">
               USD to EUR
             </a>
-            <a href="/convert/gbp-to-usd" className="text-primary hover:text-primary-hover transition-colors p-2 rounded border hover:border-primary text-center">
+            <a href="/gbp-to-usd" className="text-primary hover:text-primary-hover transition-colors p-2 rounded border hover:border-primary text-center">
               GBP to USD
             </a>
-            <a href="/convert/eur-to-gbp" className="text-primary hover:text-primary-hover transition-colors p-2 rounded border hover:border-primary text-center">
+            <a href="/eur-to-gbp" className="text-primary hover:text-primary-hover transition-colors p-2 rounded border hover:border-primary text-center">
               EUR to GBP
             </a>
-            <a href="/convert/usd-to-cad" className="text-primary hover:text-primary-hover transition-colors p-2 rounded border hover:border-primary text-center">
+            <a href="/usd-to-cad" className="text-primary hover:text-primary-hover transition-colors p-2 rounded border hover:border-primary text-center">
               USD to CAD
             </a>
-            <a href="/convert/jpy-to-usd" className="text-primary hover:text-primary-hover transition-colors p-2 rounded border hover:border-primary text-center">
+            <a href="/jpy-to-usd" className="text-primary hover:text-primary-hover transition-colors p-2 rounded border hover:border-primary text-center">
               JPY to USD
             </a>
-            <a href="/convert/aud-to-usd" className="text-primary hover:text-primary-hover transition-colors p-2 rounded border hover:border-primary text-center">
+            <a href="/aud-to-usd" className="text-primary hover:text-primary-hover transition-colors p-2 rounded border hover:border-primary text-center">
               AUD to USD
             </a>
-            <a href="/convert/usd-to-chf" className="text-primary hover:text-primary-hover transition-colors p-2 rounded border hover:border-primary text-center">
+            <a href="/usd-to-chf" className="text-primary hover:text-primary-hover transition-colors p-2 rounded border hover:border-primary text-center">
               USD to CHF
             </a>
-            <a href="/convert/eur-to-jpy" className="text-primary hover:text-primary-hover transition-colors p-2 rounded border hover:border-primary text-center">
+            <a href="/eur-to-jpy" className="text-primary hover:text-primary-hover transition-colors p-2 rounded border hover:border-primary text-center">
               EUR to JPY
             </a>
           </div>

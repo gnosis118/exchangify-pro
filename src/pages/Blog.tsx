@@ -76,7 +76,7 @@ const Blog = () => {
     <div className="min-h-screen bg-background py-8">
       <SEOHead
         title="Currency Exchange Blog - Expert Forex Insights | Currency to Currency"
-        description="Expert analysis on currency exchange rates, forex trends, and conversion strategies. Stay updated with the latest market insights and exchange rate forecasts."
+        description="Expert forex insights, currency exchange analysis & conversion strategies. Latest market trends, rate forecasts & money-saving tips for travelers."
         keywords="forex blog, currency exchange insights, exchange rate analysis, forex news, currency trends"
         canonical="https://currencytocurrency.app/blog"
         structuredData={structuredData}
