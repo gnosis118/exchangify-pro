@@ -134,23 +134,52 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
 
-      // Set default consent to 'denied' as per Google Consent Mode v2
-      // This must happen before loading gtag.js
-      gtag('consent', 'default', {
+      // EEA detection for regional compliance
+      function isEEARegion() {
+        const eeaLanguages = ['de', 'fr', 'es', 'it', 'nl', 'pl', 'pt', 'cs', 'hu', 'ro', 'bg', 'hr', 'sk', 'sl', 'lt', 'lv', 'et', 'mt', 'el', 'da', 'sv', 'fi'];
+        const userLang = navigator.language?.toLowerCase().slice(0, 2);
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const europeanTimezones = ['Europe/'];
+        
+        return eeaLanguages.includes(userLang) || 
+               europeanTimezones.some(tz => timezone.includes(tz)) ||
+               navigator.language?.includes('en-GB'); // Include UK
+      }
+
+      // Set region-appropriate consent defaults
+      const isEEA = isEEARegion();
+      const consentDefaults = {
         'ad_storage': 'denied',
         'ad_user_data': 'denied', 
         'ad_personalization': 'denied',
-        'analytics_storage': 'denied',
+        'analytics_storage': isEEA ? 'denied' : 'denied', // Stricter for EEA
         'functionality_storage': 'granted',
         'security_storage': 'granted',
-        'wait_for_update': 2000
-      });
+        'wait_for_update': 500 // Optimized timing
+      };
+
+      // Set default consent as per Google Consent Mode v2
+      gtag('consent', 'default', consentDefaults);
 
       // Enable URL passthrough for improved measurement when cookies are denied
       gtag('set', 'url_passthrough', true);
       
       // Enable ads data redaction when ad_storage is denied
       gtag('set', 'ads_data_redaction', true);
+
+      // Store region info for consent component
+      window.isEEARegion = isEEA;
+      
+      // Consent debugging (only in development)
+      if (window.location.hostname === 'localhost' || window.location.hostname.includes('lovable.app')) {
+        window.consentDebug = {
+          region: isEEA ? 'EEA' : 'Non-EEA',
+          defaults: consentDefaults,
+          language: navigator.language,
+          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
+        };
+        console.log('Consent Debug Info:', window.consentDebug);
+      }
     </script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4QQQGLR7SC"></script>
