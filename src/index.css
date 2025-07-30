@@ -112,6 +112,14 @@ All colors MUST be HSL.
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
+  /* Mobile viewport fix */
+  --vh: 1vh;
+  
+  /* Mobile-first typography */
+  --mobile-font-scale: 0.875;
+  --mobile-line-height: 1.6;
+  --mobile-touch-target: 44px;
 }
 
 @layer base {
@@ -121,5 +129,48 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Mobile responsiveness and optimizations */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Mobile typography scaling */
+  html {
+    font-size: calc(16px * var(--mobile-font-scale));
+  }
+  
+  /* Touch targets */
+  button, a, input, select, textarea {
+    min-height: var(--mobile-touch-target);
+    min-width: var(--mobile-touch-target);
+  }
+  
+  /* Prevent zoom on input focus */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+  
+  /* Better mobile spacing */
+  .space-y-6 > * + * {
+    margin-top: 1rem;
+  }
+  
+  .space-y-8 > * + * {
+    margin-top: 1.5rem;
+  }
+  
+  /* Mobile-optimized typography */
+  h1 { font-size: 1.875rem; line-height: 2.25rem; }
+  h2 { font-size: 1.5rem; line-height: 2rem; }
+  h3 { font-size: 1.25rem; line-height: 1.75rem; }
+  
+  /* Better mobile readability */
+  p, li, div {
+    line-height: var(--mobile-line-height);
   }
 }
