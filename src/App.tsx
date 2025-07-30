@@ -82,6 +82,7 @@ const App = () => {
                   <Route path="/aud-to-usd" element={<CurrencyPairPage />} />
                   <Route path="/usd-to-chf" element={<CurrencyPairPage />} />
                   <Route path="/eur-to-jpy" element={<CurrencyPairPage />} />
+                  <Route path="/sitemap.xml" element={null} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>
