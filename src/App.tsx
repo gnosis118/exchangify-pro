@@ -11,7 +11,6 @@ import BreadcrumbNav from "@/components/BreadcrumbNav";
 import { Suspense, lazy } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import ErrorBoundary from "@/components/ErrorBoundary";
-import PerformanceOptimizer from "@/components/PerformanceOptimizer";
 
 // Lazy load all route components for better code splitting
 const Index = lazy(() => import("./pages/Index"));
@@ -43,15 +42,38 @@ const RouteLoader = () => (
 );
 
 // Create QueryClient outside of component to avoid recreation
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 1,
+      staleTime: 5 * 60 * 1000,
+    },
+  },
+});
+
+// Provider wrapper components with error boundaries
+const QueryProvider = ({ children }: { children: React.ReactNode }) => (
+  <ErrorBoundary fallback={<div>Query provider failed to load</div>}>
+    <QueryClientProvider client={queryClient}>
+      {children}
+    </QueryClientProvider>
+  </ErrorBoundary>
+);
+
+const TooltipProviderWrapper = ({ children }: { children: React.ReactNode }) => (
+  <ErrorBoundary fallback={<div>Tooltip provider failed to load</div>}>
+    <TooltipProvider>
+      {children}
+    </TooltipProvider>
+  </ErrorBoundary>
+);
 
 const App = () => {
   return (
-    <QueryClientProvider client={queryClient}>
+    <QueryProvider>
       <BrowserRouter>
-        <TooltipProvider>
+        <TooltipProviderWrapper>
           <div className="min-h-screen">
-            <PerformanceOptimizer />
             <Toaster />
             <Sonner />
             <Header />
@@ -89,9 +111,9 @@ const App = () => {
             </ErrorBoundary>
           </div>
           <CookieConsent />
-        </TooltipProvider>
+        </TooltipProviderWrapper>
       </BrowserRouter>
-    </QueryClientProvider>
+    </QueryProvider>
   );
 };
 
