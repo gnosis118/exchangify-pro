@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import * as React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -8,24 +8,23 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CookieConsent from "@/components/CookieConsent";
 import Header from "@/components/Header";
 import BreadcrumbNav from "@/components/BreadcrumbNav";
-import { Suspense, lazy } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
 // Lazy load all route components for better code splitting
-const Index = lazy(() => import("./pages/Index"));
-const Charts = lazy(() => import("./pages/Charts"));
-const Alerts = lazy(() => import("./pages/Alerts"));
-const Travel = lazy(() => import("./pages/Travel"));
-const Auth = lazy(() => import("./pages/Auth"));
-const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
-const TermsOfService = lazy(() => import("./pages/TermsOfService"));
-const NotFound = lazy(() => import("./pages/NotFound"));
-const FAQ = lazy(() => import("./pages/FAQ"));
-const Blog = lazy(() => import("./pages/Blog"));
-const BlogPost = lazy(() => import("./pages/BlogPost"));
-const CurrencyPair = lazy(() => import("./pages/CurrencyPair"));
-const CurrencyPairPage = lazy(() => import("./components/CurrencyPairPages"));
+const Index = React.lazy(() => import("./pages/Index"));
+const Charts = React.lazy(() => import("./pages/Charts"));
+const Alerts = React.lazy(() => import("./pages/Alerts"));
+const Travel = React.lazy(() => import("./pages/Travel"));
+const Auth = React.lazy(() => import("./pages/Auth"));
+const PrivacyPolicy = React.lazy(() => import("./pages/PrivacyPolicy"));
+const TermsOfService = React.lazy(() => import("./pages/TermsOfService"));
+const NotFound = React.lazy(() => import("./pages/NotFound"));
+const FAQ = React.lazy(() => import("./pages/FAQ"));
+const Blog = React.lazy(() => import("./pages/Blog"));
+const BlogPost = React.lazy(() => import("./pages/BlogPost"));
+const CurrencyPair = React.lazy(() => import("./pages/CurrencyPair"));
+const CurrencyPairPage = React.lazy(() => import("./components/CurrencyPairPages"));
 
 // Loading component for route transitions
 const RouteLoader = () => (
@@ -41,6 +40,10 @@ const RouteLoader = () => (
   </div>
 );
 
+// Debug React instance to ensure single module
+console.log('React version:', React.version);
+console.log('React instance:', React);
+
 // Create QueryClient outside of component to avoid recreation
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -51,69 +54,78 @@ const queryClient = new QueryClient({
   },
 });
 
-// Provider wrapper components with error boundaries
-const QueryProvider = ({ children }: { children: React.ReactNode }) => (
-  <ErrorBoundary fallback={<div>Query provider failed to load</div>}>
-    <QueryClientProvider client={queryClient}>
-      {children}
-    </QueryClientProvider>
-  </ErrorBoundary>
-);
+// Progressive loading component to ensure React is ready
+const AppProviders = ({ children }: { children: React.ReactNode }) => {
+  const [isReady, setIsReady] = React.useState(false);
 
-const TooltipProviderWrapper = ({ children }: { children: React.ReactNode }) => (
-  <ErrorBoundary fallback={<div>Tooltip provider failed to load</div>}>
-    <TooltipProvider>
-      {children}
-    </TooltipProvider>
-  </ErrorBoundary>
-);
+  React.useEffect(() => {
+    // Ensure React is fully loaded before mounting providers
+    const timer = setTimeout(() => {
+      console.log('Providers ready, React instance:', React);
+      setIsReady(true);
+    }, 0);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!isReady) {
+    return <RouteLoader />;
+  }
+
+  return (
+    <ErrorBoundary fallback={<div>Application failed to load</div>}>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          {children}
+        </TooltipProvider>
+      </QueryClientProvider>
+    </ErrorBoundary>
+  );
+};
 
 const App = () => {
   return (
-    <QueryProvider>
+    <AppProviders>
       <BrowserRouter>
-        <TooltipProviderWrapper>
-          <div className="min-h-screen">
-            <Toaster />
-            <Sonner />
-            <Header />
-            <BreadcrumbNav className="container mx-auto px-4 py-2" />
-            <ErrorBoundary>
-              <Suspense fallback={<RouteLoader />}>
-                <Routes>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/charts" element={<Charts />} />
-                  <Route path="/alerts" element={<Alerts />} />
-                  <Route path="/travel" element={<Travel />} />
-                  <Route path="/auth" element={<Auth />} />
-                  <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                  <Route path="/terms-of-service" element={<TermsOfService />} />
-                  <Route path="/faq" element={<FAQ />} />
-                  <Route path="/blog" element={<Blog />} />
-                  <Route path="/blog/:slug" element={<BlogPost />} />
-                  <Route path="/convert/:pair" element={<CurrencyPair />} />
-                  <Route path="/usd-to-eur" element={<CurrencyPairPage />} />
-                  <Route path="/usd-to-gbp" element={<CurrencyPairPage />} />
-                  <Route path="/usd-to-jpy" element={<CurrencyPairPage />} />
-                  <Route path="/eur-to-gbp" element={<CurrencyPairPage />} />
-                  <Route path="/usd-to-cad" element={<CurrencyPairPage />} />
-                  <Route path="/usd-to-aud" element={<CurrencyPairPage />} />
-                  <Route path="/gbp-to-usd" element={<CurrencyPairPage />} />
-                  <Route path="/eur-to-usd" element={<CurrencyPairPage />} />
-                  <Route path="/jpy-to-usd" element={<CurrencyPairPage />} />
-                  <Route path="/aud-to-usd" element={<CurrencyPairPage />} />
-                  <Route path="/usd-to-chf" element={<CurrencyPairPage />} />
-                  <Route path="/eur-to-jpy" element={<CurrencyPairPage />} />
-                  <Route path="/sitemap.xml" element={null} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </Suspense>
-            </ErrorBoundary>
-          </div>
-          <CookieConsent />
-        </TooltipProviderWrapper>
+        <div className="min-h-screen">
+          <Toaster />
+          <Sonner />
+          <Header />
+          <BreadcrumbNav className="container mx-auto px-4 py-2" />
+          <ErrorBoundary>
+            <React.Suspense fallback={<RouteLoader />}>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/charts" element={<Charts />} />
+                <Route path="/alerts" element={<Alerts />} />
+                <Route path="/travel" element={<Travel />} />
+                <Route path="/auth" element={<Auth />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/terms-of-service" element={<TermsOfService />} />
+                <Route path="/faq" element={<FAQ />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/convert/:pair" element={<CurrencyPair />} />
+                <Route path="/usd-to-eur" element={<CurrencyPairPage />} />
+                <Route path="/usd-to-gbp" element={<CurrencyPairPage />} />
+                <Route path="/usd-to-jpy" element={<CurrencyPairPage />} />
+                <Route path="/eur-to-gbp" element={<CurrencyPairPage />} />
+                <Route path="/usd-to-cad" element={<CurrencyPairPage />} />
+                <Route path="/usd-to-aud" element={<CurrencyPairPage />} />
+                <Route path="/gbp-to-usd" element={<CurrencyPairPage />} />
+                <Route path="/eur-to-usd" element={<CurrencyPairPage />} />
+                <Route path="/jpy-to-usd" element={<CurrencyPairPage />} />
+                <Route path="/aud-to-usd" element={<CurrencyPairPage />} />
+                <Route path="/usd-to-chf" element={<CurrencyPairPage />} />
+                <Route path="/eur-to-jpy" element={<CurrencyPairPage />} />
+                <Route path="/sitemap.xml" element={null} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </React.Suspense>
+          </ErrorBoundary>
+        </div>
+        <CookieConsent />
       </BrowserRouter>
-    </QueryProvider>
+    </AppProviders>
   );
 };
 

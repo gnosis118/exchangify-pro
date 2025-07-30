@@ -17,17 +17,21 @@ export default defineConfig(({ mode }) => ({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      // Force single React instance
+      "react": path.resolve(__dirname, "./node_modules/react"),
+      "react-dom": path.resolve(__dirname, "./node_modules/react-dom"),
     },
     dedupe: ["react", "react-dom"],
   },
   optimizeDeps: {
     include: ["react", "react-dom", "react-router-dom", "@tanstack/react-query"],
+    force: true,
   },
   build: {
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['react-router-dom', '@tanstack/react-query'],
+          vendor: ['react-router-dom'],
           charts: ['recharts'],
           ui: ['@radix-ui/react-select', '@radix-ui/react-dialog', '@radix-ui/react-tabs'],
         },
