@@ -1,6 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { useEffect } from 'react';
 import SEOHead from '@/components/SEOHead';
 
 const FAQ = () => {
@@ -47,31 +46,6 @@ const FAQ = () => {
     }
   ];
 
-  useEffect(() => {
-    // Add FAQ structured data for SEO
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.text = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.question,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.answer
-        }
-      }))
-    });
-    document.head.appendChild(script);
-    
-    return () => {
-      const existingScript = document.querySelector('script[type="application/ld+json"]');
-      if (existingScript && existingScript.textContent?.includes('FAQPage')) {
-        document.head.removeChild(existingScript);
-      }
-    };
-  }, []);
 
   const faqStructuredData = {
     "@context": "https://schema.org",
