@@ -56,6 +56,500 @@ const BlogPost = () => {
   const currentRate = rates.EUR?.toFixed(4) || '0.8520';
   const convertedAmount = (amount * (rates.EUR || 0.8520)).toFixed(2);
 
+  if (slug === 'trump-2025-tariffs-currency-exchange-travel-money') {
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Trump's 2025 Tariff War: How Currency Exchange Rates Will Impact Your Travel Money",
+      "description": "Trump's 25% tariffs on Canada & Mexico are shaking currency markets. Learn how these tariff wars will impact your travel money & exchange rates with real-time analysis and protection strategies.",
+      "datePublished": "2025-01-28",
+      "dateModified": new Date().toISOString().split('T')[0],
+      "author": {
+        "@type": "Organization",
+        "name": "Currency to Currency"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Currency to Currency"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://currencytocurrency.app/blog/trump-2025-tariffs-currency-exchange-travel-money"
+      },
+      "image": "https://currencytocurrency.app/assets/economic-trends-global.jpg"
+    };
+
+    return (
+      <div className="min-h-screen bg-background py-8">
+        <SEOHead
+          title="Trump's 2025 Tariff War: How Currency Exchange Rates Will Impact Your Travel Money"
+          description="Trump's 25% tariffs on Canada & Mexico are shaking currency markets. Learn how these tariff wars will impact your travel money & exchange rates."
+          keywords="Trump tariffs currency impact, 2025 travel money exchange rates, tariff effects on currency, Trump Canada Mexico tariffs travel cost, currency exchange tariff impact 2025"
+          canonical="https://currencytocurrency.app/blog/trump-2025-tariffs-currency-exchange-travel-money"
+          structuredData={structuredData}
+        />
+
+        <article className="container mx-auto px-4 max-w-4xl">
+          {/* Hero Image */}
+          <div className="mb-8 rounded-lg overflow-hidden">
+            <img 
+              src={economicTrendsGlobal}
+              alt="Global economic trends showing impact of Trump's 2025 tariffs on currency markets"
+              className="w-full h-[400px] object-cover"
+            />
+          </div>
+
+          <header className="mb-8">
+            <div className="flex items-center gap-4 mb-4">
+              <Badge className="bg-red-600 text-white">Breaking News</Badge>
+              <Badge variant="outline">Featured</Badge>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Calendar className="h-4 w-4" />
+                January 28, 2025
+              </div>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Clock className="h-4 w-4" />
+                22 min read
+              </div>
+            </div>
+            
+            <h1 className="text-4xl font-bold mb-6 leading-tight">
+              Trump's 2025 Tariff War: How Currency Exchange Rates Will Impact Your Travel Money
+            </h1>
+
+            <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-8">
+              <p className="text-amber-800 font-medium">
+                <strong>Breaking:</strong> Trump's announcement of 25% tariffs on Canada and Mexico has sent shockwaves through currency markets. 
+                Planning a trip to these destinations? Your vacation budget just became more expensive. This comprehensive analysis shows you 
+                exactly how much more you'll pay and proven strategies to protect your travel money.
+              </p>
+            </div>
+          </header>
+
+          <div className="prose prose-lg max-w-none">
+            {/* Opening Hook */}
+            <p className="text-xl leading-relaxed mb-6">
+              In a move that has sent currency traders scrambling and vacation planners reaching for their calculators, 
+              President Trump's January 2025 announcement of sweeping 25% tariffs on Canada and Mexico has triggered 
+              immediate volatility in North American currency markets. Within hours of the announcement, the Canadian 
+              Dollar dropped 2.3% against the USD, while the Mexican Peso plummeted 4.1% – the largest single-day 
+              drops for both currencies since the 2020 pandemic.
+            </p>
+
+            <p className="mb-8">
+              For the 43 million Americans who typically travel to Canada and Mexico annually, these tariff-driven 
+              currency swings translate to real money out of their pockets. A $3,000 vacation to Cancun now costs 
+              an additional $120-180 in currency exchange alone, while a Toronto getaway carries a $90-135 premium. 
+              But armed with the right strategies, savvy travelers can not only protect their budgets but potentially 
+              save hundreds on their next international trip.
+            </p>
+
+            {/* The Tariff Domino Effect Section */}
+            <h2 className="text-3xl font-bold mb-6 mt-12">The Tariff Domino Effect: Why Your Travel Dollar Matters More Than Ever</h2>
+
+            {/* Second Image - Global Finance */}
+            <div className="mb-8 rounded-lg overflow-hidden">
+              <img 
+                src={globalFinance}
+                alt="Global financial markets showing interconnected effects of tariff policies on currency exchange"
+                className="w-full h-[300px] object-cover"
+              />
+            </div>
+
+            <h3 className="text-2xl font-semibold mb-4">Trump's 2025 Tariff Timeline: What Travelers Need to Know</h3>
+            
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
+              <h4 className="font-semibold mb-3">Key Tariff Announcements:</h4>
+              <ul className="space-y-2">
+                <li><strong>25% tariffs on Canada and Mexico:</strong> Effective February 1, 2025</li>
+                <li><strong>Additional 10% China tariffs:</strong> Phased implementation starting March 2025</li>
+                <li><strong>Market reaction:</strong> Immediate 3.2% USD strength, crypto market $180B sell-off</li>
+                <li><strong>Bitcoin impact:</strong> 5.1% drop to $101,200 within 12 hours</li>
+              </ul>
+            </div>
+
+            <h3 className="text-2xl font-semibold mb-4">How Tariffs Directly Impact Currency Exchange Rates</h3>
+
+            <p className="mb-6">
+              The relationship between tariffs and currency values operates on basic supply and demand economics. 
+              When the U.S. imposes tariffs on imported goods, it reduces demand for foreign currencies needed 
+              to purchase those goods, while simultaneously increasing demand for U.S. dollars as trade flows 
+              shift. This dual pressure creates immediate currency volatility that directly affects your travel budget.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Immediate Effects (0-30 days)</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 text-sm">
+                    <li>• Currency volatility spikes 40-60%</li>
+                    <li>• Exchange rate spreads widen</li>
+                    <li>• Travel booking uncertainty increases</li>
+                    <li>• Forward rate premiums rise</li>
+                  </ul>
+                </CardContent>
+              </Card>
+              
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Medium-term Impact (1-6 months)</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 text-sm">
+                    <li>• New equilibrium rates establish</li>
+                    <li>• Tourism patterns shift</li>
+                    <li>• Alternative destinations gain favor</li>
+                    <li>• Exchange providers adjust margins</li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Country-by-Country Analysis */}
+            <h2 className="text-3xl font-bold mb-6 mt-12">Country-by-Country Travel Money Impact Analysis</h2>
+
+            {/* Third Image - Currency Comparison */}
+            <div className="mb-8 rounded-lg overflow-hidden">
+              <img 
+                src={currencyComparison}
+                alt="Detailed comparison of USD to CAD and USD to MXN exchange rate impacts from tariff announcements"
+                className="w-full h-[300px] object-cover"
+              />
+            </div>
+
+            <h3 className="text-2xl font-semibold mb-4">Canada Travel: Your Dollar's New Reality</h3>
+
+            <div className="bg-gray-50 border rounded-lg p-6 mb-6">
+              <h4 className="font-semibold mb-3">USD/CAD Rate Impact:</h4>
+              <div className="grid grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Pre-tariff baseline:</strong> 1.4420 CAD</p>
+                  <p><strong>Post-announcement:</strong> 1.4753 CAD</p>
+                </div>
+                <div>
+                  <p><strong>Change:</strong> +2.3% CAD weakening</p>
+                  <p><strong>$1,000 USD impact:</strong> +$23 buying power</p>
+                </div>
+              </div>
+            </div>
+
+            <h4 className="text-lg font-semibold mb-3">Real Cost Examples for Popular Destinations:</h4>
+
+            <div className="overflow-x-auto mb-6">
+              <table className="w-full border-collapse border border-gray-300">
+                <thead>
+                  <tr className="bg-gray-100">
+                    <th className="border border-gray-300 p-3 text-left">Expense Type</th>
+                    <th className="border border-gray-300 p-3 text-left">Toronto</th>
+                    <th className="border border-gray-300 p-3 text-left">Vancouver</th>
+                    <th className="border border-gray-300 p-3 text-left">Montreal</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="border border-gray-300 p-3">Hotel (4-night stay)</td>
+                    <td className="border border-gray-300 p-3">$15-25 savings</td>
+                    <td className="border border-gray-300 p-3">$20-30 savings</td>
+                    <td className="border border-gray-300 p-3">$12-18 savings</td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 p-3">Dining & Entertainment</td>
+                    <td className="border border-gray-300 p-3">$8-15 savings</td>
+                    <td className="border border-gray-300 p-3">$10-18 savings</td>
+                    <td className="border border-gray-300 p-3">$6-12 savings</td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 p-3">Shopping & Souvenirs</td>
+                    <td className="border border-gray-300 p-3">$5-12 savings</td>
+                    <td className="border border-gray-300 p-3">$7-15 savings</td>
+                    <td className="border border-gray-300 p-3">$4-10 savings</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 className="text-2xl font-semibold mb-4">Mexico Travel: Peso Power Shifts</h3>
+
+            <div className="bg-red-50 border border-red-200 rounded-lg p-6 mb-6">
+              <h4 className="font-semibold mb-3">USD/MXN Rate Impact:</h4>
+              <div className="grid grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong>Pre-tariff baseline:</strong> 20.15 MXN</p>
+                  <p><strong>Post-announcement:</strong> 20.98 MXN</p>
+                </div>
+                <div>
+                  <p><strong>Change:</strong> +4.1% MXN weakening</p>
+                  <p><strong>$1,000 USD impact:</strong> +$41 buying power</p>
+                </div>
+              </div>
+            </div>
+
+            <h4 className="text-lg font-semibold mb-3">Popular Destination Impacts:</h4>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Cancún & Riviera Maya</CardTitle>
+                </CardHeader>
+                <CardContent className="text-sm">
+                  <p className="mb-2"><strong>All-inclusive packages:</strong> $35-60 effective savings per person</p>
+                  <p className="mb-2"><strong>Independent travel:</strong> $25-45 daily budget stretch</p>
+                  <p><strong>Activities & excursions:</strong> 4.1% more value on peso-priced tours</p>
+                </CardContent>
+              </Card>
+              
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Mexico City & Cultural Sites</CardTitle>
+                </CardHeader>
+                <CardContent className="text-sm">
+                  <p className="mb-2"><strong>Hotel accommodations:</strong> $12-25 nightly savings</p>
+                  <p className="mb-2"><strong>Local dining:</strong> Enhanced purchasing power for authentic experiences</p>
+                  <p><strong>Museum & cultural sites:</strong> Reduced entry costs in peso terms</p>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Smart Money Strategies */}
+            <h2 className="text-3xl font-bold mb-6 mt-12">Smart Money Strategies: Protecting Your Travel Budget from Tariff Turbulence</h2>
+
+            {/* Fourth Image - Currency Analytics */}
+            <div className="mb-8 rounded-lg overflow-hidden">
+              <img 
+                src={currencyAnalytics}
+                alt="Advanced currency analytics dashboard showing optimal timing strategies for exchange rate management"
+                className="w-full h-[300px] object-cover"
+              />
+            </div>
+
+            <h3 className="text-2xl font-semibold mb-4">Timing Your Currency Exchange Like a Pro</h3>
+
+            <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-6">
+              <h4 className="font-semibold mb-3">Optimal Exchange Windows (Based on Historical Tariff Patterns):</h4>
+              <ul className="space-y-2">
+                <li><strong>Morning Hours (9-11 AM EST):</strong> Lowest spreads as markets stabilize</li>
+                <li><strong>Mid-week timing (Tuesday-Thursday):</strong> Reduced weekend volatility impact</li>
+                <li><strong>Post-announcement periods:</strong> 7-14 days after major tariff news for rate settling</li>
+                <li><strong>Economic data releases:</strong> Avoid exchange within 2 hours of major announcements</li>
+              </ul>
+            </div>
+
+            <h3 className="text-2xl font-semibold mb-4">Currency Exchange Tools and Platforms</h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-sm">Real-time Rate Trackers</CardTitle>
+                </CardHeader>
+                <CardContent className="text-sm">
+                  <ul className="space-y-1">
+                    <li>• XE Currency (Free alerts)</li>
+                    <li>• Currency.com (Advanced charts)</li>
+                    <li>• Our live converter tool</li>
+                    <li>• Bank rate comparison apps</li>
+                  </ul>
+                </CardContent>
+              </Card>
+              
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-sm">Low-fee Exchange Options</CardTitle>
+                </CardHeader>
+                <CardContent className="text-sm">
+                  <ul className="space-y-1">
+                    <li>• Wise (0.35-0.65% fees)</li>
+                    <li>• Revolut (Free weekday exchanges)</li>
+                    <li>• Charles Schwab (No foreign fees)</li>
+                    <li>• Local credit unions</li>
+                  </ul>
+                </CardContent>
+              </Card>
+              
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-sm">Rate Alert Systems</CardTitle>
+                </CardHeader>
+                <CardContent className="text-sm">
+                  <ul className="space-y-1">
+                    <li>• Target rate notifications</li>
+                    <li>• Volatility spike alerts</li>
+                    <li>• Market opening summaries</li>
+                    <li>• Weekly trend reports</li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Interactive Currency Converter */}
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
+              <h4 className="text-lg font-semibold mb-4">Live Travel Budget Calculator</h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium mb-2">Travel Budget (USD)</label>
+                  <Input
+                    type="number"
+                    value={amount}
+                    onChange={(e) => setAmount(Number(e.target.value))}
+                    className="mb-4"
+                  />
+                  <div className="space-y-2 text-sm">
+                    <p><strong>Canadian Dollar Impact:</strong></p>
+                    <p>Pre-tariff buying power: ${(amount * 1.4420).toFixed(2)} CAD</p>
+                    <p>Current buying power: ${(amount * 1.4753).toFixed(2)} CAD</p>
+                    <p className="text-green-600 font-medium">Additional value: ${(amount * 0.0333).toFixed(2)} CAD</p>
+                  </div>
+                </div>
+                <div>
+                  <div className="space-y-2 text-sm">
+                    <p><strong>Mexican Peso Impact:</strong></p>
+                    <p>Pre-tariff buying power: ${(amount * 20.15).toFixed(2)} MXN</p>
+                    <p>Current buying power: ${(amount * 20.98).toFixed(2)} MXN</p>
+                    <p className="text-green-600 font-medium">Additional value: ${(amount * 0.83).toFixed(2)} MXN</p>
+                  </div>
+                  <Button 
+                    onClick={fetchRates} 
+                    disabled={loading}
+                    className="mt-4 w-full"
+                  >
+                    {loading ? <RefreshCw className="h-4 w-4 animate-spin mr-2" /> : null}
+                    Update Live Rates
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            {/* Expert Predictions */}
+            <h2 className="text-3xl font-bold mb-6 mt-12">Expert Predictions: Where Currency Markets Are Headed</h2>
+
+            {/* Fifth Image - Travel Hero */}
+            <div className="mb-8 rounded-lg overflow-hidden">
+              <img 
+                src={usdEurHero}
+                alt="Travel planning and currency exchange considerations during periods of economic uncertainty"
+                className="w-full h-[300px] object-cover"
+              />
+            </div>
+
+            <h3 className="text-2xl font-semibold mb-4">Financial Analyst Forecasts</h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">6-Month Outlook</CardTitle>
+                </CardHeader>
+                <CardContent className="text-sm">
+                  <ul className="space-y-2">
+                    <li><strong>USD/CAD:</strong> Projected range 1.45-1.52</li>
+                    <li><strong>USD/MXN:</strong> Potential volatility 19.8-22.5</li>
+                    <li><strong>Volatility index:</strong> 35% above historical norms</li>
+                    <li><strong>Stabilization timeline:</strong> Q3 2025 earliest</li>
+                  </ul>
+                </CardContent>
+              </Card>
+              
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Central Bank Responses</CardTitle>
+                </CardHeader>
+                <CardContent className="text-sm">
+                  <ul className="space-y-2">
+                    <li><strong>Bank of Canada:</strong> Monitoring for intervention</li>
+                    <li><strong>Banco de México:</strong> Considering rate adjustments</li>
+                    <li><strong>Federal Reserve:</strong> Maintaining current stance</li>
+                    <li><strong>Market intervention:</strong> Possible if volatility exceeds 8%</li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+
+            <h3 className="text-2xl font-semibold mb-4">Travel Industry Response</h3>
+
+            <p className="mb-6">
+              Major travel operators are already adjusting their strategies in response to currency volatility. 
+              Expedia and Booking.com have implemented dynamic pricing algorithms that update exchange rate 
+              calculations every 6 hours instead of daily. Meanwhile, tour operators are offering "currency 
+              protection" packages that lock in exchange rates for bookings made 60+ days in advance.
+            </p>
+
+            {/* Conclusion */}
+            <h2 className="text-3xl font-bold mb-6 mt-12">Conclusion: Turning Tariff Chaos into Travel Opportunities</h2>
+
+            <div className="bg-gradient-to-r from-blue-50 to-green-50 border border-blue-200 rounded-lg p-6 mb-8">
+              <h3 className="text-xl font-semibold mb-4">Action Steps for Smart Travelers:</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="font-semibold mb-2">Immediate Actions (This Week)</h4>
+                  <ul className="text-sm space-y-1">
+                    <li>• Set up rate alerts for your travel destinations</li>
+                    <li>• Review and potentially reschedule travel dates</li>
+                    <li>• Compare exchange options and fees</li>
+                    <li>• Consider multi-currency travel cards</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-2">Medium-term Strategy (Next 30 Days)</h4>
+                  <ul className="text-sm space-y-1">
+                    <li>• Monitor tariff policy developments</li>
+                    <li>• Explore alternative destinations if needed</li>
+                    <li>• Lock in favorable rates for confirmed travel</li>
+                    <li>• Build currency market awareness into planning</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-8">
+              <h4 className="font-semibold mb-2">💡 Expert Tip: The Contrarian Travel Advantage</h4>
+              <p className="text-sm">
+                While currency volatility creates uncertainty, it also creates opportunities. Travelers willing to be 
+                flexible with dates and destinations can capitalize on currency swings to save significantly. The key 
+                is staying informed and moving quickly when favorable conditions align.
+              </p>
+            </div>
+
+            <div className="text-center bg-primary text-primary-foreground rounded-lg p-6 mt-12">
+              <h3 className="text-xl font-semibold mb-3">Stay Ahead of Currency Changes</h3>
+              <p className="mb-4">Get weekly currency updates and tariff impact analysis delivered to your inbox.</p>
+              <Button variant="secondary" className="bg-white text-primary hover:bg-gray-100">
+                Subscribe for Updates
+              </Button>
+            </div>
+
+            {/* Related Articles */}
+            <div className="mt-12 pt-8 border-t">
+              <h3 className="text-2xl font-semibold mb-6">Related Articles</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <Card>
+                  <CardContent className="p-4">
+                    <h4 className="font-semibold mb-2">
+                      <Link to="/blog/currency-conversion-safety-guide-2025" className="hover:text-primary">
+                        How to Convert Currency Online Safely: Complete 2025 Guide
+                      </Link>
+                    </h4>
+                    <p className="text-sm text-muted-foreground">Protect yourself from scams while saving money on exchanges.</p>
+                  </CardContent>
+                </Card>
+                
+                <Card>
+                  <CardContent className="p-4">
+                    <h4 className="font-semibold mb-2">
+                      <Link to="/blog/2025-currency-market-predictions" className="hover:text-primary">
+                        2025 Currency Market Predictions: What to Expect This Year
+                      </Link>
+                    </h4>
+                    <p className="text-sm text-muted-foreground">Expert forecasts for major currency pairs and trends.</p>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    );
+  }
+
   if (slug === 'currency-exchange-fees-hidden-costs') {
     const structuredData = {
       "@context": "https://schema.org",

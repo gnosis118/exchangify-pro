@@ -8,6 +8,16 @@ import blogPostBackground from '@/assets/blog-post-background.jpg';
 
 const blogPosts = [
   {
+    id: 'trump-2025-tariffs-currency-exchange-travel-money',
+    title: "Trump's 2025 Tariff War: How Currency Exchange Rates Will Impact Your Travel Money",
+    excerpt: "Trump's 25% tariffs on Canada & Mexico are shaking currency markets. Learn how these tariff wars will impact your travel money & exchange rates with real-time analysis and protection strategies.",
+    keywords: ['Trump tariffs currency impact', '2025 travel money exchange rates', 'tariff effects on currency', 'Trump Canada Mexico tariffs travel cost', 'currency exchange tariff impact 2025'],
+    readTime: '22 min read',
+    publishDate: '2025-01-28',
+    category: 'Breaking News',
+    featured: true
+  },
+  {
     id: '2025-currency-market-predictions',
     title: '2025 Currency Market Predictions: What to Expect This Year',
     excerpt: '2025 promises pivotal changes for global currencies. JP Morgan forecasts Dollar gains of 5.9%, Euro parity testing, and emerging market volatility. Get expert insights for strategic planning.',
