@@ -44,10 +44,6 @@ const RouteLoader = () => (
   </div>
 );
 
-// Debug React instance to ensure single module
-console.log('React version:', React.version);
-console.log('React instance:', React);
-
 // Create QueryClient outside of component to avoid recreation
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -58,23 +54,8 @@ const queryClient = new QueryClient({
   },
 });
 
-// Progressive loading component to ensure React is ready
+// Simplified AppProviders without progressive loading
 const AppProviders = ({ children }: { children: React.ReactNode }) => {
-  const [isReady, setIsReady] = React.useState(false);
-
-  React.useEffect(() => {
-    // Ensure React is fully loaded before mounting providers
-    const timer = setTimeout(() => {
-      console.log('Providers ready, React instance:', React);
-      setIsReady(true);
-    }, 0);
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (!isReady) {
-    return <RouteLoader />;
-  }
-
   return (
     <ErrorBoundary fallback={<div>Application failed to load</div>}>
       <QueryClientProvider client={queryClient}>
