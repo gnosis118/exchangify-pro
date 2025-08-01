@@ -44,8 +44,8 @@ const SearchEngineSubmitter = () => {
           'https://currencytocurrency.app/blog',
           'https://currencytocurrency.app/charts',
           'https://currencytocurrency.app/travel',
-          'https://currencytocurrency.app/usd-to-eur',
-          'https://currencytocurrency.app/usd-to-gbp',
+          'https://currencytocurrency.app/convert/usd-to-eur',
+          'https://currencytocurrency.app/convert/usd-to-gbp',
           'https://currencytocurrency.app/blog/digital-nomad-banking-crisis-2025'
         ];
 
