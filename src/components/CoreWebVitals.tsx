@@ -2,21 +2,60 @@ import { useEffect } from 'react';
 
 const CoreWebVitals = () => {
   useEffect(() => {
-    // Core Web Vitals monitoring (simplified without external dependencies)
+    // Core Web Vitals monitoring and optimization
     const measurePerformance = () => {
       if ('performance' in window) {
-        // Monitor LCP
+        // Monitor LCP, FID, and CLS
         const observer = new PerformanceObserver((list) => {
           const entries = list.getEntries();
           entries.forEach((entry) => {
-            console.log('Performance metric:', entry.name, entry.startTime);
+            if (entry.entryType === 'largest-contentful-paint') {
+              console.log('LCP:', entry.startTime);
+            } else if (entry.entryType === 'first-input') {
+              const fidEntry = entry as any;
+              console.log('FID:', fidEntry.processingStart - fidEntry.startTime);
+            } else if (entry.entryType === 'layout-shift') {
+              const clsEntry = entry as any;
+              if (!clsEntry.hadRecentInput) {
+                console.log('CLS:', clsEntry.value);
+              }
+            }
           });
         });
         
         if ('observe' in observer) {
-          observer.observe({ entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift'] });
+          try {
+            observer.observe({ entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift'] });
+          } catch (e) {
+            // Fallback for older browsers
+            console.log('Performance Observer not fully supported');
+          }
         }
       }
+    };
+
+    // Preload critical resources
+    const preloadCriticalResources = () => {
+      // Preload fonts
+      const fontLink = document.createElement('link');
+      fontLink.rel = 'preload';
+      fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap';
+      fontLink.as = 'style';
+      fontLink.crossOrigin = 'anonymous';
+      document.head.appendChild(fontLink);
+
+      // Preconnect to external domains
+      const preconnectDomains = [
+        'https://api.exchangerate-api.com',
+        'https://api.coingecko.com'
+      ];
+      
+      preconnectDomains.forEach(domain => {
+        const link = document.createElement('link');
+        link.rel = 'preconnect';
+        link.href = domain;
+        document.head.appendChild(link);
+      });
     };
 
     // Layout shift prevention
@@ -43,6 +82,7 @@ const CoreWebVitals = () => {
 
     // Initialize optimizations
     measurePerformance();
+    preloadCriticalResources();
     preventLayoutShift();
     
     const mutationObserver = new MutationObserver(preventLayoutShift);

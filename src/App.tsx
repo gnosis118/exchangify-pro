@@ -12,6 +12,8 @@ import { Skeleton } from "@/components/ui/skeleton";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import MobileOptimizer from "@/components/MobileOptimizer";
 import CoreWebVitals from "@/components/CoreWebVitals";
+import SitemapGenerator from "@/components/SitemapGenerator";
+import SEOMonitoring from "@/components/SEOMonitoring";
 
 // Lazy load all route components for better code splitting
 const Index = React.lazy(() => import("./pages/Index"));
@@ -91,6 +93,8 @@ const App = () => {
         <div className="min-h-screen">
           <MobileOptimizer />
           <CoreWebVitals />
+          <SitemapGenerator />
+          <SEOMonitoring />
           <Toaster />
           <Sonner />
           <Header />

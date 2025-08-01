@@ -48,21 +48,27 @@ const SEOHead = ({
     updateMetaTag('og:title', title, true);
     updateMetaTag('og:description', description, true);
     updateMetaTag('og:type', ogType, true);
+    updateMetaTag('og:url', canonical || window.location.href, true);
+    updateMetaTag('og:site_name', 'Currency to Currency', true);
+    updateMetaTag('og:locale', 'en_US', true);
     
     // Twitter tags
+    updateMetaTag('twitter:card', 'summary_large_image');
     updateMetaTag('twitter:title', title);
     updateMetaTag('twitter:description', description);
+    updateMetaTag('twitter:url', canonical || window.location.href);
 
-    // Canonical URL
-    if (canonical) {
-      let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-      if (!link) {
-        link = document.createElement('link');
-        link.rel = 'canonical';
-        document.head.appendChild(link);
-      }
-      link.href = canonical;
+    // Canonical URL - ensure all pages have canonical URLs
+    let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
+    if (!link) {
+      link = document.createElement('link');
+      link.rel = 'canonical';
+      document.head.appendChild(link);
     }
+    
+    // If canonical is provided, use it; otherwise, construct from current URL
+    const canonicalUrl = canonical || `https://currencytocurrency.app${window.location.pathname}`;
+    link.href = canonicalUrl;
 
     // Structured data
     if (structuredData) {

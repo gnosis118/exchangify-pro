@@ -4,6 +4,7 @@ import { InstallPrompt } from '@/components/InstallPrompt';
 import PopularPairs from '@/components/PopularPairs';
 import CurrencyGuide from '@/components/CurrencyGuide';
 import SEOHead from '@/components/SEOHead';
+import InternalLinking from '@/components/InternalLinking';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -690,6 +691,11 @@ const Index = () => {
               </ul>
             </div>
           </div>
+        </div>
+
+        {/* Internal Linking */}
+        <div className="mt-12">
+          <InternalLinking currentPage="home" className="bg-card p-6 rounded-lg border" />
         </div>
 
         {/* Install Prompt */}
