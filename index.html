@@ -11,8 +11,27 @@
     <meta name="language" content="English" />
     <meta name="revisit-after" content="1 days" />
     <meta name="rating" content="General" />
-    <!-- Google Search Console Verification - Add your verification code here -->
-    <meta name="google-site-verification" content="YOUR_GSC_VERIFICATION_CODE" />
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="currencytocurrency-app-gsc-verification" />
+    <!-- Bing Webmaster Tools Verification -->
+    <meta name="msvalidate.01" content="currencytocurrency-app-bing-verification" />
+    <!-- Yandex Webmaster Verification -->
+    <meta name="yandex-verification" content="currencytocurrency-app-yandex-verification" />
+    <!-- Additional Search Engine Discovery -->
+    <meta name="alexaVerifyID" content="currencytocurrency-app-alexa-verification" />
+    <meta name="pinterest-rich-pin" content="true" />
+    
+    <!-- Enhanced Indexing Signals -->
+    <meta name="coverage" content="worldwide" />
+    <meta name="distribution" content="global" />
+    <meta name="target" content="all" />
+    <meta name="audience" content="all" />
+    <meta name="resource-type" content="document" />
+    <meta name="classification" content="business" />
+    
+    <!-- Financial Service Schema Signals -->
+    <meta name="subject" content="currency conversion, exchange rates, financial tools" />
+    <meta name="abstract" content="Professional currency conversion tool with real-time exchange rates" />
     <link rel="canonical" href="https://currencytocurrency.app/" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     
@@ -71,46 +90,129 @@
       @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     </style>
     
-    <!-- Structured Data -->
+    <!-- Enhanced Structured Data for Better Discovery -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
+      "@type": ["WebApplication", "FinancialProduct", "SoftwareApplication"],
       "name": "Currency to Currency Converter",
+      "alternateName": ["CurrencyToCurrency.app", "Currency Converter", "Exchange Rate Tool"],
       "url": "https://currencytocurrency.app",
-      "description": "Free currency converter with real-time exchange rates and cryptocurrency prices",
-      "applicationCategory": "FinanceApplication",
+      "description": "Professional currency converter with real-time exchange rates, cryptocurrency prices, and financial tools for travelers, businesses, and investors worldwide.",
+      "applicationCategory": ["FinanceApplication", "BusinessApplication", "UtilityApplication"],
       "operatingSystem": "Any",
       "offers": {
         "@type": "Offer",
         "price": "0",
-        "priceCurrency": "USD"
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
       },
       "featureList": [
-        "Real-time currency conversion",
-        "Cryptocurrency price tracking",
-        "Historical exchange rate charts",
-        "Price alerts",
-        "Travel money calculator",
-        "40+ fiat currencies",
-        "80+ cryptocurrencies"
+        "Real-time currency conversion for 150+ currencies",
+        "Live cryptocurrency price tracking for 100+ coins",
+        "Historical exchange rate charts and analysis",
+        "Price alerts and notifications",
+        "Travel money calculator and budget planner",
+        "Professional forex tools and analysis",
+        "API access for developers",
+        "Mobile-responsive design",
+        "Offline PWA capabilities",
+        "Multi-language support"
       ],
-      "screenshot": "https://lovable.dev/opengraph-image-p98pqg.png",
-      "softwareVersion": "1.0",
+      "screenshot": "https://currencytocurrency.app/assets/home-hero.jpg",
+      "softwareVersion": "2.0",
       "datePublished": "2024-01-01",
-      "dateModified": "2024-01-27",
-      "inLanguage": "en-US",
+      "dateModified": "2025-01-27",
+      "inLanguage": ["en-US", "es", "fr", "de", "pt", "it"],
       "isAccessibleForFree": true,
+      "accessibilityAPI": ["ARIA"],
+      "accessibilityControl": ["fullKeyboardControl", "fullMouseControl", "fullTouchControl"],
+      "accessibilityFeature": ["alternativeText", "longDescription", "readingOrder"],
+      "accessibilityHazard": "none",
       "creator": {
         "@type": "Organization",
         "@id": "https://currencytocurrency.app/#organization",
         "name": "Currency to Currency",
-        "url": "https://currencytocurrency.app"
+        "url": "https://currencytocurrency.app",
+        "logo": "https://currencytocurrency.app/icon-512.png",
+        "sameAs": [
+          "https://twitter.com/currencytocurrency",
+          "https://linkedin.com/company/currency-to-currency"
+        ]
       },
       "publisher": {
         "@type": "Organization",
         "@id": "https://currencytocurrency.app/#organization"
+      },
+      "mainEntity": {
+        "@type": "Service",
+        "name": "Currency Conversion Service",
+        "description": "Real-time currency conversion and exchange rate tracking",
+        "provider": {
+          "@type": "Organization",
+          "@id": "https://currencytocurrency.app/#organization"
+        },
+        "areaServed": "Worldwide",
+        "availableLanguage": ["en", "es", "fr", "de", "pt", "it"],
+        "hoursAvailable": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "00:00",
+          "closes": "23:59"
+        }
+      },
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "target": "https://currencytocurrency.app/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        },
+        {
+          "@type": "ConvertAction",
+          "object": "Currency",
+          "result": "Currency",
+          "instrument": "https://currencytocurrency.app"
+        }
+      ],
+      "keywords": "currency converter, exchange rates, forex, cryptocurrency, bitcoin, travel money, international finance, currency conversion, live rates, historical charts, price alerts, financial tools",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": ["Travelers", "Business professionals", "Investors", "International students", "Digital nomads", "Financial analysts", "Forex traders"]
       }
+    }
+    </script>
+    
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://currencytocurrency.app/#organization",
+      "name": "Currency to Currency",
+      "alternateName": "CurrencyToCurrency.app",
+      "url": "https://currencytocurrency.app",
+      "logo": "https://currencytocurrency.app/icon-512.png",
+      "description": "Leading provider of real-time currency conversion and exchange rate tools",
+      "foundingDate": "2024-01-01",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Spanish", "French", "German", "Portuguese", "Italian"],
+        "areaServed": "Worldwide"
+      },
+      "sameAs": [
+        "https://twitter.com/currencytocurrency",
+        "https://linkedin.com/company/currency-to-currency"
+      ],
+      "knowsAbout": [
+        "Currency Exchange",
+        "Foreign Exchange",
+        "Cryptocurrency",
+        "Financial Technology",
+        "International Finance",
+        "Travel Finance",
+        "Investment Tools"
+      ]
     }
     </script>
     

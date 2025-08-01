@@ -14,6 +14,8 @@ import MobileOptimizer from "@/components/MobileOptimizer";
 import CoreWebVitals from "@/components/CoreWebVitals";
 import SitemapGenerator from "@/components/SitemapGenerator";
 import SEOMonitoring from "@/components/SEOMonitoring";
+import SearchEngineSubmitter from "@/components/SearchEngineSubmitter";
+import ContentDiscoveryBooster from "@/components/ContentDiscoveryBooster";
 
 // Lazy load all route components for better code splitting
 const Index = React.lazy(() => import("./pages/Index"));
@@ -76,6 +78,8 @@ const App = () => {
           <CoreWebVitals />
           <SitemapGenerator />
           <SEOMonitoring />
+          <SearchEngineSubmitter />
+          <ContentDiscoveryBooster />
           <Toaster />
           <Sonner />
           <Header />
