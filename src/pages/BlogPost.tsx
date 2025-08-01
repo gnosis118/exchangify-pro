@@ -26,6 +26,7 @@ import currencyVolatilityDomino from '@/assets/currency-volatility-domino.jpg';
 import northAmericaTravelCurrency from '@/assets/north-america-travel-currency.jpg';
 import financialExpertPredictions from '@/assets/financial-expert-predictions.jpg';
 import smartTravelMoneyStrategy from '@/assets/smart-travel-money-strategy.jpg';
+import economicTrendsGlobal from '@/assets/economic-trends-global.jpg';
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -80,7 +81,7 @@ const BlogPost = () => {
         "@type": "WebPage",
         "@id": "https://currencytocurrency.app/blog/trump-2025-tariffs-currency-exchange-travel-money"
       },
-      "image": "https://currencytocurrency.app/assets/economic-trends-global.jpg"
+      "image": trumpTariffsCurrencyImpact
     };
 
     return (
