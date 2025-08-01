@@ -21,7 +21,11 @@ import bitcoinInvestmentStrategies from '@/assets/bitcoin-investment-strategies.
 import currencyExchangeFeesHero from '@/assets/currency-exchange-fees-hero.jpg';
 import bankExchangeFees from '@/assets/bank-exchange-fees.jpg';
 import moneySavingStrategies from '@/assets/money-saving-strategies.jpg';
-import economicTrendsGlobal from '@/assets/economic-trends-global.jpg';
+import trumpTariffsCurrencyImpact from '@/assets/trump-tariffs-currency-impact.jpg';
+import currencyVolatilityDomino from '@/assets/currency-volatility-domino.jpg';
+import northAmericaTravelCurrency from '@/assets/north-america-travel-currency.jpg';
+import financialExpertPredictions from '@/assets/financial-expert-predictions.jpg';
+import smartTravelMoneyStrategy from '@/assets/smart-travel-money-strategy.jpg';
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -93,8 +97,8 @@ const BlogPost = () => {
           {/* Hero Image */}
           <div className="mb-8 rounded-lg overflow-hidden">
             <img 
-              src={economicTrendsGlobal}
-              alt="Global economic trends showing impact of Trump's 2025 tariffs on currency markets"
+              src={trumpTariffsCurrencyImpact}
+              alt="Trump 2025 tariff announcement impact on global currency markets showing financial data and volatile exchange rates"
               className="w-full h-[400px] object-cover"
             />
           </div>
@@ -129,52 +133,58 @@ const BlogPost = () => {
           <div className="prose prose-lg max-w-none">
             {/* Opening Hook */}
             <p className="text-xl leading-relaxed mb-6">
-              In a move that has sent currency traders scrambling and vacation planners reaching for their calculators, 
-              President Trump's January 2025 announcement of sweeping 25% tariffs on Canada and Mexico has triggered 
-              immediate volatility in North American currency markets. Within hours of the announcement, the Canadian 
-              Dollar dropped 2.3% against the USD, while the Mexican Peso plummeted 4.1% – the largest single-day 
-              drops for both currencies since the 2020 pandemic.
+              Planning a vacation to Canada or Mexico this year? Your travel budget just became a lot more complicated. President Trump's recent announcement of sweeping 25% tariffs on goods from Canada and Mexico has sent shockwaves through global currency markets, creating unprecedented volatility that directly impacts your travel dollar. Within hours of the tariff announcement, Bitcoin plummeted 5%, crypto markets shed $2.26 billion, and the USD/CAD and USD/MXN exchange rates began fluctuating wildly.
             </p>
 
             <p className="mb-8">
-              For the 43 million Americans who typically travel to Canada and Mexico annually, these tariff-driven 
-              currency swings translate to real money out of their pockets. A $3,000 vacation to Cancun now costs 
-              an additional $120-180 in currency exchange alone, while a Toronto getaway carries a $90-135 premium. 
-              But armed with the right strategies, savvy travelers can not only protect their budgets but potentially 
-              save hundreds on their next international trip.
+              For millions of Americans who cross the northern and southern borders annually—whether for weekend getaways to Vancouver, beach vacations in Cancun, or business trips to Toronto—these tariff-driven currency swings represent real money leaving their wallets. Tracking these fluctuations in real-time through reliable currency conversion tools has become essential for protecting your vacation budget from this unprecedented volatility.
             </p>
 
             {/* The Tariff Domino Effect Section */}
             <h2 className="text-3xl font-bold mb-6 mt-12">The Tariff Domino Effect: Why Your Travel Dollar Matters More Than Ever</h2>
 
-            {/* Second Image - Global Finance */}
+            {/* Second Image - Currency Volatility Domino */}
             <div className="mb-8 rounded-lg overflow-hidden">
               <img 
-                src={globalFinance}
-                alt="Global financial markets showing interconnected effects of tariff policies on currency exchange"
+                src={currencyVolatilityDomino}
+                alt="Currency market volatility domino effect visualization showing interconnected global markets"
                 className="w-full h-[300px] object-cover"
               />
             </div>
 
             <h3 className="text-2xl font-semibold mb-4">Trump's 2025 Tariff Timeline: What Travelers Need to Know</h3>
             
+            <p className="mb-6">
+              The economic landscape shifted dramatically when President Trump announced his aggressive tariff strategy for 2025. The centerpiece involves imposing 25% tariffs on all goods imported from Canada and Mexico, with additional 10% tariffs planned for Chinese imports. These aren't just abstract policy numbers—they represent the most significant trade disruption since the 2018-2020 trade wars.
+            </p>
+
+            <p className="mb-6">
+              Smart travelers are now monitoring exchange rates daily using currency conversion tools to understand how these policy changes translate into real travel costs. The implementation timeline has been swift and decisive, with initial tariff measures taking effect within weeks of the announcement. For travelers, this means currency volatility isn't a future concern—it's happening right now, affecting exchange rates in real-time as markets react to each policy development.
+            </p>
+
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
-              <h4 className="font-semibold mb-3">Key Tariff Announcements:</h4>
+              <h4 className="font-semibold mb-3">Key Tariff Timeline & Market Impact:</h4>
               <ul className="space-y-2">
-                <li><strong>25% tariffs on Canada and Mexico:</strong> Effective February 1, 2025</li>
-                <li><strong>Additional 10% China tariffs:</strong> Phased implementation starting March 2025</li>
-                <li><strong>Market reaction:</strong> Immediate 3.2% USD strength, crypto market $180B sell-off</li>
-                <li><strong>Bitcoin impact:</strong> 5.1% drop to $101,200 within 12 hours</li>
+                <li><strong>25% tariffs on Canada and Mexico:</strong> Implementation within weeks of announcement</li>
+                <li><strong>Additional China tariffs:</strong> 10% increase with phased rollout</li>
+                <li><strong>Immediate market reaction:</strong> Crypto crash, $2.26B market shed</li>
+                <li><strong>Bitcoin impact:</strong> 5% drop following tariff announcement</li>
+                <li><strong>Currency volatility:</strong> Unprecedented fluctuations in USD/CAD and USD/MXN</li>
               </ul>
             </div>
 
             <h3 className="text-2xl font-semibold mb-4">How Tariffs Directly Impact Currency Exchange Rates</h3>
 
             <p className="mb-6">
-              The relationship between tariffs and currency values operates on basic supply and demand economics. 
-              When the U.S. imposes tariffs on imported goods, it reduces demand for foreign currencies needed 
-              to purchase those goods, while simultaneously increasing demand for U.S. dollars as trade flows 
-              shift. This dual pressure creates immediate currency volatility that directly affects your travel budget.
+              Understanding the connection between tariffs and currency values requires grasping a fundamental economic principle: tariffs alter trade balances, which in turn influence currency demand and strength. When the United States imposes tariffs on Canadian and Mexican goods, it reduces the volume of imports from these countries, theoretically improving the U.S. trade balance while potentially weakening the currencies of targeted nations.
+            </p>
+
+            <p className="mb-6">
+              However, the reality is more complex than this basic theory suggests. Currency markets react not just to actual trade flows, but to expectations about future economic relationships. This is why having access to real-time currency conversion data becomes crucial—traders and travelers alike need instant access to rate changes as they happen.
+            </p>
+
+            <p className="mb-8">
+              Historical precedent from the 2018-2020 trade war period provides valuable insights into potential currency trajectories. During that era, the Canadian dollar experienced significant volatility against the USD, fluctuating between periods of weakness during peak trade tensions and recovery during diplomatic breakthroughs. Travelers who tracked these movements using reliable currency converters often saved hundreds of dollars by timing their exchanges strategically.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -185,9 +195,10 @@ const BlogPost = () => {
                 <CardContent>
                   <ul className="space-y-2 text-sm">
                     <li>• Currency volatility spikes 40-60%</li>
-                    <li>• Exchange rate spreads widen</li>
+                    <li>• Exchange rate spreads widen significantly</li>
                     <li>• Travel booking uncertainty increases</li>
-                    <li>• Forward rate premiums rise</li>
+                    <li>• Forward rate premiums rise substantially</li>
+                    <li>• Real-time monitoring becomes essential</li>
                   </ul>
                 </CardContent>
               </Card>
@@ -198,10 +209,11 @@ const BlogPost = () => {
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2 text-sm">
-                    <li>• New equilibrium rates establish</li>
-                    <li>• Tourism patterns shift</li>
-                    <li>• Alternative destinations gain favor</li>
-                    <li>• Exchange providers adjust margins</li>
+                    <li>• New equilibrium rates establish gradually</li>
+                    <li>• Tourism patterns shift to alternative destinations</li>
+                    <li>• Exchange providers adjust their margins</li>
+                    <li>• Currency hedging strategies become crucial</li>
+                    <li>• Travel costs stabilize at new levels</li>
                   </ul>
                 </CardContent>
               </Card>
@@ -210,27 +222,35 @@ const BlogPost = () => {
             {/* Country-by-Country Analysis */}
             <h2 className="text-3xl font-bold mb-6 mt-12">Country-by-Country Travel Money Impact Analysis</h2>
 
-            {/* Third Image - Currency Comparison */}
+            {/* Third Image - North America Travel Currency */}
             <div className="mb-8 rounded-lg overflow-hidden">
               <img 
-                src={currencyComparison}
-                alt="Detailed comparison of USD to CAD and USD to MXN exchange rate impacts from tariff announcements"
+                src={northAmericaTravelCurrency}
+                alt="North American travel destinations map showing Canada and Mexico with currency exchange impact analysis"
                 className="w-full h-[300px] object-cover"
               />
             </div>
 
             <h3 className="text-2xl font-semibold mb-4">Canada Travel: Your Dollar's New Reality</h3>
 
+            <p className="mb-6">
+              The Canadian dollar has historically traded in a range between 0.70 and 0.80 USD, with the exchange rate reflecting everything from oil prices to interest rate differentials between the Federal Reserve and Bank of Canada. Pre-tariff announcements, USD to CAD conversions through currency exchange platforms showed relatively stable patterns, but the tariff uncertainty has introduced new volatility that requires constant monitoring.
+            </p>
+
+            <p className="mb-6">
+              Since the tariff announcements, travelers converting USD to CAD are seeing increased favorable rates, meaning American visitors get more Canadian dollars for each U.S. dollar exchanged. Using current exchange rate tools, a $1,000 USD vacation budget that previously converted to approximately $1,350 CAD might now yield $1,400-1,450 CAD depending on daily fluctuations—representing a potential 4-7% boost in purchasing power.
+            </p>
+
             <div className="bg-gray-50 border rounded-lg p-6 mb-6">
-              <h4 className="font-semibold mb-3">USD/CAD Rate Impact:</h4>
+              <h4 className="font-semibold mb-3">USD/CAD Rate Impact Analysis:</h4>
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
-                  <p><strong>Pre-tariff baseline:</strong> 1.4420 CAD</p>
-                  <p><strong>Post-announcement:</strong> 1.4753 CAD</p>
+                  <p><strong>Historical baseline:</strong> 1.3500-1.3800 CAD</p>
+                  <p><strong>Current volatility range:</strong> 1.4000-1.4500 CAD</p>
                 </div>
                 <div>
-                  <p><strong>Change:</strong> +2.3% CAD weakening</p>
-                  <p><strong>$1,000 USD impact:</strong> +$23 buying power</p>
+                  <p><strong>Traveler impact:</strong> +4-7% CAD purchasing power</p>
+                  <p><strong>$1,000 USD converts to:</strong> $1,400-1,450 CAD</p>
                 </div>
               </div>
             </div>
@@ -315,28 +335,45 @@ const BlogPost = () => {
             {/* Smart Money Strategies */}
             <h2 className="text-3xl font-bold mb-6 mt-12">Smart Money Strategies: Protecting Your Travel Budget from Tariff Turbulence</h2>
 
-            {/* Fourth Image - Currency Analytics */}
+            {/* Fourth Image - Smart Travel Money Strategy */}
             <div className="mb-8 rounded-lg overflow-hidden">
               <img 
-                src={currencyAnalytics}
-                alt="Advanced currency analytics dashboard showing optimal timing strategies for exchange rate management"
+                src={smartTravelMoneyStrategy}
+                alt="Smart travel money strategy concept showing currency conversion tools, planning documents, and strategic financial planning"
                 className="w-full h-[300px] object-cover"
               />
             </div>
 
             <h3 className="text-2xl font-semibold mb-4">Timing Your Currency Exchange Like a Pro</h3>
 
+            <p className="mb-6">
+              Currency exchange timing has evolved from a casual consideration to a critical component of travel planning in the tariff era. Professional currency traders focus on several key factors that individual travelers can also leverage using modern currency conversion tools and real-time rate monitoring.
+            </p>
+
+            <p className="mb-6">
+              Market volatility tends to follow predictable patterns, even during heightened political uncertainty. Currency markets are most active during overlapping trading sessions, particularly when London and New York markets operate simultaneously. For travelers, this often means the most volatile exchange rates occur during weekday morning hours Eastern Time—prime opportunities for those monitoring rates through reliable conversion platforms.
+            </p>
+
             <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-6">
-              <h4 className="font-semibold mb-3">Optimal Exchange Windows (Based on Historical Tariff Patterns):</h4>
+              <h4 className="font-semibold mb-3">Optimal Exchange Windows (Professional Trading Insights):</h4>
               <ul className="space-y-2">
-                <li><strong>Morning Hours (9-11 AM EST):</strong> Lowest spreads as markets stabilize</li>
-                <li><strong>Mid-week timing (Tuesday-Thursday):</strong> Reduced weekend volatility impact</li>
-                <li><strong>Post-announcement periods:</strong> 7-14 days after major tariff news for rate settling</li>
-                <li><strong>Economic data releases:</strong> Avoid exchange within 2 hours of major announcements</li>
+                <li><strong>Market Overlap Hours (8 AM - 12 PM EST):</strong> Maximum liquidity and tightest spreads</li>
+                <li><strong>Mid-week Timing (Tuesday-Thursday):</strong> Reduced weekend gap volatility</li>
+                <li><strong>Post-News Settlement (7-14 days):</strong> After major tariff announcements for rate stabilization</li>
+                <li><strong>Economic Data Avoidance:</strong> Stay clear 2 hours before/after major releases</li>
+                <li><strong>Month-end Considerations:</strong> Corporate rebalancing can create volatility spikes</li>
               </ul>
             </div>
 
+            <p className="mb-8">
+              News-driven volatility creates both risks and opportunities for travelers willing to monitor developments closely. Tariff announcements, diplomatic statements, and economic data releases can trigger significant currency movements within hours. Travelers with flexible booking arrangements can capitalize on favorable rate swings by using currency alert systems that notify them of optimal conversion opportunities.
+            </p>
+
             <h3 className="text-2xl font-semibold mb-4">Currency Exchange Tools and Platforms</h3>
+
+            <p className="mb-6">
+              The digital revolution in currency exchange has created numerous options for travelers seeking competitive rates and convenient transactions. Modern currency conversion platforms offer significant advantages over traditional bank exchange services, often providing rates much closer to interbank levels while offering superior convenience and transparency.
+            </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               <Card>
@@ -345,9 +382,10 @@ const BlogPost = () => {
                 </CardHeader>
                 <CardContent className="text-sm">
                   <ul className="space-y-1">
-                    <li>• XE Currency (Free alerts)</li>
-                    <li>• Currency.com (Advanced charts)</li>
+                    <li>• XE Currency (Free alerts & charts)</li>
+                    <li>• Currency.com (Advanced analytics)</li>
                     <li>• Our live converter tool</li>
+                    <li>• TradingView (Professional charts)</li>
                     <li>• Bank rate comparison apps</li>
                   </ul>
                 </CardContent>
@@ -355,13 +393,14 @@ const BlogPost = () => {
               
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-sm">Low-fee Exchange Options</CardTitle>
+                  <CardTitle className="text-sm">Low-fee Exchange Platforms</CardTitle>
                 </CardHeader>
                 <CardContent className="text-sm">
                   <ul className="space-y-1">
                     <li>• Wise (0.35-0.65% fees)</li>
                     <li>• Revolut (Free weekday exchanges)</li>
                     <li>• Charles Schwab (No foreign fees)</li>
+                    <li>• Interactive Brokers (Institutional rates)</li>
                     <li>• Local credit unions</li>
                   </ul>
                 </CardContent>
@@ -369,7 +408,7 @@ const BlogPost = () => {
               
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-sm">Rate Alert Systems</CardTitle>
+                  <CardTitle className="text-sm">Advanced Alert Systems</CardTitle>
                 </CardHeader>
                 <CardContent className="text-sm">
                   <ul className="space-y-1">
@@ -377,10 +416,25 @@ const BlogPost = () => {
                     <li>• Volatility spike alerts</li>
                     <li>• Market opening summaries</li>
                     <li>• Weekly trend reports</li>
+                    <li>• SMS/Email integration</li>
                   </ul>
                 </CardContent>
               </Card>
             </div>
+
+            <h3 className="text-2xl font-semibold mb-4">Hedging Strategies for Frequent Travelers</h3>
+
+            <p className="mb-6">
+              Frequent international travelers face unique challenges in managing currency risk across multiple trips and destinations. Professional hedging strategies, adapted for individual use, can provide both cost savings and budget predictability for regular border-crossers.
+            </p>
+
+            <p className="mb-6">
+              Dollar-cost averaging applies to currency exchange just as it does to investment strategies. Instead of converting large amounts at single points in time, frequent travelers can spread their currency purchases across multiple transactions using conversion platforms that allow small, regular exchanges at current market rates.
+            </p>
+
+            <p className="mb-8">
+              Multi-currency account strategies allow travelers to hold foreign currencies during favorable exchange periods and spend them during subsequent trips. This works particularly well for travelers who visit the same destinations repeatedly, as they can time their conversions to capture favorable rates and hold those currencies for future use.
+            </p>
 
             {/* Interactive Currency Converter */}
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
@@ -2573,8 +2627,8 @@ const CurrencyMarketPredictionsPost = () => {
       
       <div className="my-8 rounded-lg overflow-hidden">
         <img 
-          src={economicTrendsGlobal} 
-          alt="Global economic trends visualization showing GDP growth, inflation rates, and central bank policy divergence across major economies in 2025" 
+          src={financialExpertPredictions} 
+          alt="Financial expert analysis workspace showing currency forecasts and prediction models for global economic trends in 2025" 
           className="w-full h-64 object-cover"
           loading="lazy"
           width={800}
