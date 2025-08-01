@@ -8,6 +8,16 @@ import blogPostBackground from '@/assets/blog-post-background.jpg';
 
 const blogPosts = [
   {
+    id: 'digital-nomad-banking-crisis-2025',
+    title: "Digital Nomad Banking Crisis 2025: The Hidden $50 Billion Currency Exchange Problem",
+    excerpt: "50+ Million Digital Nomads Are Bleeding $50 Billion Annually to Banking Fees. Discover the largest financial crisis you've never heard of and how platforms like CurrencyToCurrency.app are fighting back.",
+    keywords: ['digital nomad banking fees', 'currency exchange crisis 2025', 'nomad financial freedom', 'banking fee avoidance', 'international transfer costs'],
+    readTime: '28 min read',
+    publishDate: '2025-02-01',
+    category: 'Investigative Report',
+    featured: true
+  },
+  {
     id: 'trump-2025-tariffs-currency-exchange-travel-money',
     title: "Trump's 2025 Tariff War: How Currency Exchange Rates Will Impact Your Travel Money",
     excerpt: "Trump's 25% tariffs on Canada & Mexico are shaking currency markets. Learn how these tariff wars will impact your travel money & exchange rates with real-time analysis and protection strategies.",
