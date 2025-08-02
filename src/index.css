@@ -149,40 +149,7 @@ All colors MUST be HSL.
     min-height: var(--mobile-touch-target);
     min-width: var(--mobile-touch-target);
     touch-action: manipulation;
-}
-
-/* Mobile UX Optimizations */
-@media (max-width: 768px) {
-  /* Touch target optimization */
-  button, .btn, [role="button"] {
-    min-height: 44px;
-    min-width: 44px;
-    touch-action: manipulation;
   }
-  
-  /* Input optimization */
-  input, textarea, select {
-    font-size: 16px; /* Prevents zoom on iOS */
-    touch-action: manipulation;
-  }
-  
-  /* Spacing optimization for thumb navigation */
-  .mobile-nav button {
-    padding: 12px 16px;
-    margin: 4px;
-  }
-  
-  /* Prevent horizontal scroll */
-  body {
-    overflow-x: hidden;
-  }
-  
-  /* Dynamic viewport height */
-  .min-h-screen {
-    min-height: 100vh;
-    min-height: 100dvh; /* Dynamic viewport height for mobile */
-  }
-}
   
   /* Prevent zoom on input focus - critical for mobile UX */
   input[type="text"], input[type="email"], input[type="number"], 
@@ -316,14 +283,12 @@ All colors MUST be HSL.
 
 /* Critical font loading optimization */
 @layer base {
-  /* Font loading with display: swap for performance */
   @font-face {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2') format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    src: local('Inter Regular'), local('Inter-Regular');
   }
   
   @font-face {
@@ -331,8 +296,7 @@ All colors MUST be HSL.
     font-style: normal;
     font-weight: 500;
     font-display: swap;
-    src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZ9hiA.woff2') format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    src: local('Inter Medium'), local('Inter-Medium');
   }
   
   @font-face {
@@ -340,8 +304,7 @@ All colors MUST be HSL.
     font-style: normal;
     font-weight: 600;
     font-display: swap;
-    src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZ9hiA.woff2') format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    src: local('Inter SemiBold'), local('Inter-SemiBold');
   }
   
   @font-face {
@@ -349,7 +312,6 @@ All colors MUST be HSL.
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuDyfAZ9hiA.woff2') format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    src: local('Inter Bold'), local('Inter-Bold');
   }
 }

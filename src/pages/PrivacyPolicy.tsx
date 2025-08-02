@@ -2,21 +2,10 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowLeft, Shield, Eye, Lock, Database, Globe, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import DynamicBreadcrumbSchema from '@/components/DynamicBreadcrumbSchema';
-import BreadcrumbNavigation from '@/components/BreadcrumbNavigation';
-import SEOHead from '@/components/SEOHead';
 
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-background">
-      <SEOHead
-        title="Privacy Policy - Currency Converter | Currency to Currency"
-        description="Privacy policy for Currency to Currency converter. Learn how we protect your data and ensure secure currency conversions."
-        keywords="privacy policy, data protection, currency converter privacy, secure exchange rates"
-        canonical="https://currencytocurrency.app/privacy-policy"
-      />
-      <DynamicBreadcrumbSchema pageTitle="Privacy Policy" />
-      <BreadcrumbNavigation className="p-6 pb-0" />
       <div className="max-w-4xl mx-auto p-6">
         {/* Header */}
         <div className="mb-8">

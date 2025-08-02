@@ -7,8 +7,6 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Calendar, Clock, TrendingUp, ArrowUpDown, RefreshCw } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
-import DynamicBreadcrumbSchema from '@/components/DynamicBreadcrumbSchema';
-import BreadcrumbNavigation from '@/components/BreadcrumbNavigation';
 import WebPOptimizedImage from '@/components/WebPOptimizedImage';
 import { useToast } from '@/hooks/use-toast';
 import CurrencyConverter from '@/components/CurrencyConverter';
@@ -94,7 +92,6 @@ const BlogPost = () => {
 
     return (
       <div className="min-h-screen bg-background py-8">
-        <DynamicBreadcrumbSchema pageTitle="The Digital Nomad Banking Crisis of 2025: What You Need to Know" />
         <SEOHead
           title="Digital Nomad Banking Crisis 2025: The Hidden $50 Billion Currency Exchange Problem"
           description="50+ Million Digital Nomads Are Bleeding $50 Billion Annually to Banking Fees. Discover the largest financial crisis you've never heard of and how platforms like CurrencyToCurrency.app are fighting back."
@@ -102,10 +99,6 @@ const BlogPost = () => {
           canonical="https://currencytocurrency.app/blog/digital-nomad-banking-crisis-2025"
           structuredData={structuredData}
         />
-
-        <div className="container mx-auto px-4 max-w-4xl">
-          <BreadcrumbNavigation className="mb-4" pageTitle="The Digital Nomad Banking Crisis of 2025" />
-        </div>
 
         <article className="container mx-auto px-4 max-w-4xl">
           {/* Hero Image */}

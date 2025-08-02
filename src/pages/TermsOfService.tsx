@@ -2,21 +2,10 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowLeft, FileText, AlertTriangle, Scale, Globe, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import DynamicBreadcrumbSchema from '@/components/DynamicBreadcrumbSchema';
-import BreadcrumbNavigation from '@/components/BreadcrumbNavigation';
-import SEOHead from '@/components/SEOHead';
 
 const TermsOfService = () => {
   return (
     <div className="min-h-screen bg-background">
-      <SEOHead
-        title="Terms of Service - Currency Converter | Currency to Currency"
-        description="Terms of service for Currency to Currency converter. Understanding our currency conversion service terms and conditions."
-        keywords="terms of service, currency converter terms, exchange rate service agreement"
-        canonical="https://currencytocurrency.app/terms-of-service"
-      />
-      <DynamicBreadcrumbSchema pageTitle="Terms of Service" />
-      <BreadcrumbNavigation className="p-6 pb-0" />
       <div className="max-w-4xl mx-auto p-6">
         {/* Header */}
         <div className="mb-8">

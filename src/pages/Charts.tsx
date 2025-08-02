@@ -1,10 +1,5 @@
 import HistoricalChart from '@/components/HistoricalChart';
 import SEOHead from '@/components/SEOHead';
-import DynamicBreadcrumbSchema from '@/components/DynamicBreadcrumbSchema';
-import BreadcrumbNavigation from '@/components/BreadcrumbNavigation';
-import SemanticHeader from '@/components/SemanticHeader';
-import EnhancedInternalLinking from '@/components/EnhancedInternalLinking';
-import { getEnhancedMetaDescription } from '@/components/EnhancedSEOMetaDescriptions';
 import chartsHero from '@/assets/charts-hero.jpg';
 
 const Charts = () => {
@@ -26,7 +21,6 @@ const Charts = () => {
 
   return (
     <div className="min-h-screen bg-converter-bg">
-      <DynamicBreadcrumbSchema />
       <SEOHead
         title="Currency Exchange Rate Charts & Historical Data | Currency to Currency"
         description="View historical currency charts & trends. Interactive rate analysis with 1-year data. Track forex performance for informed exchange decisions."
@@ -34,10 +28,6 @@ const Charts = () => {
         canonical="https://currencytocurrency.app/charts"
         structuredData={structuredData}
       />
-      
-      <div className="container mx-auto px-4 py-6">
-        <BreadcrumbNavigation className="mb-6" />
-      </div>
       {/* Hero Section */}
       <div className="relative h-80 md:h-96 overflow-hidden">
         <img 

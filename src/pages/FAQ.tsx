@@ -1,8 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import SEOHead from '@/components/SEOHead';
-import DynamicBreadcrumbSchema from '@/components/DynamicBreadcrumbSchema';
-import BreadcrumbNavigation from '@/components/BreadcrumbNavigation';
 
 const FAQ = () => {
   const faqs = [
@@ -71,8 +69,6 @@ const FAQ = () => {
         canonical="https://currencytocurrency.app/faq"
         structuredData={faqStructuredData}
       />
-      <DynamicBreadcrumbSchema pageTitle="FAQ" />
-      <BreadcrumbNavigation className="mb-6" />
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-foreground mb-4">Frequently Asked Questions</h1>
