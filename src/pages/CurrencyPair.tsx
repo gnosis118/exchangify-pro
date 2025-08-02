@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import SEOHead from '@/components/SEOHead';
+import CurrencyPairLinks from '@/components/CurrencyPairLinks';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -89,7 +90,7 @@ const CurrencyPair = () => {
         title={`${fromCurrency} to ${toCurrency} Converter - Live Exchange Rate | Currency to Currency`}
         description={`Convert ${getCurrencyName(fromCurrency)} to ${getCurrencyName(toCurrency)} with real-time exchange rates. Live currency conversion rates updated every few minutes for accurate results.`}
         keywords={`${fromCurrency} to ${toCurrency}, ${fromCurrency}${toCurrency}, ${getCurrencyName(fromCurrency)} to ${getCurrencyName(toCurrency)}, currency converter, exchange rate, live rates`}
-        canonical={`https://currencytocurrency.app/convert/${fromCurrency}-${toCurrency}`}
+        canonical={`https://currencytocurrency.app/convert/${pair?.toLowerCase()}`}
         structuredData={structuredData}
       />
       <div className="max-w-4xl mx-auto">
@@ -191,6 +192,8 @@ const CurrencyPair = () => {
               </div>
             </CardContent>
           </Card>
+
+          <CurrencyPairLinks currentPair={pair} />
         </div>
       </div>
     </div>

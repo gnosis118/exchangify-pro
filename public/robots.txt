@@ -261,16 +261,24 @@ Disallow: /*?campaign=*
 
 # High-priority currency conversion pages
 Allow: /convert/
-Allow: /usd-to-eur
-Allow: /usd-to-gbp
-Allow: /usd-to-jpy
-Allow: /eur-to-gbp
-Allow: /usd-to-cad
-Allow: /usd-to-aud
-Allow: /gbp-to-usd
-Allow: /eur-to-usd
-Allow: /btc-to-usd
-Allow: /eth-to-usd
+
+# Block legacy currency pair URLs to prevent duplicate content
+Disallow: /usd-to-eur
+Disallow: /usd-to-gbp
+Disallow: /usd-to-jpy
+Disallow: /eur-to-gbp
+Disallow: /usd-to-cad
+Disallow: /usd-to-aud
+Disallow: /gbp-to-usd
+Disallow: /eur-to-usd
+Disallow: /jpy-to-usd
+Disallow: /eur-to-jpy
+Disallow: /cad-to-usd
+Disallow: /aud-to-usd
+Disallow: /chf-to-usd
+Disallow: /usd-to-chf
+Disallow: /nzd-to-usd
+Disallow: /usd-to-nzd
 
 # Important content pages
 Allow: /blog/

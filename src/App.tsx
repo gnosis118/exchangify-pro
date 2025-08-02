@@ -98,24 +98,6 @@ const App = () => {
                 <Route path="/blog/:slug" element={<BlogPost />} />
                 <Route path="/convert/:pair" element={<CurrencyPair />} />
                 
-                {/* Legacy URL redirects to prevent 404s and consolidate to /convert/ pattern */}
-                <Route path="/usd-to-eur" element={<Navigate to="/convert/usd-to-eur" replace />} />
-                <Route path="/usd-to-gbp" element={<Navigate to="/convert/usd-to-gbp" replace />} />
-                <Route path="/usd-to-jpy" element={<Navigate to="/convert/usd-to-jpy" replace />} />
-                <Route path="/eur-to-usd" element={<Navigate to="/convert/eur-to-usd" replace />} />
-                <Route path="/eur-to-gbp" element={<Navigate to="/convert/eur-to-gbp" replace />} />
-                <Route path="/gbp-to-usd" element={<Navigate to="/convert/gbp-to-usd" replace />} />
-                <Route path="/gbp-to-eur" element={<Navigate to="/convert/gbp-to-eur" replace />} />
-                <Route path="/cad-to-usd" element={<Navigate to="/convert/cad-to-usd" replace />} />
-                <Route path="/aud-to-usd" element={<Navigate to="/convert/aud-to-usd" replace />} />
-                <Route path="/usd-to-cad" element={<Navigate to="/convert/usd-to-cad" replace />} />
-                <Route path="/usd-to-aud" element={<Navigate to="/convert/usd-to-aud" replace />} />
-                <Route path="/chf-to-usd" element={<Navigate to="/convert/chf-to-usd" replace />} />
-                <Route path="/usd-to-chf" element={<Navigate to="/convert/usd-to-chf" replace />} />
-                <Route path="/nzd-to-usd" element={<Navigate to="/convert/nzd-to-usd" replace />} />
-                <Route path="/usd-to-nzd" element={<Navigate to="/convert/usd-to-nzd" replace />} />
-                <Route path="/jpy-to-usd" element={<Navigate to="/convert/jpy-to-usd" replace />} />
-                <Route path="/eur-to-jpy" element={<Navigate to="/convert/eur-to-jpy" replace />} />
                 
                 <Route path="/sitemap.xml" element={null} />
                 <Route path="*" element={<NotFound />} />

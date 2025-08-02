@@ -237,5 +237,37 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/convert/eur-to-jpy" />
   </url>
+  
+  <url>
+    <loc>https://currencytocurrency.app/convert/cad-to-usd</loc>
+    <lastmod>2025-08-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/convert/cad-to-usd" />
+  </url>
+  
+  <url>
+    <loc>https://currencytocurrency.app/convert/chf-to-usd</loc>
+    <lastmod>2025-08-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/convert/chf-to-usd" />
+  </url>
+  
+  <url>
+    <loc>https://currencytocurrency.app/convert/usd-to-nzd</loc>
+    <lastmod>2025-08-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/convert/usd-to-nzd" />
+  </url>
+  
+  <url>
+    <loc>https://currencytocurrency.app/convert/nzd-to-usd</loc>
+    <lastmod>2025-08-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/convert/nzd-to-usd" />
+  </url>
 
 </urlset>
