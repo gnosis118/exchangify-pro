@@ -62,60 +62,6 @@ const ContentDiscoveryBooster = () => {
       document.head.appendChild(script);
     };
 
-    // Add FAQ schema for better SERP features
-    const addFAQSchema = () => {
-      const faqSchema = {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "How accurate are the exchange rates on Currency to Currency?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Our exchange rates are updated in real-time from multiple financial data providers including banks and financial institutions. Rates are typically accurate within 0.1% of market rates."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does Currency to Currency charge fees for currency conversion?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Currency to Currency is a free comparison tool. We don't charge conversion fees, but we help you find the best rates and lowest fees from various providers."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Which currencies are supported?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We support over 150 fiat currencies and 100+ cryptocurrencies, including all major world currencies like USD, EUR, GBP, JPY, CAD, AUD, CHF, and more."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I set up price alerts for currency pairs?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, you can set up custom price alerts for any currency pair. You'll receive notifications when your target exchange rate is reached."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is the Currency to Currency app available offline?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, Currency to Currency is a Progressive Web App (PWA) that works offline with cached exchange rates for basic conversions."
-            }
-          }
-        ]
-      };
-
-      const script = document.createElement('script');
-      script.type = 'application/ld+json';
-      script.text = JSON.stringify(faqSchema);
-      document.head.appendChild(script);
-    };
 
     // Add breadcrumb schema
     const addBreadcrumbSchema = () => {
@@ -170,7 +116,6 @@ const ContentDiscoveryBooster = () => {
     // Execute all discovery boosters
     addRSSFeeds();
     addBlogSchema();
-    addFAQSchema();
     addBreadcrumbSchema();
     addSocialTags();
 
