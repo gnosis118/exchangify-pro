@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Calendar, Clock, TrendingUp, ArrowUpDown, RefreshCw } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
+import WebPOptimizedImage from '@/components/WebPOptimizedImage';
 import { useToast } from '@/hooks/use-toast';
 import CurrencyConverter from '@/components/CurrencyConverter';
 import usdEurHero from '@/assets/usd-eur-hero.jpg';
@@ -102,10 +103,15 @@ const BlogPost = () => {
         <article className="container mx-auto px-4 max-w-4xl">
           {/* Hero Image */}
           <div className="mb-8 rounded-lg overflow-hidden">
-            <img 
+            <WebPOptimizedImage 
               src={digitalNomadLaptop}
               alt="Digital nomad working on laptop with financial data and currency exchange concerns"
-              className="w-full h-[400px] object-cover"
+              width={800}
+              height={400}
+              className="w-full h-[400px]"
+              loading="eager"
+              priority={true}
+              objectFit="cover"
             />
           </div>
 
@@ -500,10 +506,15 @@ const BlogPost = () => {
         <article className="container mx-auto px-4 max-w-4xl">
           {/* Hero Image */}
           <div className="mb-8 rounded-lg overflow-hidden">
-            <img 
+            <WebPOptimizedImage 
               src={trumpTariffsCurrencyImpact}
               alt="Trump 2025 tariff announcement impact on global currency markets showing financial data and volatile exchange rates"
-              className="w-full h-[400px] object-cover"
+              width={800}
+              height={400}
+              className="w-full h-[400px]"
+              loading="eager"
+              priority={true}
+              objectFit="cover"
             />
           </div>
 
@@ -1039,10 +1050,15 @@ const BlogPost = () => {
         <article className="container mx-auto px-4 max-w-4xl">
           {/* Hero Image */}
           <div className="mb-8 rounded-lg overflow-hidden">
-            <img 
-              src="/src/assets/currency-exchange-fees-hero.jpg" 
+            <WebPOptimizedImage 
+              src="/src/assets/currency-exchange-fees-hero.jpg"
               alt="Currency exchange fees and hidden costs visualization"
-              className="w-full h-[400px] object-cover"
+              width={800}
+              height={400}
+              className="w-full h-[400px]"
+              loading="eager"
+              priority={true}
+              objectFit="cover"
             />
           </div>
 
@@ -1620,10 +1636,14 @@ const BlogPost = () => {
         <article className="container mx-auto px-4 max-w-4xl">
           {/* Hero Image */}
           <div className="mb-8 rounded-lg overflow-hidden">
-            <img 
-              src="/src/assets/bitcoin-trading-dashboard.jpg" 
+            <WebPOptimizedImage 
+              src="/src/assets/bitcoin-trading-dashboard.jpg"
               alt="Bitcoin trading dashboard with live price charts and market analysis"
-              className="w-full h-[400px] object-cover"
+              width={800}
+              height={400}
+              className="w-full h-[400px]"
+              loading="lazy"
+              objectFit="cover"
             />
           </div>
 
@@ -1849,10 +1869,14 @@ const BlogPost = () => {
         <article className="container mx-auto px-4 max-w-4xl">
           {/* Hero Image */}
           <div className="mb-8 rounded-lg overflow-hidden">
-            <img 
-              src={currencySafetyHero} 
+            <WebPOptimizedImage 
+              src={currencySafetyHero}
               alt="Online banking security with shields, locks, and currency symbols showing safe currency conversion"
-              className="w-full h-[400px] object-cover"
+              width={800}
+              height={400}
+              className="w-full h-[400px]"
+              loading="lazy"
+              objectFit="cover"
             />
           </div>
 
@@ -2535,10 +2559,14 @@ const BlogPost = () => {
       <article className="container mx-auto px-4 max-w-4xl">
         {/* Hero Image */}
         <div className="mb-8 rounded-lg overflow-hidden">
-          <img 
-            src={usdEurHero} 
+          <WebPOptimizedImage 
+            src={usdEurHero}
             alt="USD to EUR currency exchange concept with digital interface and real-time rates"
-            className="w-full h-[400px] object-cover"
+            width={800}
+            height={400}
+            className="w-full h-[400px]"
+            loading="lazy"
+            objectFit="cover"
           />
         </div>
 

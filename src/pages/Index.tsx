@@ -5,6 +5,7 @@ import PopularPairs from '@/components/PopularPairs';
 import CurrencyGuide from '@/components/CurrencyGuide';
 import SEOHead from '@/components/SEOHead';
 import InternalLinking from '@/components/InternalLinking';
+import WebPOptimizedImage from '@/components/WebPOptimizedImage';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -12,6 +13,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { ArrowUpDown, RefreshCw, TrendingUp, TrendingDown } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import homeHero from '@/assets/home-hero.jpg';
+import homeHeroWebP from '@/assets/home-hero.webp';
 
 interface ExchangeRates {
   [key: string]: number;
@@ -369,14 +371,16 @@ const Index = () => {
       />
       {/* Hero Section */}
       <div className="relative h-80 md:h-96 overflow-hidden">
-        <img 
-          src={homeHero} 
+        <WebPOptimizedImage 
+          src={homeHero}
+          webpSrc={homeHeroWebP}
           alt="Professional currency conversion interface showing real-time exchange rates for international finance and travel planning" 
-          className="w-full h-full object-cover"
+          width={1200}
+          height={400}
+          className="w-full h-full"
           loading="eager"
-          decoding="async"
-          width="1200"
-          height="400"
+          priority={true}
+          objectFit="cover"
         />
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <div className="text-center text-white px-4 max-w-4xl">
