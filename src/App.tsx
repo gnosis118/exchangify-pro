@@ -80,10 +80,10 @@ const App = () => {
       <BrowserRouter>
         <div className="min-h-screen">
           <MobileOptimizer />
-          <CoreWebVitals />
+          {/* <CoreWebVitals /> */}
           <SitemapGenerator />
           {/* <SEOMonitoring /> */}
-          <SearchEngineSubmitter />
+          {/* <SearchEngineSubmitter /> */}
           <ContentDiscoveryBooster />
           <Toaster />
           <Sonner />
