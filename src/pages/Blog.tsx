@@ -3,6 +3,11 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Clock, TrendingUp } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
+import DynamicBreadcrumbSchema from '@/components/DynamicBreadcrumbSchema';
+import BreadcrumbNavigation from '@/components/BreadcrumbNavigation';
+import SemanticHeader from '@/components/SemanticHeader';
+import EnhancedInternalLinking from '@/components/EnhancedInternalLinking';
+import { getEnhancedMetaDescription } from '@/components/EnhancedSEOMetaDescriptions';
 import blogHero from '@/assets/blog-hero.jpg';
 import blogPostBackground from '@/assets/blog-post-background.jpg';
 
@@ -92,15 +97,19 @@ const Blog = () => {
     }
   };
 
+  const enhancedMeta = getEnhancedMetaDescription('blog');
+
   return (
     <div className="min-h-screen bg-background py-8">
       <SEOHead
-        title="Currency Exchange Blog - Expert Forex Insights | Currency to Currency"
-        description="Expert forex insights, currency exchange analysis & conversion strategies. Latest market trends, rate forecasts & money-saving tips for travelers."
-        keywords="forex blog, currency exchange insights, exchange rate analysis, forex news, currency trends"
+        title={enhancedMeta.title}
+        description={enhancedMeta.description}
+        keywords={enhancedMeta.keywords}
         canonical="https://currencytocurrency.app/blog"
         structuredData={structuredData}
       />
+      <DynamicBreadcrumbSchema pageTitle="Blog" />
+      <BreadcrumbNavigation className="container mx-auto px-4 mb-6" />
 
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Hero Section */}
@@ -112,9 +121,9 @@ const Blog = () => {
             <div className="absolute inset-0 bg-black/50"></div>
             <div className="relative z-10 flex items-center justify-center h-full text-center text-white">
               <div>
-                <h1 className="text-5xl font-bold mb-4">
+                <SemanticHeader level={1} variant="hero" className="text-white mb-4">
                   Currency Exchange Blog
-                </h1>
+                </SemanticHeader>
                 <p className="text-xl max-w-2xl mx-auto opacity-90">
                   Expert insights on forex trends, exchange rate analysis, and currency conversion strategies
                 </p>
@@ -210,6 +219,9 @@ const Blog = () => {
             </Card>
           </div>
         </div>
+
+        {/* Enhanced Internal Linking */}
+        <EnhancedInternalLinking currentPage="blog" className="mt-12" />
       </div>
     </div>
   );

@@ -2,6 +2,9 @@ import HistoricalChart from '@/components/HistoricalChart';
 import SEOHead from '@/components/SEOHead';
 import DynamicBreadcrumbSchema from '@/components/DynamicBreadcrumbSchema';
 import BreadcrumbNavigation from '@/components/BreadcrumbNavigation';
+import SemanticHeader from '@/components/SemanticHeader';
+import EnhancedInternalLinking from '@/components/EnhancedInternalLinking';
+import { getEnhancedMetaDescription } from '@/components/EnhancedSEOMetaDescriptions';
 import chartsHero from '@/assets/charts-hero.jpg';
 
 const Charts = () => {

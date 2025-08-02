@@ -5,9 +5,13 @@ import PopularPairs from '@/components/PopularPairs';
 import CurrencyGuide from '@/components/CurrencyGuide';
 import SEOHead from '@/components/SEOHead';
 import InternalLinking from '@/components/InternalLinking';
+import EnhancedInternalLinking from '@/components/EnhancedInternalLinking';
 import DynamicBreadcrumbSchema from '@/components/DynamicBreadcrumbSchema';
 import BreadcrumbNavigation from '@/components/BreadcrumbNavigation';
 import WebPOptimizedImage from '@/components/WebPOptimizedImage';
+import SemanticHeader from '@/components/SemanticHeader';
+import MobileOptimizedHeader from '@/components/MobileOptimizedHeader';
+import { getEnhancedMetaDescription } from '@/components/EnhancedSEOMetaDescriptions';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -362,16 +366,19 @@ const Index = () => {
     ]
   };
 
+  const enhancedMeta = getEnhancedMetaDescription('home');
+
   return (
     <div className="min-h-screen bg-converter-bg">
-      <DynamicBreadcrumbSchema />
       <SEOHead
-        title="Free Currency Converter - Live Exchange Rates | Currency to Currency"
-        description="Convert 150+ currencies instantly with live rates. Free real-time forex calculator with crypto support, charts & alerts. No registration required."
-        keywords="currency converter, exchange rates, live rates, cryptocurrency prices, currency conversion, foreign exchange, forex, bitcoin converter, real-time rates, USD to EUR, GBP to USD, currency calculator, money converter"
+        title={enhancedMeta.title}
+        description={enhancedMeta.description}
+        keywords={enhancedMeta.keywords}
         canonical="https://currencytocurrency.app"
         structuredData={structuredData}
       />
+      <DynamicBreadcrumbSchema />
+      <BreadcrumbNavigation className="container mx-auto px-4 pt-6" />
       {/* Hero Section */}
       <div className="relative h-80 md:h-96 overflow-hidden">
         <WebPOptimizedImage 
@@ -645,14 +652,14 @@ const Index = () => {
         </div>
 
         {/* Popular Currency Pairs Section */}
-        <div className="mt-12">
+        <section className="mt-12">
           <PopularPairs />
-        </div>
+        </section>
 
         {/* Currency Guide Section */}
-        <div className="mt-12">
+        <section className="mt-12">
           <CurrencyGuide />
-        </div>
+        </section>
 
         {/* SEO Content Section */}
         <div className="mt-12 grid gap-8 md:grid-cols-2">

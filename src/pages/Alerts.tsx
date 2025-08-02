@@ -2,6 +2,9 @@ import RateAlerts from '@/components/RateAlerts';
 import SEOHead from '@/components/SEOHead';
 import DynamicBreadcrumbSchema from '@/components/DynamicBreadcrumbSchema';
 import BreadcrumbNavigation from '@/components/BreadcrumbNavigation';
+import SemanticHeader from '@/components/SemanticHeader';
+import EnhancedInternalLinking from '@/components/EnhancedInternalLinking';
+import { getEnhancedMetaDescription } from '@/components/EnhancedSEOMetaDescriptions';
 import alertsHero from '@/assets/alerts-hero.jpg';
 
 const Alerts = () => {
