@@ -82,7 +82,7 @@ const App = () => {
           <MobileOptimizer />
           <CoreWebVitals />
           <SitemapGenerator />
-          <SEOMonitoring />
+          {/* <SEOMonitoring /> */}
           <SearchEngineSubmitter />
           <ContentDiscoveryBooster />
           <Toaster />
