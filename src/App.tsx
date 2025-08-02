@@ -1,5 +1,6 @@
 
 import React from "react";
+import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -57,16 +58,18 @@ const queryClient = new QueryClient({
   },
 });
 
-// Simplified AppProviders without progressive loading
+// Enhanced AppProviders with proper context setup
 const AppProviders = ({ children }: { children: React.ReactNode }) => {
   return (
-    <ErrorBoundary fallback={<div>Application failed to load</div>}>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          {children}
-        </TooltipProvider>
-      </QueryClientProvider>
-    </ErrorBoundary>
+    <HelmetProvider>
+      <ErrorBoundary fallback={<div className="p-4 text-center">Application failed to load. Please refresh the page.</div>}>
+        <QueryClientProvider client={queryClient}>
+          <TooltipProvider>
+            {children}
+          </TooltipProvider>
+        </QueryClientProvider>
+      </ErrorBoundary>
+    </HelmetProvider>
   );
 };
 
