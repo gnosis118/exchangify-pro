@@ -1,9 +1,16 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 const SEOMonitoring = () => {
+  // Add defensive checks for React hooks availability
+  if (!React || !useEffect) {
+    console.warn('SEOMonitoring: React hooks not available, skipping SEO monitoring');
+    return null;
+  }
+
   useEffect(() => {
-    // Monitor page load times for SEO
-    const trackPageLoad = () => {
+    try {
+      // Monitor page load times for SEO
+      const trackPageLoad = () => {
       if ('performance' in window) {
         window.addEventListener('load', () => {
           setTimeout(() => {
@@ -82,16 +89,18 @@ const SEOMonitoring = () => {
       }
     };
 
+      // Initialize all checks
+      trackPageLoad();
+      
+      // Run SEO audits after DOM is ready
+      setTimeout(() => {
+        auditSEOTags();
+        checkMobileOptimization();
+      }, 1000);
 
-    // Initialize all checks
-    trackPageLoad();
-    
-    // Run SEO audits after DOM is ready
-    setTimeout(() => {
-      auditSEOTags();
-      checkMobileOptimization();
-    }, 1000);
-
+    } catch (error) {
+      console.warn('SEOMonitoring: Error during initialization:', error);
+    }
   }, []);
 
   return null;
