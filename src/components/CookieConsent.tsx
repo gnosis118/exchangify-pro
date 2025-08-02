@@ -243,7 +243,18 @@ const CookieConsent = () => {
         attempts++;
         setTimeout(checkAndInit, 100);
       } else {
-        console.warn('Silktide Cookie Consent Manager failed to load after maximum attempts');
+        console.warn('Silktide Cookie Consent Manager not available - setting default consent');
+        // Set conservative default consent when Silktide fails
+        if (window.gtag) {
+          window.gtag('consent', 'default', {
+            analytics_storage: 'denied',
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+            functionality_storage: 'granted',
+            security_storage: 'granted',
+          });
+        }
       }
     };
 
