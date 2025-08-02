@@ -149,7 +149,40 @@ All colors MUST be HSL.
     min-height: var(--mobile-touch-target);
     min-width: var(--mobile-touch-target);
     touch-action: manipulation;
+}
+
+/* Mobile UX Optimizations */
+@media (max-width: 768px) {
+  /* Touch target optimization */
+  button, .btn, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
   }
+  
+  /* Input optimization */
+  input, textarea, select {
+    font-size: 16px; /* Prevents zoom on iOS */
+    touch-action: manipulation;
+  }
+  
+  /* Spacing optimization for thumb navigation */
+  .mobile-nav button {
+    padding: 12px 16px;
+    margin: 4px;
+  }
+  
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Dynamic viewport height */
+  .min-h-screen {
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile */
+  }
+}
   
   /* Prevent zoom on input focus - critical for mobile UX */
   input[type="text"], input[type="email"], input[type="number"], 
