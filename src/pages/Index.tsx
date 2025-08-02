@@ -5,6 +5,8 @@ import PopularPairs from '@/components/PopularPairs';
 import CurrencyGuide from '@/components/CurrencyGuide';
 import SEOHead from '@/components/SEOHead';
 import InternalLinking from '@/components/InternalLinking';
+import DynamicBreadcrumbSchema from '@/components/DynamicBreadcrumbSchema';
+import BreadcrumbNavigation from '@/components/BreadcrumbNavigation';
 import WebPOptimizedImage from '@/components/WebPOptimizedImage';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -362,6 +364,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-converter-bg">
+      <DynamicBreadcrumbSchema />
       <SEOHead
         title="Free Currency Converter - Live Exchange Rates | Currency to Currency"
         description="Convert 150+ currencies instantly with live rates. Free real-time forex calculator with crypto support, charts & alerts. No registration required."

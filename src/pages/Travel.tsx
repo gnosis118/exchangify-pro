@@ -1,5 +1,7 @@
 import TravelMoney from '@/components/TravelMoney';
 import SEOHead from '@/components/SEOHead';
+import DynamicBreadcrumbSchema from '@/components/DynamicBreadcrumbSchema';
+import BreadcrumbNavigation from '@/components/BreadcrumbNavigation';
 import travelHero from '@/assets/travel-hero.jpg';
 
 const Travel = () => {
@@ -21,6 +23,7 @@ const Travel = () => {
 
   return (
     <div className="min-h-screen bg-converter-bg">
+      <DynamicBreadcrumbSchema />
       <SEOHead
         title="Travel Money Guide & Currency Tips | Currency to Currency"
         description="Travel money guide: save on currency exchange while abroad. Best rates, payment methods & insider tips for international travel budgeting."
@@ -28,6 +31,11 @@ const Travel = () => {
         canonical="https://currencytocurrency.app/travel"
         structuredData={structuredData}
       />
+      
+      <div className="container mx-auto px-4 py-6">
+        <BreadcrumbNavigation className="mb-6" />
+      </div>
+      
       {/* Hero Section */}
       <div className="relative h-80 md:h-96 overflow-hidden">
         <img 

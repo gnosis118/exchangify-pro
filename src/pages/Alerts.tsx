@@ -1,5 +1,7 @@
 import RateAlerts from '@/components/RateAlerts';
 import SEOHead from '@/components/SEOHead';
+import DynamicBreadcrumbSchema from '@/components/DynamicBreadcrumbSchema';
+import BreadcrumbNavigation from '@/components/BreadcrumbNavigation';
 import alertsHero from '@/assets/alerts-hero.jpg';
 
 const Alerts = () => {
@@ -21,6 +23,7 @@ const Alerts = () => {
 
   return (
     <div className="min-h-screen bg-converter-bg">
+      <DynamicBreadcrumbSchema />
       <SEOHead
         title="Currency Rate Alerts & Notifications | Currency to Currency"
         description="Set currency rate alerts & get email notifications when rates hit your targets. Never miss the perfect exchange opportunity. Free monitoring."
@@ -28,6 +31,11 @@ const Alerts = () => {
         canonical="https://currencytocurrency.app/alerts"
         structuredData={structuredData}
       />
+      
+      <div className="container mx-auto px-4 py-6">
+        <BreadcrumbNavigation className="mb-6" />
+      </div>
+      
       {/* Hero Section */}
       <div className="relative h-80 md:h-96 overflow-hidden">
         <img 
