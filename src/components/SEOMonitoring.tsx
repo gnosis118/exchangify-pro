@@ -82,24 +82,6 @@ const SEOMonitoring = () => {
       }
     };
 
-    // Add hreflang for international SEO (if needed)
-    const addHreflangTags = () => {
-      // Only add if not already present
-      if (!document.querySelector('link[hreflang]')) {
-        const hreflang = document.createElement('link');
-        hreflang.rel = 'alternate';
-        hreflang.hreflang = 'en';
-        hreflang.href = 'https://currencytocurrency.app';
-        document.head.appendChild(hreflang);
-
-        // Add x-default for international targeting
-        const xDefault = document.createElement('link');
-        xDefault.rel = 'alternate';
-        xDefault.hreflang = 'x-default';
-        xDefault.href = 'https://currencytocurrency.app';
-        document.head.appendChild(xDefault);
-      }
-    };
 
     // Initialize all checks
     trackPageLoad();
@@ -108,7 +90,6 @@ const SEOMonitoring = () => {
     setTimeout(() => {
       auditSEOTags();
       checkMobileOptimization();
-      addHreflangTags();
     }, 1000);
 
   }, []);

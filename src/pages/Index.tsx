@@ -390,7 +390,7 @@ const Index = () => {
         title="Free Currency Converter - Live Exchange Rates | Currency to Currency"
         description="Convert 150+ currencies instantly with live rates. Free real-time forex calculator with crypto support, charts & alerts. No registration required."
         keywords="currency converter, exchange rates, live rates, cryptocurrency prices, currency conversion, foreign exchange, forex, bitcoin converter, real-time rates, USD to EUR, GBP to USD, currency calculator, money converter"
-        canonical="https://currencytocurrency.app"
+        canonical="https://currencytocurrency.app/"
         structuredData={structuredData}
       />
       {/* Hero Section */}

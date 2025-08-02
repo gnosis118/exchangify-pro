@@ -1,7 +1,15 @@
-# Currency to Currency - Server-side 301 Redirects
-# Redirect legacy currency pair URLs to canonical /convert/ URLs
-
 RewriteEngine On
+
+# Force HTTPS redirect
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Ensure trailing slash consistency for homepage
+RewriteRule ^$ / [L]
+
+# Remove multiple slashes
+RewriteCond %{THE_REQUEST} //+
+RewriteRule ^(.*)$ /$1 [R=301,L]
 
 # Legacy currency pair redirects - 301 permanent redirects
 RewriteRule ^usd-to-eur/?$ /convert/usd-to-eur [R=301,L]
@@ -22,14 +30,25 @@ RewriteRule ^aud-to-usd/?$ /convert/aud-to-usd [R=301,L]
 RewriteRule ^chf-to-usd/?$ /convert/chf-to-usd [R=301,L]
 RewriteRule ^nzd-to-usd/?$ /convert/nzd-to-usd [R=301,L]
 
-# Ensure trailing slashes are handled consistently
-RewriteRule ^(.*)//+(.*)$ /$1/$2 [R=301,L]
+# Remove www subdomain if present
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
-# Prevent access to sensitive files
-<Files ".htaccess">
-Order allow,deny
-Deny from all
-</Files>
+# Handle URL parameters that create duplicates
+RewriteCond %{QUERY_STRING} ^utm_source=.*$ [NC]
+RewriteRule ^(.*)$ /$1? [R=301,L]
+
+RewriteCond %{QUERY_STRING} ^utm_medium=.*$ [NC]
+RewriteRule ^(.*)$ /$1? [R=301,L]
+
+RewriteCond %{QUERY_STRING} ^utm_campaign=.*$ [NC]
+RewriteRule ^(.*)$ /$1? [R=301,L]
+
+RewriteCond %{QUERY_STRING} ^fbclid=.*$ [NC]
+RewriteRule ^(.*)$ /$1? [R=301,L]
+
+RewriteCond %{QUERY_STRING} ^gclid=.*$ [NC]
+RewriteRule ^(.*)$ /$1? [R=301,L]
 
 # Cache control for better performance
 <IfModule mod_expires.c>
@@ -42,3 +61,9 @@ Deny from all
     ExpiresByType image/gif "access plus 1 month"
     ExpiresByType image/webp "access plus 1 month"
 </IfModule>
+
+# Prevent access to sensitive files
+<Files ".htaccess">
+Order allow,deny
+Deny from all
+</Files>

@@ -77,32 +77,24 @@ const SearchEngineSubmitter = () => {
     setTimeout(submitToSearchEngines, 3000);
     setTimeout(submitIndexNow, 5000);
 
-    // Add hreflang tags for international SEO
+    // Add simplified hreflang tags - only for existing content
     const addHreflangTags = () => {
-      const languages = [
-        { lang: 'en', region: 'us', url: 'https://currencytocurrency.app/' },
-        { lang: 'es', region: 'es', url: 'https://currencytocurrency.app/es/' },
-        { lang: 'fr', region: 'fr', url: 'https://currencytocurrency.app/fr/' },
-        { lang: 'de', region: 'de', url: 'https://currencytocurrency.app/de/' },
-        { lang: 'pt', region: 'br', url: 'https://currencytocurrency.app/pt/' },
-        { lang: 'it', region: 'it', url: 'https://currencytocurrency.app/it/' }
-      ];
+      // Only add if not already present
+      if (!document.querySelector('link[hreflang="x-default"]')) {
+        // Add x-default pointing to main site
+        const defaultLink = document.createElement('link');
+        defaultLink.rel = 'alternate';
+        defaultLink.hreflang = 'x-default';
+        defaultLink.href = 'https://currencytocurrency.app/';
+        document.head.appendChild(defaultLink);
 
-      // Add x-default
-      const defaultLink = document.createElement('link');
-      defaultLink.rel = 'alternate';
-      defaultLink.hreflang = 'x-default';
-      defaultLink.href = 'https://currencytocurrency.app/';
-      document.head.appendChild(defaultLink);
-
-      // Add language-specific links
-      languages.forEach(({ lang, region, url }) => {
-        const link = document.createElement('link');
-        link.rel = 'alternate';
-        link.hreflang = `${lang}-${region}`;
-        link.href = url;
-        document.head.appendChild(link);
-      });
+        // Add English version
+        const enLink = document.createElement('link');
+        enLink.rel = 'alternate';
+        enLink.hreflang = 'en';
+        enLink.href = 'https://currencytocurrency.app/';
+        document.head.appendChild(enLink);
+      }
     };
 
     addHreflangTags();
