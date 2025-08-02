@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ExternalLink, TrendingUp, Clock } from 'lucide-react';
 
@@ -115,9 +114,9 @@ const BlogSEOBooster = ({ currentSlug, className = "" }: BlogSEOBoosterProps) =>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {displayPosts.map((post) => (
-              <Link
+              <a
                 key={post.slug}
-                to={`/blog/${post.slug}`}
+                href={`/blog/${post.slug}`}
                 className="group block p-4 bg-muted/30 hover:bg-muted/50 rounded-lg transition-colors"
               >
                 <div className="flex items-start justify-between mb-2">
@@ -135,7 +134,7 @@ const BlogSEOBooster = ({ currentSlug, className = "" }: BlogSEOBoosterProps) =>
                 <p className="text-xs text-muted-foreground line-clamp-2">
                   {post.description}
                 </p>
-              </Link>
+              </a>
             ))}
           </div>
         </CardContent>
@@ -152,9 +151,9 @@ const BlogSEOBooster = ({ currentSlug, className = "" }: BlogSEOBoosterProps) =>
         <CardContent>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {currencyTools.map((tool) => (
-              <Link
+              <a
                 key={tool.href}
-                to={tool.href}
+                href={tool.href}
                 className="group flex items-center gap-3 p-3 bg-card hover:bg-accent rounded-lg transition-colors border"
               >
                 <div className="flex-1">
@@ -166,7 +165,7 @@ const BlogSEOBooster = ({ currentSlug, className = "" }: BlogSEOBoosterProps) =>
                   </div>
                 </div>
                 <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-accent-foreground" />
-              </Link>
+              </a>
             ))}
           </div>
         </CardContent>

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import { User, Session } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
@@ -23,7 +22,6 @@ import { useToast } from '@/hooks/use-toast';
 const Header = () => {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
-  const location = useLocation();
   const { toast } = useToast();
 
   useEffect(() => {
@@ -60,71 +58,71 @@ const Header = () => {
     }
   };
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => window.location.pathname === path;
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 items-center justify-between">
         <div className="flex items-center gap-6">
-          <Link to="/" className="flex items-center space-x-2">
+          <a href="/" className="flex items-center space-x-2">
             <Calculator className="h-6 w-6" />
             <span className="font-bold text-lg">Currency Converter</span>
-          </Link>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
-            <Link 
-              to="/" 
+            <a 
+              href="/" 
               className={`text-sm font-medium transition-colors hover:text-primary ${
                 isActive('/') ? 'text-primary' : 'text-muted-foreground'
               }`}
             >
               Converter
-            </Link>
-            <Link 
-              to="/charts" 
+            </a>
+            <a 
+              href="/charts" 
               className={`text-sm font-medium transition-colors hover:text-primary flex items-center gap-2 ${
                 isActive('/charts') ? 'text-primary' : 'text-muted-foreground'
               }`}
             >
               <BarChart3 className="h-4 w-4" />
               Charts
-            </Link>
-            <Link 
-              to="/alerts" 
+            </a>
+            <a 
+              href="/alerts" 
               className={`text-sm font-medium transition-colors hover:text-primary flex items-center gap-2 ${
                 isActive('/alerts') ? 'text-primary' : 'text-muted-foreground'
               }`}
             >
               <Bell className="h-4 w-4" />
               Alerts
-            </Link>
-            <Link 
-              to="/travel" 
+            </a>
+            <a 
+              href="/travel" 
               className={`text-sm font-medium transition-colors hover:text-primary flex items-center gap-2 ${
                 isActive('/travel') ? 'text-primary' : 'text-muted-foreground'
               }`}
             >
               <Plane className="h-4 w-4" />
               Travel
-            </Link>
-            <Link 
-              to="/blog" 
+            </a>
+            <a 
+              href="/blog" 
               className={`text-sm font-medium transition-colors hover:text-primary flex items-center gap-2 ${
                 isActive('/blog') ? 'text-primary' : 'text-muted-foreground'
               }`}
             >
               <BookOpen className="h-4 w-4" />
               Blog
-            </Link>
-            <Link 
-              to="/faq" 
+            </a>
+            <a 
+              href="/faq" 
               className={`text-sm font-medium transition-colors hover:text-primary ${
                 isActive('/faq') ? 'text-primary' : 'text-muted-foreground'
               }`}
             >
               FAQ
-            </Link>
+            </a>
             
             <NavigationMenu>
               <NavigationMenuList>
@@ -135,26 +133,26 @@ const Header = () => {
                   <NavigationMenuContent>
                     <div className="w-48 p-2">
                       <NavigationMenuLink asChild>
-                        <Link 
-                          to="/privacy-policy"
+                        <a 
+                          href="/privacy-policy"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                         >
                           <div className="text-sm font-medium leading-none">Privacy Policy</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                             How we handle your data
                           </p>
-                        </Link>
+                        </a>
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild>
-                        <Link 
-                          to="/terms-of-service"
+                        <a 
+                          href="/terms-of-service"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                         >
                           <div className="text-sm font-medium leading-none">Terms of Service</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                             Terms and conditions
                           </p>
-                        </Link>
+                        </a>
                       </NavigationMenuLink>
                     </div>
                   </NavigationMenuContent>
@@ -172,28 +170,28 @@ const Header = () => {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="w-48">
               <DropdownMenuItem asChild>
-                <Link to="/">Converter</Link>
+                <a href="/">Converter</a>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/charts">Charts</Link>
+                <a href="/charts">Charts</a>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/alerts">Alerts</Link>
+                <a href="/alerts">Alerts</a>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/travel">Travel</Link>
+                <a href="/travel">Travel</a>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/blog">Blog</Link>
+                <a href="/blog">Blog</a>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/faq">FAQ</Link>
+                <a href="/faq">FAQ</a>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/privacy-policy">Privacy Policy</Link>
+                <a href="/privacy-policy">Privacy Policy</a>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/terms-of-service">Terms of Service</Link>
+                <a href="/terms-of-service">Terms of Service</a>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -218,16 +216,16 @@ const Header = () => {
             </DropdownMenu>
           ) : (
             <div className="flex items-center gap-2">
-              <Link to="/auth">
+              <a href="/auth">
                 <Button variant="ghost" size="sm">
                   Login
                 </Button>
-              </Link>
-              <Link to="/auth">
+              </a>
+              <a href="/auth">
                 <Button size="sm">
                   Sign Up
                 </Button>
-              </Link>
+              </a>
             </div>
           )}
         </div>

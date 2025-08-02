@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Clock, TrendingUp } from 'lucide-react';
@@ -189,9 +189,9 @@ const Blog = () => {
                         {post.featured && <Badge variant="default">Featured</Badge>}
                       </div>
                       <CardTitle className="text-2xl hover:text-primary transition-colors">
-                        <Link to={`/blog/${post.id}`}>
+                        <a href={`/blog/${post.id}`}>
                           {post.title}
-                        </Link>
+                        </a>
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
@@ -209,12 +209,12 @@ const Blog = () => {
                             {post.readTime}
                           </div>
                         </div>
-                        <Link 
-                          to={`/blog/${post.id}`}
+                        <a 
+                          href={`/blog/${post.id}`}
                           className="text-primary hover:underline font-medium"
                         >
                           Read More →
-                        </Link>
+                        </a>
                       </div>
                     </CardContent>
                   </div>
@@ -250,12 +250,12 @@ const Blog = () => {
                 <p className="text-sm text-muted-foreground mb-3">
                   Need a quick conversion? Use our live converter.
                 </p>
-                <Link 
-                  to="/"
+                <a 
+                  href="/"
                   className="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 text-sm font-medium transition-colors"
                 >
                   Open Converter
-                </Link>
+                </a>
               </CardContent>
             </Card>
           </div>

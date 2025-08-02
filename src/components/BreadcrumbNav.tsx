@@ -1,4 +1,4 @@
-import { useLocation, Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -7,16 +7,13 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import React, { useEffect } from 'react';
 
 interface BreadcrumbNavProps {
   className?: string;
 }
 
 const BreadcrumbNav = ({ className }: BreadcrumbNavProps) => {
-  const location = useLocation();
-  
-  const pathSegments = location.pathname.split('/').filter(Boolean);
+  const pathSegments = window.location.pathname.split('/').filter(Boolean);
   
   const breadcrumbItems = [
     { label: 'Home', href: '/' },
@@ -75,7 +72,7 @@ const BreadcrumbNav = ({ className }: BreadcrumbNavProps) => {
         }
       };
     }
-  }, [location.pathname]);
+  }, [window.location.pathname]);
 
   if (breadcrumbItems.length <= 1) return null;
 
@@ -89,7 +86,7 @@ const BreadcrumbNav = ({ className }: BreadcrumbNavProps) => {
             ) : (
               <>
                 <BreadcrumbLink asChild>
-                  <Link to={item.href}>{item.label}</Link>
+                  <a href={item.href}>{item.label}</a>
                 </BreadcrumbLink>
                 <BreadcrumbSeparator />
               </>

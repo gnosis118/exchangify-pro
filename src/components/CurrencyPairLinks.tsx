@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface CurrencyPairLinksProps {
@@ -34,9 +34,9 @@ const CurrencyPairLinks = ({ currentPair, className = "" }: CurrencyPairLinksPro
       <CardContent>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {displayPairs.map((pair) => (
-            <Link
+            <a
               key={pair.pair}
-              to={`/convert/${pair.pair}`}
+              href={`/convert/${pair.pair}`}
               className="group block p-3 bg-muted/30 hover:bg-muted/50 rounded-lg transition-colors"
             >
               <div className="font-semibold text-foreground group-hover:text-primary transition-colors">
@@ -45,16 +45,16 @@ const CurrencyPairLinks = ({ currentPair, className = "" }: CurrencyPairLinksPro
               <div className="text-sm text-muted-foreground">
                 {pair.description}
               </div>
-            </Link>
+            </a>
           ))}
         </div>
         <div className="mt-4 text-center">
-          <Link 
-            to="/charts" 
+          <a 
+            href="/charts" 
             className="text-primary hover:text-primary/80 text-sm font-medium"
           >
             View All Currency Charts →
-          </Link>
+          </a>
         </div>
       </CardContent>
     </Card>
