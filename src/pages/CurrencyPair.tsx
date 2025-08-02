@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import SEOHead from '@/components/SEOHead';
+import DynamicBreadcrumbSchema from '@/components/DynamicBreadcrumbSchema';
+import BreadcrumbNavigation from '@/components/BreadcrumbNavigation';
+import HowToGuide from '@/components/HowToGuide';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -67,20 +70,29 @@ const CurrencyPair = () => {
 
   const getCurrencyName = (code: string) => currencyNames[code as keyof typeof currencyNames] || code;
 
-  const structuredData = {
+  const financialProductSchema = {
     "@context": "https://schema.org",
     "@type": "FinancialProduct",
     "name": `${fromCurrency} to ${toCurrency} Currency Converter`,
     "description": `Convert ${getCurrencyName(fromCurrency)} to ${getCurrencyName(toCurrency)} with real-time exchange rates. Live currency conversion rates updated every few minutes.`,
     "provider": {
       "@type": "Organization",
-      "name": "Currency to Currency"
+      "name": "Currency to Currency",
+      "url": "https://currencytocurrency.app"
     },
     "offers": {
       "@type": "Offer",
       "price": "0",
-      "priceCurrency": "USD"
-    }
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "feesAndCommissionsSpecification": "Free to use - no fees or commissions",
+    "interestRate": {
+      "@type": "QuantitativeValue",
+      "value": getExchangeRate() || "0",
+      "unitText": `${toCurrency} per ${fromCurrency}`
+    },
+    "disclaimer": "Exchange rates are for informational purposes only. Actual transaction rates may vary due to fees and market spreads. Not financial advice."
   };
 
   return (
@@ -90,8 +102,10 @@ const CurrencyPair = () => {
         description={`Convert ${getCurrencyName(fromCurrency)} to ${getCurrencyName(toCurrency)} with real-time exchange rates. Live currency conversion rates updated every few minutes for accurate results.`}
         keywords={`${fromCurrency} to ${toCurrency}, ${fromCurrency}${toCurrency}, ${getCurrencyName(fromCurrency)} to ${getCurrencyName(toCurrency)}, currency converter, exchange rate, live rates`}
         canonical={`https://currencytocurrency.app/convert/${fromCurrency}-${toCurrency}`}
-        structuredData={structuredData}
+        structuredData={financialProductSchema}
       />
+      <DynamicBreadcrumbSchema pageTitle={`${fromCurrency} to ${toCurrency} Converter`} />
+      <BreadcrumbNavigation className="mb-6" />
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-foreground mb-2">
@@ -191,6 +205,8 @@ const CurrencyPair = () => {
               </div>
             </CardContent>
           </Card>
+
+          <HowToGuide fromCurrency={fromCurrency} toCurrency={toCurrency} />
         </div>
       </div>
     </div>
