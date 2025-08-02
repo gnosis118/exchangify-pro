@@ -50,6 +50,27 @@ const BlogSEOBooster = ({ currentSlug, className = "" }: BlogSEOBoosterProps) =>
       description: 'How digital nomads are losing billions to banking fees',
       readTime: '12 min',
       category: 'Digital Nomads'
+    },
+    {
+      slug: 'currency-conversion-small-business-guide',
+      title: 'Currency Conversion for Small Business Owners: Complete Guide',
+      description: 'Save hundreds annually on FX fees with strategic currency conversion',
+      readTime: '12 min',
+      category: 'Business Finance'
+    },
+    {
+      slug: 'ecommerce-currency-conversion',
+      title: 'E-commerce Currency Conversion: International Pricing Strategies',
+      description: 'Master automated pricing and profit margin protection',
+      readTime: '8 min',
+      category: 'E-commerce'
+    },
+    {
+      slug: 'import-export-currency-conversion',
+      title: 'Import/Export Currency Conversion: Landed Cost Calculations',
+      description: 'Optimize supplier payments and international trade finance',
+      readTime: '10 min',
+      category: 'Import/Export'
     }
   ];
 

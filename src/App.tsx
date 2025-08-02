@@ -31,6 +31,11 @@ const Blog = React.lazy(() => import("./pages/Blog"));
 const BlogPost = React.lazy(() => import("./pages/BlogPost"));
 const CurrencyPair = React.lazy(() => import("./pages/CurrencyPair"));
 const Convert = React.lazy(() => import("./pages/Convert"));
+const CurrencyConversionSmallBusiness = React.lazy(() => import("./pages/blog/CurrencyConversionSmallBusiness"));
+const EcommerceCurrencyConversion = React.lazy(() => import("./pages/blog/EcommerceCurrencyConversion"));
+const ImportExportCurrencyConversion = React.lazy(() => import("./pages/blog/ImportExportCurrencyConversion"));
+const ServiceBusinessCurrencyConversion = React.lazy(() => import("./pages/blog/ServiceBusinessCurrencyConversion"));
+const CurrencyConversionRiskManagement = React.lazy(() => import("./pages/blog/CurrencyConversionRiskManagement"));
 
 // Loading component for route transitions
 const RouteLoader = () => (
@@ -97,6 +102,11 @@ const App = () => {
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/blog/currency-conversion-small-business-guide" element={<CurrencyConversionSmallBusiness />} />
+                <Route path="/blog/ecommerce-currency-conversion" element={<EcommerceCurrencyConversion />} />
+                <Route path="/blog/import-export-currency-conversion" element={<ImportExportCurrencyConversion />} />
+                <Route path="/blog/service-business-currency-conversion" element={<ServiceBusinessCurrencyConversion />} />
+                <Route path="/blog/currency-conversion-risk-management" element={<CurrencyConversionRiskManagement />} />
                 <Route path="/convert" element={<Convert />} />
                 <Route path="/convert/:pair" element={<CurrencyPair />} />
                 
