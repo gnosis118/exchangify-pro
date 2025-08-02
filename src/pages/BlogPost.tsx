@@ -22,17 +22,15 @@ import bitcoinInvestmentStrategies from '@/assets/bitcoin-investment-strategies.
 import currencyExchangeFeesHero from '@/assets/currency-exchange-fees-hero.jpg';
 import bankExchangeFees from '@/assets/bank-exchange-fees.jpg';
 import moneySavingStrategies from '@/assets/money-saving-strategies.jpg';
-import trumpTariffsCurrencyImpact from '@/assets/trump-tariffs-currency-impact.jpg';
+import economicTrendsGlobal from '@/assets/economic-trends-global.jpg';
 import currencyVolatilityDomino from '@/assets/currency-volatility-domino.jpg';
 import northAmericaTravelCurrency from '@/assets/north-america-travel-currency.jpg';
 import financialExpertPredictions from '@/assets/financial-expert-predictions.jpg';
 import smartTravelMoneyStrategy from '@/assets/smart-travel-money-strategy.jpg';
-import economicTrendsGlobal from '@/assets/economic-trends-global.jpg';
-import digitalNomadLaptop from '@/assets/digital-nomad-laptop.jpg';
+import digitalBankingLaptop from '@/assets/digital-banking-laptop.jpg';
 import nomadCodingWorkspace from '@/assets/nomad-coding-workspace.jpg';
 import financialTechnologyCircuit from '@/assets/financial-technology-circuit.jpg';
 import nomadRemoteWork from '@/assets/nomad-remote-work.jpg';
-import digitalBankingLaptop from '@/assets/digital-banking-laptop.jpg';
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -87,7 +85,7 @@ const BlogPost = () => {
         "@type": "WebPage",
         "@id": "https://currencytocurrency.app/blog/digital-nomad-banking-crisis-2025"
       },
-      "image": digitalNomadLaptop
+      "image": nomadCodingWorkspace
     };
 
     return (
@@ -104,7 +102,7 @@ const BlogPost = () => {
           {/* Hero Image */}
           <div className="mb-8 rounded-lg overflow-hidden">
             <WebPOptimizedImage 
-              src={digitalNomadLaptop}
+              src={nomadCodingWorkspace}
               alt="Digital nomad working on laptop with financial data and currency exchange concerns"
               width={800}
               height={400}
@@ -490,7 +488,7 @@ const BlogPost = () => {
         "@type": "WebPage",
         "@id": "https://currencytocurrency.app/blog/trump-2025-tariffs-currency-exchange-travel-money"
       },
-      "image": trumpTariffsCurrencyImpact
+      "image": economicTrendsGlobal
     };
 
     return (
@@ -507,7 +505,7 @@ const BlogPost = () => {
           {/* Hero Image */}
           <div className="mb-8 rounded-lg overflow-hidden">
             <WebPOptimizedImage 
-              src={trumpTariffsCurrencyImpact}
+              src={economicTrendsGlobal}
               alt="Trump 2025 tariff announcement impact on global currency markets showing financial data and volatile exchange rates"
               width={800}
               height={400}
