@@ -12,6 +12,15 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/" />
   </url>
   
+  <!-- Convert Hub Page -->
+  <url>
+    <loc>https://currencytocurrency.app/convert</loc>
+    <lastmod>2025-08-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/convert" />
+  </url>
+  
   <!-- Charts Page -->
   <url>
     <loc>https://currencytocurrency.app/charts</loc>
