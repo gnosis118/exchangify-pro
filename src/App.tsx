@@ -30,6 +30,8 @@ const FAQ = React.lazy(() => import("./pages/FAQ"));
 const Blog = React.lazy(() => import("./pages/Blog"));
 const BlogPost = React.lazy(() => import("./pages/BlogPost"));
 const CurrencyPair = React.lazy(() => import("./pages/CurrencyPair"));
+const About = React.lazy(() => import("./pages/About"));
+const Contact = React.lazy(() => import("./pages/Contact"));
 
 // Loading component for route transitions
 const RouteLoader = () => (
@@ -97,6 +99,8 @@ const App = () => {
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
                 <Route path="/convert/:pair" element={<CurrencyPair />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
                 
                 {/* Legacy URL redirects to prevent 404s and consolidate to /convert/ pattern */}
                 <Route path="/usd-to-eur" element={<Navigate to="/convert/usd-to-eur" replace />} />
