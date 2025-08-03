@@ -33,9 +33,7 @@ const AppProviders = ({ children }: { children: React.ReactNode }) => {
   return (
     <ErrorBoundary fallback={<div>Application failed to load</div>}>
       <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          {children}
-        </TooltipProvider>
+        {children}
       </QueryClientProvider>
     </ErrorBoundary>
   );
