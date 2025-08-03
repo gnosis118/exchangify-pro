@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React from 'react';
 
 // Extend window type to include gtag and silktideCookieBannerManager
 declare global {
@@ -75,7 +75,7 @@ const ConsentManager = {
 };
 
 const CookieConsent = () => {
-  useEffect(() => {
+  React.useEffect(() => {
     // Wait for Silktide to be ready before configuring
     const initializeConsent = () => {
       if (typeof window === 'undefined' || !window.silktideCookieBannerManager) {
