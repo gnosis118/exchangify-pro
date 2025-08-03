@@ -3,8 +3,7 @@ import React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CookieConsent from "@/components/CookieConsent";
 import Header from "@/components/Header";
 import BreadcrumbNav from "@/components/BreadcrumbNav";
@@ -46,25 +45,13 @@ const RouteLoader = () => (
   </div>
 );
 
-// Create QueryClient outside of component to avoid recreation
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: 1,
-      staleTime: 5 * 60 * 1000,
-    },
-  },
-});
-
-// Simplified AppProviders without progressive loading
+// Simplified AppProviders without QueryClientProvider (now in main.tsx)
 const AppProviders = ({ children }: { children: React.ReactNode }) => {
   return (
     <ErrorBoundary fallback={<div>Application failed to load</div>}>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          {children}
-        </TooltipProvider>
-      </QueryClientProvider>
+      <TooltipProvider>
+        {children}
+      </TooltipProvider>
     </ErrorBoundary>
   );
 };
