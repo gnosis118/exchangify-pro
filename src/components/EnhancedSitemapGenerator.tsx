@@ -1,6 +1,31 @@
 import { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const EnhancedSitemapGenerator = () => {
+  // Generate Website Schema JSON-LD
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Currency to Currency",
+    "url": "https://currencytocurrency.app",
+    "description": "Free real-time currency converter with live exchange rates for 150+ currencies and cryptocurrencies",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Currency to Currency",
+      "logo": "https://currencytocurrency.app/icon-512.png"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://currencytocurrency.app/convert/{search_term_string}",
+      "query-input": "required name=search_term_string"
+    },
+    "sameAs": [
+      "https://currencytocurrency.app/blog",
+      "https://currencytocurrency.app/charts",
+      "https://currencytocurrency.app/travel"
+    ]
+  };
+
   useEffect(() => {
     // Generate dynamic sitemap data with current dates
     const getCurrentDate = () => new Date().toISOString().split('T')[0];
@@ -65,84 +90,6 @@ const EnhancedSitemapGenerator = () => {
       { src: '/assets/digital-nomad-laptop.jpg', caption: 'Digital Nomad Banking Solutions', title: 'Best banking options for remote workers and travelers' }
     ];
 
-    // Generate structured data for WebSite
-    const addWebsiteSchema = () => {
-      const existingSchema = document.querySelector('script[type="application/ld+json"][data-schema="website"]');
-      if (!existingSchema) {
-        const script = document.createElement('script');
-        script.type = 'application/ld+json';
-        script.setAttribute('data-schema', 'website');
-        script.textContent = JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          "name": "Currency to Currency",
-          "url": "https://currencytocurrency.app",
-          "description": "Free real-time currency converter with live exchange rates for 150+ currencies and cryptocurrencies",
-          "publisher": {
-            "@type": "Organization",
-            "name": "Currency to Currency",
-            "logo": "https://currencytocurrency.app/icon-512.png"
-          },
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://currencytocurrency.app/convert/{search_term_string}",
-            "query-input": "required name=search_term_string"
-          },
-          "sameAs": [
-            "https://currencytocurrency.app/blog",
-            "https://currencytocurrency.app/charts",
-            "https://currencytocurrency.app/travel"
-          ]
-        });
-        document.head.appendChild(script);
-      }
-    };
-
-    // Add sitemap meta tags
-    const addSitemapMeta = () => {
-      // Add sitemap links if not already present
-      if (!document.querySelector('link[rel="sitemap"]')) {
-        const sitemapLink = document.createElement('link');
-        sitemapLink.rel = 'sitemap';
-        sitemapLink.type = 'application/xml';
-        sitemapLink.title = 'Sitemap';
-        sitemapLink.href = 'https://currencytocurrency.app/sitemap-index.xml';
-        document.head.appendChild(sitemapLink);
-      }
-
-      // Add robots meta for proper indexing
-      if (!document.querySelector('meta[name="robots"][content*="index"]')) {
-        const robotsMeta = document.createElement('meta');
-        robotsMeta.name = 'robots';
-        robotsMeta.content = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
-        document.head.appendChild(robotsMeta);
-      }
-    };
-
-    // Add discovery meta tags for better crawling
-    const addDiscoveryMeta = () => {
-      const metaTags = [
-        { name: 'googlebot', content: 'index, follow, max-image-preview:large' },
-        { name: 'bingbot', content: 'index, follow' },
-        { name: 'slurp', content: 'index, follow' },
-        { name: 'referrer', content: 'origin-when-cross-origin' }
-      ];
-
-      metaTags.forEach(tag => {
-        if (!document.querySelector(`meta[name="${tag.name}"]`)) {
-          const meta = document.createElement('meta');
-          meta.name = tag.name;
-          meta.content = tag.content;
-          document.head.appendChild(meta);
-        }
-      });
-    };
-
-    // Initialize all enhancements
-    addWebsiteSchema();
-    addSitemapMeta();
-    addDiscoveryMeta();
-
     // Log sitemap generation for debugging
     console.log('Enhanced sitemap data generated:', {
       mainUrls: mainSitemapUrls.length,
@@ -154,7 +101,22 @@ const EnhancedSitemapGenerator = () => {
 
   }, []);
 
-  return null;
+  return (
+    <Helmet>
+      {/* Sitemap and robots meta tags */}
+      <link rel="sitemap" type="application/xml" title="Sitemap" href="https://currencytocurrency.app/sitemap-index.xml" />
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      <meta name="googlebot" content="index, follow, max-image-preview:large" />
+      <meta name="bingbot" content="index, follow" />
+      <meta name="slurp" content="index, follow" />
+      <meta name="referrer" content="origin-when-cross-origin" />
+      
+      {/* Website Schema JSON-LD */}
+      <script type="application/ld+json">
+        {JSON.stringify(websiteSchema)}
+      </script>
+    </Helmet>
+  );
 };
 
 export default EnhancedSitemapGenerator;
