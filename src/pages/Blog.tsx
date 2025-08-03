@@ -8,6 +8,16 @@ import blogPostBackground from '@/assets/blog-post-background.jpg';
 
 const blogPosts = [
   {
+    id: 'currency-conversion-small-business-guide',
+    title: "Currency Conversion for Small Business Owners: Real-Time Exchange Rate Calculator Guide",
+    excerpt: "Small business owners handling international transactions need reliable, real-time currency conversion tools. Learn how the right currency converter can save hundreds of dollars annually in foreign exchange fees.",
+    keywords: ['currency conversion small business', 'small business exchange rates', 'international business currency', 'business currency converter', 'foreign exchange small business'],
+    readTime: '18 min read',
+    publishDate: '2025-02-03',
+    category: 'Business Guide',
+    featured: true
+  },
+  {
     id: 'digital-nomad-banking-crisis-2025',
     title: "Digital Nomad Banking Crisis 2025: The Hidden $50 Billion Currency Exchange Problem",
     excerpt: "50+ Million Digital Nomads Are Bleeding $50 Billion Annually to Banking Fees. Discover the largest financial crisis you've never heard of and how platforms like CurrencyToCurrency.app are fighting back.",
