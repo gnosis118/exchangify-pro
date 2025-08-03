@@ -63,13 +63,7 @@ const App = () => {
     <AppProviders>
       <BrowserRouter>
         <div className="min-h-screen">
-          <MobileOptimizer />
-          <CoreWebVitals />
-        <SitemapGenerator />
-        <EnhancedSitemapGenerator />
-          <SEOMonitoring />
-          <SearchEngineSubmitter />
-          <ContentDiscoveryBooster />
+          <EnhancedSitemapGenerator />
           <Toaster />
           <Sonner />
           <Header />
