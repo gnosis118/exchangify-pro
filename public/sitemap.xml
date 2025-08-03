@@ -6,7 +6,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://currencytocurrency.app/</loc>
-    <lastmod>2025-01-29</lastmod>
+    <lastmod>2025-08-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/" />
@@ -15,6 +15,11 @@
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://currencytocurrency.app/" />
     <xhtml:link rel="alternate" hreflang="en-AU" href="https://currencytocurrency.app/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://currencytocurrency.app/" />
+    <image:image>
+      <image:loc>https://currencytocurrency.app/assets/home-hero.webp</image:loc>
+      <image:caption>Currency to Currency - Free Real-time Exchange Rate Converter</image:caption>
+      <image:title>Professional currency converter homepage with live rates</image:title>
+    </image:image>
   </url>
   
   <!-- Convert Hub Page -->
@@ -29,37 +34,57 @@
   <!-- Charts Page -->
   <url>
     <loc>https://currencytocurrency.app/charts</loc>
-    <lastmod>2025-01-29</lastmod>
+    <lastmod>2025-08-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/charts" />
+    <image:image>
+      <image:loc>https://currencytocurrency.app/assets/charts-hero.webp</image:loc>
+      <image:caption>Live Currency Exchange Rate Charts and Analytics</image:caption>
+      <image:title>Interactive currency rate charts with historical data</image:title>
+    </image:image>
   </url>
   
   <!-- Alerts Page -->
   <url>
     <loc>https://currencytocurrency.app/alerts</loc>
-    <lastmod>2025-01-29</lastmod>
+    <lastmod>2025-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/alerts" />
+    <image:image>
+      <image:loc>https://currencytocurrency.app/assets/alerts-hero.webp</image:loc>
+      <image:caption>Currency Rate Alerts and Notifications System</image:caption>
+      <image:title>Set custom alerts for favorable exchange rates</image:title>
+    </image:image>
   </url>
   
   <!-- Travel Money Page -->
   <url>
     <loc>https://currencytocurrency.app/travel</loc>
-    <lastmod>2025-01-29</lastmod>
+    <lastmod>2025-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/travel" />
+    <image:image>
+      <image:loc>https://currencytocurrency.app/assets/travel-hero.webp</image:loc>
+      <image:caption>Travel Money and Currency Exchange Guide</image:caption>
+      <image:title>Smart travel money exchange strategies and tips</image:title>
+    </image:image>
   </url>
   
   <!-- Blog Page -->
   <url>
     <loc>https://currencytocurrency.app/blog</loc>
-    <lastmod>2025-01-29</lastmod>
+    <lastmod>2025-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://currencytocurrency.app/blog" />
+    <image:image>
+      <image:loc>https://currencytocurrency.app/assets/blog-hero.webp</image:loc>
+      <image:caption>Currency Exchange Blog and Expert Guides</image:caption>
+      <image:title>Expert insights on currency exchange and financial markets</image:title>
+    </image:image>
   </url>
   
   <!-- Blog Posts -->

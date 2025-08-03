@@ -13,6 +13,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import MobileOptimizer from "@/components/MobileOptimizer";
 import CoreWebVitals from "@/components/CoreWebVitals";
 import SitemapGenerator from "@/components/SitemapGenerator";
+import EnhancedSitemapGenerator from "@/components/EnhancedSitemapGenerator";
 import SEOMonitoring from "@/components/SEOMonitoring";
 import SearchEngineSubmitter from "@/components/SearchEngineSubmitter";
 import ContentDiscoveryBooster from "@/components/ContentDiscoveryBooster";
@@ -64,7 +65,8 @@ const App = () => {
         <div className="min-h-screen">
           <MobileOptimizer />
           <CoreWebVitals />
-          <SitemapGenerator />
+        <SitemapGenerator />
+        <EnhancedSitemapGenerator />
           <SEOMonitoring />
           <SearchEngineSubmitter />
           <ContentDiscoveryBooster />
