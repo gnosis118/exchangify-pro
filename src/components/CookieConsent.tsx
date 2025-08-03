@@ -1,11 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { Button } from './ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
+import { Badge } from './ui/badge';
 
 // Extend window type to include gtag and silktideCookieBannerManager
 declare global {
   interface Window {
     gtag: (command: string, action: string, parameters?: any) => void;
     dataLayer: any[];
-    silktideCookieBannerManager: {
+    silktideCookieBannerManager?: {
       updateCookieBannerConfig: (config: any) => void;
     };
     isEEARegion?: boolean;
@@ -74,16 +77,165 @@ const ConsentManager = {
   }
 };
 
+// Native cookie consent component as fallback
+const NativeCookieConsent = ({ onAccept, onReject, onSettings }: {
+  onAccept: () => void;
+  onReject: () => void;
+  onSettings: () => void;
+}) => {
+  const isEEA = window?.isEEARegion || false;
+  
+  return (
+    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-background/95 backdrop-blur-sm border-t shadow-lg">
+      <div className="container mx-auto max-w-6xl">
+        <Card>
+          <CardContent className="p-4">
+            <div className="flex flex-col lg:flex-row lg:items-center gap-4">
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-2">
+                  <Badge variant="outline">🍪 Cookie Notice</Badge>
+                  {isEEA && <Badge variant="secondary">GDPR Compliant</Badge>}
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  {isEEA 
+                    ? "We use cookies to enhance your experience and analyze our traffic. Under EU privacy laws, we need your consent for certain types of cookies."
+                    : "We use cookies to enhance your experience and analyze our traffic."
+                  }
+                  {" "}
+                  <a href="/privacy" className="underline text-primary hover:text-primary/80" target="_blank">
+                    Read our Cookie Policy
+                  </a>
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-2">
+                <Button variant="outline" size="sm" onClick={onSettings}>
+                  Manage Preferences
+                </Button>
+                <Button variant="outline" size="sm" onClick={onReject}>
+                  {isEEA ? "Reject Non-Essential" : "Reject All"}
+                </Button>
+                <Button size="sm" onClick={onAccept}>
+                  Accept All
+                </Button>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+};
+
+// Settings modal for cookie preferences
+const CookieSettings = ({ isOpen, onClose, onSave }: {
+  isOpen: boolean;
+  onClose: () => void;
+  onSave: (preferences: { analytical: boolean; advertising: boolean }) => void;
+}) => {
+  const [analytical, setAnalytical] = useState(false);
+  const [advertising, setAdvertising] = useState(false);
+  const isEEA = window?.isEEARegion || false;
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
+      <Card className="w-full max-w-md">
+        <CardHeader>
+          <CardTitle>Cookie Preferences</CardTitle>
+          <CardDescription>
+            {isEEA 
+              ? "Under EU privacy laws, you have the right to control how your data is processed."
+              : "Choose which cookies you'd like to allow."
+            }
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="space-y-3">
+            <div className="flex items-center justify-between p-3 border rounded">
+              <div>
+                <p className="font-medium">Necessary Cookies</p>
+                <p className="text-sm text-muted-foreground">Required for the website to function</p>
+              </div>
+              <Badge>Always Active</Badge>
+            </div>
+            
+            <div className="flex items-center justify-between p-3 border rounded">
+              <div>
+                <p className="font-medium">Analytics Cookies</p>
+                <p className="text-sm text-muted-foreground">Help us improve the website</p>
+              </div>
+              <Button
+                variant={analytical ? "default" : "outline"}
+                size="sm"
+                onClick={() => setAnalytical(!analytical)}
+              >
+                {analytical ? "Enabled" : "Disabled"}
+              </Button>
+            </div>
+            
+            <div className="flex items-center justify-between p-3 border rounded">
+              <div>
+                <p className="font-medium">Advertising Cookies</p>
+                <p className="text-sm text-muted-foreground">Used for personalized ads</p>
+              </div>
+              <Button
+                variant={advertising ? "default" : "outline"}
+                size="sm"
+                onClick={() => setAdvertising(!advertising)}
+              >
+                {advertising ? "Enabled" : "Disabled"}
+              </Button>
+            </div>
+          </div>
+          
+          <div className="flex gap-2 pt-4">
+            <Button variant="outline" onClick={onClose} className="flex-1">
+              Cancel
+            </Button>
+            <Button onClick={() => onSave({ analytical, advertising })} className="flex-1">
+              Save Preferences
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
+
 const CookieConsent = () => {
+  const [showBanner, setShowBanner] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
+  const [silktideLoaded, setSilktideLoaded] = useState(false);
+
   useEffect(() => {
-    // Wait for Silktide to be ready before configuring
-    const initializeConsent = () => {
-      if (typeof window === 'undefined' || !window.silktideCookieBannerManager) {
-        return;
+    // Check if consent is already given
+    const savedConsent = ConsentManager.loadConsent();
+    if (savedConsent) {
+      // Apply saved consent
+      const { analytical, advertising } = savedConsent.preferences;
+      if (window.gtag) {
+        window.gtag('consent', 'update', {
+          analytics_storage: analytical ? 'granted' : 'denied',
+          ad_storage: advertising ? 'granted' : 'denied',
+          ad_user_data: advertising ? 'granted' : 'denied',
+          ad_personalization: advertising ? 'granted' : 'denied',
+        });
+      }
+      return;
+    }
+
+    // Try to initialize Silktide with timeout
+    const initializeSilktide = () => {
+      if (typeof window === 'undefined') return false;
+      
+      if (!window.silktideCookieBannerManager) {
+        return false;
       }
 
+      setSilktideLoaded(true);
+
       const isEEA = window.isEEARegion || false;
-      const savedConsent = ConsentManager.loadConsent();
       
       // Enhanced descriptions for legal compliance
       const analyticalDescription = isEEA 
@@ -98,7 +250,8 @@ const CookieConsent = () => {
         ? "<p>We use cookies to enhance your experience and analyze our traffic. Under EU privacy laws, we need your consent for certain types of cookies. You can manage your preferences at any time. <a href=\"/privacy\" target=\"_blank\">Read our Cookie Policy</a> for more details.</p>"
         : "<p>We use cookies on our site to enhance your user experience, provide personalized content, and analyze our traffic. <a href=\"/privacy\" target=\"_blank\">Cookie Policy.</a></p>";
 
-      window.silktideCookieBannerManager.updateCookieBannerConfig({
+      try {
+        window.silktideCookieBannerManager!.updateCookieBannerConfig({
         background: {
           showBackground: true
         },
@@ -207,43 +360,29 @@ const CookieConsent = () => {
         position: {
           banner: "bottomCenter"
         }
-      });
-
-      // Load saved preferences if available
-      if (savedConsent && savedConsent.preferences) {
-        // Apply saved consent automatically (required for compliance)
-        const { analytical, advertising } = savedConsent.preferences;
-        
-        if (window.gtag) {
-          window.gtag('consent', 'update', {
-            analytics_storage: analytical ? 'granted' : 'denied',
-            ad_storage: advertising ? 'granted' : 'denied',
-            ad_user_data: advertising ? 'granted' : 'denied',
-            ad_personalization: advertising ? 'granted' : 'denied',
-          });
-          
-          window.dataLayer.push({
-            event: 'consent_restored_from_storage',
-            region: savedConsent.region,
-            analytics_granted: analytical,
-            advertising_granted: advertising
-          });
-        }
+        });
+        return true;
+      } catch (error) {
+        console.warn('Failed to initialize Silktide banner:', error);
+        return false;
       }
     };
 
-    // Retry initialization with timeout protection
-    const maxAttempts = 10;
+    // Retry Silktide initialization with timeout protection
+    const maxAttempts = 15;
     let attempts = 0;
     
-    const checkAndInit = () => {
-      if (window.silktideCookieBannerManager) {
-        initializeConsent();
+    const checkSilktide = () => {
+      if (initializeSilktide()) {
+        console.log('Silktide cookie banner initialized successfully');
       } else if (attempts < maxAttempts) {
         attempts++;
-        setTimeout(checkAndInit, 100);
+        setTimeout(checkSilktide, 200);
       } else {
-        console.warn('Silktide Cookie Consent Manager not available - setting default consent');
+        console.warn('Silktide Cookie Consent Manager not available - using fallback banner');
+        // Show native fallback banner
+        setShowBanner(true);
+        
         // Set conservative default consent when Silktide fails
         if (window.gtag) {
           window.gtag('consent', 'default', {
@@ -258,7 +397,7 @@ const CookieConsent = () => {
       }
     };
 
-    checkAndInit();
+    checkSilktide();
 
     // Expose consent withdrawal function globally for privacy page
     (window as any).withdrawConsent = () => {
@@ -271,12 +410,79 @@ const CookieConsent = () => {
           ad_personalization: 'denied',
         });
       }
-      // Reload to reset banner
-      window.location.reload();
+      setShowBanner(true);
+      setShowSettings(false);
     };
   }, []);
 
-  // This component no longer renders anything - Silktide handles the UI
+  const handleAcceptAll = () => {
+    const preferences = { analytical: true, advertising: true };
+    ConsentManager.saveConsent(preferences);
+    
+    if (window.gtag) {
+      window.gtag('consent', 'update', {
+        analytics_storage: 'granted',
+        ad_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted',
+      });
+    }
+    
+    setShowBanner(false);
+    setShowSettings(false);
+  };
+
+  const handleRejectAll = () => {
+    const preferences = { analytical: false, advertising: false };
+    ConsentManager.saveConsent(preferences);
+    
+    if (window.gtag) {
+      window.gtag('consent', 'update', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+      });
+    }
+    
+    setShowBanner(false);
+    setShowSettings(false);
+  };
+
+  const handleSavePreferences = (preferences: { analytical: boolean; advertising: boolean }) => {
+    ConsentManager.saveConsent(preferences);
+    
+    if (window.gtag) {
+      window.gtag('consent', 'update', {
+        analytics_storage: preferences.analytical ? 'granted' : 'denied',
+        ad_storage: preferences.advertising ? 'granted' : 'denied',
+        ad_user_data: preferences.advertising ? 'granted' : 'denied',
+        ad_personalization: preferences.advertising ? 'granted' : 'denied',
+      });
+    }
+    
+    setShowBanner(false);
+    setShowSettings(false);
+  };
+
+  // Render native banner if Silktide failed or not loaded
+  if (!silktideLoaded && showBanner) {
+    return (
+      <>
+        <NativeCookieConsent
+          onAccept={handleAcceptAll}
+          onReject={handleRejectAll}
+          onSettings={() => setShowSettings(true)}
+        />
+        <CookieSettings
+          isOpen={showSettings}
+          onClose={() => setShowSettings(false)}
+          onSave={handleSavePreferences}
+        />
+      </>
+    );
+  }
+
   return null;
 };
 
