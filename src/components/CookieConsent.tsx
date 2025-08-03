@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
+import { useIsMobile } from '../hooks/use-mobile';
 
 // Extend window type to include gtag and silktideCookieBannerManager
 declare global {
@@ -86,35 +87,35 @@ const NativeCookieConsent = ({ onAccept, onReject, onSettings }: {
   const isEEA = window?.isEEARegion || false;
   
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-background/95 backdrop-blur-sm border-t shadow-lg">
+    <div className="fixed bottom-0 left-0 right-0 z-50 p-2 sm:p-4 bg-background/95 backdrop-blur-sm border-t shadow-lg safe-area-inset-bottom">
       <div className="container mx-auto max-w-6xl">
         <Card>
-          <CardContent className="p-4">
-            <div className="flex flex-col lg:flex-row lg:items-center gap-4">
+          <CardContent className="p-3 sm:p-4">
+            <div className="flex flex-col lg:flex-row lg:items-center gap-3 sm:gap-4">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-2">
                   <Badge variant="outline">🍪 Cookie Notice</Badge>
                   {isEEA && <Badge variant="secondary">GDPR Compliant</Badge>}
                 </div>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                   {isEEA 
                     ? "We use cookies to enhance your experience and analyze our traffic. Under EU privacy laws, we need your consent for certain types of cookies."
                     : "We use cookies to enhance your experience and analyze our traffic."
                   }
                   {" "}
-                  <a href="/privacy" className="underline text-primary hover:text-primary/80" target="_blank">
+                  <a href="/privacy" className="underline text-primary hover:text-primary/80 touch-target-44" target="_blank">
                     Read our Cookie Policy
                   </a>
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-2">
-                <Button variant="outline" size="sm" onClick={onSettings}>
+                <Button variant="outline" size="sm" onClick={onSettings} className="touch-target-44 text-xs sm:text-sm">
                   Manage Preferences
                 </Button>
-                <Button variant="outline" size="sm" onClick={onReject}>
+                <Button variant="outline" size="sm" onClick={onReject} className="touch-target-44 text-xs sm:text-sm">
                   {isEEA ? "Reject Non-Essential" : "Reject All"}
                 </Button>
-                <Button size="sm" onClick={onAccept}>
+                <Button size="sm" onClick={onAccept} className="touch-target-44 text-xs sm:text-sm">
                   Accept All
                 </Button>
               </div>
@@ -139,8 +140,8 @@ const CookieSettings = ({ isOpen, onClose, onSave }: {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
-      <Card className="w-full max-w-md">
+    <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 safe-area-inset">
+      <Card className="w-full max-w-md max-h-[90vh] overflow-y-auto">
         <CardHeader>
           <CardTitle>Cookie Preferences</CardTitle>
           <CardDescription>
@@ -207,6 +208,7 @@ const CookieConsent = () => {
   const [showBanner, setShowBanner] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [silktideLoaded, setSilktideLoaded] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     // Check if consent is already given
@@ -368,18 +370,43 @@ const CookieConsent = () => {
       }
     };
 
-    // Retry Silktide initialization with timeout protection
-    const maxAttempts = 15;
+    // Mobile-optimized retry logic - faster fallback for mobile users
+    const maxAttempts = isMobile ? 8 : 15;
+    const retryInterval = isMobile ? 150 : 200;
     let attempts = 0;
     
+    // Force fallback on mobile if localStorage is restricted
+    const isMobileRestricted = isMobile && (() => {
+      try {
+        const test = 'test';
+        localStorage.setItem(test, test);
+        localStorage.removeItem(test);
+        return false;
+      } catch {
+        return true;
+      }
+    })();
+    
     const checkSilktide = () => {
+      // Debug logging for mobile
+      if (isMobile) {
+        console.log(`[Mobile Cookie Debug] Attempt ${attempts + 1}/${maxAttempts}, Silktide available: ${!!window.silktideCookieBannerManager}`);
+      }
+      
+      // Force fallback for mobile with localStorage restrictions
+      if (isMobileRestricted) {
+        console.log('[Mobile Cookie Debug] localStorage restricted, using fallback banner');
+        setShowBanner(true);
+        return;
+      }
+      
       if (initializeSilktide()) {
         console.log('Silktide cookie banner initialized successfully');
       } else if (attempts < maxAttempts) {
         attempts++;
-        setTimeout(checkSilktide, 200);
+        setTimeout(checkSilktide, retryInterval);
       } else {
-        console.warn('Silktide Cookie Consent Manager not available - using fallback banner');
+        console.warn(`Cookie Consent Manager not available after ${maxAttempts} attempts - using fallback banner`);
         // Show native fallback banner
         setShowBanner(true);
         
