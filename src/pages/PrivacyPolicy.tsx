@@ -2,10 +2,32 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowLeft, Shield, Eye, Lock, Database, Globe, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import EnhancedSEOHead from '@/components/EnhancedSEOHead';
 
 const PrivacyPolicy = () => {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Privacy Policy - Currency to Currency",
+    "description": "Privacy policy for Currency to Currency converter app, detailing data collection, usage, and user rights.",
+    "url": "https://currencytocurrency.app/privacy-policy",
+    "mainEntity": {
+      "@type": "PrivacyPolicy",
+      "datePublished": "2024-01-01",
+      "dateModified": "2024-01-01"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <EnhancedSEOHead
+        title="Privacy Policy - Currency to Currency | Data Protection & User Rights"
+        description="Our privacy policy explains how we collect, use, and protect your data when using our currency converter. Learn about your rights and data protection measures."
+        canonicalUrl="https://currencytocurrency.app/privacy-policy"
+        keywords="privacy policy, data protection, currency converter privacy, user rights, data collection"
+        structuredData={structuredData}
+        pageType="article"
+      />
       <div className="max-w-4xl mx-auto p-6">
         {/* Header */}
         <div className="mb-8">

@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CookieConsent from "@/components/CookieConsent";
 import Header from "@/components/Header";
 import BreadcrumbNav from "@/components/BreadcrumbNav";
+import EnhancedBreadcrumbs from "@/components/EnhancedBreadcrumbs";
 import { Skeleton } from "@/components/ui/skeleton";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import MobileOptimizer from "@/components/MobileOptimizer";
@@ -70,7 +71,7 @@ const App = () => {
           <Toaster />
           <Sonner />
           <Header />
-          <BreadcrumbNav className="container mx-auto px-4 py-2" />
+          <EnhancedBreadcrumbs />
           <ErrorBoundary>
             <React.Suspense fallback={<RouteLoader />}>
               <Routes>

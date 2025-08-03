@@ -2,10 +2,32 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowLeft, FileText, AlertTriangle, Scale, Globe, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import EnhancedSEOHead from '@/components/EnhancedSEOHead';
 
 const TermsOfService = () => {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Terms of Service - Currency to Currency",
+    "description": "Terms and conditions for using Currency to Currency converter app, including user responsibilities and service limitations.",
+    "url": "https://currencytocurrency.app/terms-of-service",
+    "mainEntity": {
+      "@type": "TermsOfService",
+      "datePublished": "2024-01-01",
+      "dateModified": "2024-01-01"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <EnhancedSEOHead
+        title="Terms of Service - Currency to Currency | Legal Terms & Conditions"
+        description="Terms of service for Currency to Currency converter. Understand your rights, responsibilities, and service limitations when using our platform."
+        canonicalUrl="https://currencytocurrency.app/terms-of-service"
+        keywords="terms of service, legal terms, currency converter terms, user agreement, service conditions"
+        structuredData={structuredData}
+        pageType="article"
+      />
       <div className="max-w-4xl mx-auto p-6">
         {/* Header */}
         <div className="mb-8">
