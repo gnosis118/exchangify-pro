@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ExternalLink, TrendingUp, Clock } from 'lucide-react';
 
@@ -50,27 +50,6 @@ const BlogSEOBooster = ({ currentSlug, className = "" }: BlogSEOBoosterProps) =>
       description: 'How digital nomads are losing billions to banking fees',
       readTime: '12 min',
       category: 'Digital Nomads'
-    },
-    {
-      slug: 'currency-conversion-small-business-guide',
-      title: 'Currency Conversion for Small Business Owners: Complete Guide',
-      description: 'Save hundreds annually on FX fees with strategic currency conversion',
-      readTime: '12 min',
-      category: 'Business Finance'
-    },
-    {
-      slug: 'ecommerce-currency-conversion',
-      title: 'E-commerce Currency Conversion: International Pricing Strategies',
-      description: 'Master automated pricing and profit margin protection',
-      readTime: '8 min',
-      category: 'E-commerce'
-    },
-    {
-      slug: 'import-export-currency-conversion',
-      title: 'Import/Export Currency Conversion: Landed Cost Calculations',
-      description: 'Optimize supplier payments and international trade finance',
-      readTime: '10 min',
-      category: 'Import/Export'
     }
   ];
 
@@ -114,9 +93,9 @@ const BlogSEOBooster = ({ currentSlug, className = "" }: BlogSEOBoosterProps) =>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {displayPosts.map((post) => (
-              <a
+              <Link
                 key={post.slug}
-                href={`/blog/${post.slug}`}
+                to={`/blog/${post.slug}`}
                 className="group block p-4 bg-muted/30 hover:bg-muted/50 rounded-lg transition-colors"
               >
                 <div className="flex items-start justify-between mb-2">
@@ -134,7 +113,7 @@ const BlogSEOBooster = ({ currentSlug, className = "" }: BlogSEOBoosterProps) =>
                 <p className="text-xs text-muted-foreground line-clamp-2">
                   {post.description}
                 </p>
-              </a>
+              </Link>
             ))}
           </div>
         </CardContent>
@@ -151,9 +130,9 @@ const BlogSEOBooster = ({ currentSlug, className = "" }: BlogSEOBoosterProps) =>
         <CardContent>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {currencyTools.map((tool) => (
-              <a
+              <Link
                 key={tool.href}
-                href={tool.href}
+                to={tool.href}
                 className="group flex items-center gap-3 p-3 bg-card hover:bg-accent rounded-lg transition-colors border"
               >
                 <div className="flex-1">
@@ -165,7 +144,7 @@ const BlogSEOBooster = ({ currentSlug, className = "" }: BlogSEOBoosterProps) =>
                   </div>
                 </div>
                 <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-accent-foreground" />
-              </a>
+              </Link>
             ))}
           </div>
         </CardContent>

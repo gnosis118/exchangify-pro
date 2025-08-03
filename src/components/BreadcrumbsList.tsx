@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -9,7 +10,8 @@ import {
 } from '@/components/ui/breadcrumb';
 
 const BreadcrumbsList = () => {
-  const pathnames = window.location.pathname.split('/').filter((x) => x);
+  const location = useLocation();
+  const pathnames = location.pathname.split('/').filter((x) => x);
 
   const formatLabel = (segment: string) => {
     return segment

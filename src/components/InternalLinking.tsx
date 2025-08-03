@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface InternalLinkingProps {
   currentPage: string;
@@ -55,9 +55,9 @@ const InternalLinking = ({ currentPage, className = "" }: InternalLinkingProps) 
       <h3 className="text-lg font-semibold text-foreground">Related Tools & Rates</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
         {links.map((link, index) => (
-          <a
+          <Link
             key={index}
-            href={link.href}
+            to={link.href}
             className="block p-3 rounded-lg border border-border hover:border-primary/50 hover:bg-accent/50 transition-colors group"
           >
             <div className="font-medium text-foreground group-hover:text-primary transition-colors">
@@ -66,7 +66,7 @@ const InternalLinking = ({ currentPage, className = "" }: InternalLinkingProps) 
             <div className="text-sm text-muted-foreground mt-1">
               {link.description}
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </div>

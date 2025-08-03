@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import SEOHead from '@/components/SEOHead';
 import CurrencyPairLinks from '@/components/CurrencyPairLinks';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -12,11 +13,10 @@ interface ExchangeRates {
 }
 
 const CurrencyPair = () => {
+  const { pair } = useParams();
   const { toast } = useToast();
   
-  // Get pair from URL path
-  const pair = window.location.pathname.split('/convert/')[1] || 'usd-to-eur';
-  const [fromCurrency, toCurrency] = pair.split('-to-').map(c => c.toUpperCase()) || ['USD', 'EUR'];
+  const [fromCurrency, toCurrency] = pair?.split('-to-').map(c => c.toUpperCase()) || ['USD', 'EUR'];
   const [amount, setAmount] = useState('1');
   const [exchangeRates, setExchangeRates] = useState<ExchangeRates>({});
   const [loading, setLoading] = useState(false);

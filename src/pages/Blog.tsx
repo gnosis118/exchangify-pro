@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Clock, TrendingUp } from 'lucide-react';
@@ -7,56 +7,6 @@ import blogHero from '@/assets/blog-hero.jpg';
 import blogPostBackground from '@/assets/blog-post-background.jpg';
 
 const blogPosts = [
-  {
-    id: 'currency-conversion-small-business-guide',
-    title: "Currency Conversion for Small Business Owners: Real-Time Exchange Rate Calculator Guide",
-    excerpt: "Complete guide to currency conversion for small businesses. Learn to save hundreds annually on FX fees with real-time exchange rate calculators and strategic timing.",
-    keywords: ['small business currency conversion', 'business exchange rates', 'international business finance', 'currency risk management', 'business foreign exchange'],
-    readTime: '12 min read',
-    publishDate: '2025-01-15',
-    category: 'Business Finance',
-    featured: true
-  },
-  {
-    id: 'ecommerce-currency-conversion',
-    title: "E-commerce Currency Conversion: International Pricing Strategies for Online Retailers",
-    excerpt: "Master e-commerce currency conversion with automated pricing strategies, profit margin protection, and international market expansion techniques.",
-    keywords: ['ecommerce currency conversion', 'international pricing', 'online retail currency', 'automated pricing strategies', 'global ecommerce'],
-    readTime: '8 min read',
-    publishDate: '2025-01-15',
-    category: 'E-commerce',
-    featured: true
-  },
-  {
-    id: 'import-export-currency-conversion',
-    title: "Import/Export Currency Conversion: Landed Cost Calculations & Supplier Payment Optimization",
-    excerpt: "Master import/export currency conversion with landed cost calculations, supplier payment timing, and international trade finance strategies.",
-    keywords: ['import export currency', 'landed cost calculations', 'supplier payment optimization', 'international trade finance', 'currency hedging'],
-    readTime: '10 min read',
-    publishDate: '2025-01-15',
-    category: 'Import/Export',
-    featured: false
-  },
-  {
-    id: 'service-business-currency-conversion',
-    title: "Service Business Currency Conversion: International Client Billing & Payment Optimization",
-    excerpt: "Master service business currency conversion with international client billing strategies, payment timing optimization, and freelancer-friendly solutions.",
-    keywords: ['service business currency', 'international client billing', 'freelancer currency conversion', 'payment optimization', 'remote work finance'],
-    readTime: '7 min read',
-    publishDate: '2025-01-15',
-    category: 'Service Business',
-    featured: false
-  },
-  {
-    id: 'currency-conversion-risk-management',
-    title: "Currency Conversion Risk Management: Hedging Strategies & Exposure Monitoring",
-    excerpt: "Protect your business from currency conversion risks with proven hedging strategies, exposure monitoring, and risk management frameworks.",
-    keywords: ['currency risk management', 'hedging strategies', 'foreign exchange risk', 'currency exposure', 'financial risk management'],
-    readTime: '9 min read',
-    publishDate: '2025-01-15',
-    category: 'Risk Management',
-    featured: false
-  },
   {
     id: 'digital-nomad-banking-crisis-2025',
     title: "Digital Nomad Banking Crisis 2025: The Hidden $50 Billion Currency Exchange Problem",
@@ -189,9 +139,9 @@ const Blog = () => {
                         {post.featured && <Badge variant="default">Featured</Badge>}
                       </div>
                       <CardTitle className="text-2xl hover:text-primary transition-colors">
-                        <a href={`/blog/${post.id}`}>
+                        <Link to={`/blog/${post.id}`}>
                           {post.title}
-                        </a>
+                        </Link>
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
@@ -209,12 +159,12 @@ const Blog = () => {
                             {post.readTime}
                           </div>
                         </div>
-                        <a 
-                          href={`/blog/${post.id}`}
+                        <Link 
+                          to={`/blog/${post.id}`}
                           className="text-primary hover:underline font-medium"
                         >
                           Read More →
-                        </a>
+                        </Link>
                       </div>
                     </CardContent>
                   </div>
@@ -250,12 +200,12 @@ const Blog = () => {
                 <p className="text-sm text-muted-foreground mb-3">
                   Need a quick conversion? Use our live converter.
                 </p>
-                <a 
-                  href="/"
+                <Link 
+                  to="/"
                   className="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 text-sm font-medium transition-colors"
                 >
                   Open Converter
-                </a>
+                </Link>
               </CardContent>
             </Card>
           </div>
