@@ -106,15 +106,11 @@ const BlogPost = () => {
         <article className="container mx-auto px-4 max-w-4xl">
           {/* Hero Image */}
           <div className="mb-8 rounded-lg overflow-hidden">
-            <WebPOptimizedImage 
+            <img 
               src={businessLaptopCurrency}
               alt="Small business owner using laptop for currency conversion and international transactions"
-              width={800}
-              height={400}
-              className="w-full h-[400px]"
+              className="w-full h-[400px] object-cover"
               loading="eager"
-              priority={true}
-              objectFit="cover"
             />
           </div>
 
