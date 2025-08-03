@@ -1,4 +1,4 @@
-import { useState, useCallback, memo } from 'react';
+import React, { useState, useCallback, memo } from 'react';
 import { cn } from '@/lib/utils';
 
 interface OptimizedImageProps {
