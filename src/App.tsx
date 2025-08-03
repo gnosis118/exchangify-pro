@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 import CookieConsent from "@/components/CookieConsent";
 import { Skeleton } from "@/components/ui/skeleton";
 import ErrorBoundary from "@/components/ErrorBoundary";
@@ -27,14 +27,10 @@ const RouteLoader = () => (
   </div>
 );
 
-const queryClient = new QueryClient();
-
 const AppProviders = ({ children }: { children: React.ReactNode }) => {
   return (
     <ErrorBoundary fallback={<div>Application failed to load</div>}>
-      <QueryClientProvider client={queryClient}>
-        {children}
-      </QueryClientProvider>
+      {children}
     </ErrorBoundary>
   );
 };
