@@ -2,7 +2,7 @@
 import * as React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
+// import { TooltipProvider } from "@/components/ui/tooltip";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CookieConsent from "@/components/CookieConsent";
 import Header from "@/components/Header";
@@ -52,7 +52,6 @@ const RouteLoader = () => (
 const App = () => {
   return (
     <ErrorBoundary fallback={<div>Application failed to load</div>}>
-      <TooltipProvider>
         <BrowserRouter>
           <div className="min-h-screen">
             <EnhancedSitemapGenerator />
@@ -89,7 +88,6 @@ const App = () => {
           <SEOMonitoring />
           <SearchEngineSubmitter />
         </BrowserRouter>
-      </TooltipProvider>
     </ErrorBoundary>
   );
 };
