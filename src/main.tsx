@@ -2,15 +2,8 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { HelmetProvider } from 'react-helmet-async';
-// Temporarily remove Toaster until React context issue is resolved
-// import { Toaster } from '@/components/ui/toaster';
 import App from './App';
 import "./index.css";
-
-// Diagnostic logging
-console.log("🔍 main.tsx - React version:", React.version);
-console.log("🔍 main.tsx - React useState:", typeof React.useState);
-console.log("🔍 main.tsx - React context:", React.createContext);
 
 const queryClient = new QueryClient({
   defaultOptions: {

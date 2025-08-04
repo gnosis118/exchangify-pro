@@ -5,10 +5,6 @@ import Header from "@/components/Header";
 import { Skeleton } from "@/components/ui/skeleton";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
-// Add diagnostic logging
-console.log("🔍 App.tsx - React version:", React.version);
-console.log("🔍 App.tsx - React useState:", typeof React.useState);
-
 // Lazy load all route components for better code splitting
 const Index = React.lazy(() => import("./pages/Index"));
 const Charts = React.lazy(() => import("./pages/Charts"));
@@ -39,8 +35,6 @@ const RouteLoader = () => (
 );
 
 const App = () => {
-  console.log("🔍 App rendering...");
-  
   return (
     <ErrorBoundary fallback={<div>Application failed to load</div>}>
       <BrowserRouter>
