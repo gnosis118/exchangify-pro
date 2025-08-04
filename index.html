@@ -566,7 +566,7 @@
         'ad_storage': 'denied',
         'ad_user_data': 'denied', 
         'ad_personalization': 'denied',
-        'analytics_storage': isEEA ? 'denied' : 'denied', // Stricter for EEA
+        'analytics_storage': isEEA ? 'denied' : 'granted', // Allow analytics for non-EEA
         'functionality_storage': 'granted',
         'security_storage': 'granted',
         'wait_for_update': 500 // Optimized timing
