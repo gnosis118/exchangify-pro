@@ -1,5 +1,5 @@
 
-import React from "react";
+import * as React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -49,59 +49,48 @@ const RouteLoader = () => (
   </div>
 );
 
-// Simplified AppProviders without QueryClientProvider (now in main.tsx)
-const AppProviders = ({ children }: { children: React.ReactNode }) => {
+const App = () => {
   return (
     <ErrorBoundary fallback={<div>Application failed to load</div>}>
       <TooltipProvider>
-        {children}
+        <BrowserRouter>
+          <div className="min-h-screen">
+            <EnhancedSitemapGenerator />
+            <Toaster />
+            <Sonner />
+            <Header />
+            <EnhancedBreadcrumbs />
+            <ErrorBoundary>
+              <React.Suspense fallback={<RouteLoader />}>
+                <Routes>
+                  <Route path="/" element={<Index />} />
+                  <Route path="/charts" element={<Charts />} />
+                  <Route path="/alerts" element={<Alerts />} />
+                  <Route path="/travel" element={<Travel />} />
+                  <Route path="/auth" element={<Auth />} />
+                  <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                  <Route path="/terms-of-service" element={<TermsOfService />} />
+                  <Route path="/faq" element={<FAQ />} />
+                  <Route path="/blog" element={<Blog />} />
+                  <Route path="/blog/:slug" element={<BlogPost />} />
+                  <Route path="/convert" element={<Convert />} />
+                  <Route path="/convert/:pair" element={<CurrencyPair />} />
+                  <Route path="/sitemap.xml" element={null} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </React.Suspense>
+            </ErrorBoundary>
+          </div>
+          <CookieConsent />
+          <PerformanceOptimizer />
+          <CoreWebVitals />
+          <MobileOptimizer />
+          <MobilePerformanceOptimizer />
+          <SEOMonitoring />
+          <SearchEngineSubmitter />
+        </BrowserRouter>
       </TooltipProvider>
     </ErrorBoundary>
-  );
-};
-
-const App = () => {
-  return (
-    <AppProviders>
-      <BrowserRouter>
-        <div className="min-h-screen">
-          <EnhancedSitemapGenerator />
-          <Toaster />
-          <Sonner />
-          <Header />
-          <EnhancedBreadcrumbs />
-          <ErrorBoundary>
-            <React.Suspense fallback={<RouteLoader />}>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/charts" element={<Charts />} />
-                <Route path="/alerts" element={<Alerts />} />
-                <Route path="/travel" element={<Travel />} />
-                <Route path="/auth" element={<Auth />} />
-                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                <Route path="/terms-of-service" element={<TermsOfService />} />
-                <Route path="/faq" element={<FAQ />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/:slug" element={<BlogPost />} />
-                <Route path="/convert" element={<Convert />} />
-                <Route path="/convert/:pair" element={<CurrencyPair />} />
-                
-                
-                <Route path="/sitemap.xml" element={null} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </React.Suspense>
-          </ErrorBoundary>
-        </div>
-        <CookieConsent />
-        <PerformanceOptimizer />
-        <CoreWebVitals />
-        <MobileOptimizer />
-        <MobilePerformanceOptimizer />
-        <SEOMonitoring />
-        <SearchEngineSubmitter />
-      </BrowserRouter>
-    </AppProviders>
   );
 };
 
