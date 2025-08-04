@@ -17,18 +17,23 @@ export default defineConfig(({ mode }) => ({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
-      // CRITICAL: Force single React instance (point to directories, not files)
+      // CRITICAL: Force single React instance to prevent multiple React copies
       "react": path.resolve(__dirname, "./node_modules/react"),
       "react-dom": path.resolve(__dirname, "./node_modules/react-dom"),
+      "react/jsx-runtime": path.resolve(__dirname, "./node_modules/react/jsx-runtime"),
+      "react/jsx-dev-runtime": path.resolve(__dirname, "./node_modules/react/jsx-dev-runtime"),
     },
-    dedupe: ["react", "react-dom"],
+    dedupe: ["react", "react-dom", "react/jsx-runtime", "react/jsx-dev-runtime"],
   },
   optimizeDeps: {
     include: [
       "react", 
       "react-dom", 
+      "react/jsx-runtime",
+      "react/jsx-dev-runtime",
       "react-router-dom", 
-      "@tanstack/react-query"
+      "@tanstack/react-query",
+      "@radix-ui/react-tooltip"
     ],
     force: true,
   },
