@@ -1,24 +1,25 @@
 
 import * as React from "react";
 import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import CookieConsent from "@/components/CookieConsent";
 import Header from "@/components/Header";
-import BreadcrumbNav from "@/components/BreadcrumbNav";
-import EnhancedBreadcrumbs from "@/components/EnhancedBreadcrumbs";
 import { Skeleton } from "@/components/ui/skeleton";
 import ErrorBoundary from "@/components/ErrorBoundary";
-import MobileOptimizer from "@/components/MobileOptimizer";
-import MobilePerformanceOptimizer from "@/components/MobilePerformanceOptimizer";
-import CoreWebVitals from "@/components/CoreWebVitals";
-import PerformanceOptimizer from "@/components/PerformanceOptimizer";
-import SitemapGenerator from "@/components/SitemapGenerator";
-import EnhancedSitemapGenerator from "@/components/EnhancedSitemapGenerator";
-import SEOMonitoring from "@/components/SEOMonitoring";
-import SearchEngineSubmitter from "@/components/SearchEngineSubmitter";
-import ContentDiscoveryBooster from "@/components/ContentDiscoveryBooster";
+// Temporarily disabled components that may have issues
+// import { Toaster as Sonner } from "@/components/ui/sonner";
+// import CookieConsent from "@/components/CookieConsent";
+// import BreadcrumbNav from "@/components/BreadcrumbNav";
+// import EnhancedBreadcrumbs from "@/components/EnhancedBreadcrumbs";
+// import MobileOptimizer from "@/components/MobileOptimizer";
+// import MobilePerformanceOptimizer from "@/components/MobilePerformanceOptimizer";
+// import CoreWebVitals from "@/components/CoreWebVitals";
+// import PerformanceOptimizer from "@/components/PerformanceOptimizer";
+// import SitemapGenerator from "@/components/SitemapGenerator";
+// import EnhancedSitemapGenerator from "@/components/EnhancedSitemapGenerator";
+// import SEOMonitoring from "@/components/SEOMonitoring";
+// import SearchEngineSubmitter from "@/components/SearchEngineSubmitter";
+// import ContentDiscoveryBooster from "@/components/ContentDiscoveryBooster";
 
 // Lazy load all route components for better code splitting
 const Index = React.lazy(() => import("./pages/Index"));
@@ -56,7 +57,6 @@ const App = () => {
         <BrowserRouter>
           <div className="min-h-screen">
             <Header />
-            <BreadcrumbNav />
             <ErrorBoundary>
               <React.Suspense fallback={<RouteLoader />}>
                 <Routes>
@@ -78,21 +78,8 @@ const App = () => {
               </React.Suspense>
             </ErrorBoundary>
             
-            {/* SEO and Performance Components */}
-            <EnhancedSitemapGenerator />
-            <SitemapGenerator />
-            <SEOMonitoring />
-            <SearchEngineSubmitter />
-            <ContentDiscoveryBooster />
-            <PerformanceOptimizer />
-            <CoreWebVitals />
-            <MobileOptimizer />
-            <MobilePerformanceOptimizer />
-            
-            {/* UI Components */}
-            <CookieConsent />
+            {/* Essential UI Components */}
             <Toaster />
-            <Sonner />
           </div>
         </BrowserRouter>
       </TooltipProvider>
