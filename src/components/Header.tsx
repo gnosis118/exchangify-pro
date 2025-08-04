@@ -17,14 +17,18 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Menu, User as UserIcon, LogOut, Calculator, BarChart3, Bell, Plane, BookOpen } from 'lucide-react';
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
+import { Menu, User as UserIcon, LogOut, Calculator, BarChart3, Bell, Plane, BookOpen, X } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { useToast } from '@/hooks/use-toast';
 
 const Header = () => {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const { toast } = useToast();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     // Set up auth state listener
@@ -164,39 +168,108 @@ const Header = () => {
           </nav>
 
           {/* Mobile Navigation */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="sm">
+          <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+            <SheetTrigger asChild className="md:hidden">
+              <Button variant="ghost" size="sm" className="min-h-11 min-w-11 touch-manipulation">
                 <Menu className="h-5 w-5" />
+                <span className="sr-only">Open navigation menu</span>
               </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start" className="w-48">
-              <DropdownMenuItem asChild>
-                <Link to="/">Converter</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link to="/charts">Charts</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link to="/alerts">Alerts</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link to="/travel">Travel</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link to="/blog">Blog</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link to="/faq">FAQ</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link to="/privacy-policy">Privacy Policy</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link to="/terms-of-service">Terms of Service</Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+            </SheetTrigger>
+            <SheetContent side="left" className="w-64 p-0">
+              <div className="flex flex-col h-full">
+                <div className="flex items-center justify-between p-4 border-b">
+                  <div className="flex items-center space-x-2">
+                    <Calculator className="h-6 w-6" />
+                    <span className="font-bold text-lg">Currency Converter</span>
+                  </div>
+                  <SheetClose asChild>
+                    <Button variant="ghost" size="sm" className="h-9 w-9 p-0">
+                      <X className="h-4 w-4" />
+                      <span className="sr-only">Close menu</span>
+                    </Button>
+                  </SheetClose>
+                </div>
+                <nav className="flex-1 p-4 space-y-2">
+                  <Link 
+                    to="/" 
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`flex items-center gap-3 px-3 py-3 rounded-lg text-sm font-medium transition-colors min-h-11 touch-manipulation ${
+                      isActive('/') ? 'bg-primary text-primary-foreground' : 'hover:bg-accent hover:text-accent-foreground'
+                    }`}
+                  >
+                    <Calculator className="h-5 w-5" />
+                    Converter
+                  </Link>
+                  <Link 
+                    to="/charts" 
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`flex items-center gap-3 px-3 py-3 rounded-lg text-sm font-medium transition-colors min-h-11 touch-manipulation ${
+                      isActive('/charts') ? 'bg-primary text-primary-foreground' : 'hover:bg-accent hover:text-accent-foreground'
+                    }`}
+                  >
+                    <BarChart3 className="h-5 w-5" />
+                    Charts
+                  </Link>
+                  <Link 
+                    to="/alerts" 
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`flex items-center gap-3 px-3 py-3 rounded-lg text-sm font-medium transition-colors min-h-11 touch-manipulation ${
+                      isActive('/alerts') ? 'bg-primary text-primary-foreground' : 'hover:bg-accent hover:text-accent-foreground'
+                    }`}
+                  >
+                    <Bell className="h-5 w-5" />
+                    Alerts
+                  </Link>
+                  <Link 
+                    to="/travel" 
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`flex items-center gap-3 px-3 py-3 rounded-lg text-sm font-medium transition-colors min-h-11 touch-manipulation ${
+                      isActive('/travel') ? 'bg-primary text-primary-foreground' : 'hover:bg-accent hover:text-accent-foreground'
+                    }`}
+                  >
+                    <Plane className="h-5 w-5" />
+                    Travel
+                  </Link>
+                  <Link 
+                    to="/blog" 
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`flex items-center gap-3 px-3 py-3 rounded-lg text-sm font-medium transition-colors min-h-11 touch-manipulation ${
+                      isActive('/blog') ? 'bg-primary text-primary-foreground' : 'hover:bg-accent hover:text-accent-foreground'
+                    }`}
+                  >
+                    <BookOpen className="h-5 w-5" />
+                    Blog
+                  </Link>
+                  <Link 
+                    to="/faq" 
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`flex items-center gap-3 px-3 py-3 rounded-lg text-sm font-medium transition-colors min-h-11 touch-manipulation ${
+                      isActive('/faq') ? 'bg-primary text-primary-foreground' : 'hover:bg-accent hover:text-accent-foreground'
+                    }`}
+                  >
+                    FAQ
+                  </Link>
+                  <div className="border-t pt-2 mt-4">
+                    <div className="text-xs font-medium text-muted-foreground px-3 py-2">Legal</div>
+                    <Link 
+                      to="/privacy-policy" 
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center gap-3 px-3 py-3 rounded-lg text-sm font-medium transition-colors min-h-11 touch-manipulation hover:bg-accent hover:text-accent-foreground"
+                    >
+                      Privacy Policy
+                    </Link>
+                    <Link 
+                      to="/terms-of-service" 
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center gap-3 px-3 py-3 rounded-lg text-sm font-medium transition-colors min-h-11 touch-manipulation hover:bg-accent hover:text-accent-foreground"
+                    >
+                      Terms of Service
+                    </Link>
+                  </div>
+                </nav>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
 
         {/* User Menu */}
@@ -204,7 +277,7 @@ const Header = () => {
           {user ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="flex items-center gap-2">
+                <Button variant="ghost" size="sm" className="flex items-center gap-2 min-h-11 touch-manipulation">
                   <UserIcon className="h-4 w-4" />
                   <span className="hidden sm:inline">{user.email}</span>
                 </Button>
@@ -219,12 +292,12 @@ const Header = () => {
           ) : (
             <div className="flex items-center gap-2">
               <Link to="/auth">
-                <Button variant="ghost" size="sm">
+                <Button variant="ghost" size="sm" className="min-h-11 touch-manipulation">
                   Login
                 </Button>
               </Link>
               <Link to="/auth">
-                <Button size="sm">
+                <Button size="sm" className="min-h-11 touch-manipulation">
                   Sign Up
                 </Button>
               </Link>

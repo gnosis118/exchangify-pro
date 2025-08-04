@@ -301,67 +301,71 @@ const CurrencyConverter = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-muted-foreground">Amount</label>
-                    <Input
-                      type="number"
-                      value={amount}
-                      onChange={(e) => setAmount(e.target.value)}
-                      placeholder="Enter amount"
-                      className="text-lg"
-                    />
-                  </div>
+                   <div className="space-y-2">
+                     <label className="text-sm font-medium text-muted-foreground">Amount</label>
+                     <Input
+                       type="number"
+                       inputMode="decimal"
+                       value={amount}
+                       onChange={(e) => setAmount(e.target.value)}
+                       placeholder="Enter amount"
+                       className="text-lg min-h-11 touch-manipulation"
+                       autoComplete="off"
+                       style={{ fontSize: '16px' }}
+                     />
+                   </div>
 
-                  <div className="grid grid-cols-2 gap-2 items-end">
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-muted-foreground">From</label>
-                      <Select value={fromCurrency} onValueChange={setFromCurrency}>
-                        <SelectTrigger>
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent className="max-h-60 overflow-y-auto">
-                          {fiatCurrencies.map((currency) => (
-                            <SelectItem key={currency.code} value={currency.code}>
-                              <div className="flex items-center space-x-2">
-                                <span className="font-medium">{currency.code}</span>
-                                <span className="text-muted-foreground">-</span>
-                                <span className="text-sm">{currency.name}</span>
-                              </div>
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
+                   <div className="grid grid-cols-2 gap-2 items-end">
+                     <div className="space-y-2">
+                       <label className="text-sm font-medium text-muted-foreground">From</label>
+                       <Select value={fromCurrency} onValueChange={setFromCurrency}>
+                         <SelectTrigger className="min-h-11 touch-manipulation">
+                           <SelectValue />
+                         </SelectTrigger>
+                         <SelectContent className="max-h-60 overflow-y-auto z-50 bg-background">
+                           {fiatCurrencies.map((currency) => (
+                             <SelectItem key={currency.code} value={currency.code} className="min-h-11 touch-manipulation">
+                               <div className="flex items-center space-x-2">
+                                 <span className="font-medium">{currency.code}</span>
+                                 <span className="text-muted-foreground">-</span>
+                                 <span className="text-sm truncate">{currency.name}</span>
+                               </div>
+                             </SelectItem>
+                           ))}
+                         </SelectContent>
+                       </Select>
+                     </div>
 
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      onClick={swapCurrencies}
-                      className="mb-1"
-                    >
-                      <ArrowUpDown className="h-4 w-4" />
-                    </Button>
+                     <Button
+                       variant="outline"
+                       size="icon"
+                       onClick={swapCurrencies}
+                       className="mb-1 min-h-11 min-w-11 touch-manipulation"
+                       aria-label="Swap currencies"
+                     >
+                       <ArrowUpDown className="h-4 w-4" />
+                     </Button>
 
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-muted-foreground">To</label>
-                      <Select value={toCurrency} onValueChange={setToCurrency}>
-                        <SelectTrigger>
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent className="max-h-60 overflow-y-auto">
-                          {fiatCurrencies.map((currency) => (
-                            <SelectItem key={currency.code} value={currency.code}>
-                              <div className="flex items-center space-x-2">
-                                <span className="font-medium">{currency.code}</span>
-                                <span className="text-muted-foreground">-</span>
-                                <span className="text-sm">{currency.name}</span>
-                              </div>
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
+                     <div className="space-y-2">
+                       <label className="text-sm font-medium text-muted-foreground">To</label>
+                       <Select value={toCurrency} onValueChange={setToCurrency}>
+                         <SelectTrigger className="min-h-11 touch-manipulation">
+                           <SelectValue />
+                         </SelectTrigger>
+                         <SelectContent className="max-h-60 overflow-y-auto z-50 bg-background">
+                           {fiatCurrencies.map((currency) => (
+                             <SelectItem key={currency.code} value={currency.code} className="min-h-11 touch-manipulation">
+                               <div className="flex items-center space-x-2">
+                                 <span className="font-medium">{currency.code}</span>
+                                 <span className="text-muted-foreground">-</span>
+                                 <span className="text-sm truncate">{currency.name}</span>
+                               </div>
+                             </SelectItem>
+                           ))}
+                         </SelectContent>
+                       </Select>
+                     </div>
+                   </div>
 
                   <div className="bg-price-bg p-4 rounded-lg">
                     <div className="flex items-center justify-between">
@@ -402,58 +406,61 @@ const CurrencyConverter = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-muted-foreground">Amount</label>
-                    <Input
-                      type="number"
-                      value={cryptoAmount}
-                      onChange={(e) => setCryptoAmount(e.target.value)}
-                      placeholder="Enter crypto amount"
-                      className="text-lg"
-                    />
-                  </div>
+                   <div className="space-y-2">
+                     <label className="text-sm font-medium text-muted-foreground">Amount</label>
+                     <Input
+                       type="number"
+                       inputMode="decimal"
+                       value={cryptoAmount}
+                       onChange={(e) => setCryptoAmount(e.target.value)}
+                       placeholder="Enter crypto amount"
+                       className="text-lg min-h-11 touch-manipulation"
+                       autoComplete="off"
+                       style={{ fontSize: '16px' }}
+                     />
+                   </div>
 
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-muted-foreground">Cryptocurrency</label>
-                      <Select value={selectedCrypto} onValueChange={setSelectedCrypto}>
-                        <SelectTrigger>
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent className="max-h-60 overflow-y-auto">
-                          {cryptocurrencies.map((crypto) => (
-                            <SelectItem key={crypto.id} value={crypto.id}>
-                              <div className="flex items-center space-x-2">
-                                <span className="font-medium">{crypto.symbol}</span>
-                                <span className="text-muted-foreground">-</span>
-                                <span className="text-sm">{crypto.name}</span>
-                              </div>
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
+                   <div className="grid grid-cols-2 gap-4">
+                     <div className="space-y-2">
+                       <label className="text-sm font-medium text-muted-foreground">Cryptocurrency</label>
+                       <Select value={selectedCrypto} onValueChange={setSelectedCrypto}>
+                         <SelectTrigger className="min-h-11 touch-manipulation">
+                           <SelectValue />
+                         </SelectTrigger>
+                         <SelectContent className="max-h-60 overflow-y-auto z-50 bg-background">
+                           {cryptocurrencies.map((crypto) => (
+                             <SelectItem key={crypto.id} value={crypto.id} className="min-h-11 touch-manipulation">
+                               <div className="flex items-center space-x-2">
+                                 <span className="font-medium">{crypto.symbol}</span>
+                                 <span className="text-muted-foreground">-</span>
+                                 <span className="text-sm truncate">{crypto.name}</span>
+                               </div>
+                             </SelectItem>
+                           ))}
+                         </SelectContent>
+                       </Select>
+                     </div>
 
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-muted-foreground">Target Currency</label>
-                      <Select value={cryptoTargetCurrency} onValueChange={setCryptoTargetCurrency}>
-                        <SelectTrigger>
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent className="max-h-60 overflow-y-auto">
-                          {fiatCurrencies.slice(0, 10).map((currency) => (
-                            <SelectItem key={currency.code} value={currency.code}>
-                              <div className="flex items-center space-x-2">
-                                <span className="font-medium">{currency.code}</span>
-                                <span className="text-muted-foreground">-</span>
-                                <span className="text-sm">{currency.name}</span>
-                              </div>
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
+                     <div className="space-y-2">
+                       <label className="text-sm font-medium text-muted-foreground">Target Currency</label>
+                       <Select value={cryptoTargetCurrency} onValueChange={setCryptoTargetCurrency}>
+                         <SelectTrigger className="min-h-11 touch-manipulation">
+                           <SelectValue />
+                         </SelectTrigger>
+                         <SelectContent className="max-h-60 overflow-y-auto z-50 bg-background">
+                           {fiatCurrencies.slice(0, 10).map((currency) => (
+                             <SelectItem key={currency.code} value={currency.code} className="min-h-11 touch-manipulation">
+                               <div className="flex items-center space-x-2">
+                                 <span className="font-medium">{currency.code}</span>
+                                 <span className="text-muted-foreground">-</span>
+                                 <span className="text-sm truncate">{currency.name}</span>
+                               </div>
+                             </SelectItem>
+                           ))}
+                         </SelectContent>
+                       </Select>
+                     </div>
+                   </div>
 
                   <div className="bg-price-bg p-4 rounded-lg">
                     <div className="text-3xl font-bold text-foreground">

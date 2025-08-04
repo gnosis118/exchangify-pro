@@ -11,7 +11,9 @@ import EnhancedBreadcrumbs from "@/components/EnhancedBreadcrumbs";
 import { Skeleton } from "@/components/ui/skeleton";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import MobileOptimizer from "@/components/MobileOptimizer";
+import MobilePerformanceOptimizer from "@/components/MobilePerformanceOptimizer";
 import CoreWebVitals from "@/components/CoreWebVitals";
+import PerformanceOptimizer from "@/components/PerformanceOptimizer";
 import SitemapGenerator from "@/components/SitemapGenerator";
 import EnhancedSitemapGenerator from "@/components/EnhancedSitemapGenerator";
 import SEOMonitoring from "@/components/SEOMonitoring";
@@ -92,6 +94,12 @@ const App = () => {
           </ErrorBoundary>
         </div>
         <CookieConsent />
+        <PerformanceOptimizer />
+        <CoreWebVitals />
+        <MobileOptimizer />
+        <MobilePerformanceOptimizer />
+        <SEOMonitoring />
+        <SearchEngineSubmitter />
       </BrowserRouter>
     </AppProviders>
   );
