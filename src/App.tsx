@@ -1,24 +1,24 @@
 
 import * as React from "react";
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
+// import { Toaster } from "@/components/ui/toaster";
+// import { Toaster as Sonner } from "@/components/ui/sonner";
 // import { TooltipProvider } from "@/components/ui/tooltip";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import CookieConsent from "@/components/CookieConsent";
+// import CookieConsent from "@/components/CookieConsent";
 import Header from "@/components/Header";
-import BreadcrumbNav from "@/components/BreadcrumbNav";
-import EnhancedBreadcrumbs from "@/components/EnhancedBreadcrumbs";
+// import BreadcrumbNav from "@/components/BreadcrumbNav";
+// import EnhancedBreadcrumbs from "@/components/EnhancedBreadcrumbs";
 import { Skeleton } from "@/components/ui/skeleton";
 import ErrorBoundary from "@/components/ErrorBoundary";
-import MobileOptimizer from "@/components/MobileOptimizer";
-import MobilePerformanceOptimizer from "@/components/MobilePerformanceOptimizer";
-import CoreWebVitals from "@/components/CoreWebVitals";
-import PerformanceOptimizer from "@/components/PerformanceOptimizer";
-import SitemapGenerator from "@/components/SitemapGenerator";
-import EnhancedSitemapGenerator from "@/components/EnhancedSitemapGenerator";
-import SEOMonitoring from "@/components/SEOMonitoring";
-import SearchEngineSubmitter from "@/components/SearchEngineSubmitter";
-import ContentDiscoveryBooster from "@/components/ContentDiscoveryBooster";
+// import MobileOptimizer from "@/components/MobileOptimizer";
+// import MobilePerformanceOptimizer from "@/components/MobilePerformanceOptimizer";
+// import CoreWebVitals from "@/components/CoreWebVitals";
+// import PerformanceOptimizer from "@/components/PerformanceOptimizer";
+// import SitemapGenerator from "@/components/SitemapGenerator";
+// import EnhancedSitemapGenerator from "@/components/EnhancedSitemapGenerator";
+// import SEOMonitoring from "@/components/SEOMonitoring";
+// import SearchEngineSubmitter from "@/components/SearchEngineSubmitter";
+// import ContentDiscoveryBooster from "@/components/ContentDiscoveryBooster";
 
 // Lazy load all route components for better code splitting
 const Index = React.lazy(() => import("./pages/Index"));
@@ -52,42 +52,31 @@ const RouteLoader = () => (
 const App = () => {
   return (
     <ErrorBoundary fallback={<div>Application failed to load</div>}>
-        <BrowserRouter>
-          <div className="min-h-screen">
-            <EnhancedSitemapGenerator />
-            <Toaster />
-            <Sonner />
-            <Header />
-            <EnhancedBreadcrumbs />
-            <ErrorBoundary>
-              <React.Suspense fallback={<RouteLoader />}>
-                <Routes>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/charts" element={<Charts />} />
-                  <Route path="/alerts" element={<Alerts />} />
-                  <Route path="/travel" element={<Travel />} />
-                  <Route path="/auth" element={<Auth />} />
-                  <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                  <Route path="/terms-of-service" element={<TermsOfService />} />
-                  <Route path="/faq" element={<FAQ />} />
-                  <Route path="/blog" element={<Blog />} />
-                  <Route path="/blog/:slug" element={<BlogPost />} />
-                  <Route path="/convert" element={<Convert />} />
-                  <Route path="/convert/:pair" element={<CurrencyPair />} />
-                  <Route path="/sitemap.xml" element={null} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </React.Suspense>
-            </ErrorBoundary>
-          </div>
-          <CookieConsent />
-          <PerformanceOptimizer />
-          <CoreWebVitals />
-          <MobileOptimizer />
-          <MobilePerformanceOptimizer />
-          <SEOMonitoring />
-          <SearchEngineSubmitter />
-        </BrowserRouter>
+      <BrowserRouter>
+        <div className="min-h-screen">
+          <Header />
+          <ErrorBoundary>
+            <React.Suspense fallback={<RouteLoader />}>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/charts" element={<Charts />} />
+                <Route path="/alerts" element={<Alerts />} />
+                <Route path="/travel" element={<Travel />} />
+                <Route path="/auth" element={<Auth />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/terms-of-service" element={<TermsOfService />} />
+                <Route path="/faq" element={<FAQ />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/convert" element={<Convert />} />
+                <Route path="/convert/:pair" element={<CurrencyPair />} />
+                <Route path="/sitemap.xml" element={null} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </React.Suspense>
+          </ErrorBoundary>
+        </div>
+      </BrowserRouter>
     </ErrorBoundary>
   );
 };
