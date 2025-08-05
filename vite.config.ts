@@ -23,7 +23,6 @@ export default defineConfig(({ mode }) => ({
       "react/jsx-runtime": path.resolve(__dirname, "./node_modules/react/jsx-runtime"),
       "react/jsx-dev-runtime": path.resolve(__dirname, "./node_modules/react/jsx-dev-runtime"),
       // Force all Radix UI packages to use the same React instance
-      // "@radix-ui/react-tooltip": path.resolve(__dirname, "./node_modules/@radix-ui/react-tooltip"), // Temporarily disabled
       "@radix-ui/react-slot": path.resolve(__dirname, "./node_modules/@radix-ui/react-slot"),
     },
     dedupe: [
@@ -31,7 +30,6 @@ export default defineConfig(({ mode }) => ({
       "react-dom", 
       "react/jsx-runtime", 
       "react/jsx-dev-runtime",
-      // "@radix-ui/react-tooltip", // Temporarily removed due to React context issues
       "@radix-ui/react-slot"
     ],
   },
@@ -43,11 +41,9 @@ export default defineConfig(({ mode }) => ({
       "react/jsx-dev-runtime",
       "react-router-dom", 
       "@tanstack/react-query",
-      // "@radix-ui/react-tooltip", // Temporarily removed
       "@radix-ui/react-slot"
     ],
     force: true,
-    exclude: ["@radix-ui/react-tooltip"], // Exclude problematic tooltip package
   },
   build: {
     rollupOptions: {
