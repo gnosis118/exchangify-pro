@@ -84,7 +84,7 @@ const BlogPost = () => {
 
   // Blog posts data
   const blogPosts = {
-    'currency-exchange-rates-online-arbitrage': {
+    'currency-exchange-rates-online-arbitrage-profit-calculator': {
       title: 'Currency Exchange Rates for Online Arbitrage: Profit Opportunity Calculator',
       description: 'Discover how to profit from currency arbitrage and international price differences in e-commerce. Complete guide with calculators and strategies for 2025.',
       image: currencyArbitrageProfit,
@@ -92,7 +92,7 @@ const BlogPost = () => {
       readTime: '25 min read',
       category: 'Trading & Arbitrage'
     },
-    'what-are-exchange-rates-beginner-guide': {
+    'what-are-exchange-rates-complete-beginners-guide': {
       title: 'What Are Exchange Rates and How Do They Work? Complete Beginner\'s Guide',
       description: 'Learn the fundamentals of exchange rates, how they work, and what factors influence currency values. Essential guide for beginners.',
       image: exchangeRatesGuide,
@@ -108,7 +108,7 @@ const BlogPost = () => {
       readTime: '12 min read',
       category: 'Tools & Guides'
     },
-    'currency-codes-iso-4217-guide': {
+    'understanding-currency-codes-iso-4217-guide': {
       title: 'Understanding Currency Codes (USD, EUR, GBP): Complete ISO 4217 Guide',
       description: 'Complete reference guide to international currency codes. Learn the three-letter codes used in global finance and trading.',
       image: currencyCodesGuide,
@@ -116,7 +116,7 @@ const BlogPost = () => {
       readTime: '10 min read',
       category: 'Reference'
     },
-    'real-time-vs-historical-exchange-rates': {
+    'real-time-vs-historical-exchange-rates-guide': {
       title: 'Real-Time vs Historical Exchange Rates: What\'s the Difference?',
       description: 'Understand the difference between real-time and historical exchange rates, their uses, and which type is best for your needs.',
       image: realtimeVsHistoricalRates,
@@ -153,7 +153,7 @@ const BlogPost = () => {
   }
 
   // Handle new blog posts with placeholder content for now
-  if (['currency-exchange-rates-online-arbitrage', 'what-are-exchange-rates-beginner-guide', 'currency-conversion-calculator-guide', 'currency-codes-iso-4217-guide', 'real-time-vs-historical-exchange-rates'].includes(slug || '')) {
+  if (['currency-exchange-rates-online-arbitrage-profit-calculator', 'what-are-exchange-rates-complete-beginners-guide', 'currency-conversion-calculator-guide', 'understanding-currency-codes-iso-4217-guide', 'real-time-vs-historical-exchange-rates-guide'].includes(slug || '')) {
     const structuredData = {
       "@context": "https://schema.org",
       "@type": "Article",
