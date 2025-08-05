@@ -2447,7 +2447,7 @@ const Blog = () => {
           <div className="lg:col-span-2">
             <div className="space-y-8">
               {blogPosts.map((post) => (
-                <Card key={post.id} className="overflow-hidden relative">
+                <Card key={post.slug} className="overflow-hidden relative">
                   <div 
                     className="absolute inset-0 opacity-5"
                     style={{ backgroundImage: `url(${blogPostBackground})`, backgroundSize: 'cover' }}
@@ -2459,7 +2459,7 @@ const Blog = () => {
                         {post.featured && <Badge variant="default">Featured</Badge>}
                       </div>
                       <CardTitle className="text-2xl hover:text-primary transition-colors">
-                        <Link to={`/blog/${post.id}`}>
+                        <Link to={`/blog/${post.slug}`}>
                           {post.title}
                         </Link>
                       </CardTitle>
@@ -2480,7 +2480,7 @@ const Blog = () => {
                           </div>
                         </div>
                         <Link 
-                          to={`/blog/${post.id}`}
+                          to={`/blog/${post.slug}`}
                           className="text-primary hover:underline font-medium"
                         >
                           Read More →
