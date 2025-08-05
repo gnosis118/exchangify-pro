@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { HelmetProvider } from 'react-helmet-async';
-import { SafeTooltipProvider } from '@/components/SafeTooltipProvider';
+// Completely removing tooltips to fix React context issue
 import App from './App';
 import "./index.css";
 
@@ -38,9 +38,7 @@ ReactDOM.createRoot(rootEl).render(
   <React.StrictMode>
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
-        <SafeTooltipProvider delayDuration={0}>
-          <App />
-        </SafeTooltipProvider>
+        <App />
       </QueryClientProvider>
     </HelmetProvider>
   </React.StrictMode>
