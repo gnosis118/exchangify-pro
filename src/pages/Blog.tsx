@@ -8,6 +8,16 @@ import blogPostBackground from '@/assets/blog-post-background.jpg';
 
 const blogPosts = [
   {
+    id: 'best-currency-exchange-sites-2025',
+    title: "Best Currency Exchange Sites: Where to Convert Your Money in 2025",
+    excerpt: "Discover the top currency exchange platforms of 2025. Compare fees, rates, and features to find the best service for your money transfers, travel, or business needs.",
+    keywords: ['best currency exchange sites', 'currency exchange platforms 2025', 'online money transfer', 'currency conversion services', 'exchange rates comparison'],
+    readTime: '22 min read',
+    publishDate: '2025-02-05',
+    category: 'Reviews & Comparison',
+    featured: true
+  },
+  {
     id: 'currency-conversion-small-business-guide',
     title: "Currency Conversion for Small Business Owners: Real-Time Exchange Rate Calculator Guide",
     excerpt: "Small business owners handling international transactions need reliable, real-time currency conversion tools. Learn how the right currency converter can save hundreds of dollars annually in foreign exchange fees.",
