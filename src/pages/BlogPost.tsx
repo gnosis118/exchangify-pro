@@ -110,7 +110,7 @@ const BlogPost = () => {
       "@type": "Article",
       "headline": currentPost.title,
       "description": currentPost.metaDescription,
-      "datePublished": currentPost.date,
+      "datePublished": currentPost.publishDate,
       "dateModified": new Date().toISOString().split('T')[0],
       "author": { "@type": "Organization", "name": "Currency to Currency" },
       "publisher": { "@type": "Organization", "name": "Currency to Currency" },
@@ -137,7 +137,7 @@ const BlogPost = () => {
             </div>
             <h1 className="text-4xl font-bold text-primary mb-4">{currentPost.title}</h1>
             <div className="flex items-center gap-6 text-muted-foreground">
-              <div className="flex items-center gap-2"><Calendar className="h-4 w-4" />{new Date(currentPost.date).toLocaleDateString()}</div>
+              <div className="flex items-center gap-2"><Calendar className="h-4 w-4" />{new Date(currentPost.publishDate).toLocaleDateString()}</div>
               <div className="flex items-center gap-2"><Clock className="h-4 w-4" />{currentPost.readTime}</div>
             </div>
           </header>
