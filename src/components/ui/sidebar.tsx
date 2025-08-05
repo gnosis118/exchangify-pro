@@ -10,13 +10,12 @@ import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import { Sheet, SheetContent } from "@/components/ui/sheet"
 import { Skeleton } from "@/components/ui/skeleton"
-// Tooltip imports temporarily disabled due to React context issues
-// import {
-//   Tooltip,
-//   TooltipContent,
-//   TooltipProvider,
-//   TooltipTrigger,
-// } from "@/components/ui/tooltip"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 const SIDEBAR_COOKIE_NAME = "sidebar:state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
@@ -535,7 +534,7 @@ const SidebarMenuButton = React.forwardRef<
   React.ComponentProps<"button"> & {
     asChild?: boolean
     isActive?: boolean
-    tooltip?: string | any // Simplified type since tooltips are disabled
+    tooltip?: string | React.ComponentProps<typeof TooltipContent>
   } & VariantProps<typeof sidebarMenuButtonVariants>
 >(
   (
@@ -574,8 +573,17 @@ const SidebarMenuButton = React.forwardRef<
       }
     }
 
-    // Temporarily disable tooltips to fix React context issue
-    return button
+    return (
+      <Tooltip>
+        <TooltipTrigger asChild>{button}</TooltipTrigger>
+        <TooltipContent
+          side="right"
+          align="center"
+          hidden={state !== "collapsed" || isMobile}
+          {...tooltip}
+        />
+      </Tooltip>
+    )
   }
 )
 SidebarMenuButton.displayName = "SidebarMenuButton"
