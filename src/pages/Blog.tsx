@@ -13,7 +13,7 @@ const blogPosts = [
     excerpt: "Discover the top currency exchange platforms of 2025. Compare fees, rates, and features to find the best service for your money transfers, travel, or business needs.",
     keywords: ['best currency exchange sites', 'currency exchange platforms 2025', 'online money transfer', 'currency conversion services', 'exchange rates comparison'],
     readTime: '22 min read',
-    publishDate: '2025-02-05',
+    publishDate: '2025-08-24',
     category: 'Reviews & Comparison',
     featured: true
   },
@@ -23,7 +23,7 @@ const blogPosts = [
     excerpt: "Small business owners handling international transactions need reliable, real-time currency conversion tools. Learn how the right currency converter can save hundreds of dollars annually in foreign exchange fees.",
     keywords: ['currency conversion small business', 'small business exchange rates', 'international business currency', 'business currency converter', 'foreign exchange small business'],
     readTime: '18 min read',
-    publishDate: '2025-02-03',
+    publishDate: '2025-08-22',
     category: 'Business Guide',
     featured: true
   },
@@ -33,7 +33,7 @@ const blogPosts = [
     excerpt: "50+ Million Digital Nomads Are Bleeding $50 Billion Annually to Banking Fees. Discover the largest financial crisis you've never heard of and how platforms like CurrencyToCurrency.app are fighting back.",
     keywords: ['digital nomad banking fees', 'currency exchange crisis 2025', 'nomad financial freedom', 'banking fee avoidance', 'international transfer costs'],
     readTime: '28 min read',
-    publishDate: '2025-02-01',
+    publishDate: '2025-08-20',
     category: 'Investigative Report',
     featured: true
   },
@@ -43,7 +43,7 @@ const blogPosts = [
     excerpt: "Trump's 25% tariffs on Canada & Mexico are shaking currency markets. Learn how these tariff wars will impact your travel money & exchange rates with real-time analysis and protection strategies.",
     keywords: ['Trump tariffs currency impact', '2025 travel money exchange rates', 'tariff effects on currency', 'Trump Canada Mexico tariffs travel cost', 'currency exchange tariff impact 2025'],
     readTime: '22 min read',
-    publishDate: '2025-01-28',
+    publishDate: '2025-08-18',
     category: 'Breaking News',
     featured: true
   },
@@ -53,7 +53,7 @@ const blogPosts = [
     excerpt: '2025 promises pivotal changes for global currencies. JP Morgan forecasts Dollar gains of 5.9%, Euro parity testing, and emerging market volatility. Get expert insights for strategic planning.',
     keywords: ['2025 currency predictions', 'forex forecasts', 'currency market outlook', 'exchange rate predictions', 'economic trends'],
     readTime: '18 min read',
-    publishDate: '2025-01-28',
+    publishDate: '2025-08-16',
     category: 'Market Analysis',
     featured: true
   },
@@ -63,7 +63,7 @@ const blogPosts = [
     excerpt: 'Americans lost $5.8 billion to hidden exchange fees in 2023. Discover the 5 types of hidden charges providers use and proven strategies to save up to 85% on currency exchanges.',
     keywords: ['currency exchange fees', 'hidden fees', 'exchange rate markups', 'money transfer costs', 'international fees'],
     readTime: '15 min read',
-    publishDate: '2025-01-28',
+    publishDate: '2025-08-14',
     category: 'Fees & Costs',
     featured: true
   },
@@ -73,7 +73,7 @@ const blogPosts = [
     excerpt: 'Real-time Bitcoin price analysis with live BTC/USD conversion tools. Current market analysis, technical indicators, and expert predictions for informed trading decisions.',
     keywords: ['Bitcoin to USD', 'BTC price', 'Bitcoin converter', 'cryptocurrency analysis', 'Bitcoin trading'],
     readTime: '10 min read',
-    publishDate: '2025-01-28',
+    publishDate: '2025-08-12',
     category: 'Cryptocurrency',
     featured: true
   },
@@ -83,7 +83,7 @@ const blogPosts = [
     excerpt: 'Protect yourself from currency scams while saving up to 4% on every transaction. Learn proven strategies to identify legitimate services and avoid hidden fees.',
     keywords: ['currency conversion safety', 'online currency exchange', 'currency scams', 'safe money transfer', 'currency conversion guide'],
     readTime: '12 min read',
-    publishDate: '2025-01-28',
+    publishDate: '2025-08-10',
     category: 'Safety & Tips',
     featured: true
   },
@@ -93,7 +93,7 @@ const blogPosts = [
     excerpt: 'Get the most accurate real-time USD to EUR exchange rates with our comprehensive analysis of current market conditions and conversion tools.',
     keywords: ['USD to EUR', 'currency converter', 'dollar to euro', 'exchange rate USD EUR'],
     readTime: '8 min read',
-    publishDate: '2024-01-27',
+    publishDate: '2025-08-08',
     category: 'Exchange Rates',
     featured: true
   }
@@ -146,7 +146,6 @@ const Blog = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
             <div className="space-y-8">
-              {(() => { console.log('Blog posts to render:', blogPosts); return null; })()}
               {blogPosts.map((post) => (
                 <Card key={post.id} className="overflow-hidden relative">
                   <div 
