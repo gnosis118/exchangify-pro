@@ -104,7 +104,22 @@ const BlogPost = () => {
   }
 
   // Handle new blog posts with full content
-  if (currentPost && ['currency-exchange-rates-online-arbitrage-profit-calculator', 'what-are-exchange-rates-complete-beginners-guide', 'currency-conversion-calculator-guide', 'understanding-currency-codes-iso-4217-guide', 'real-time-vs-historical-exchange-rates-guide'].includes(slug || '')) {
+  if (currentPost && [
+    'currency-exchange-rates-online-arbitrage-profit-calculator',
+    'what-are-exchange-rates-complete-beginners-guide', 
+    'currency-conversion-calculator-guide',
+    'understanding-currency-codes-iso-4217-guide',
+    'real-time-vs-historical-exchange-rates-guide',
+    'usd-to-eur-analysis-trading-strategies',
+    'currency-safety-security-guide',
+    'bitcoin-vs-traditional-currency-comparison-guide',
+    'currency-exchange-fees-guide',
+    'travel-money-exchange-guide',
+    'digital-banking-currency-features',
+    'currency-arbitrage-profit-guide',
+    'trump-tariffs-currency-impact-analysis',
+    'digital-nomad-finance-guide'
+  ].includes(slug || '')) {
     const structuredData = {
       "@context": "https://schema.org",
       "@type": "Article",
