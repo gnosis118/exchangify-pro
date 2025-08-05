@@ -153,7 +153,7 @@ const BlogPost = () => {
   }
 
   // Handle new blog posts with placeholder content for now
-  if (['currency-exchange-rates-online-arbitrage-profit-calculator', 'what-are-exchange-rates-complete-beginners-guide', 'currency-conversion-calculator-guide', 'understanding-currency-codes-iso-4217-guide', 'real-time-vs-historical-exchange-rates-guide'].includes(slug || '')) {
+  if (['currency-exchange-rates-online-arbitrage-profit-calculator', 'what-are-exchange-rates-complete-beginners-guide', 'currency-conversion-calculator-guide', 'understanding-currency-codes-iso-4217-guide', 'real-time-vs-historical-exchange-rates-guide'].includes(slug || '') && currentPost) {
     const structuredData = {
       "@context": "https://schema.org",
       "@type": "Article",
