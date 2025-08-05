@@ -2472,7 +2472,7 @@ const Blog = () => {
                         <div className="flex items-center gap-4 text-sm text-muted-foreground">
                           <div className="flex items-center gap-1">
                             <Calendar className="h-4 w-4" />
-                            {new Date(post.publishDate).toLocaleDateString()}
+                            {new Date(post.publishDate || post.date).toLocaleDateString()}
                           </div>
                           <div className="flex items-center gap-1">
                             <Clock className="h-4 w-4" />
