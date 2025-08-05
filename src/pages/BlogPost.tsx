@@ -43,6 +43,11 @@ import remitlyTransfer from '@/assets/remitly-transfer.jpg';
 import westernUnionGlobal from '@/assets/western-union-global.jpg';
 import oandaTrading from '@/assets/oanda-trading.jpg';
 import travelexTravelMoney from '@/assets/travelex-travel-money.jpg';
+import currencyArbitrageProfit from '@/assets/currency-arbitrage-profit.jpg';
+import exchangeRatesGuide from '@/assets/exchange-rates-guide.jpg';
+import currencyCalculatorGuide from '@/assets/currency-calculator-guide.jpg';
+import currencyCodesGuide from '@/assets/currency-codes-guide.jpg';
+import realtimeVsHistoricalRates from '@/assets/realtime-vs-historical-rates.jpg';
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -76,6 +81,137 @@ const BlogPost = () => {
 
   const currentRate = rates.EUR?.toFixed(4) || '0.8520';
   const convertedAmount = (amount * (rates.EUR || 0.8520)).toFixed(2);
+
+  // Blog posts data
+  const blogPosts = {
+    'currency-exchange-rates-online-arbitrage': {
+      title: 'Currency Exchange Rates for Online Arbitrage: Profit Opportunity Calculator',
+      description: 'Discover how to profit from currency arbitrage and international price differences in e-commerce. Complete guide with calculators and strategies for 2025.',
+      image: currencyArbitrageProfit,
+      date: '2025-01-05',
+      readTime: '25 min read',
+      category: 'Trading & Arbitrage'
+    },
+    'what-are-exchange-rates-beginner-guide': {
+      title: 'What Are Exchange Rates and How Do They Work? Complete Beginner\'s Guide',
+      description: 'Learn the fundamentals of exchange rates, how they work, and what factors influence currency values. Essential guide for beginners.',
+      image: exchangeRatesGuide,
+      date: '2025-01-05',
+      readTime: '15 min read',
+      category: 'Education'
+    },
+    'currency-conversion-calculator-guide': {
+      title: 'Currency Conversion Calculator: How to Convert Money Between Any Currencies',
+      description: 'Master currency conversion with our comprehensive guide. Learn to use calculators effectively and get the best exchange rates.',
+      image: currencyCalculatorGuide,
+      date: '2025-01-05',
+      readTime: '12 min read',
+      category: 'Tools & Guides'
+    },
+    'currency-codes-iso-4217-guide': {
+      title: 'Understanding Currency Codes (USD, EUR, GBP): Complete ISO 4217 Guide',
+      description: 'Complete reference guide to international currency codes. Learn the three-letter codes used in global finance and trading.',
+      image: currencyCodesGuide,
+      date: '2025-01-05',
+      readTime: '10 min read',
+      category: 'Reference'
+    },
+    'real-time-vs-historical-exchange-rates': {
+      title: 'Real-Time vs Historical Exchange Rates: What\'s the Difference?',
+      description: 'Understand the difference between real-time and historical exchange rates, their uses, and which type is best for your needs.',
+      image: realtimeVsHistoricalRates,
+      date: '2025-01-05',
+      readTime: '8 min read',
+      category: 'Education'
+    },
+    'best-currency-exchange-sites-2025': {
+      title: 'Best Currency Exchange Sites: Where to Convert Your Money in 2025',
+      description: 'Discover the top currency exchange platforms of 2025. Compare fees, rates, and features to find the best service for your money transfers, travel, or business needs.',
+      image: currencyExchangeSitesHero,
+      date: '2025-02-05',
+      readTime: '22 min read',
+      category: 'Reviews & Comparison'
+    }
+  };
+
+  const currentPost = blogPosts[slug as keyof typeof blogPosts];
+
+  if (!currentPost) {
+    return (
+      <div className="min-h-screen bg-background py-8">
+        <div className="container mx-auto px-4 max-w-4xl text-center">
+          <h1 className="text-4xl font-bold text-primary mb-4">Post Not Found</h1>
+          <p className="text-lg text-muted-foreground mb-8">
+            The blog post you're looking for doesn't exist or has been moved.
+          </p>
+          <Link to="/blog" className="text-primary hover:underline">
+            ← Back to Blog
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  // Handle new blog posts with placeholder content for now
+  if (['currency-exchange-rates-online-arbitrage', 'what-are-exchange-rates-beginner-guide', 'currency-conversion-calculator-guide', 'currency-codes-iso-4217-guide', 'real-time-vs-historical-exchange-rates'].includes(slug || '')) {
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": currentPost.title,
+      "description": currentPost.description,
+      "datePublished": currentPost.date,
+      "dateModified": new Date().toISOString().split('T')[0],
+      "author": { "@type": "Organization", "name": "Currency to Currency" },
+      "publisher": { "@type": "Organization", "name": "Currency to Currency" },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": `https://currencytocurrency.app/blog/${slug}` },
+      "image": currentPost.image
+    };
+
+    return (
+      <div className="min-h-screen bg-background py-8">
+        <SEOHead
+          title={currentPost.title}
+          description={currentPost.description}
+          canonical={`https://currencytocurrency.app/blog/${slug}`}
+          structuredData={structuredData}
+        />
+        <article className="container mx-auto px-4 max-w-4xl">
+          <div className="mb-8 rounded-lg overflow-hidden">
+            <img src={currentPost.image} alt={currentPost.title} className="w-full h-[400px] object-cover" loading="eager" />
+          </div>
+          <header className="mb-8">
+            <div className="flex items-center gap-4 mb-4">
+              <Badge>{currentPost.category}</Badge>
+            </div>
+            <h1 className="text-4xl font-bold text-primary mb-4">{currentPost.title}</h1>
+            <div className="flex items-center gap-6 text-muted-foreground">
+              <div className="flex items-center gap-2"><Calendar className="h-4 w-4" />January 5, 2025</div>
+              <div className="flex items-center gap-2"><Clock className="h-4 w-4" />{currentPost.readTime}</div>
+            </div>
+          </header>
+          <div className="prose prose-lg max-w-none">
+            <p className="text-lg leading-relaxed">This comprehensive article is currently being developed with detailed content, examples, and interactive tools.</p>
+            <p>Our team is crafting in-depth analysis and practical guidance that will make this one of the most valuable resources on the topic.</p>
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 my-8">
+              <h3 className="text-xl font-semibold mb-3">Coming Soon</h3>
+              <p className="mb-4">This article will include:</p>
+              <ul className="list-disc ml-6 space-y-2">
+                <li>Comprehensive explanations and examples</li>
+                <li>Interactive tools and calculators</li>
+                <li>Real-world case studies</li>
+                <li>Expert insights and best practices</li>
+                <li>Latest 2025 data and trends</li>
+              </ul>
+            </div>
+            <p>In the meantime, explore our other articles or try our <Link to="/convert" className="text-primary hover:underline">currency converter tool</Link>.</p>
+            <div className="mt-8">
+              <Link to="/blog" className="text-primary hover:underline">← Back to Blog</Link>
+            </div>
+          </div>
+        </article>
+      </div>
+    );
+  }
 
   if (slug === 'best-currency-exchange-sites-2025') {
     const structuredData = {
