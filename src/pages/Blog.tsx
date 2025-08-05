@@ -146,6 +146,7 @@ const Blog = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
             <div className="space-y-8">
+              {(() => { console.log('Blog posts to render:', blogPosts); return null; })()}
               {blogPosts.map((post) => (
                 <Card key={post.id} className="overflow-hidden relative">
                   <div 
