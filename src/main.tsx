@@ -2,8 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { HelmetProvider } from 'react-helmet-async';
-// Temporarily disabled to fix React context issue
-// import { TooltipProvider } from '@/components/ui/tooltip';
+import { SafeTooltipProvider } from '@/components/SafeTooltipProvider';
 import App from './App';
 import "./index.css";
 
@@ -39,7 +38,9 @@ ReactDOM.createRoot(rootEl).render(
   <React.StrictMode>
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
-        <App />
+        <SafeTooltipProvider delayDuration={0}>
+          <App />
+        </SafeTooltipProvider>
       </QueryClientProvider>
     </HelmetProvider>
   </React.StrictMode>
