@@ -103,25 +103,10 @@ const BlogPost = () => {
     );
   }
 
-  // Handle new blog posts with full content
-  if (currentPost && [
-    'currency-exchange-rates-online-arbitrage-profit-calculator',
-    'what-are-exchange-rates-complete-beginners-guide', 
-    'currency-conversion-calculator-guide',
-    'understanding-currency-codes-iso-4217-guide',
-    'real-time-vs-historical-exchange-rates-guide',
-    'currency-conversion-small-business-guide',
-    'usd-eur-exchange-rate-analysis-trends-trading',
-    'currency-safety-security-protecting-money-global-markets',
-    'bitcoin-vs-traditional-currency-comparison-guide',
-    'currency-exchange-fees-minimize-costs-save-money',
-    'best-currency-exchange-sites-services-review',
-    'smart-travel-money-strategy-currency-tips-international',
-    'digital-banking-currency-future-international-finance',
-    'currency-arbitrage-advanced-strategies-profit',
-    'trump-tariffs-impact-currency-markets-analysis',
-    'currency-digital-nomads-managing-money-remote-work'
-  ].includes(slug || '')) {
+  // Render all posts with available content using generic renderer
+  const hasContent = currentPost.content && currentPost.content.trim().length > 0;
+  
+  if (hasContent && !['best-currency-exchange-sites-2025'].includes(slug || '')) {
     const structuredData = {
       "@context": "https://schema.org",
       "@type": "Article",
@@ -195,6 +180,18 @@ const BlogPost = () => {
               
               return null;
             })}
+            
+            {/* If content is short, add disclaimer */}
+            {currentPost.content.length < 500 && (
+              <div className="bg-amber-50 border border-amber-200 rounded-lg p-6 mt-8">
+                <p className="text-amber-800 mb-2">
+                  <strong>📝 Content Preview</strong>
+                </p>
+                <p className="text-amber-700 mb-0">
+                  This article preview shows the key highlights. Our full in-depth analysis is currently being expanded to provide comprehensive coverage of this topic.
+                </p>
+              </div>
+            )}
           </div>
           <BlogSEOBooster currentSlug={slug} className="mt-12" />
         </article>
