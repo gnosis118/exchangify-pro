@@ -56,27 +56,36 @@ const Blog = () => {
           <div className="lg:col-span-2">
             <div className="space-y-8">
               {blogPosts.map((post) => (
-                <Card key={post.slug} className="overflow-hidden relative">
-                  <div 
-                    className="absolute inset-0 opacity-5"
-                    style={{ backgroundImage: `url(${blogPostBackground})`, backgroundSize: 'cover' }}
-                  ></div>
-                  <div className="relative z-10">
-                    <CardHeader>
+                <Card key={post.slug} className="overflow-hidden group hover:shadow-lg transition-shadow">
+                  <div className="grid md:grid-cols-3 gap-6">
+                    {/* Featured Image */}
+                    <div className="md:col-span-1">
+                      <div className="aspect-video md:aspect-square overflow-hidden">
+                        <img 
+                          src={post.image} 
+                          alt={post.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="md:col-span-2 p-6">
                       <div className="flex items-center gap-4 mb-3">
                         <Badge variant="secondary">{post.category}</Badge>
                         {post.featured && <Badge variant="default">Featured</Badge>}
                       </div>
-                      <CardTitle className="text-2xl hover:text-primary transition-colors">
+                      
+                      <CardTitle className="text-2xl hover:text-primary transition-colors mb-3">
                         <Link to={`/blog/${post.slug}`}>
                           {post.title}
                         </Link>
                       </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground mb-4">
+                      
+                      <p className="text-muted-foreground mb-4 line-clamp-3">
                         {post.excerpt}
                       </p>
+                      
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-4 text-sm text-muted-foreground">
                           <div className="flex items-center gap-1">
@@ -95,7 +104,7 @@ const Blog = () => {
                           Read More →
                         </Link>
                       </div>
-                    </CardContent>
+                    </div>
                   </div>
                 </Card>
               ))}
