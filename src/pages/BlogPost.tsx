@@ -18,6 +18,12 @@ const BlogPost = () => {
 
   // Find the current blog post
   const currentPost = blogPosts.find(post => post.slug === slug);
+  
+  // Debug logging
+  console.log('Current slug:', slug);
+  console.log('Available slugs:', blogPosts.map(post => post.slug));
+  console.log('Found post:', currentPost ? currentPost.title : 'Not found');
+  console.log('Post content length:', currentPost ? currentPost.content.length : 0);
 
   if (!currentPost) {
     return (
