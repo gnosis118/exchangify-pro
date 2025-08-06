@@ -110,7 +110,17 @@ const BlogPost = () => {
     'currency-conversion-calculator-guide',
     'understanding-currency-codes-iso-4217-guide',
     'real-time-vs-historical-exchange-rates-guide',
-    'currency-conversion-small-business-guide'
+    'currency-conversion-small-business-guide',
+    'usd-eur-exchange-rate-analysis-trends-trading',
+    'currency-safety-security-protecting-money-global-markets',
+    'bitcoin-vs-traditional-currency-comparison-guide',
+    'currency-exchange-fees-minimize-costs-save-money',
+    'best-currency-exchange-sites-services-review',
+    'smart-travel-money-strategy-currency-tips-international',
+    'digital-banking-currency-future-international-finance',
+    'currency-arbitrage-advanced-strategies-profit',
+    'trump-tariffs-impact-currency-markets-analysis',
+    'currency-digital-nomads-managing-money-remote-work'
   ].includes(slug || '')) {
     const structuredData = {
       "@context": "https://schema.org",
