@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { ThemeProvider } from 'next-themes';
-import Blog from './components/Blog';
+import Blog from './components/Blog.tsx
 
 // Import your existing components (adjust paths as needed)
 // import CurrencyConverter from './components/CurrencyConverter';
