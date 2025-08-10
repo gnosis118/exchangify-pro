@@ -1,12 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { ThemeProvider } from 'next-themes';
-import Blog from './components/blog';
-import BlogAdminDashboard from './components/BlogAdminDashboard'; // Add this import
-
-// Import your existing components (adjust paths as needed)
-// import CurrencyConverter from './components/CurrencyConverter';
-// import Header from './components/Header';
+import BlogAdminDashboard from './components/BlogAdminDashboard';
 
 // Simple homepage placeholder - replace with your actual currency converter
 const HomePage: React.FC = () => {
@@ -28,12 +23,9 @@ const HomePage: React.FC = () => {
             <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg">
               Start Converting
             </button>
-            <Link 
-              to="/blog" 
-              className="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
-            >
-              Read Our Blog
-            </Link>
+            <button className="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+              Coming Soon: Blog
+            </button>
           </div>
           
           {/* Currency Converter Placeholder */}
@@ -82,8 +74,6 @@ const HomePage: React.FC = () => {
                   </div>
                 </div>
               </div>
-              
-              {/* Replace above with: <CurrencyConverter /> */}
             </div>
           </div>
           
@@ -243,16 +233,6 @@ const Navigation: React.FC = () => {
               Converter
             </Link>
             <Link 
-              to="/blog" 
-              className={`font-medium transition-colors ${
-                isActive('/blog') 
-                  ? 'text-blue-600' 
-                  : 'text-gray-700 hover:text-blue-600'
-              }`}
-            >
-              Blog
-            </Link>
-            <Link 
               to="/books" 
               className={`font-medium transition-colors ${
                 isActive('/books') 
@@ -301,10 +281,6 @@ const App: React.FC = () => {
           <Routes>
             {/* Homepage */}
             <Route path="/" element={<HomePage />} />
-            
-            {/* Blog routes */}
-            <Route path="/blog" element={<Blog viewMode="list" />} />
-            <Route path="/blog/:slug" element={<Blog viewMode="single" />} />
             
             {/* Books page */}
             <Route path="/books" element={<BooksPage />} />
