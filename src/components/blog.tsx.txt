@@ -1,524 +1,392 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import React from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { Calendar, User, ArrowLeft } from 'lucide-react';
 
+// Blog post interface
 interface BlogPost {
   id: string;
   title: string;
-  date: string;
-  description: string;
   slug: string;
-  category: string;
-  author: string;
+  excerpt: string;
   content: string;
-  image?: string;
+  author: string;
+  publishDate: string;
   tags: string[];
-  readTime: string;
+  published: boolean;
 }
+
+// Sample blog posts data
+const samplePosts: BlogPost[] = [
+  {
+    id: '1',
+    title: 'The Psychology of Money: Why Your Mindset Matters More Than Math',
+    slug: 'psychology-of-money-mindset-matters',
+    excerpt: 'Discover why understanding your relationship with money is the key to financial success, beyond just knowing the numbers.',
+    content: `# The Psychology of Money: Why Your Mindset Matters More Than Math
+
+Money isn't just about numbers, spreadsheets, or investment returns. It's deeply psychological. Your relationship with money, formed by your experiences, emotions, and beliefs, often matters more than your technical knowledge of finance.
+
+## The Emotional Side of Finance
+
+Most financial decisions aren't made in spreadsheets—they're made at dinner tables, around the water cooler, and in the middle of sleepless nights when you're worried about bills. These decisions are based on emotions, not logic.
+
+### Common Money Emotions:
+- **Fear**: "What if I lose everything?"
+- **Greed**: "I need to get rich quick"
+- **Shame**: "I'm bad with money"
+- **Comparison**: "Everyone else seems to have it figured out"
+
+## Changing Your Money Story
+
+Your "money story" is the narrative you tell yourself about money based on your past experiences. Maybe you grew up hearing "money doesn't grow on trees" or "rich people are greedy." These stories shape your financial behavior.
+
+### Steps to Rewrite Your Money Story:
+1. **Identify your current beliefs** about money
+2. **Question where these beliefs came from**
+3. **Choose new, empowering beliefs**
+4. **Practice these new beliefs daily**
+
+## Practical Tips for a Healthy Money Mindset
+
+- **Automate your savings** to remove emotion from the equation
+- **Focus on progress, not perfection**
+- **Celebrate small wins** along your financial journey
+- **Educate yourself** but don't get paralyzed by analysis
+
+Remember: Building wealth is a marathon, not a sprint. Your mindset will carry you further than any single investment strategy ever could.`,
+    author: 'Financial Mindset Team',
+    publishDate: '2025-01-15',
+    tags: ['Psychology', 'Mindset', 'Personal Finance'],
+    published: true
+  },
+  {
+    id: '2',
+    title: 'Currency Fluctuations: How Global Events Impact Exchange Rates',
+    slug: 'currency-fluctuations-global-events',
+    excerpt: 'Learn how world events, economic policies, and market sentiment drive currency movements and what it means for your money.',
+    content: `# Currency Fluctuations: How Global Events Impact Exchange Rates
+
+Currency exchange rates are constantly moving, influenced by a complex web of economic, political, and social factors. Understanding these forces can help you make better decisions whether you're traveling, investing, or running a business.
+
+## Major Factors Affecting Exchange Rates
+
+### Economic Indicators
+- **GDP growth rates**
+- **Inflation levels**
+- **Employment data**
+- **Trade balances**
+
+### Political Stability
+- **Government changes**
+- **Policy announcements**
+- **International relations**
+- **Regulatory changes**
+
+### Market Sentiment
+- **Investor confidence**
+- **Risk appetite**
+- **Speculation**
+- **Media coverage**
+
+## Recent Examples
+
+### COVID-19 Pandemic (2020-2021)
+The pandemic caused massive currency volatility as countries implemented different response strategies, affecting their economic outlooks differently.
+
+### Brexit (2016-2020)
+The British Pound experienced significant volatility throughout the Brexit process, showing how political uncertainty affects currency values.
+
+### Federal Reserve Interest Rate Changes
+When the US Federal Reserve changes interest rates, it often leads to immediate movements in USD exchange rates against other currencies.
+
+## What This Means for You
+
+### For Travelers
+- **Monitor rates** before major trips
+- **Consider currency hedging** for large expenses
+- **Use cards with no foreign transaction fees**
+
+### For Investors
+- **Diversify across currencies**
+- **Understand currency risk** in international investments
+- **Consider currency-hedged funds**
+
+### For Business Owners
+- **Hedge currency exposure** for international transactions
+- **Price products** accounting for exchange rate volatility
+- **Monitor economic calendars** for major announcements
+
+Stay informed, but remember that predicting short-term currency movements is extremely difficult. Focus on long-term trends and manage your exposure appropriately.`,
+    author: 'Currency Analysis Team',
+    publishDate: '2025-01-10',
+    tags: ['Currency', 'Economics', 'Global Markets'],
+    published: true
+  },
+  {
+    id: '3',
+    title: 'Building Wealth: The Power of Compound Interest and Time',
+    slug: 'building-wealth-compound-interest-time',
+    excerpt: 'Einstein allegedly called compound interest the eighth wonder of the world. Discover why starting early is your biggest advantage.',
+    content: `# Building Wealth: The Power of Compound Interest and Time
+
+Albert Einstein allegedly called compound interest "the eighth wonder of the world" and said "he who understands it, earns it; he who doesn't, pays it." While the attribution is disputed, the sentiment is absolutely true.
+
+## What is Compound Interest?
+
+Compound interest is earning interest on your interest. Unlike simple interest, where you only earn returns on your original investment, compound interest allows your returns to generate their own returns.
+
+### Simple vs. Compound Interest Example
+**$1,000 invested at 7% annually for 30 years:**
+- **Simple Interest**: $1,000 + ($70 × 30) = $3,100
+- **Compound Interest**: $1,000 × (1.07)^30 = $7,612
+
+The difference? **$4,512** - that's the power of compounding!
+
+## The Time Factor
+
+Time is the most crucial ingredient in the compound interest recipe. The earlier you start, the more time your money has to grow exponentially.
+
+### Starting Early vs. Starting Late
+**Scenario A**: Sarah starts investing $200/month at age 25
+**Scenario B**: John starts investing $400/month at age 35
+
+*Both invest until age 65 at 7% annual return:*
+- **Sarah** (40 years): ~$525,000
+- **John** (30 years): ~$490,000
+
+Sarah invests $24,000 less but ends up with $35,000 more!
+
+## Practical Applications
+
+### For Retirement Savings
+- **Start with any amount** - even $25/month matters
+- **Increase contributions** with raises
+- **Take advantage** of employer matching
+- **Don't touch** your retirement accounts early
+
+### For Other Goals
+- **Emergency fund**: Build it slowly but consistently
+- **House down payment**: Start saving years in advance
+- **Children's education**: Begin when they're born
+
+### Investment Vehicles
+- **401(k)/403(b)**: Employer-sponsored retirement accounts
+- **IRA/Roth IRA**: Individual retirement accounts
+- **Index funds**: Low-cost, diversified investing
+- **High-yield savings**: For shorter-term goals
+
+## Common Mistakes to Avoid
+
+1. **Waiting for the "perfect" time** to start
+2. **Trying to time the market**
+3. **Cashing out investments** during market downturns
+4. **Not increasing contributions** over time
+5. **Paying high fees** that eat into returns
+
+## The Bottom Line
+
+Compound interest rewards patience and consistency. The best time to start investing was 20 years ago. The second-best time is today.
+
+Start small, stay consistent, and let time work its magic. Your future self will thank you.`,
+    author: 'Wealth Building Team',
+    publishDate: '2025-01-05',
+    tags: ['Investing', 'Compound Interest', 'Wealth Building'],
+    published: true
+  }
+];
 
 interface BlogProps {
-  viewMode?: 'list' | 'single';
+  viewMode: 'list' | 'single';
 }
 
-const Blog: React.FC<BlogProps> = ({ viewMode = 'list' }) => {
+const Blog: React.FC<BlogProps> = ({ viewMode }) => {
   const { slug } = useParams<{ slug: string }>();
-  const navigate = useNavigate();
-  const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [currentPost, setCurrentPost] = useState<BlogPost | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string>('');
 
-  // Sample blog posts with full content
-  const samplePosts: BlogPost[] = [
-    {
-      id: '1',
-      title: "Understanding USD to EUR Exchange Rates",
-      date: "2024-08-07",
-      description: "Learn how exchange rates work and what factors influence them in today's global economy.",
-      slug: "usd-eur-exchange-rates",
-      category: "Exchange Rates",
-      author: "Currency Expert",
-      readTime: "5 min read",
-      tags: ["USD", "EUR", "Exchange Rates", "Economics"],
-      image: "/images/blog/usd-eur.jpg",
-      content: `
-# Understanding USD to EUR Exchange Rates
-
-Exchange rates between the US Dollar (USD) and Euro (EUR) are among the most watched currency pairs in the world. Understanding how these rates work can save you money and help you make better financial decisions.
-
-## What Determines Exchange Rates?
-
-Several key factors influence the USD/EUR exchange rate:
-
-### 1. Economic Indicators
-- **GDP Growth**: Countries with stronger economic growth typically see their currencies strengthen
-- **Inflation Rates**: Lower inflation generally supports a stronger currency
-- **Employment Data**: Strong job markets indicate economic health
-
-### 2. Central Bank Policies
-- **Interest Rates**: Higher interest rates attract foreign investment, strengthening the currency
-- **Quantitative Easing**: Money printing typically weakens a currency
-- **Forward Guidance**: Central bank communications can move markets
-
-### 3. Political Stability
-- **Elections**: Political uncertainty can cause currency volatility
-- **Trade Policies**: Tariffs and trade agreements affect exchange rates
-- **Geopolitical Events**: Wars, sanctions, and diplomatic tensions impact currencies
-
-## How to Read Exchange Rate Charts
-
-When you see EUR/USD = 1.0850, this means:
-- 1 Euro equals 1.0850 US Dollars
-- You need $1.0850 to buy 1 Euro
-
-## Best Times to Exchange Currency
-
-### Timing Matters
-- **Avoid weekends**: Markets are closed, spreads are wider
-- **Watch major announcements**: Central bank meetings can cause volatility
-- **Consider seasonal patterns**: Some currencies have predictable seasonal trends
-
-### Money-Saving Tips
-1. **Use our currency converter** to track rates
-2. **Set rate alerts** for your target exchange rate
-3. **Avoid airport exchanges** - they have the worst rates
-4. **Consider timing large exchanges** around major economic announcements
-
-## The Psychology of Currency Exchange
-
-Many people make emotional decisions when exchanging money, especially when traveling. Understanding your **money mindset** can help you make more rational currency decisions.
-
-Fear of missing out (FOMO) and loss aversion often lead to poor timing. Instead of trying to time the market perfectly, focus on:
-- Getting reasonable rates
-- Avoiding high-fee exchanges
-- Understanding your actual currency needs
-
-## Conclusion
-
-Exchange rates are complex, but understanding the basics can save you money. Use reliable tools, avoid emotional decisions, and remember that small improvements in rates can lead to significant savings over time.
-
-*Ready to dive deeper into your relationship with money? Discover how your mindset affects every financial decision you make.*
-      `
-    },
-    {
-      id: '2',
-      title: "Best Ways to Exchange Money for Travel",
-      date: "2024-08-06",
-      description: "Save money on currency exchange when traveling abroad with these proven strategies.",
-      slug: "travel-money-exchange",
-      category: "Travel Money",
-      author: "Travel Finance Expert",
-      readTime: "7 min read",
-      tags: ["Travel", "Currency Exchange", "Money Saving", "Tips"],
-      image: "/images/blog/travel-money.jpg",
-      content: `
-# Best Ways to Exchange Money for Travel
-
-Traveling internationally means dealing with foreign currency, and how you handle this can significantly impact your travel budget. Here's your complete guide to smart currency exchange.
-
-## Before You Travel
-
-### 1. Research Your Destination's Currency
-- Learn the local currency code (EUR, GBP, JPY, etc.)
-- Understand typical denominations
-- Check if US dollars are widely accepted
-- Research tipping customs and cash vs. card preferences
-
-### 2. Notify Your Bank
-- Call your bank and credit card companies
-- Inform them of your travel dates and destinations
-- Ask about foreign transaction fees
-- Inquire about partner banks abroad
-
-## Currency Exchange Options Ranked
-
-### 🥇 Best Options
-
-**1. ATMs at Your Destination**
-- **Pros**: Best exchange rates, convenient, secure
-- **Cons**: ATM fees, daily withdrawal limits
-- **Tip**: Use bank-affiliated ATMs when possible
-
-**2. Your Bank Before Travel**
-- **Pros**: No surprises, you can budget in advance
-- **Cons**: May need to order currency in advance
-- **Tip**: Order 2-3 weeks before travel
-
-**3. Online Currency Exchange Services**
-- **Pros**: Competitive rates, delivered to your door
-- **Cons**: Need to plan ahead
-- **Examples**: Wise (formerly TransferWise), Currency Exchange International
-
-### 🥈 Decent Options
-
-**4. Credit Cards with No Foreign Transaction Fees**
-- **Pros**: Convenient, good rates, fraud protection
-- **Cons**: Not accepted everywhere
-- **Recommended**: Chase Sapphire, Capital One Venture
-
-**5. Currency Exchange Kiosks in Major Cities**
-- **Pros**: Convenient locations
-- **Cons**: Higher rates than banks
-- **Tip**: Compare rates between different kiosks
-
-### 🥉 Avoid These
-
-**6. Airport Currency Exchange**
-- **Why avoid**: Extremely poor rates (5-15% markup)
-- **Exception**: Small amounts for immediate needs
-
-**7. Hotels**
-- **Why avoid**: Terrible rates, high fees
-- **Exception**: Emergency situations only
-
-**8. Dynamic Currency Conversion**
-- **What it is**: When merchants offer to charge your card in your home currency
-- **Why avoid**: Hidden fees of 3-5%
-- **Always**: Choose to pay in local currency
-
-## Smart Exchange Strategies
-
-### The 80/20 Rule
-- Exchange 80% through the best available method
-- Keep 20% flexibility for unexpected needs
-
-### Diversify Your Money Access
-- Primary: ATM/debit card
-- Backup: Credit card with no foreign fees
-- Emergency: Small amount of cash exchanged before travel
-
-### Use Technology
-- **Currency converter apps** for real-time rates
-- **Rate alert apps** to track favorable exchange times
-- **Banking apps** to monitor your accounts
-
-## Conclusion
-
-Smart currency exchange is about preparation, research, and avoiding emotional decisions. The money you save on better exchange rates is money you can spend enjoying your travels.
-
-Remember: your relationship with money doesn't take a vacation. The same mindset principles that help you manage money at home apply when traveling.
-
-*Want to develop a healthier relationship with money that serves you at home and abroad? Explore our resources on money mindset transformation.*
-      `
-    },
-    {
-      id: '3',
-      title: "How Exchange Rates Affect Your Wealth",
-      date: "2024-08-05",
-      description: "Discover how currency fluctuations impact your investments and what you can do about it.",
-      slug: "exchange-rates-wealth-impact",
-      category: "Investment",
-      author: "Wealth Strategist",
-      readTime: "6 min read",
-      tags: ["Wealth Building", "Investment", "Exchange Rates", "Money Mindset"],
-      image: "/images/blog/wealth-exchange.jpg",
-      content: `
-# How Exchange Rates Affect Your Wealth (And What To Do About It)
-
-Most people think exchange rates only matter when they travel. The truth? Currency fluctuations are quietly affecting your wealth every day, even if you never leave your home country.
-
-## The Hidden Impact on Your Portfolio
-
-### International Investments
-If you own:
-- **International stocks or ETFs**
-- **Foreign bonds**
-- **Global mutual funds**
-- **Cryptocurrency**
-
-You're already exposed to currency risk. When the dollar strengthens against other currencies, your international investments lose value in dollar terms, even if they're performing well in their local currency.
-
-## Building Currency Awareness
-
-### Daily Habits
-- **Check major currency pairs** along with stock indices
-- **Read international news** to understand currency drivers
-- **Track your international exposure** quarterly
-
-### Educational Resources
-- **Central bank websites**: Fed, ECB, Bank of Japan
-- **Economic calendars**: ForexFactory, Investing.com
-- **Currency analysis**: Bloomberg, Reuters
-
-## The Money Mindset Connection
-
-Your approach to currency risk reveals deeper beliefs about money:
-
-### Scarcity Mindset Signs:
-- Avoiding international investments due to "unknown risks"
-- Trying to time currency movements perfectly
-- Letting fear drive all currency decisions
-
-### Abundance Mindset Approach:
-- Viewing currency diversification as opportunity
-- Understanding that volatility creates wealth over time
-- Making strategic, educated decisions
-
-## Conclusion
-
-Currency fluctuations are a permanent feature of global investing. Instead of fearing them or ignoring them, successful wealth builders learn to understand and strategically manage currency risk.
-
-The goal isn't to eliminate currency risk—it's to be intentional about it. Just like any other aspect of wealth building, success comes from education, strategy, and disciplined execution.
-
-Remember: Your relationship with money includes how you think about currencies. Expanding your perspective beyond your home currency is part of developing a truly wealthy mindset.
-
-*Ready to transform your entire approach to money? Discover how your money mindset shapes every financial decision you make.*
-      `
-    }
-  ];
-
-  useEffect(() => {
-    const loadPosts = async () => {
-      setLoading(true);
-      setError('');
-      
-      try {
-        // Simulate API call delay
-        await new Promise(resolve => setTimeout(resolve, 500));
-        
-        setPosts(samplePosts);
-        
-        // If viewing a single post, find it by slug
-        if (slug && viewMode === 'single') {
-          const post = samplePosts.find(p => p.slug === slug);
-          if (post) {
-            setCurrentPost(post);
-          } else {
-            setError('Blog post not found');
-          }
-        }
-      } catch (err) {
-        setError('Failed to load blog posts');
-        console.error('Error loading posts:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadPosts();
-  }, [slug, viewMode]);
-
-  const handleReadMore = (postSlug: string) => {
-    navigate(`/blog/${postSlug}`);
-  };
-
-  const formatContent = (content: string) => {
-    // Convert markdown-style content to HTML for display
-    return content
-      .replace(/^# (.*$)/gm, '<h1 class="text-3xl font-bold mb-4 text-gray-900">$1</h1>')
-      .replace(/^## (.*$)/gm, '<h2 class="text-2xl font-bold mb-3 mt-6 text-gray-900">$1</h2>')
-      .replace(/^### (.*$)/gm, '<h3 class="text-xl font-semibold mb-2 mt-4 text-gray-800">$1</h3>')
-      .replace(/^\*\*(.*)\*\*/gm, '<strong class="font-semibold text-gray-900">$1</strong>')
-      .replace(/^\*(.*)\*/gm, '<em class="italic">$1</em>')
-      .replace(/^- (.*$)/gm, '<li class="mb-1">$1</li>')
-      .replace(/\n\n/g, '</p><p class="mb-4">')
-      .replace(/^(?!<[h|l|p])/gm, '<p class="mb-4">')
-      .replace(/\*([^*]+)\*/g, '<em class="italic">$1</em>');
-  };
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-50">
-        <div className="container mx-auto px-4 py-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="animate-pulse">
-              <div className="h-8 bg-gray-200 rounded mb-4"></div>
-              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="bg-white rounded-lg shadow-lg p-6">
-                    <div className="h-4 bg-gray-200 rounded mb-2"></div>
-                    <div className="h-6 bg-gray-200 rounded mb-3"></div>
-                    <div className="h-16 bg-gray-200 rounded mb-4"></div>
-                    <div className="h-4 bg-gray-200 rounded"></div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="text-red-500 text-xl mb-4">⚠️ {error}</div>
-          <Link 
-            to="/blog" 
-            className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            Back to Blog
-          </Link>
-        </div>
-      </div>
-    );
-  }
-
-  // Single post view
-  if (viewMode === 'single' && currentPost) {
-    return (
-      <div className="min-h-screen bg-gray-50">
-        <div className="container mx-auto px-4 py-8">
-          <div className="max-w-4xl mx-auto">
-            {/* Back button */}
+  if (viewMode === 'single' && slug) {
+    const post = samplePosts.find(p => p.slug === slug);
+    
+    if (!post) {
+      return (
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">Post Not Found</h1>
+            <p className="text-gray-600 mb-8">The blog post you're looking for doesn't exist.</p>
             <Link 
               to="/blog" 
-              className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-6"
+              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors inline-flex items-center gap-2"
             >
-              ← Back to Blog
+              <ArrowLeft className="w-4 h-4" />
+              Back to Blog
+            </Link>
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <div className="container mx-auto px-4 py-8">
+          <div className="max-w-4xl mx-auto">
+            {/* Back to blog link */}
+            <Link 
+              to="/blog" 
+              className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 mb-8 transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Blog
             </Link>
 
+            {/* Article */}
             <article className="bg-white rounded-lg shadow-lg overflow-hidden">
-              {currentPost.image && (
-                <div className="h-64 bg-gray-200 flex items-center justify-center">
-                  <span className="text-gray-500">Featured Image Placeholder</span>
-                </div>
-              )}
-              
               <div className="p-8">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-sm font-semibold text-blue-600 bg-blue-100 px-3 py-1 rounded-full">
-                    {currentPost.category}
-                  </span>
-                  <span className="text-sm text-gray-500">{currentPost.readTime}</span>
+                <h1 className="text-4xl font-bold text-gray-900 mb-4">{post.title}</h1>
+                
+                <div className="flex items-center gap-6 text-gray-600 mb-8">
+                  <div className="flex items-center gap-2">
+                    <User className="w-4 h-4" />
+                    <span>{post.author}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4" />
+                    <span>{new Date(post.publishDate).toLocaleDateString()}</span>
+                  </div>
                 </div>
 
-                <h1 className="text-4xl font-bold mb-4 text-gray-900">
-                  {currentPost.title}
-                </h1>
-
-                <div className="flex items-center justify-between mb-6 text-sm text-gray-600">
-                  <span>By {currentPost.author}</span>
-                  <span>{new Date(currentPost.date).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                  })}</span>
-                </div>
-
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {currentPost.tags.map((tag) => (
-                    <span 
-                      key={tag} 
-                      className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded"
+                <div className="flex gap-2 mb-8">
+                  {post.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <div 
-                  className="prose prose-lg max-w-none"
-                  dangerouslySetInnerHTML={{ 
-                    __html: formatContent(currentPost.content) 
-                  }}
-                />
+                <div className="prose prose-lg max-w-none">
+                  {post.content.split('\n').map((paragraph, index) => {
+                    if (paragraph.startsWith('# ')) {
+                      return (
+                        <h1 key={index} className="text-3xl font-bold mt-8 mb-4 text-gray-900">
+                          {paragraph.replace('# ', '')}
+                        </h1>
+                      );
+                    }
+                    if (paragraph.startsWith('## ')) {
+                      return (
+                        <h2 key={index} className="text-2xl font-bold mt-6 mb-3 text-gray-900">
+                          {paragraph.replace('## ', '')}
+                        </h2>
+                      );
+                    }
+                    if (paragraph.startsWith('### ')) {
+                      return (
+                        <h3 key={index} className="text-xl font-bold mt-4 mb-2 text-gray-900">
+                          {paragraph.replace('### ', '')}
+                        </h3>
+                      );
+                    }
+                    if (paragraph.startsWith('- **') && paragraph.includes('**:')) {
+                      const parts = paragraph.split('**:');
+                      const boldPart = parts[0].replace('- **', '');
+                      const restPart = parts[1];
+                      return (
+                        <li key={index} className="mb-2">
+                          <strong>{boldPart}:</strong>{restPart}
+                        </li>
+                      );
+                    }
+                    if (paragraph.startsWith('- ')) {
+                      return (
+                        <li key={index} className="mb-1">
+                          {paragraph.replace('- ', '')}
+                        </li>
+                      );
+                    }
+                    if (paragraph.trim() === '') {
+                      return <br key={index} />;
+                    }
+                    return (
+                      <p key={index} className="mb-4 text-gray-700 leading-relaxed">
+                        {paragraph}
+                      </p>
+                    );
+                  })}
+                </div>
               </div>
             </article>
-
-            {/* Related posts */}
-            <div className="mt-12 bg-blue-50 rounded-lg p-8 text-center">
-              <h3 className="text-2xl font-bold mb-4">Ready to Transform Your Money Mindset?</h3>
-              <p className="text-gray-700 mb-6">
-                Understanding currency is just the beginning. Discover how to transform your 
-                relationship with money and build lasting wealth.
-              </p>
-              <Link 
-                to="/books" 
-                className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-              >
-                Explore Our Money Mindset Books
-              </Link>
-            </div>
           </div>
         </div>
       </div>
     );
   }
 
-  // Blog list view
+  // List view
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-6xl mx-auto">
+      <div className="container mx-auto px-4 py-16">
+        <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold mb-4 text-gray-900">Currency & Finance Blog</h1>
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">
+              Money Mindset Blog
+            </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Master currency exchange, build wealth, and transform your relationship with money
+              Insights on currency markets, financial psychology, and building lasting wealth
             </p>
           </div>
-          
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post) => (
-              <article 
-                key={post.id}
-                className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group"
-              >
-                {post.image && (
-                  <div className="h-48 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
-                    <span className="text-white font-semibold">Featured Image</span>
-                  </div>
-                )}
-                
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-sm font-semibold text-blue-600 bg-blue-100 px-3 py-1 rounded-full">
-                      {post.category}
-                    </span>
-                    <span className="text-sm text-gray-500">{post.readTime}</span>
-                  </div>
-                  
-                  <h2 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">
-                    {post.title}
-                  </h2>
-                  
-                  <p className="text-gray-600 mb-4 line-clamp-3">
-                    {post.description}
-                  </p>
 
-                  <div className="flex flex-wrap gap-1 mb-4">
-                    {post.tags.slice(0, 3).map((tag) => (
-                      <span 
-                        key={tag} 
-                        className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded"
+          <div className="grid gap-8">
+            {samplePosts
+              .filter(post => post.published)
+              .map((post) => (
+                <article key={post.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                  <div className="p-8">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-3">
+                      <Link 
+                        to={`/blog/${post.slug}`}
+                        className="hover:text-blue-600 transition-colors"
                       >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  <div className="flex items-center justify-between">
-                    <div className="text-sm text-gray-500">
-                      <div>{post.author}</div>
-                      <div>{new Date(post.date).toLocaleDateString()}</div>
+                        {post.title}
+                      </Link>
+                    </h2>
+                    
+                    <p className="text-gray-600 mb-4 leading-relaxed">
+                      {post.excerpt}
+                    </p>
+                    
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-4 text-sm text-gray-500">
+                        <div className="flex items-center gap-1">
+                          <User className="w-4 h-4" />
+                          <span>{post.author}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Calendar className="w-4 h-4" />
+                          <span>{new Date(post.publishDate).toLocaleDateString()}</span>
+                        </div>
+                      </div>
+                      
+                      <Link 
+                        to={`/blog/${post.slug}`}
+                        className="text-blue-600 hover:text-blue-700 font-medium transition-colors"
+                      >
+                        Read More →
+                      </Link>
                     </div>
                     
-                    <button
-                      onClick={() => handleReadMore(post.slug)}
-                      className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                    >
-                      Read More →
-                    </button>
+                    <div className="flex gap-2 mt-4">
+                      {post.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-sm"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          {/* Call to action */}
-          <div className="mt-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-8 text-center text-white">
-            <h3 className="text-3xl font-bold mb-4">Transform Your Money Mindset Today</h3>
-            <p className="text-xl mb-6 opacity-90">
-              Ready to go beyond currency conversion? Discover the psychology behind wealth building 
-              and learn how to master your relationship with money.
-            </p>
-            <Link 
-              to="/books" 
-              className="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
-            >
-              Explore Money Mindset Books
-            </Link>
+                </article>
+              ))}
           </div>
         </div>
       </div>
