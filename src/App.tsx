@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { ThemeProvider } from 'next-themes';
-import Blog from './components/Blog.tsx';
+import Blog from './components/blog';
 import BlogAdminDashboard from './components/BlogAdminDashboard.tsx'; // Add this import
 
 // Import your existing components (adjust paths as needed)
