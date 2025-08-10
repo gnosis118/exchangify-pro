@@ -1,1 +1,33 @@
-backend: name: git-gateway branch: main media_folder: "public/images/blog" public_folder: "/images/blog" collections: - name: "blog" label: "Currency Blog Posts" folder: "public/blog-posts" create: true slug: "{{year}}-{{month}}-{{day}}-{{slug}}" fields: - {label: "Title", name: "title", widget: "string"} - {label: "Publish Date", name: "date", widget: "datetime"} - {label: "Description", name: "description", widget: "text"} - {label: "Featured Image", name: "image", widget: "image", required: false} - {label: "Tags", name: "tags", widget: "list", default: ["currency", "finance"]} - {label: "Body", name: "body", widget: "markdown"} - {label: "Author", name: "author", widget: "string", default: "Currency Expert"} - {label: "Category", name: "category", widget: "select", options: ["Exchange Rates", "Travel Money", "Investment", "Crypto", "Business"]} - name: "guides" label: "Currency Guides" folder: "public/guides" create: true slug: "{{slug}}" fields: - {label: "Title", name: "title", widget: "string"} - {label: "Description", name: "description", widget: "text"} - {label: "Difficulty", name: "difficulty", widget: "select", options: ["Beginner", "Intermediate", "Advanced"]} - {label: "Estimated Read Time", name: "readTime", widget: "string", default: "5 min"} - {label: "Body", name: "body", widget: "markdown"} - {label: "Featured", name: "featured", widget: "boolean", default: false} - name: "travel" label: "Travel Money Tips" folder: "public/travel" create: true slug: "{{slug}}" fields: - {label: "Title", name: "title", widget: "string"} - {label: "Destination", name: "destination", widget: "string"} - {label: "Currency", name: "currency", widget: "string"} - {label: "Best Exchange Method", name: "exchangeMethod", widget: "string"} - {label: "Body", name: "body", widget: "markdown"} - {label: "Travel Season", name: "season", widget: "select", options: ["Spring", "Summer", "Fall", "Winter", "Year Round"]}
+backend:
+  name: git-gateway
+  branch: main
+
+publish_mode: editorial_workflow
+media_folder: "public/images/blog"
+public_folder: "/images/blog"
+
+site_url: https://currencytocurrency.app
+display_url: https://currencytocurrency.app
+logo_url: https://currencytocurrency.app/icon-192.png
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: "/blog/{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string", hint: "SEO-optimized title for your blog post" }
+      - { label: "Publish Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: "HH:mm" }
+      - { label: "Author", name: "author", widget: "string", default: "Currency to Currency Team" }
+      - { label: "Description", name: "description", widget: "text", hint: "Meta description for SEO (155 characters max)", pattern: [".{1,155}", "Must be 155 characters or less"] }
+      - { label: "Featured Image", name: "featured_image", widget: "image", required: false, hint: "Recommended size: 1200x630px" }
+      - { label: "Featured Image Alt Text", name: "featured_image_alt", widget: "string", required: false }
+      - { label: "Tags", name: "tags", widget: "list", allow_add: true, default: ["currency", "finance"], hint: "Add relevant tags for categorization" }
+      - { label: "Category", name: "category", widget: "select", options: ["Currency Exchange", "Cryptocurrency", "Travel Finance", "Market Analysis", "Tips & Guides", "News"], default: "Tips & Guides" }
+      - { label: "Status", name: "status", widget: "select", options: ["draft", "published"], default: "draft" }
+      - { label: "SEO Keywords", name: "keywords", widget: "list", allow_add: true, required: false, hint: "Focus keywords for SEO" }
+      - { label: "Excerpt", name: "excerpt", widget: "text", hint: "Brief summary shown on blog listing page" }
+      - { label: "Reading Time", name: "reading_time", widget: "number", value_type: "int", min: 1, max: 30, default: 5, hint: "Estimated reading time in minutes" }
+      - { label: "Body", name: "body", widget: "markdown", hint: "Main content of your blog post" }

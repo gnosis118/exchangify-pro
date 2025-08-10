@@ -1,0 +1,25 @@
+export interface BlogPost {
+  slug: string;
+  title: string;
+  description: string;
+  excerpt: string;
+  content: string;
+  author: string;
+  date: string;
+  featured_image?: string;
+  featured_image_alt?: string;
+  tags: string[];
+  category: string;
+  status: 'draft' | 'published';
+  keywords?: string[];
+  reading_time: number;
+}
+
+export interface BlogConfig {
+  title: string;
+  description: string;
+  posts_per_page: number;
+  enable_comments: boolean;
+  social_sharing: boolean;
+  newsletter_signup: boolean;
+}

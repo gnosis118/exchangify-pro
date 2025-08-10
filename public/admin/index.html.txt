@@ -1,1 +1,86 @@
-<!DOCTYPE html> <html> <head> <meta charset="utf-8" /> <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <title>Currency Blog Admin</title> </head> <body> <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script> <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script> </body> </html>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content Manager - Currency to Currency</title>
+  <link rel="icon" type="image/png" href="/icon-192.png" />
+  
+  <!-- Netlify Identity Widget -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  
+  <!-- Custom styles for admin interface -->
+  <style>
+    .frame-content {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    }
+    
+    /* Custom branding colors to match your site */
+    .css-1x2u5xz-SidebarContainer {
+      background-color: #1e293b !important;
+    }
+    
+    .css-1hwfws3 {
+      color: #3b82f6 !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- Include the script that builds the page and powers Netlify CMS -->
+  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  
+  <!-- Wait for CMS to load before registering custom components -->
+  <script>
+    // Wait for CMS to be available
+    function initializeCMS() {
+      if (typeof CMS !== 'undefined') {
+        // Custom preview template for blog posts
+        CMS.registerPreviewTemplate('blog', ({ entry, widgetFor, widgetsFor }) => {
+          const title = entry.getIn(['data', 'title']) || 'Untitled';
+          const date = entry.getIn(['data', 'date']);
+          const body = widgetFor('body');
+          const author = entry.getIn(['data', 'author']) || 'Anonymous';
+          const tags = entry.getIn(['data', 'tags']);
+          
+          return `
+            <div style="font-family: Inter, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px;">
+              <header style="margin-bottom: 2rem;">
+                <h1 style="font-size: 2.5rem; font-weight: 700; color: #1f2937; margin-bottom: 1rem;">${title}</h1>
+                <div style="color: #6b7280; margin-bottom: 1rem;">
+                  <span>By ${author}</span> • 
+                  <time>${date ? new Date(date).toLocaleDateString() : 'Draft'}</time>
+                </div>
+                ${tags && tags.size > 0 ? `<div style="margin-bottom: 1rem;">
+                  ${tags.map(tag => `<span style="background: #e5e7eb; color: #374151; padding: 0.25rem 0.5rem; border-radius: 0.25rem; margin-right: 0.5rem; font-size: 0.875rem;">${tag}</span>`).join('')}
+                </div>` : ''}
+              </header>
+              <article style="line-height: 1.75; color: #374151;">
+                ${body || '<p>Start writing your content...</p>'}
+              </article>
+            </div>
+          `;
+        });
+        
+        console.log('Netlify CMS initialized successfully');
+      } else {
+        // Retry after a short delay
+        setTimeout(initializeCMS, 100);
+      }
+    }
+    
+    // Start initialization after DOM is loaded
+    document.addEventListener('DOMContentLoaded', initializeCMS);
+    
+    // Initialize Netlify Identity
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>
