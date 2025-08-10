@@ -1,0 +1,552 @@
+// src/components/BlogAdminDashboard.tsx
+import React, { useState } from 'react';
+import { Plus, Edit, Trash2, Save, X, Calendar, User } from 'lucide-react';
+
+// Blog post interface
+interface BlogPost {
+  id: string;
+  title: string;
+  slug: string;
+  content: string;
+  excerpt: string;
+  author: string;
+  publishedAt: string;
+  tags: string[];
+  status: 'draft' | 'published';
+}
+
+// Simple authentication hook
+const useAuth = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [password, setPassword] = useState('');
+  
+  const login = (pass: string) => {
+    if (pass === 'admin123') {
+      setIsAuthenticated(true);
+      return true;
+    }
+    return false;
+  };
+  
+  return { isAuthenticated, login, password, setPassword };
+};
+
+// Initial mock data
+const initialPosts: BlogPost[] = [
+  {
+    id: '1',
+    title: 'Understanding Currency Exchange Rates',
+    slug: 'understanding-currency-exchange-rates',
+    content: 'Currency exchange rates are the backbone of international finance. They determine how much one currency is worth in terms of another and fluctuate constantly based on economic factors, political stability, and market sentiment...',
+    excerpt: 'Learn the fundamentals of how currency exchange rates work and what factors influence them.',
+    author: 'Currency Expert',
+    publishedAt: '2025-01-15',
+    tags: ['forex', 'education', 'finance'],
+    status: 'published'
+  },
+  {
+    id: '2',
+    title: 'Top 10 Travel Money Tips',
+    slug: 'top-10-travel-money-tips',
+    content: 'When traveling abroad, managing your money efficiently can save you hundreds of dollars. Here are essential tips every international traveler should know...',
+    excerpt: 'Essential money-saving tips for international travelers.',
+    author: 'Travel Finance',
+    publishedAt: '2025-01-10',
+    tags: ['travel', 'tips', 'money'],
+    status: 'published'
+  },
+  {
+    id: '3',
+    title: 'Cryptocurrency vs Traditional Currency',
+    slug: 'cryptocurrency-vs-traditional-currency',
+    content: 'The rise of digital currencies has sparked debates about the future of money. This comprehensive guide compares cryptocurrencies with traditional fiat currencies...',
+    excerpt: 'A comprehensive comparison between digital and traditional currencies.',
+    author: 'Crypto Analyst',
+    publishedAt: '2025-01-05',
+    tags: ['cryptocurrency', 'bitcoin', 'finance'],
+    status: 'draft'
+  }
+];
+
+const BlogAdminDashboard = () => {
+  const { isAuthenticated, login, password, setPassword } = useAuth();
+  const [posts, setPosts] = useState<BlogPost[]>(initialPosts);
+  const [editingPost, setEditingPost] = useState<BlogPost | null>(null);
+  const [isCreating, setIsCreating] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filterStatus, setFilterStatus] = useState<'all' | 'published' | 'draft'>('all');
+  const [loginError, setLoginError] = useState('');
+
+  // Filter posts
+  const filteredPosts = posts.filter(post => {
+    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         post.content.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+    
+    const matchesStatus = filterStatus === 'all' || post.status === filterStatus;
+    return matchesSearch && matchesStatus;
+  });
+
+  const handleLogin = () => {
+    if (login(password)) {
+      setLoginError('');
+    } else {
+      setLoginError('Invalid password. Try: admin123');
+    }
+  };
+
+  const createEmptyPost = (): BlogPost => ({
+    id: Date.now().toString(),
+    title: '',
+    slug: '',
+    content: '',
+    excerpt: '',
+    author: 'Admin',
+    publishedAt: new Date().toISOString().split('T')[0],
+    tags: [],
+    status: 'draft'
+  });
+
+  const handleSavePost = (post: BlogPost) => {
+    if (isCreating) {
+      setPosts([post, ...posts]);
+      setIsCreating(false);
+    } else {
+      setPosts(posts.map(p => p.id === post.id ? post : p));
+    }
+    setEditingPost(null);
+  };
+
+  const handleDeletePost = (id: string) => {
+    if (window.confirm('Are you sure you want to delete this post?')) {
+      setPosts(posts.filter(p => p.id !== id));
+    }
+  };
+
+  // Login screen
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+        <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
+          <div className="text-center mb-6">
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">Admin Access</h1>
+            <p className="text-gray-600">Enter password to manage blog posts</p>
+          </div>
+          
+          <div className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Password
+              </label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && handleLogin()}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Enter admin password"
+              />
+            </div>
+            
+            {loginError && (
+              <div className="bg-red-50 border border-red-200 rounded-lg p-3">
+                <p className="text-red-600 text-sm">{loginError}</p>
+              </div>
+            )}
+            
+            <button
+              onClick={handleLogin}
+              className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+            >
+              Login to Admin Panel
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <header className="bg-white shadow-sm border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-6">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900">Blog Admin</h1>
+              <p className="text-gray-600 mt-1">Manage your blog posts and content</p>
+            </div>
+            <button
+              onClick={() => setIsCreating(true)}
+              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2 font-medium"
+            >
+              <Plus size={20} />
+              New Post
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Stats */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div className="bg-white p-6 rounded-lg shadow-sm border">
+            <h3 className="text-lg font-semibold text-gray-900">Total Posts</h3>
+            <p className="text-3xl font-bold text-blue-600 mt-2">{posts.length}</p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-sm border">
+            <h3 className="text-lg font-semibold text-gray-900">Published</h3>
+            <p className="text-3xl font-bold text-green-600 mt-2">
+              {posts.filter(p => p.status === 'published').length}
+            </p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-sm border">
+            <h3 className="text-lg font-semibold text-gray-900">Drafts</h3>
+            <p className="text-3xl font-bold text-yellow-600 mt-2">
+              {posts.filter(p => p.status === 'draft').length}
+            </p>
+          </div>
+        </div>
+
+        {/* Filters */}
+        <div className="bg-white p-6 rounded-lg shadow-sm border mb-6">
+          <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex-1">
+              <input
+                type="text"
+                placeholder="Search posts by title, content, or tags..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
+            </div>
+            <select
+              value={filterStatus}
+              onChange={(e) => setFilterStatus(e.target.value as 'all' | 'published' | 'draft')}
+              className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            >
+              <option value="all">All Posts</option>
+              <option value="published">Published Only</option>
+              <option value="draft">Drafts Only</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Posts List */}
+        <div className="space-y-4">
+          {filteredPosts.map((post) => (
+            <div key={post.id} className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
+              <div className="flex justify-between items-start">
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-3">
+                    <h3 className="text-xl font-semibold text-gray-900">{post.title || 'Untitled Post'}</h3>
+                    <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                      post.status === 'published' 
+                        ? 'bg-green-100 text-green-800' 
+                        : 'bg-yellow-100 text-yellow-800'
+                    }`}>
+                      {post.status}
+                    </span>
+                  </div>
+                  
+                  <p className="text-gray-600 mb-4 line-clamp-2">{post.excerpt}</p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {post.tags.map((tag, index) => (
+                      <span
+                        key={index}
+                        className="px-2 py-1 bg-blue-100 text-blue-800 text-sm rounded-md"
+                      >
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <div className="flex items-center gap-6 text-sm text-gray-500">
+                    <div className="flex items-center gap-1">
+                      <User size={16} />
+                      <span>{post.author}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Calendar size={16} />
+                      <span>{new Date(post.publishedAt).toLocaleDateString()}</span>
+                    </div>
+                    <span>Slug: /{post.slug}</span>
+                  </div>
+                </div>
+                
+                <div className="flex gap-2 ml-6">
+                  <button
+                    onClick={() => setEditingPost(post)}
+                    className="p-3 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                    title="Edit Post"
+                  >
+                    <Edit size={18} />
+                  </button>
+                  <button
+                    onClick={() => handleDeletePost(post.id)}
+                    className="p-3 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                    title="Delete Post"
+                  >
+                    <Trash2 size={18} />
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {filteredPosts.length === 0 && (
+          <div className="text-center py-16 bg-white rounded-lg shadow-sm border">
+            <p className="text-xl text-gray-500 mb-2">No posts found</p>
+            <p className="text-gray-400">Try adjusting your search or filters</p>
+          </div>
+        )}
+      </main>
+
+      {/* Editor Modal */}
+      {(editingPost || isCreating) && (
+        <PostEditor
+          post={editingPost || createEmptyPost()}
+          onSave={handleSavePost}
+          onCancel={() => {
+            setEditingPost(null);
+            setIsCreating(false);
+          }}
+          isCreating={isCreating}
+        />
+      )}
+    </div>
+  );
+};
+
+// Post Editor Component
+const PostEditor = ({ 
+  post, 
+  onSave, 
+  onCancel, 
+  isCreating 
+}: {
+  post: BlogPost;
+  onSave: (post: BlogPost) => void;
+  onCancel: () => void;
+  isCreating: boolean;
+}) => {
+  const [editedPost, setEditedPost] = useState<BlogPost>(post);
+  const [tagInput, setTagInput] = useState('');
+
+  const generateSlug = (title: string) => {
+    return title
+      .toLowerCase()
+      .replace(/[^a-z0-9 -]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .trim();
+  };
+
+  const handleTitleChange = (title: string) => {
+    setEditedPost({
+      ...editedPost,
+      title,
+      slug: generateSlug(title)
+    });
+  };
+
+  const addTag = () => {
+    if (tagInput.trim() && !editedPost.tags.includes(tagInput.trim())) {
+      setEditedPost({
+        ...editedPost,
+        tags: [...editedPost.tags, tagInput.trim()]
+      });
+      setTagInput('');
+    }
+  };
+
+  const removeTag = (index: number) => {
+    setEditedPost({
+      ...editedPost,
+      tags: editedPost.tags.filter((_, i) => i !== index)
+    });
+  };
+
+  const handleSubmit = () => {
+    if (!editedPost.title.trim()) {
+      alert('Please enter a title for the post');
+      return;
+    }
+    onSave(editedPost);
+  };
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+      <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-auto">
+        <div className="p-6 space-y-6">
+          <div className="flex justify-between items-center border-b pb-4">
+            <h2 className="text-2xl font-bold text-gray-900">
+              {isCreating ? '✨ Create New Post' : '📝 Edit Post'}
+            </h2>
+            <button
+              onClick={onCancel}
+              className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            >
+              <X size={24} />
+            </button>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Post Title *
+              </label>
+              <input
+                type="text"
+                value={editedPost.title}
+                onChange={(e) => handleTitleChange(e.target.value)}
+                placeholder="Enter your blog post title..."
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                URL Slug
+              </label>
+              <input
+                type="text"
+                value={editedPost.slug}
+                onChange={(e) => setEditedPost({...editedPost, slug: e.target.value})}
+                placeholder="url-friendly-slug"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
+              <p className="text-xs text-gray-500 mt-1">URL: /blog/{editedPost.slug}</p>
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Excerpt (SEO Description)
+            </label>
+            <textarea
+              value={editedPost.excerpt}
+              onChange={(e) => setEditedPost({...editedPost, excerpt: e.target.value})}
+              rows={3}
+              placeholder="Brief description that appears in search results..."
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+            />
+            <p className="text-xs text-gray-500 mt-1">{editedPost.excerpt.length}/160 characters</p>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Content *
+            </label>
+            <textarea
+              value={editedPost.content}
+              onChange={(e) => setEditedPost({...editedPost, content: e.target.value})}
+              rows={12}
+              placeholder="Write your blog post content here... You can use Markdown formatting."
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none font-mono text-sm"
+            />
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Author
+              </label>
+              <input
+                type="text"
+                value={editedPost.author}
+                onChange={(e) => setEditedPost({...editedPost, author: e.target.value})}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Publish Date
+              </label>
+              <input
+                type="date"
+                value={editedPost.publishedAt}
+                onChange={(e) => setEditedPost({...editedPost, publishedAt: e.target.value})}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Tags
+            </label>
+            <div className="flex gap-2 mb-3">
+              <input
+                type="text"
+                value={tagInput}
+                onChange={(e) => setTagInput(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addTag())}
+                placeholder="Add a tag (e.g., finance, travel, crypto)"
+                className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
+              <button
+                onClick={addTag}
+                className="px-6 py-3 bg-gray-200 hover:bg-gray-300 rounded-lg transition-colors font-medium"
+              >
+                Add Tag
+              </button>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {editedPost.tags.map((tag, index) => (
+                <span
+                  key={index}
+                  className="px-3 py-2 bg-blue-100 text-blue-800 rounded-lg flex items-center gap-2 text-sm font-medium"
+                >
+                  #{tag}
+                  <button
+                    onClick={() => removeTag(index)}
+                    className="hover:bg-blue-200 rounded-full p-1"
+                  >
+                    <X size={14} />
+                  </button>
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Publication Status
+            </label>
+            <select
+              value={editedPost.status}
+              onChange={(e) => setEditedPost({...editedPost, status: e.target.value as 'draft' | 'published'})}
+              className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            >
+              <option value="draft">📝 Draft (Not visible to public)</option>
+              <option value="published">🌟 Published (Live on website)</option>
+            </select>
+          </div>
+
+          <div className="flex justify-end gap-4 pt-6 border-t">
+            <button
+              onClick={onCancel}
+              className="px-6 py-3 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors font-medium"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={handleSubmit}
+              className="px-6 py-3 bg-blue-600 text-white hover:bg-blue-700 rounded-lg transition-colors flex items-center gap-2 font-medium"
+            >
+              <Save size={20} />
+              {isCreating ? 'Create Post' : 'Update Post'}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default BlogAdminDashboard;

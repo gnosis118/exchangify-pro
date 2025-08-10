@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { ThemeProvider } from 'next-themes';
 import Blog from './components/Blog.tsx';
+import BlogAdminDashboard from './components/BlogAdminDashboard.tsx'; // Add this import
 
 // Import your existing components (adjust paths as needed)
 // import CurrencyConverter from './components/CurrencyConverter';
@@ -151,6 +152,69 @@ const BooksPage: React.FC = () => {
   );
 };
 
+// Simple login component for admin access
+const AdminLogin: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
+  const [password, setPassword] = React.useState('');
+  const [error, setError] = React.useState('');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (password === 'admin123') {
+      onLogin();
+      setError('');
+    } else {
+      setError('Invalid password');
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h1 className="text-2xl font-bold mb-6 text-center">Admin Login</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Password
+            </label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Enter admin password"
+            />
+          </div>
+          {error && (
+            <div className="mb-4 text-red-600 text-sm">{error}</div>
+          )}
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            Login
+          </button>
+        </form>
+        <div className="mt-4 text-center">
+          <Link to="/" className="text-blue-600 hover:text-blue-700 text-sm">
+            ← Back to site
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Protected admin route component
+const AdminRoute: React.FC = () => {
+  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
+
+  if (!isAuthenticated) {
+    return <AdminLogin onLogin={() => setIsAuthenticated(true)} />;
+  }
+
+  return <BlogAdminDashboard />;
+};
+
 // Navigation component
 const Navigation: React.FC = () => {
   const location = useLocation();
@@ -244,6 +308,9 @@ const App: React.FC = () => {
             
             {/* Books page */}
             <Route path="/books" element={<BooksPage />} />
+            
+            {/* Admin route - protected with simple password */}
+            <Route path="/admin" element={<AdminRoute />} />
             
             {/* 404 - This should be the last route */}
             <Route path="*" element={<NotFoundPage />} />
